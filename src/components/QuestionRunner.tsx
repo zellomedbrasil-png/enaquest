@@ -8,9 +8,11 @@ import type { AnswerResult } from "@/lib/server/answers";
 import { ACHIEVEMENTS, type Mission } from "@/lib/game/progress";
 import { XP } from "@/lib/game/xp";
 import { CONFIDENCE_LABEL } from "@/lib/ui/labels";
+import { markSeen } from "@/lib/ui/coach";
 import { playCue, writePrefs, type Cue } from "@/lib/ui/feedback";
 import type { Confidence } from "@/lib/study/srs";
 import { Celebration, type CelebrationItem } from "./Celebration";
+import { Coach } from "./Coach";
 import { ComboMeter, COMBO_MILESTONES } from "./ComboMeter";
 import { Confetti } from "./Confetti";
 import { useFeedbackPrefs } from "./FeedbackSettings";
@@ -108,6 +110,9 @@ export function QuestionRunner({
     for (const id of data.newAchievements) {
       const achievement = ACHIEVEMENTS.find((a) => a.id === id);
       push({ tone: "gold", title: `Conquista: ${achievement?.name ?? id}`, text: `${achievement?.description ?? ""} +${XP.achievement} XP` });
+    }
+    if (data.correct && data.combo === 3 && markSeen("combo")) {
+      push({ tone: "info", title: "Combo de 3 acertos", text: "Acertos seguidos enchem a barra até o próximo marco." });
     }
     if (data.usedShield) push({ tone: "info", title: "Troca de plantão usada", text: "Um colega cobriu seu dia. A sequência continua." });
     if (data.earnedShield) push({ tone: "ok", title: "Você ganhou uma troca de plantão", text: "Ela cobre um dia em que você não puder estudar." });
@@ -341,6 +346,11 @@ export function QuestionRunner({
         </button>
       </div>
       <ComboMeter combo={combo.value} broken={combo.broken} />
+      {!result && (
+        <Coach id="primeira-questao" title="Como responder">
+          Escolha uma alternativa, diga o quanto você tem de certeza (é opcional) e toque em Responder. A explicação aparece logo depois.
+        </Coach>
+      )}
 
       <article className="card qgrid" ref={articleRef} tabIndex={-1} aria-label={`Questão ${index + 1} de ${questions.length}`}>
         <div className="qleft">

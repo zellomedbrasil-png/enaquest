@@ -1596,3 +1596,24 @@ a.step:hover {
     align-self: start;
   }
 }
+
+/* Boas-vindas e dicas de primeira vez */
+.welcome h1:focus {
+  outline: none;
+}
+.coach {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--info-soft);
+  border: 1px solid var(--sky);
+  border-radius: 14px;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  font-size: 14.5px;
+}
+.coach p {
+  color: var(--mute);
+  margin-top: 2px;
+}

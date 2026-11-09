@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { createGroupAction, joinGroupAction, leaveGroupAction } from "@/app/actions";
-import { PageHeader } from "@/components/ui";
+import { Banner, PageHeader } from "@/components/ui";
+import { admin } from "@/lib/supabase/admin";
+import { journeyStage } from "@/lib/game/journey";
+import { PLACEMENT_GAMES } from "@/lib/game/rating";
 import { todayBR } from "@/lib/game/streak";
 import { DAILY_SIZE, getDailyBoard } from "@/lib/server/daily";
 import { getLeagueView, type BoardRow } from "@/lib/server/leagues";
@@ -32,7 +35,33 @@ function Board({ rows, promoteUntil = 0, demoteFrom = null }: { rows: BoardRow[]
 
 export default async function LeaguesPage() {
   const user = await requireUser();
-  const [view, profile, board] = await Promise.all([getLeagueView(user.id), getProfile(user.id), getDailyBoard(user.id, todayBR())]);
+  const [view, profile, board, rating, answered] = await Promise.all([
+    getLeagueView(user.id),
+    getProfile(user.id),
+    getDailyBoard(user.id, todayBR()),
+    admin().from("rating_state").select("games").eq("user_id", user.id).single(),
+    admin().from("answers").select("id", { count: "exact", head: true }).eq("user_id", user.id),
+  ]);
+
+  const stage = journeyStage({ answered: answered.count ?? 0, ratedGames: rating.data.games });
+  if (stage !== "ativo") {
+    const left = Math.max(0, PLACEMENT_GAMES - rating.data.games);
+    return (
+      <div style={{ display: "grid", gap: 14 }}>
+        <PageHeader title="Ligas" lead="Ganhe XP de segunda a domingo para subir de liga. Toda semana recomeça do zero." />
+        <Banner
+          tone="info"
+          title="As ligas abrem depois do nivelamento"
+          text={`Faltam ${left} ${left === 1 ? "questão" : "questões"} para calibrar seu rating. Faça o Plantão do Dia para chegar lá.`}
+          action={
+            <Link href="/app" className="btn btn-primary">
+              Ir para Hoje
+            </Link>
+          }
+        />
+      </div>
+    );
+  }
 
   return (
     <div style={{ display: "grid", gap: 14 }}>

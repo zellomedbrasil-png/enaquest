@@ -61,7 +61,7 @@ export async function signUp(_: AuthState, form: FormData): Promise<AuthState> {
   });
   if (error) return { error: "Não foi possível criar a conta. Confira os dados e tente de novo.", email: parsed.data.email };
   if (!data.session) return { notice: "Enviamos um link de confirmação para o seu e-mail." };
-  redirect("/app/conta?bemvindo=1");
+  redirect("/app/boas-vindas");
 }
 
 export async function requestPasswordReset(_: AuthState, form: FormData): Promise<AuthState> {
