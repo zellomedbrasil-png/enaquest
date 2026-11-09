@@ -219,3 +219,16 @@ export function ReviewCard({ ok, title, children }: { ok: boolean; title: ReactN
     </div>
   );
 }
+
+/** Cabeçalho padrão de cada tela: o que é, o que fazer aqui (frase imperativa) e a ação principal. */
+export function PageHeader({ title, lead, action }: { title: ReactNode; lead?: ReactNode; action?: ReactNode }) {
+  return (
+    <header className="page-header">
+      <div style={{ minWidth: 0 }}>
+        <h1>{title}</h1>
+        {lead && <p className="lead">{lead}</p>}
+      </div>
+      {action}
+    </header>
+  );
+}

@@ -20,9 +20,15 @@ export default async function AppLayout({ children }: { children: React.ReactNod
 
   return (
     <>
+      <a href="#conteudo" className="skip-link">
+        Pular para o conteúdo
+      </a>
+      <div className="shell">
+      <AppNav />
+      <div className="shell-main">
       <header className="topbar">
         <div className="topbar-in">
-          <Link href="/app" aria-label="Início" style={{ textDecoration: "none" }}>
+          <Link href="/app" aria-label="Início" className="topbar-logo" style={{ textDecoration: "none" }}>
             <span className="logo" aria-hidden>
               E
             </span>
@@ -43,8 +49,11 @@ export default async function AppLayout({ children }: { children: React.ReactNod
           Não conseguimos cobrar seu cartão. <Link href="/app/conta">Atualize o pagamento</Link> para não perder o acesso.
         </div>
       )}
-      <main className="wrap">{children}</main>
-      <AppNav />
+      <main id="conteudo" className="wrap" tabIndex={-1}>
+        {children}
+      </main>
+      </div>
+      </div>
     </>
   );
 }

@@ -14,7 +14,7 @@
   --line: #2a3058;
   --ink: #eef0ff;
   --mute: #9aa1c7;
-  --dim: #6b7299;
+  --dim: #8a91b8;
   --track: #0b0d18;
 
   /* Destaques */
@@ -69,7 +69,7 @@
   --line: #d9dcee;
   --ink: #171a33;
   --mute: #545a80;
-  --dim: #767ca3;
+  --dim: #666c94;
   --track: #e4e7f4;
   --accent: #5c7a00;
   --coral: #cf3f2e;
@@ -224,7 +224,7 @@ button {
   border: 1px solid var(--bad);
 }
 .btn-sm {
-  min-height: 36px;
+  min-height: 44px;
   padding: 6px 12px;
   font-size: 13.5px;
   border-radius: 10px;
@@ -342,7 +342,30 @@ button {
   box-shadow: 0 3px 0 var(--accent-shadow);
   flex: none;
 }
-.bottomnav {
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -64px;
+  z-index: 100;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: var(--lime);
+  color: var(--accent-ink);
+  font-weight: 700;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 12px;
+}
+#conteudo:focus {
+  outline: none;
+}
+
+/* Casca: barra inferior no celular, trilho lateral no computador */
+.shell-main {
+  min-width: 0;
+}
+.appnav {
   position: fixed;
   left: 0;
   right: 0;
@@ -352,31 +375,98 @@ button {
   border-top: 1px solid var(--line);
   padding-bottom: env(safe-area-inset-bottom);
 }
-.bottomnav-in {
+.appnav-brand {
+  display: none;
+}
+.appnav-in {
   max-width: 880px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
 }
-.bottomnav a {
+.appnav a {
+  text-decoration: none;
+}
+.appnav-in a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 2px;
   padding: 8px 2px 9px;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   color: var(--mute);
-  text-decoration: none;
   min-height: 56px;
 }
-.bottomnav a svg {
-  width: 21px;
-  height: 21px;
+.appnav-in a svg {
+  width: 22px;
+  height: 22px;
 }
-.bottomnav a[aria-current="page"] {
+.appnav-in a[aria-current="page"] {
   color: var(--ink);
   background: var(--card-2);
+}
+
+@media (min-width: 900px) {
+  .shell {
+    display: grid;
+    grid-template-columns: 232px minmax(0, 1fr);
+    min-height: 100vh;
+  }
+  .appnav {
+    position: sticky;
+    top: 0;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    height: 100vh;
+    padding: 20px 14px;
+    border-top: 0;
+    border-right: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .appnav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 6px;
+    color: var(--ink);
+  }
+  .appnav-name {
+    font-family: var(--font-display), var(--font-body), sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: -0.02em;
+  }
+  .appnav-in {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-width: none;
+    margin: 0;
+  }
+  .appnav-in a {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 12px 14px;
+    min-height: 48px;
+    font-size: 15px;
+    border-radius: 14px;
+  }
+  .appnav-in a:hover {
+    background: var(--card-2);
+    color: var(--ink);
+  }
+  .topbar-logo {
+    display: none;
+  }
+  .wrap {
+    padding-bottom: 48px;
+  }
 }
 
 /* Questão */
@@ -460,8 +550,8 @@ button {
   border: 1px solid var(--line);
   background: transparent;
   border-radius: 8px;
-  width: 32px;
-  height: 32px;
+  width: 44px;
+  height: 44px;
   color: var(--dim);
   font-size: 13px;
 }
@@ -524,8 +614,8 @@ button {
 }
 .dot {
   position: relative;
-  min-width: 34px;
-  height: 34px;
+  min-width: 44px;
+  height: 44px;
   border-radius: var(--r-dot);
   border: 1px solid var(--line);
   background: var(--card);
@@ -971,7 +1061,7 @@ button {
 }
 .counter small {
   display: block;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -1036,7 +1126,7 @@ button {
 
 .tag {
   display: inline-block;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   padding: 2px 8px;
   border-radius: 99px;
@@ -1088,7 +1178,7 @@ button {
   background: currentColor;
 }
 .hardtag {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 800;
   padding: 2px 8px;
   border-radius: 99px;
@@ -1123,7 +1213,7 @@ button {
   display: block;
 }
 .dnum small {
-  font-size: 10px;
+  font-size: 12px;
   color: var(--mute);
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -1240,4 +1330,61 @@ button {
   .banner-danger {
     animation: none;
   }
+}
+
+/* Cabeçalho de página e cartões de escolha */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.page-header h1 {
+  font-size: 28px;
+}
+.page-header .lead {
+  color: var(--mute);
+  margin-top: 4px;
+  max-width: 60ch;
+}
+.choice {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 14px;
+  align-items: center;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  text-decoration: none;
+  min-height: 72px;
+  transition: border-color 0.12s;
+}
+.choice:hover {
+  border-color: var(--mute);
+}
+.choice .ico {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: var(--card-2);
+  color: var(--lime);
+}
+.choice .ico svg {
+  width: 22px;
+  height: 22px;
+}
+.choice h2 {
+  font-size: 18px;
+}
+.choice p {
+  color: var(--mute);
+  font-size: 14.5px;
+  margin-top: 2px;
+}
+.choice.locked .ico {
+  color: var(--dim);
 }
