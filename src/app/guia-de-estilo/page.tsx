@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { Mascot, type Mood } from "@/components/Mascot";
+import { DEFAULT_LOOK, type Look } from "@/lib/game/shop";
 import {
   AREA_COLOR,
   AreaBars,
@@ -56,6 +58,15 @@ const RADII = [
   ["24px", "resultado", 24],
   ["99px", "pílulas", 99],
 ] as const;
+
+const MOODS: Mood[] = ["neutro", "feliz", "comemorando", "preocupado", "dormindo"];
+const LOOKS: Look[] = [
+  { character: "cirurgia", body: "pijama_verde", head: "touca", accessory: "esteto", background: "centro" },
+  { character: "pediatra", body: "pijama_azul", head: "gorro", accessory: "prancheta", background: "enfermaria" },
+  { character: "socorrista", body: "samu", head: null, accessory: "cafe", background: "ps" },
+  { character: "doc", body: "avental", head: "espelho", accessory: "martelo", background: "noturno" },
+  { ...DEFAULT_LOOK, head: "coroa", accessory: "esteto_ouro" },
+];
 
 function Section({ title, hint, children }: { title: string; hint: string; children: React.ReactNode }) {
   return (
@@ -260,6 +271,24 @@ export default function StyleGuidePage() {
 
       <Section title="Resultado" hint="anel SVG">
         <ScoreCard correct={8} total={10} />
+      </Section>
+
+      <Section title="Mascote" hint="personagens, humores e peças">
+        <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+          {MOODS.map((mood) => (
+            <figure key={mood} style={{ textAlign: "center" }}>
+              <Mascot mood={mood} size={104} />
+              <figcaption className="muted" style={{ fontSize: 12.5 }}>
+                {mood}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+        <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginTop: 12 }}>
+          {LOOKS.map((look) => (
+            <Mascot key={JSON.stringify(look)} look={look} mood="feliz" size={104} />
+          ))}
+        </div>
       </Section>
 
       <Section title="Raios e largura" hint="cantos bem arredondados">

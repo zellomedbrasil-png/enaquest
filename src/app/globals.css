@@ -1638,3 +1638,43 @@ a.step:hover {
 html[data-text="large"] #conteudo {
   zoom: 1.15;
 }
+
+/* Mascote */
+.mascot {
+  display: block;
+  flex: none;
+  max-width: 100%;
+  height: auto;
+}
+.mascot-figure {
+  transform-origin: 100px 206px;
+  animation: mascot-breathe 3.2s ease-in-out infinite;
+}
+.mascot.mood-comemorando .mascot-figure {
+  animation: mascot-hop 0.9s ease-in-out infinite;
+}
+.mascot-sparkles {
+  animation: mascot-twinkle 1.2s ease-in-out infinite;
+}
+@keyframes mascot-breathe {
+  50% {
+    transform: scale(1.015, 0.985);
+  }
+}
+@keyframes mascot-hop {
+  50% {
+    transform: translateY(-7px);
+  }
+}
+@keyframes mascot-twinkle {
+  50% {
+    opacity: 0.35;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mascot-figure,
+  .mascot.mood-comemorando .mascot-figure,
+  .mascot-sparkles {
+    animation: none;
+  }
+}
