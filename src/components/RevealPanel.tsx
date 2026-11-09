@@ -19,9 +19,12 @@ export function ErrorDiagnosis({ answerId, initial }: { answerId: string; initia
   const [reason, setReason] = useState<string | null>(initial ?? null);
   return (
     <div style={{ marginTop: 12 }}>
-      <div className="eyebrow" style={{ marginBottom: 6 }}>
+      <div className="eyebrow" style={{ marginBottom: 2 }}>
         Por que você errou?
       </div>
+      <p className="dim" style={{ fontSize: 13.5, marginBottom: 6 }}>
+        Marque o motivo: vale +3 XP e mostra seus padrões na Evolução.
+      </p>
       <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
         {Object.entries(ERROR_REASON_LABEL).map(([key, label]) => (
           <button
@@ -248,14 +251,21 @@ export function RevealPanel({
         <h4 style={{ color: "var(--sky)" }}>Em 20 segundos</h4>
         <p>{reveal.quick}</p>
       </div>
+      <p className="dim" style={{ fontSize: 13.5, margin: "6px 0 2px" }}>
+        Toque em um título abaixo para ler mais.
+      </p>
 
-      <div className="layer layer-reason">
-        <h4>Raciocínio clínico</h4>
+      <details className="layer layer-reason" open={wrong}>
+        <summary>
+          <h4>Raciocínio clínico</h4>
+        </summary>
         <p>{reveal.reasoning}</p>
-      </div>
+      </details>
 
-      <div className="layer layer-reason">
-        <h4>Por que as outras estão erradas</h4>
+      <details className="layer layer-reason">
+        <summary>
+          <h4>Por que as outras estão erradas</h4>
+        </summary>
         <div style={{ display: "grid", gap: 6, marginTop: 4 }}>
           {reveal.distractors.map((item) => (
             <p key={item.index}>
@@ -264,22 +274,28 @@ export function RevealPanel({
             </p>
           ))}
         </div>
-      </div>
+      </details>
 
-      <div className="layer layer-tip">
-        <h4 style={{ color: "var(--accent)" }}>Macete de prova</h4>
+      <details className="layer layer-tip">
+        <summary>
+          <h4 style={{ color: "var(--accent)" }}>Macete de prova</h4>
+        </summary>
         <p>{reveal.tip}</p>
-      </div>
+      </details>
 
-      <div className="layer layer-pearl">
-        <h4 style={{ color: "var(--gold)" }}>Armadilha clássica</h4>
+      <details className="layer layer-pearl">
+        <summary>
+          <h4 style={{ color: "var(--gold)" }}>Armadilha clássica</h4>
+        </summary>
         <p>{reveal.pearl}</p>
-      </div>
+      </details>
 
-      <div className="layer layer-reason">
-        <h4>O que a prova quer de você</h4>
+      <details className="layer layer-reason">
+        <summary>
+          <h4>O que a prova quer de você</h4>
+        </summary>
         <p>{reveal.competencyNote}</p>
-      </div>
+      </details>
 
       <div style={{ marginTop: 10, fontSize: 13.5 }} className="muted">
         {reveal.stats.correctPct !== null && (

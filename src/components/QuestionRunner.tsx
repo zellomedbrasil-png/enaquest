@@ -57,6 +57,9 @@ export function QuestionRunner({
   const [missions, setMissions] = useState<Mission[] | null>(null);
   const [pending, start] = useTransition();
   const startedAt = useRef<number>(0);
+  const firstRender = useRef(true);
+  const articleRef = useRef<HTMLElement>(null);
+  const resultRef = useRef<HTMLDivElement>(null);
   const { toasts, push } = useToasts();
   const prefs = useFeedbackPrefs();
 
@@ -69,7 +72,18 @@ export function QuestionRunner({
   useEffect(() => {
     startedAt.current = Date.now();
     window.scrollTo({ top: 0 });
+    if (firstRender.current) {
+      firstRender.current = false;
+      return;
+    }
+    // Nova questão: leitor de tela e teclado começam do enunciado.
+    articleRef.current?.focus({ preventScroll: true });
   }, [index]);
+
+  // Depois de responder, o foco vai para o resultado, que é anunciado.
+  useEffect(() => {
+    if (result) resultRef.current?.focus();
+  }, [result]);
 
   // No fim da rodada, busca como ficaram as missões do dia.
   useEffect(() => {
@@ -305,17 +319,17 @@ export function QuestionRunner({
   const answeredCount = Object.keys(alreadyAnswered).length + Object.keys(results).length;
 
   return (
-    <div>
+    <div className="qgrid-wrap">
       {celebrate && <Confetti />}
       {showing && <Celebration items={showing} onClose={closeCelebration} />}
       <ToastStack toasts={toasts} />
-      <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 12 }}>
-        <div className="bar level" style={{ flex: 1 }} role="progressbar" aria-valuenow={answeredCount} aria-valuemax={questions.length} aria-label="Progresso da rodada">
+      <div className="round-head">
+        <span className="round-count">
+          Questão {index + 1} de {questions.length}
+        </span>
+        <div className="bar level" style={{ flex: 1 }} role="progressbar" aria-valuenow={answeredCount} aria-valuemin={0} aria-valuemax={questions.length} aria-label="Progresso da rodada">
           <i style={{ width: `${(answeredCount / questions.length) * 100}%` }} />
         </div>
-        <span className="muted" style={{ fontSize: 13, fontVariantNumeric: "tabular-nums" }}>
-          {answeredCount}/{questions.length}
-        </span>
         <button
           type="button"
           className="btn btn-ghost btn-sm"
@@ -328,102 +342,106 @@ export function QuestionRunner({
       </div>
       <ComboMeter combo={combo.value} broken={combo.broken} />
 
-      <article className="card">
-        <QuestionHeader question={question} areaName={area?.name} areaColor={area?.color} />
-        <p className="stem">{question.stem}</p>
-        <ExamTables exams={question.exams} />
+      <article className="card qgrid" ref={articleRef} tabIndex={-1} aria-label={`Questão ${index + 1} de ${questions.length}`}>
+        <div className="qleft">
+          <QuestionHeader question={question} areaName={area?.name} areaColor={area?.color} />
+          <p className="stem">{question.stem}</p>
+          <ExamTables exams={question.exams} />
+        </div>
 
-        <OptionsList
-          question={question}
-          picked={result ? result.selected : picked}
-          onPick={setPicked}
-          struck={struck}
-          onStrike={(i) => setStruck((s) => (s.includes(i) ? s.filter((x) => x !== i) : [...s, i]))}
-          locked={Boolean(result) || pending}
-          correctIndex={result?.reveal.correctIndex ?? null}
-        />
+        <div className="qright">
+          <OptionsList
+            question={question}
+            picked={result ? result.selected : picked}
+            onPick={setPicked}
+            struck={struck}
+            onStrike={(i) => setStruck((s) => (s.includes(i) ? s.filter((x) => x !== i) : [...s, i]))}
+            locked={Boolean(result) || pending}
+            correctIndex={result?.reveal.correctIndex ?? null}
+          />
 
-        {!result && (
-          <>
-            <div style={{ marginTop: 8 }}>
-              <div className="eyebrow" style={{ marginBottom: 6 }}>
-                Qual a sua confiança?
+          {!result && (
+            <>
+              <div style={{ marginTop: 8 }} role="group" aria-labelledby="confianca-q">
+                <div id="confianca-q" className="eyebrow">
+                  Qual a sua confiança?
+                </div>
+                <p className="dim hint">Opcional. Ajuda a decidir o que volta na sua Revisão.</p>
+                <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+                  {(Object.keys(CONFIDENCE_LABEL) as Confidence[]).map((level) => (
+                    <button
+                      key={level}
+                      type="button"
+                      className="btn btn-ghost btn-sm"
+                      aria-pressed={confidence === level}
+                      style={confidence === level ? { borderColor: "var(--accent)", background: "var(--tip-soft)" } : undefined}
+                      onClick={() => setConfidence(level)}
+                    >
+                      {CONFIDENCE_LABEL[level]}
+                    </button>
+                  ))}
+                </div>
               </div>
-              <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-                {(Object.keys(CONFIDENCE_LABEL) as Confidence[]).map((level) => (
-                  <button
-                    key={level}
-                    type="button"
-                    className="btn btn-ghost btn-sm"
-                    aria-pressed={confidence === level}
-                    style={confidence === level ? { borderColor: "var(--accent)", background: "var(--tip-soft)" } : undefined}
-                    onClick={() => setConfidence(level)}
-                  >
-                    {CONFIDENCE_LABEL[level]}
-                  </button>
-                ))}
+              <p className="dim kbd-help">Atalhos: as teclas A a D escolhem a alternativa e Enter confirma.</p>
+              <div className="sticky-action">
+                {picked === null && <p className="dim hint">Escolha uma alternativa para responder.</p>}
+                <button type="button" className="btn btn-primary" style={{ width: "100%" }} disabled={picked === null || pending} onClick={submit}>
+                  {pending ? "Corrigindo…" : "Responder"}
+                </button>
               </div>
-            </div>
-            <button type="button" className="btn btn-primary" style={{ width: "100%", marginTop: 14 }} disabled={picked === null || pending} onClick={submit}>
-              {pending ? "Corrigindo…" : "Responder"}
-            </button>
-            {error && (
-              <div className="alert alert-error" style={{ marginTop: 10 }} role="alert">
-                {error}
-              </div>
-            )}
-          </>
-        )}
-
-        {result && (
-          <>
-            <div
-              className="xp-float"
-              role="status"
-              style={{
-                marginTop: 12,
-                display: "flex",
-                flexWrap: "wrap",
-                alignItems: "center",
-                gap: 8,
-                padding: "10px 12px",
-                borderRadius: 14,
-                background: result.correct ? "var(--ok-soft)" : "var(--bad-soft)",
-              }}
-            >
-              <strong style={{ color: result.correct ? "var(--ok)" : "var(--bad)" }}>{result.correct ? "Acertou!" : "Não foi dessa vez"}</strong>
-              {result.xpGained > 0 && <span className="pill">+{result.xpGained} XP</span>}
-              {result.ratingDelta !== 0 && (
-                <span className="pill">
-                  {result.ratingDelta > 0 ? "+" : ""}
-                  {result.ratingDelta} no rating
-                </span>
+              {error && (
+                <div className="alert alert-error" style={{ marginTop: 10 }} role="alert">
+                  {error}
+                </div>
               )}
-              {result.combo >= 3 && <span className="pill">{result.combo} seguidas</span>}
-              {result.placementLeft > 0 && <span className="pill">Nivelamento: faltam {result.placementLeft}</span>}
-              {result.tierUp && <span className="pill">Nova patente: {result.tierName}</span>}
-              {result.levelUp && <span className="pill">Novo nível: {result.levelUp}</span>}
-              {result.dailyFinished && (
-                <span className="pill">
-                  Plantão concluído: {result.dailyFinished.correct}/{result.dailyFinished.total}
-                </span>
-              )}
-            </div>
+            </>
+          )}
 
-            <RevealPanel
-              reveal={result.reveal}
-              options={question.options}
-              questionId={question.id}
-              verification={question.verification}
-              selected={result.selected}
-              answerId={result.answerId}
-            />
+          {result && (
+            <>
+              <div
+                ref={resultRef}
+                tabIndex={-1}
+                className="xp-float result-box"
+                role="status"
+                style={{ background: result.correct ? "var(--ok-soft)" : "var(--bad-soft)" }}
+              >
+                <strong style={{ color: result.correct ? "var(--ok)" : "var(--bad)" }}>{result.correct ? "Acertou!" : "Não foi dessa vez"}</strong>
+                {result.xpGained > 0 && <span className="pill">+{result.xpGained} XP</span>}
+                {result.ratingDelta !== 0 && (
+                  <span className="pill">
+                    {result.ratingDelta > 0 ? "+" : ""}
+                    {result.ratingDelta} no rating
+                  </span>
+                )}
+                {result.combo >= 3 && <span className="pill">{result.combo} seguidas</span>}
+                {result.placementLeft > 0 && <span className="pill">Nivelamento: faltam {result.placementLeft}</span>}
+                {result.tierUp && <span className="pill">Nova patente: {result.tierName}</span>}
+                {result.levelUp && <span className="pill">Novo nível: {result.levelUp}</span>}
+                {result.dailyFinished && (
+                  <span className="pill">
+                    Plantão concluído: {result.dailyFinished.correct}/{result.dailyFinished.total}
+                  </span>
+                )}
+              </div>
 
-            <button type="button" className="btn btn-primary" style={{ width: "100%", marginTop: 14 }} onClick={next}>
-              Continuar
-            </button>
-          </>
-        )}
+              <RevealPanel
+                reveal={result.reveal}
+                options={question.options}
+                questionId={question.id}
+                verification={question.verification}
+                selected={result.selected}
+                answerId={result.answerId}
+              />
+
+              <div className="sticky-action">
+                <button type="button" className="btn btn-primary" style={{ width: "100%" }} onClick={next}>
+                  Continuar
+                </button>
+              </div>
+            </>
+          )}
+        </div>
       </article>
     </div>
   );

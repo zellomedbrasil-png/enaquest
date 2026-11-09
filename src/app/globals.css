@@ -1499,3 +1499,100 @@ a.step:hover {
   border: 0;
   padding: 0;
 }
+
+/* Fluxo da questão */
+.round-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.round-count {
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.hint {
+  font-size: 13.5px;
+  margin: 2px 0 6px;
+}
+.kbd-help {
+  display: none;
+  font-size: 13px;
+  margin-top: 10px;
+}
+.qgrid:focus {
+  outline: none;
+}
+.result-box {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 14px;
+}
+.result-box:focus {
+  outline: 3px solid var(--sky);
+  outline-offset: 2px;
+}
+.sticky-action {
+  margin-top: 14px;
+}
+.layer summary {
+  cursor: pointer;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+}
+.layer summary::-webkit-details-marker {
+  display: none;
+}
+.layer summary::after {
+  content: "+";
+  margin-left: auto;
+  font-weight: 800;
+  color: var(--mute);
+}
+.layer[open] summary::after {
+  content: "−";
+}
+.layer summary h4 {
+  margin: 0;
+}
+.layer[open] summary {
+  min-height: 32px;
+}
+@media (max-width: 899px) {
+  .sticky-action {
+    position: sticky;
+    bottom: calc(60px + env(safe-area-inset-bottom));
+    z-index: 5;
+    padding: 10px 0 4px;
+    background: linear-gradient(to top, var(--card) 72%, transparent);
+  }
+}
+@media (min-width: 900px) {
+  .kbd-help {
+    display: block;
+  }
+  .wrap > *:has(.qgrid) {
+    max-width: none;
+  }
+}
+@media (min-width: 1280px) {
+  .qgrid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 32px;
+  }
+  .qleft {
+    position: sticky;
+    top: 84px;
+    align-self: start;
+  }
+}
