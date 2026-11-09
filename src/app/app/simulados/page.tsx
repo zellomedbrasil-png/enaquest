@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PremiumGate } from "@/components/PremiumGate";
+import { PageHeader } from "@/components/ui";
 import { listSimulados } from "@/lib/server/simulados";
 import { isPremium, requireUser } from "@/lib/server/session";
 import { formatDateTime } from "@/lib/ui/labels";
@@ -16,7 +17,7 @@ export default async function SimuladosPage() {
 
   return (
     <div style={{ display: "grid", gap: 12 }}>
-      <h1 style={{ fontSize: 26 }}>Simulados</h1>
+      <PageHeader title="Simulados" lead="Faça uma prova completa com tempo, como no dia, e compare seu resultado com a turma." />
       {simulados.length === 0 && (
         <div className="card">
           <p className="muted">O primeiro Simulado Nacional será anunciado aqui. Ele usa a proporção por área medida na prova real.</p>

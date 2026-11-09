@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { deleteBoletimAction } from "@/app/actions";
 import { BoletimForm } from "@/components/ProfileForms";
 import { PerformanceBars, RatingChart } from "@/components/RatingChart";
-import { StatChip, StatChips } from "@/components/ui";
+import { PageHeader, StatChip, StatChips } from "@/components/ui";
 import { achievementProgress } from "@/lib/game/progress";
 import { MIN_AREA_RESPONSES } from "@/lib/study/proficiency";
 import { admin } from "@/lib/supabase/admin";
@@ -27,7 +27,9 @@ export default async function EvolutionPage() {
 
   return (
     <div style={{ display: "grid", gap: 14 }}>
-      <h1 style={{ fontSize: 26 }}>Evolução</h1>
+      <PageHeader title="Evolução" lead="Veja como você está, onde melhorar e o que já conquistou." />
+
+      <h2 style={{ fontSize: 20 }}>Como você está</h2>
 
       <StatChips>
         <StatChip label="Questões" value={stats.answered} />
@@ -89,6 +91,8 @@ export default async function EvolutionPage() {
         <RatingChart data={evolution.history} />
       </section>
 
+      <h2 style={{ fontSize: 20, marginTop: 8 }}>Onde melhorar</h2>
+
       <section className="card">
         <h2 style={{ fontSize: 18, marginBottom: 4 }}>Desempenho por área</h2>
         <p className="muted" style={{ fontSize: 13.5, marginBottom: 10 }}>
@@ -136,7 +140,7 @@ export default async function EvolutionPage() {
       </div>
 
       <section className="card">
-        <h2 style={{ fontSize: 18, marginBottom: 10 }}>Conquistas</h2>
+        <h2 style={{ fontSize: 20, marginBottom: 10 }}>Conquistas</h2>
         <div className="grid-2">
           {achievements.map((achievement) => (
             <div key={achievement.id} className="card-2" style={achievement.unlocked ? { background: "var(--pearl-soft)" } : undefined}>

@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { deleteAccountAction, portalAction, signOut } from "@/app/actions";
 import { FeedbackSettings } from "@/components/FeedbackSettings";
+import { ReadingSettings } from "@/components/ReadingSettings";
 import { ProfileForm, WithdrawButton } from "@/components/ProfileForms";
+import { PageHeader } from "@/components/ui";
 import { canWithdraw, hasPremiumAccess } from "@/lib/billing/access";
 import { admin } from "@/lib/supabase/admin";
 import { getEntitlement, getProfile, requireUser } from "@/lib/server/session";
@@ -25,7 +27,7 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
 
   return (
     <div style={{ display: "grid", gap: 14 }}>
-      <h1 style={{ fontSize: 26 }}>Sua conta</h1>
+      <PageHeader title="Sua conta" lead="Ajuste seu perfil, a leitura e a assinatura." />
       {params.bemvindo && (
         <div className="alert alert-ok" role="status">
           Conta criada. Escolha um apelido e, se quiser, sua faculdade. Depois, é só ir para o <Link href="/app">Plantão do Dia</Link>.
@@ -35,6 +37,11 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
       <section className="card">
         <h2 style={{ fontSize: 18, marginBottom: 10 }}>Perfil</h2>
         <ProfileForm nickname={profile.nickname} schoolId={profile.school_id} showSchool={profile.show_school} schools={schools ?? []} />
+      </section>
+
+      <section className="card">
+        <h2 style={{ fontSize: 18, marginBottom: 10 }}>Leitura</h2>
+        <ReadingSettings />
       </section>
 
       <section className="card">

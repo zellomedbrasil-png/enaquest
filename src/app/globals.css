@@ -552,7 +552,7 @@ button {
   border-radius: 8px;
   width: 44px;
   height: 44px;
-  color: var(--dim);
+  color: var(--mute);
   font-size: 13px;
 }
 .exam-table {
@@ -1616,4 +1616,25 @@ a.step:hover {
 .coach p {
   color: var(--mute);
   margin-top: 2px;
+}
+
+.gate-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 16px;
+  display: grid;
+  gap: 8px;
+  max-width: 420px;
+  text-align: left;
+  color: var(--mute);
+}
+.gate-list li::before {
+  content: "✓ ";
+  color: var(--ok);
+  font-weight: 800;
+}
+
+/* Texto grande: amplia só o conteúdo, sem mexer na navegação */
+html[data-text="large"] #conteudo {
+  zoom: 1.15;
 }

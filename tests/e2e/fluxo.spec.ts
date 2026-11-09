@@ -37,17 +37,22 @@ test.describe.serial("aluno", () => {
 
   test("plantão completo no celular, sem vazar gabarito antes de responder", async ({ page }) => {
     await signUp(page);
-    await expect(page.getByText("Conta criada")).toBeVisible();
-
-    // Perfil
+    // Boas-vindas: três passos explicam a jornada e o quarto pede o perfil.
+    await expect(page.getByRole("heading", { name: "Todo dia tem um Plantão" })).toBeVisible();
+    await page.getByRole("button", { name: "Próximo" }).click();
+    await expect(page.getByRole("heading", { name: "Cada resposta vem explicada" })).toBeVisible();
+    await page.getByRole("button", { name: "Próximo" }).click();
+    await expect(page.getByRole("heading", { name: "Seu rating mostra seu nível" })).toBeVisible();
+    await page.getByRole("button", { name: "Próximo" }).click();
     await page.getByLabel("Apelido nos rankings").fill(`aluno_${Date.now()}`);
     await page.getByRole("button", { name: "Salvar" }).click();
     await expect(page.getByText("Perfil salvo")).toBeVisible();
 
-    // Hoje
+    // Hoje: um próximo passo claro e a jornada em ordem
     await page.goto("/app");
-    await expect(page.getByText("Plantão do Dia", { exact: true })).toBeVisible();
-    await expect(page.getByRole("link", { name: "Começar plantão" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Sua jornada de hoje" })).toBeVisible();
+    await expect(page.getByText("Faça o Plantão de hoje")).toBeVisible();
+    await expect(page.getByRole("link", { name: "Começar", exact: true })).toBeVisible();
 
     // O HTML e os dados da página não podem conter o comentário.
     const response = await page.goto("/app/plantao");
@@ -82,11 +87,15 @@ test.describe.serial("aluno", () => {
     }
 
     await expect(page.getByText("Rodada concluída")).toBeVisible();
-    await expect(page.getByText("9/10")).toBeVisible();
+    await expect(page.getByText("9 de 10")).toBeVisible();
 
     await page.goto("/app");
-    await expect(page.getByText("Concluído: 9/10")).toBeVisible();
-    await expect(page.getByText(/Ranking de hoje/)).toBeVisible();
+    await expect(page.getByText("Concluído: 9 de 10 certas.")).toBeVisible();
+
+    // A liga semanal só abre depois do nivelamento; o ranking do dia já aparece.
+    await page.goto("/app/ligas");
+    await expect(page.getByText("A liga semanal abre depois do nivelamento")).toBeVisible();
+    await expect(page.getByText(/Ranking do Plantão de hoje/)).toBeVisible();
 
     // Discussão da turma
     await page.goto("/app/plantao");
@@ -132,7 +141,7 @@ test.describe.serial("aluno", () => {
     // A dúvida entra na revisão.
     await db.from("srs_cards").update({ due: new Date(Date.now() - 60_000).toISOString() }).eq("user_id", id);
     await page.goto("/app/revisao");
-    await expect(page.getByText(/1 para revisar agora/)).toBeVisible();
+    await expect(page.getByText(/Revise 1 questão agora/)).toBeVisible();
     await page.getByRole("radio").first().click();
     await page.getByRole("button", { name: "Responder" }).click();
     await expect(page.getByText("Em 20 segundos")).toBeVisible();

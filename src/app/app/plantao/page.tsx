@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { PageHeader } from "@/components/ui";
 import { QuestionRunner } from "@/components/QuestionRunner";
 import { admin } from "@/lib/supabase/admin";
 import { todayBR } from "@/lib/game/streak";
@@ -28,7 +29,7 @@ export default async function DailyPage() {
   if (daily.done) {
     return (
       <div style={{ display: "grid", gap: 10 }}>
-        <h1 style={{ fontSize: 26 }}>Questões de hoje</h1>
+        <PageHeader title="Questões de hoje" lead="Toque em uma questão para rever a explicação." />
         {daily.questions.map((question, i) => (
           <Link key={question.id} href={`/app/questao/${question.slug}`} className="card" style={{ textDecoration: "none", display: "flex", justifyContent: "space-between", gap: 10 }}>
             <span>
@@ -45,7 +46,8 @@ export default async function DailyPage() {
 
   return (
     <div>
-      <h1 style={{ fontSize: 22, marginBottom: 12 }}>Plantão do Dia</h1>
+      <PageHeader title="Plantão do Dia" lead="10 questões iguais para todos. Responda uma de cada vez." />
+      <div style={{ height: 12 }} />
       <QuestionRunner questions={daily.questions} mode="daily" context={day} areas={areas ?? []} alreadyAnswered={daily.answered} />
     </div>
   );

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PremiumGate } from "@/components/PremiumGate";
+import { PageHeader } from "@/components/ui";
 import { QuestionRunner } from "@/components/QuestionRunner";
 import { admin } from "@/lib/supabase/admin";
 import { getDueReviews, getNotebook } from "@/lib/server/study";
@@ -22,15 +23,15 @@ export default async function ReviewPage() {
 
   return (
     <div style={{ display: "grid", gap: 16 }}>
-      <div>
-        <h1 style={{ fontSize: 26 }}>Revisão</h1>
-        <p className="muted">{total > 0 ? `${total} para revisar agora.` : "Nada pendente agora. Volte amanhã."}</p>
-      </div>
+      <PageHeader
+        title="Revisão"
+        lead={total > 0 ? `Revise ${total} ${total === 1 ? "questão" : "questões"} agora. Elas voltaram na hora certa para você não esquecer.` : "Nada para revisar agora. O que você errar ou chutar volta aqui."}
+      />
       {questions.length > 0 && <QuestionRunner questions={questions} mode="review" context={context} areas={areas ?? []} doneHref="/app/revisao" doneLabel="Ver caderno de erros" />}
 
       <section>
         <h2 style={{ fontSize: 20, marginBottom: 8 }}>Caderno de erros</h2>
-        {notebook.length === 0 && <p className="muted">Seus erros aparecem aqui. Cada um vira uma chance de aprender.</p>}
+        {notebook.length === 0 && <p className="muted">Nenhum erro ainda. Faça o Plantão do Dia e seus erros aparecem aqui, cada um vira uma chance de aprender.</p>}
         <div style={{ display: "grid", gap: 8 }}>
           {notebook.map((entry) => (
             <Link key={entry.questionId} href={`/app/questao/${entry.slug}`} className="card" style={{ textDecoration: "none", padding: 12 }}>

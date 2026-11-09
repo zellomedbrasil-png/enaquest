@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Confetti } from "./Confetti";
 import { Emblem } from "./Emblem";
 
@@ -15,14 +15,29 @@ export function Celebration({ items, onClose }: { items: CelebrationItem[]; onCl
   const last = index >= items.length - 1;
 
   const advance = () => (last ? onClose() : setIndex((i) => i + 1));
-
+  const button = useRef<HTMLButtonElement>(null);
+  const closeRef = useRef(onClose);
   useEffect(() => {
+    closeRef.current = onClose;
+  });
+
+  // Foco preso no diálogo e devolvido a quem estava focado antes.
+  useEffect(() => {
+    const before = document.activeElement as HTMLElement | null;
+    button.current?.focus();
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") onClose();
+      if (event.key === "Escape") closeRef.current();
+      if (event.key === "Tab") {
+        event.preventDefault();
+        button.current?.focus();
+      }
     };
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [onClose]);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      before?.focus?.();
+    };
+  }, []);
 
   if (!item) return null;
 
@@ -44,7 +59,7 @@ export function Celebration({ items, onClose }: { items: CelebrationItem[]; onCl
           {item.name}
         </h2>
         <p className="muted">{item.kind === "tier" ? "Seu rating passou para a próxima faixa." : "Seu XP chegou ao próximo nível."}</p>
-        <button type="button" className="btn btn-primary" style={{ width: "100%", marginTop: 18 }} onClick={advance} autoFocus>
+        <button type="button" className="btn btn-primary" style={{ width: "100%", marginTop: 18 }} onClick={advance} ref={button}>
           {last ? "Continuar" : "Próxima"}
         </button>
       </div>

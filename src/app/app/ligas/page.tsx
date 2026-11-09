@@ -44,24 +44,8 @@ export default async function LeaguesPage() {
   ]);
 
   const stage = journeyStage({ answered: answered.count ?? 0, ratedGames: rating.data.games });
-  if (stage !== "ativo") {
-    const left = Math.max(0, PLACEMENT_GAMES - rating.data.games);
-    return (
-      <div style={{ display: "grid", gap: 14 }}>
-        <PageHeader title="Ligas" lead="Ganhe XP de segunda a domingo para subir de liga. Toda semana recomeça do zero." />
-        <Banner
-          tone="info"
-          title="As ligas abrem depois do nivelamento"
-          text={`Faltam ${left} ${left === 1 ? "questão" : "questões"} para calibrar seu rating. Faça o Plantão do Dia para chegar lá.`}
-          action={
-            <Link href="/app" className="btn btn-primary">
-              Ir para Hoje
-            </Link>
-          }
-        />
-      </div>
-    );
-  }
+  const locked = stage !== "ativo";
+  const left = Math.max(0, PLACEMENT_GAMES - rating.data.games);
 
   return (
     <div style={{ display: "grid", gap: 14 }}>
@@ -92,6 +76,18 @@ export default async function LeaguesPage() {
         </section>
       )}
 
+      {locked ? (
+        <Banner
+          tone="info"
+          title="A liga semanal abre depois do nivelamento"
+          text={`Faltam ${left} ${left === 1 ? "questão" : "questões"} para calibrar seu rating. Faça o Plantão do Dia para chegar lá. Enquanto isso, você já pode criar ou entrar em uma turma.`}
+          action={
+            <Link href="/app" className="btn btn-primary">
+              Ir para Hoje
+            </Link>
+          }
+        />
+      ) : (
       <section className="card">
         <p className="eyebrow">Sua liga</p>
         <h2 style={{ fontSize: 22, marginBottom: 8 }}>Liga {view.tierName}</h2>
@@ -106,6 +102,7 @@ export default async function LeaguesPage() {
           </p>
         )}
       </section>
+      )}
 
       <section className="card">
         <p className="eyebrow">Liga das Faculdades</p>

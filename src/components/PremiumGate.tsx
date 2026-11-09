@@ -8,6 +8,11 @@ export function PremiumGate({ title, text }: { title: string; text: string }) {
       <p className="muted" style={{ marginBottom: 14 }}>
         {text}
       </p>
+      <ul className="gate-list">
+        <li>Revisão que traz de volta o que você errou, na hora certa</li>
+        <li>Treino por área, no tamanho de rodada que você escolher</li>
+        <li>Simulados completos e Termômetro de Proficiência</li>
+      </ul>
       <Link href="/assinar" className="btn btn-primary">
         Assinar por R$ 29 por mês
       </Link>

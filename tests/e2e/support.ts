@@ -62,7 +62,7 @@ export async function signUp(page: Page) {
   await page.getByLabel(/^Senha/).fill(PASSWORD);
   await page.getByRole("checkbox").check();
   await page.getByRole("button", { name: "Criar conta grátis" }).click();
-  await page.waitForURL(/\/app\/conta/);
+  await page.waitForURL(/\/app\/boas-vindas/);
   const { data } = await db.auth.admin.listUsers({ perPage: 1000 });
   const user = data.users.find((u) => u.email === email)!;
   return { email, id: user.id };
