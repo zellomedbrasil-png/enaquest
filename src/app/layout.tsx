@@ -11,15 +11,13 @@ export const metadata: Metadata = {
   description:
     "Banco de questões no formato do ENAMED, com comentários em camadas, revisão espaçada, simulados e ligas entre faculdades.",
   applicationName: "EnaQuest",
-  appleWebApp: { capable: true, title: "EnaQuest", statusBarStyle: "default" },
+  appleWebApp: { capable: true, title: "EnaQuest", statusBarStyle: "black-translucent" },
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000"),
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f4f5fb" },
-    { media: "(prefers-color-scheme: dark)", color: "#0d0f1c" },
-  ],
+  themeColor: "#0d0f1c",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { deleteBoletimAction } from "@/app/actions";
 import { BoletimForm } from "@/components/ProfileForms";
 import { PerformanceBars, RatingChart } from "@/components/RatingChart";
+import { StatChip, StatChips } from "@/components/ui";
 import { achievementProgress } from "@/lib/game/progress";
 import { MIN_AREA_RESPONSES } from "@/lib/study/proficiency";
 import { admin } from "@/lib/supabase/admin";
@@ -28,19 +29,12 @@ export default async function EvolutionPage() {
     <div style={{ display: "grid", gap: 14 }}>
       <h1 style={{ fontSize: 26 }}>Evolução</h1>
 
-      <div className="grid-4">
-        {[
-          ["Questões", stats.answered],
-          ["Acerto geral", accuracy === null ? "–" : `${accuracy}%`],
-          ["Maior sequência", `${stats.bestStreak} dias`],
-          ["Revisões", stats.reviews],
-        ].map(([label, value]) => (
-          <div key={label} className="card stat" style={{ padding: 14 }}>
-            <div className="v">{value}</div>
-            <div className="k">{label}</div>
-          </div>
-        ))}
-      </div>
+      <StatChips>
+        <StatChip label="Questões" value={stats.answered} />
+        <StatChip label="Acerto geral" value={accuracy === null ? "–" : accuracy} unit={accuracy === null ? undefined : "%"} />
+        <StatChip label="Maior sequência" value={stats.bestStreak} unit="dias" />
+        <StatChip label="Revisões" value={stats.reviews} />
+      </StatChips>
 
       <section className="card">
         <p className="eyebrow">Termômetro de Proficiência</p>
@@ -105,6 +99,7 @@ export default async function EvolutionPage() {
             label: area.name,
             value: area.pct,
             detail: area.pct === null ? `${area.n} de ${MIN_AREA_RESPONSES} respostas` : `${area.correct} de ${area.n}`,
+            color: area.color,
           }))}
         />
       </section>

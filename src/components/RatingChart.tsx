@@ -67,19 +67,22 @@ export function RatingChart({ data }: { data: { day: string; rating: number }[] 
 }
 
 /** Barras de desempenho: mesma cor, um valor por linha, sem depender de cor para ler. */
-export function PerformanceBars({ rows }: { rows: { label: string; value: number | null; detail: string }[] }) {
+export function PerformanceBars({ rows }: { rows: { label: string; value: number | null; detail: string; color?: string }[] }) {
   return (
-    <div style={{ display: "grid", gap: 10 }}>
+    <div style={{ display: "grid", gap: 12 }}>
       {rows.map((row) => (
         <div key={row.label} title={row.detail}>
           <div style={{ display: "flex", justifyContent: "space-between", gap: 8, fontSize: 14 }}>
-            <span>{row.label}</span>
+            <span>
+              {row.color && <i className="area-dot" style={{ background: row.color, marginRight: 8 }} />}
+              {row.label}
+            </span>
             <span className="muted" style={{ fontVariantNumeric: "tabular-nums" }}>
               {row.value === null ? row.detail : `${row.value}% · ${row.detail}`}
             </span>
           </div>
-          <div className="bar" style={{ marginTop: 3 }}>
-            <i style={{ width: `${row.value ?? 0}%` }} />
+          <div className="bar" style={{ marginTop: 4 }}>
+            <i style={{ width: `${row.value ?? 0}%`, ...(row.color ? { background: row.color } : null) }} />
           </div>
         </div>
       ))}

@@ -4,6 +4,7 @@ import { Emblem } from "@/components/Emblem";
 import { admin } from "@/lib/supabase/admin";
 import { PLACEMENT_GAMES, tierOf } from "@/lib/game/rating";
 import { Flame, ShieldDots } from "@/components/Flame";
+import { Banner } from "@/components/ui";
 import { achievementProgress, closestAchievements } from "@/lib/game/progress";
 import { displayedStreak, MAX_SHIELDS, todayBR } from "@/lib/game/streak";
 import { getDailyBoard, getDailyState } from "@/lib/server/daily";
@@ -52,38 +53,39 @@ export default async function TodayPage() {
         </p>
       </div>
 
-      <section className="card" style={{ borderColor: "var(--accent)", borderWidth: 2 }}>
-        <p className="eyebrow">Plantão do Dia</p>
-        {daily.questions.length === 0 ? (
-          <>
-            <h1 style={{ fontSize: 26, marginTop: 4 }}>O plantão de hoje ainda não foi escalado</h1>
-            <p className="muted" style={{ marginTop: 6 }}>
-              Ainda não há questões publicadas. Assim que o primeiro lote for aprovado, elas aparecem aqui.
-            </p>
-          </>
-        ) : daily.done ? (
-          <>
-            <h1 style={{ fontSize: 28, marginTop: 4 }}>
-              Concluído: {hits}/{daily.questions.length}
-            </h1>
-            <p className="muted" style={{ marginTop: 6 }}>
-              {board.percentile !== null
-                ? `Você foi melhor que ${board.percentile}% de quem já fez hoje.`
-                : "Volte amanhã para manter a sequência. Novas questões à meia-noite."}
-            </p>
-            <Link href="/app/plantao" className="btn btn-ghost" style={{ marginTop: 12 }}>
+      {daily.questions.length === 0 ? (
+        <Banner
+          tone="info"
+          title="O plantão de hoje ainda não foi escalado"
+          text="Ainda não há questões publicadas. Assim que o primeiro lote for aprovado, elas aparecem aqui."
+        />
+      ) : daily.done ? (
+        <Banner
+          tone="done"
+          title={`Hoje está feito: ${hits}/${daily.questions.length}`}
+          text={
+            board.percentile !== null
+              ? `Você foi melhor que ${board.percentile}% de quem já fez hoje.`
+              : "Volte amanhã para manter a sequência. Novas questões à meia-noite."
+          }
+          action={
+            <Link href="/app/plantao" className="btn btn-ghost">
               Rever questões
             </Link>
-          </>
-        ) : (
-          <>
-            <h1 style={{ fontSize: 28, marginTop: 4 }}>{answered ? `Faltam ${daily.questions.length - answered} questões` : `${daily.questions.length} questões, as mesmas para todo mundo`}</h1>
-            <Link href="/app/plantao" className="btn btn-primary" style={{ marginTop: 12, width: "100%" }}>
-              {answered ? "Continuar plantão" : "Começar plantão"}
+          }
+        />
+      ) : (
+        <Banner
+          tone="today"
+          title={answered ? `Faltam ${daily.questions.length - answered} questões` : "Plantão de hoje liberado"}
+          text={answered ? "Continue de onde parou." : `${daily.questions.length} questões comentadas, as mesmas para todo mundo.`}
+          action={
+            <Link href="/app/plantao" className="btn btn-dark">
+              {answered ? "Continuar" : "Abrir"}
             </Link>
-          </>
-        )}
-      </section>
+          }
+        />
+      )}
 
       <section className="card">
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12, flexWrap: "wrap" }}>

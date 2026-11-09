@@ -18,6 +18,7 @@ import { ExamTables, OptionsList, QuestionHeader } from "./QuestionView";
 import { RevealPanel } from "./RevealPanel";
 import { PROGRESS_EVENT, type ProgressEventDetail } from "./TopStats";
 import { ToastStack, useToasts } from "./Toasts";
+import { ScoreRing, scoreMessage } from "./ui";
 
 type Area = { id: string; name: string; color: string };
 
@@ -209,9 +210,10 @@ export function QuestionRunner({
         {showing && <Celebration items={showing} onClose={() => setShowing(null)} />}
         {(celebrate || hits === list.length) && list.length >= 3 && <Confetti />}
         <p className="eyebrow">Rodada concluída</p>
-        <div className="display" style={{ fontSize: 56, margin: "6px 0" }}>
-          {hits}/{list.length}
+        <div style={{ display: "grid", justifyItems: "center", margin: "10px 0 8px" }}>
+          <ScoreRing correct={hits} total={list.length} />
         </div>
+        <h2 style={{ fontSize: 24 }}>{scoreMessage(hits, list.length).title}</h2>
         <p className="muted">
           Você ganhou <strong>{totalXp} XP</strong> nesta rodada.
         </p>
