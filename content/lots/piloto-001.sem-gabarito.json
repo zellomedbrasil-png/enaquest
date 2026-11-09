@@ -1,0 +1,683 @@
+[
+  {
+    "slug": "cm-dengue-sinais-alarme-001",
+    "stem": "Homem de 34 anos procura a Unidade Básica de Saúde no quinto dia de febre, mialgia e cefaleia, em período de epidemia de dengue. Há 12 horas apresenta dor abdominal intensa e contínua e vômitos persistentes. Exame físico: lúcido, PA 110 x 70 mmHg, FC 96 bpm, enchimento capilar normal. O hemograma ainda não foi colhido.\nQual é a conduta imediata nesse caso?",
+    "exams": null,
+    "options": [
+      "Prescrever hidratação oral e pedir retorno em 24 horas",
+      "Iniciar soro fisiológico, 10 mL/kg na primeira hora",
+      "Aguardar o hematócrito para decidir a via de hidratação",
+      "Infundir soro fisiológico, 20 mL/kg em até 20 minutos"
+    ]
+  },
+  {
+    "slug": "cm-dengue-choque-002",
+    "stem": "Mulher de 28 anos chega à Unidade de Pronto Atendimento no sexto dia de febre, agora afebril, com extremidades frias. Exame físico: sonolenta, PA 80 x 60 mmHg, FC 128 bpm, pulso fino e enchimento capilar de 4 segundos. A prova do laço foi positiva. A transferência para o hospital de referência levará cerca de 1 hora.\nQual é a conduta imediata?",
+    "exams": null,
+    "options": [
+      "Soro fisiológico, 10 mL/kg ao longo da primeira hora",
+      "Transferir primeiro e iniciar a expansão no hospital",
+      "Soro fisiológico, 20 mL/kg em até 20 minutos",
+      "Hidratação oral assistida até a chegada da ambulância"
+    ]
+  },
+  {
+    "slug": "cm-dengue-exame-003",
+    "stem": "Mulher de 41 anos procura a Unidade Básica de Saúde no segundo dia de febre alta, dor retro-orbitária e mialgia. Não tem sinais de alarme, comorbidades nem sangramentos. A equipe pretende confirmar a suspeita de dengue neste atendimento.\nQual exame é o mais adequado para este momento da doença?",
+    "exams": null,
+    "options": [
+      "Pesquisa de antígeno NS1 ou RT-PCR",
+      "Sorologia IgM colhida neste atendimento",
+      "Contagem seriada de plaquetas",
+      "Hematócrito com comparação basal"
+    ]
+  },
+  {
+    "slug": "cm-tb-investigacao-004",
+    "stem": "Durante busca ativa no território, o agente comunitário encaminha à Unidade Básica de Saúde um homem de 47 anos com tosse há 4 semanas. Ele nunca teve tuberculose e está em bom estado geral. O município conta com a rede de teste rápido molecular para tuberculose.\nQual é o exame indicado para o diagnóstico inicial?",
+    "exams": null,
+    "options": [
+      "Tomografia computadorizada de tórax",
+      "Prova tuberculínica intradérmica",
+      "Sorologia para micobactérias",
+      "Teste rápido molecular no escarro"
+    ]
+  },
+  {
+    "slug": "cm-tb-esquema-005",
+    "stem": "Mulher de 32 anos, sem comorbidades e sem tratamento prévio para tuberculose, recebe na Unidade Básica de Saúde o resultado do teste rápido molecular: Mycobacterium tuberculosis detectado, sem resistência à rifampicina. A sorologia para HIV é negativa e não há doença extrapulmonar.\nQual é o esquema de tratamento indicado?",
+    "exams": null,
+    "options": [
+      "2RHZE/10RH",
+      "2RHZ/4RH",
+      "2RHZE/4RH",
+      "6RHZE contínuo"
+    ]
+  },
+  {
+    "slug": "cm-has-diagnostico-006",
+    "stem": "Homem de 52 anos, assintomático, tem PA de 148 x 92 mmHg, medida corretamente em uma consulta de rotina na Unidade Básica de Saúde. Não há lesão de órgão-alvo nem sintomas. É a primeira vez que apresenta valor alterado.\nQual é a próxima conduta?",
+    "exams": null,
+    "options": [
+      "Iniciar anti-hipertensivo hoje e reavaliar em 30 dias",
+      "Encaminhar ao cardiologista para confirmar o diagnóstico",
+      "Reavaliar a medida apenas na consulta anual seguinte",
+      "Repetir a medida em mais dois momentos em 1 a 2 semanas"
+    ]
+  },
+  {
+    "slug": "cm-has-pseudocrise-007",
+    "stem": "Mulher de 58 anos, hipertensa, chega à Unidade Básica de Saúde ansiosa e com cefaleia difusa desde que discutiu com o filho. Esqueceu a medicação ontem. PA 178 x 104 mmHg, FC 88 bpm. O exame neurológico e a ausculta são normais, e ela nega dor torácica, dispneia e déficit focal.\nQual é a melhor conduta para este caso?",
+    "exams": null,
+    "options": [
+      "Analgésico, retomar a medicação e reavaliar a pressão",
+      "Administrar anti-hipertensivo sublingual para baixar a PA",
+      "Transferir de ambulância para a emergência hospitalar",
+      "Iniciar anti-hipertensivo intravenoso em infusão contínua"
+    ]
+  },
+  {
+    "slug": "cm-dm-metformina-008",
+    "stem": "Homem de 49 anos, com IMC de 31 kg/m² e assintomático, tem diagnóstico recente de diabetes mellitus tipo 2 confirmado na Unidade Básica de Saúde. Não apresenta cetose nem sinais de descompensação, e a função renal é normal. Ele foi orientado sobre alimentação e atividade física.\nAlém dessas orientações, qual é a conduta medicamentosa inicial?",
+    "exams": null,
+    "options": [
+      "Iniciar insulina basal ao deitar",
+      "Iniciar metformina já no diagnóstico",
+      "Aguardar 6 meses sem medicação",
+      "Iniciar glibenclamida em dose máxima"
+    ]
+  },
+  {
+    "slug": "cm-avc-trombolise-009",
+    "stem": "Homem de 66 anos é levado a um hospital com centro de AVC por hemiparesia direita e afasia, iniciadas há 2 horas, com horário bem estabelecido pela esposa. A tomografia de crânio não mostra hemorragia nem hipodensidade extensa. PA 170 x 95 mmHg, glicemia capilar 118 mg/dL. Não há contraindicações na história.\nQual é a conduta indicada?",
+    "exams": null,
+    "options": [
+      "Prescrever dupla antiagregação e observar a evolução",
+      "Reduzir a pressão para menos de 120 x 80 mmHg primeiro",
+      "Repetir a tomografia em 24 horas antes de qualquer conduta",
+      "Iniciar o trombolítico, ainda dentro de 4,5 horas do início"
+    ]
+  },
+  {
+    "slug": "cm-sca-aas-010",
+    "stem": "Equipe do SAMU atende um homem de 61 anos, diabético, com dor retroesternal em aperto há 40 minutos, irradiada para o braço esquerdo, com sudorese. Está consciente, com PA 136 x 84 mmHg e FC 92 bpm. Nega alergias, úlcera ativa e sangramentos. O monitor já foi instalado e o acesso venoso obtido.\nQual medicação oral deve ser oferecida precocemente?",
+    "exams": null,
+    "options": [
+      "Ibuprofeno 400 mg engolido com água",
+      "Omeprazol 40 mg engolido em jejum",
+      "AAS 300 mg, pedindo que o paciente mastigue",
+      "Paracetamol 750 mg engolido com água"
+    ]
+  },
+  {
+    "slug": "cm-anafilaxia-011",
+    "stem": "Mulher de 35 anos, com 70 kg, desenvolve urticária generalizada, edema de lábios e dispneia cerca de 10 minutos após receber dipirona intramuscular na Unidade de Pronto Atendimento. PA 86 x 50 mmHg, FC 124 bpm, SatO2 91% em ar ambiente, com sibilos difusos.\nAlém de oxigênio suplementar, qual é a primeira medicação?",
+    "exams": null,
+    "options": [
+      "Hidrocortisona intravenosa, na dose de 100 mg",
+      "Adrenalina intramuscular na coxa, na dose de 0,5 mg",
+      "Prometazina intramuscular no glúteo, na dose de 50 mg",
+      "Adrenalina subcutânea no braço, na dose de 1 mg"
+    ]
+  },
+  {
+    "slug": "ped-pneumonia-aidpi-012",
+    "stem": "Lactente de 9 meses é levado à Unidade Básica de Saúde com tosse há 3 dias. Está tranquilo durante a avaliação, mamando bem e sem sinais gerais de perigo. A frequência respiratória, contada em um minuto, é de 56 irpm. Não há tiragem subcostal, estridor nem sibilância.\nSegundo o AIDPI, qual é a conduta?",
+    "exams": null,
+    "options": [
+      "Amoxicilina oral por 7 dias, em casa",
+      "Referir com urgência ao hospital",
+      "Tratar apenas com sintomáticos em casa",
+      "Pedir radiografia antes de tratar"
+    ]
+  },
+  {
+    "slug": "ped-tiragem-aidpi-013",
+    "stem": "Menina de 3 anos, com tosse e febre há 4 dias, é trazida à Unidade Básica de Saúde. Está acordada e aceita líquidos, sem vômitos nem convulsões. Frequência respiratória de 44 irpm, com tiragem subcostal evidente durante a avaliação em repouso.\nDe acordo com o AIDPI, qual é a conduta adequada?",
+    "exams": null,
+    "options": [
+      "Amoxicilina em casa e retorno em 2 dias",
+      "Nebulização com observação por uma hora",
+      "Referir com urgência ao hospital",
+      "Sintomáticos em casa e retorno em 5 dias"
+    ]
+  },
+  {
+    "slug": "ped-sinal-perigo-014",
+    "stem": "Menino de 2 anos é trazido à Unidade Básica de Saúde com diarreia e febre há 2 dias. A mãe relata que hoje ele vomita tudo o que ingere e que está difícil de acordar. Na sala de acolhimento, a recepção o colocou no fim da fila, por ordem de chegada, porque o menino está quieto.\nQual deve ser a atitude do médico ao perceber essa situação?",
+    "exams": null,
+    "options": [
+      "Avaliar logo e iniciar soro oral na unidade (Plano B)",
+      "Avaliar logo, tratar e referir com urgência",
+      "Avaliar logo, pedir exames e aguardar na unidade",
+      "Avaliar logo e orientar soro oral em casa (Plano A)"
+    ]
+  },
+  {
+    "slug": "ped-plano-b-015",
+    "stem": "Criança de 2 anos, com 12 kg e diarreia aguda há 2 dias, é avaliada na Unidade Básica de Saúde e classificada com desidratação, sem sinais de gravidade. Está alerta e consegue beber. A mãe pergunta se pode voltar para casa logo e levar o soro.\nQual é a conduta correta?",
+    "exams": null,
+    "options": [
+      "SRO em casa, com retorno se houver piora",
+      "Soro intravenoso de 20 mL/kg em 20 minutos",
+      "SRO na unidade, cerca de 900 mL em 4 horas",
+      "Suspender a alimentação e retornar em 24 horas"
+    ]
+  },
+  {
+    "slug": "ped-ma-perfusao-016",
+    "stem": "Lactente de 10 meses, com 8 kg e quadro febril agudo, chega prostrado à Unidade Básica de Saúde. As extremidades estão frias e o enchimento capilar é de 4 segundos. Enquanto a ambulância não chega, a equipe consegue obter acesso venoso periférico.\nQual é a conduta segundo o AIDPI, enquanto aguarda a referência hospitalar?",
+    "exams": null,
+    "options": [
+      "Soro glicosado a 10%, 5 mL/kg em flush",
+      "Soro de reidratação oral por sonda nasogástrica",
+      "Soro fisiológico, 160 mL em infusão de 24 horas",
+      "Soro fisiológico a 0,9%, expansão de 20 mL/kg"
+    ]
+  },
+  {
+    "slug": "ped-vacina-nascimento-017",
+    "stem": "Recém-nascido a termo, com 12 horas de vida e sem intercorrências, recebe a primeira avaliação de rotina na maternidade. A mãe, primípara, pergunta quais vacinas o bebê deve receber antes de ir para casa, segundo o Calendário Nacional de Vacinação.\nQuais vacinas estão indicadas ao nascer?",
+    "exams": null,
+    "options": [
+      "BCG e hepatite B",
+      "Pentavalente e BCG",
+      "Hepatite B e VIP",
+      "Rotavírus e BCG"
+    ]
+  },
+  {
+    "slug": "ped-vacina-15-meses-018",
+    "stem": "Menino de 15 meses vem à Unidade Básica de Saúde para consulta de puericultura. A caderneta mostra todas as doses em dia até os 12 meses, incluindo a primeira dose de tríplice viral. Ele está saudável, sem febre ou uso de imunossupressores.\nQuais destas vacinas estão previstas para esta idade no calendário vigente?",
+    "exams": null,
+    "options": [
+      "BCG, hepatite B e rotavírus",
+      "Febre amarela, penta e meningocócica C",
+      "DTP, VIP, tríplice viral, varicela e hepatite A",
+      "Pentavalente, VIP e pneumocócica de terceira dose"
+    ]
+  },
+  {
+    "slug": "ped-ferro-profilatico-019",
+    "stem": "Lactente de 6 meses, nascido a termo com peso adequado, comparece à consulta de puericultura na Unidade Básica de Saúde. Mamou exclusivamente no peito até agora e está iniciando a alimentação complementar. Está assintomático, com crescimento adequado e sem palidez.\nQual é a conduta em relação ao ferro?",
+    "exams": null,
+    "options": [
+      "Pedir hemograma e ferritina antes de decidir",
+      "Iniciar a suplementação profilática de ferro",
+      "Dar ferro somente se surgir palidez ao exame",
+      "Adiar a suplementação até os 18 meses de idade"
+    ]
+  },
+  {
+    "slug": "ped-marco-sorriso-020",
+    "stem": "Em consulta de puericultura, a mãe de um lactente nascido a termo relata preocupação porque, segundo a vizinha, ele já deveria estar sorrindo para as pessoas. O bebê está com 2 meses e meio, cresce bem, e passou a sorrir ao ouvir a mãe há poucos dias. Ao exame, levanta a cabeça quando colocado de bruços.\nComo o desenvolvimento deve ser interpretado?",
+    "exams": null,
+    "options": [
+      "Atraso motor, com indicação de fisioterapia",
+      "Atraso social, com indicação de neuropediatra",
+      "Sugestivo de autismo, com pedido de avaliação",
+      "Esperado para a idade, seguir a puericultura"
+    ]
+  },
+  {
+    "slug": "ped-rn-sinais-perigo-021",
+    "stem": "Na primeira semana de vida, um recém-nascido a termo é levado à Unidade Básica de Saúde para a consulta de rotina. A mãe mostra que a pele amarelou nos últimos dias. Ao exame, a icterícia é visível nas pernas, abaixo do umbigo, e o bebê apresenta também gemidos e menor interesse em mamar.\nQual é a conduta?",
+    "exams": null,
+    "options": [
+      "Banho de sol diário e retorno em 7 dias",
+      "Encaminhar com urgência para avaliação",
+      "Suspender o aleitamento e oferecer água",
+      "Manter a rotina, pois é icterícia fisiológica"
+    ]
+  },
+  {
+    "slug": "go-dmg-jejum-022",
+    "stem": "Gestante de 29 anos, com 10 semanas, assintomática, faz a primeira consulta de pré-natal na Unidade Básica de Saúde. Não tem diabetes prévio conhecido. A glicemia de jejum colhida nesta consulta é de 104 mg/dL.\nComo esse resultado deve ser interpretado?",
+    "exams": null,
+    "options": [
+      "Normal, repetir apenas o teste entre 24 e 28 semanas",
+      "Diabetes prévio diagnosticado durante a gestação",
+      "Diabetes mellitus gestacional já estabelecido",
+      "Pré-diabetes, sem repercussão para a gestação"
+    ]
+  },
+  {
+    "slug": "go-totg-limites-023",
+    "stem": "Gestante de 31 anos, com 26 semanas e glicemia de jejum normal no início do pré-natal, traz o teste oral de tolerância à glicose com 75 g. O resultado está na tabela abaixo.\nQual é a interpretação?",
+    "exams": [
+      {
+        "title": "TOTG com 75 g",
+        "rows": [
+          [
+            "Jejum",
+            "88 mg/dL",
+            "Limite: 92 mg/dL"
+          ],
+          [
+            "1 hora",
+            "176 mg/dL",
+            "Limite: 180 mg/dL"
+          ],
+          [
+            "2 horas",
+            "158 mg/dL",
+            "Limite: 153 mg/dL"
+          ]
+        ]
+      }
+    ],
+    "options": [
+      "Diabetes gestacional, pois basta um valor alterado",
+      "Normal, porque só um dos três valores está alterado",
+      "Inconclusivo, sendo necessário repetir em 2 semanas",
+      "Diabetes prévio, pois o valor de 2 horas está acima"
+    ]
+  },
+  {
+    "slug": "go-dmg-insulina-024",
+    "stem": "Gestante de 33 anos, com 30 semanas e diabetes gestacional, segue há 2 semanas a orientação nutricional e faz caminhadas regulares. O registro da glicemia capilar mostra cerca de 40% dos valores acima da meta. Não há cetose nem outras intercorrências.\nQual é a conduta farmacológica de primeira escolha?",
+    "exams": null,
+    "options": [
+      "Associar glibenclamida via oral",
+      "Aguardar mais 4 semanas sem medicação",
+      "Reduzir as calorias para 800 kcal por dia",
+      "Iniciar insulina, mantendo dieta e exercício"
+    ]
+  },
+  {
+    "slug": "go-anti-d-abortamento-025",
+    "stem": "Mulher de 26 anos, com tipagem O negativo, teve um abortamento completo com 8 semanas e é avaliada no pronto-socorro. Está hemodinamicamente estável, e o sangramento já diminuiu. A plantonista hesita em prescrever imunoglobulina, porque a idade gestacional é precoce.\nQual é a conduta recomendada?",
+    "exams": null,
+    "options": [
+      "Dispensar, por ser menos de 12 semanas",
+      "Prescrever anti-D 300 mcg, neste caso",
+      "Reservar para uma próxima gestação",
+      "Fazer somente se houver curetagem"
+    ]
+  },
+  {
+    "slug": "go-sulfato-neuroprotecao-026",
+    "stem": "Gestante de 24 anos, com 29 semanas, está internada em uma maternidade em trabalho de parto prematuro avançado, com parto provável nas próximas horas. Já recebeu corticoide, e não há sinais de infecção. A equipe discute medidas adicionais para reduzir o risco de dano neurológico ao recém-nascido.\nQual é a medida indicada?",
+    "exams": null,
+    "options": [
+      "Sulfato de magnésio, ataque de 4 g IV",
+      "Nifedipina, ataque de 30 mg via oral",
+      "Progesterona natural via vaginal diária",
+      "Betametasona, novo ciclo em seguida"
+    ]
+  },
+  {
+    "slug": "go-sifilis-recente-027",
+    "stem": "Mulher de 24 anos, não gestante, procura a Unidade Básica de Saúde com lesão genital ulcerada e indolor, surgida há 10 dias. O teste rápido para sífilis é reagente, e ela nunca foi tratada. Não refere alergia a medicamentos.\nQual é o tratamento indicado?",
+    "exams": null,
+    "options": [
+      "Penicilina benzatina 7,2 milhões UI em 3 semanas",
+      "Penicilina benzatina 2,4 milhões UI em dose única",
+      "Ceftriaxona 1 g IM em dose única",
+      "Azitromicina 1 g por via oral em dose única"
+    ]
+  },
+  {
+    "slug": "go-sifilis-gestante-alergia-028",
+    "stem": "Gestante de 27 anos, com 18 semanas, tem diagnóstico de sífilis latente de duração ignorada. Refere episódio de anafilaxia após uso de penicilina na adolescência, e a alergia foi confirmada em serviço especializado. A equipe da Unidade Básica de Saúde discute como proceder.\nQual é a conduta recomendada?",
+    "exams": null,
+    "options": [
+      "Doxiciclina 100 mg, duas vezes ao dia por 30 dias",
+      "Azitromicina oral, com repetição a cada semana",
+      "Encaminhar para dessensibilização e usar penicilina",
+      "Adiar o tratamento até o fim da gestação"
+    ]
+  },
+  {
+    "slug": "go-dip-ambulatorial-029",
+    "stem": "Mulher de 22 anos, não gestante, procura a Unidade de Pronto Atendimento por dor pélvica há 4 dias, com corrimento e dispareunia. Exame: afebril, bom estado geral, dor à mobilização do colo e à palpação anexial. O teste de gravidez é negativo, não há sinais de abscesso, e ela tolera medicação oral.\nQual é o esquema de primeira opção?",
+    "exams": null,
+    "options": [
+      "Ceftriaxona IM, doxiciclina e metronidazol orais",
+      "Fluconazol, azitromicina e clindamicina orais",
+      "Ciprofloxacino em dose única e fluconazol oral",
+      "Metronidazol oral por 7 dias, isoladamente"
+    ]
+  },
+  {
+    "slug": "go-vaginose-030",
+    "stem": "Mulher de 30 anos, não gestante, procura a Unidade Básica de Saúde por corrimento branco-acinzentado, de odor fétido e que piora após a relação sexual. Não há dor pélvica, e o colo uterino está sem alterações. O exame a fresco sugere vaginose bacteriana.\nQual é o tratamento de primeira opção?",
+    "exams": null,
+    "options": [
+      "Metronidazol via oral por 7 dias",
+      "Fluconazol via oral em dose única",
+      "Ceftriaxona intramuscular em dose única",
+      "Azitromicina via oral em dose única"
+    ]
+  },
+  {
+    "slug": "cir-pneumotorax-hipertensivo-031",
+    "stem": "Equipe avançada do SAMU atende um homem de 25 anos após colisão de moto, com trauma torácico à esquerda. Ele apresenta insuficiência respiratória, murmúrio vesicular ausente à esquerda, PA 80 x 50 mmHg e SatO2 de 84% com oxigênio. Não há outra causa evidente de choque, e o tempo até o hospital é de 25 minutos.\nQual é a conduta imediata?",
+    "exams": null,
+    "options": [
+      "Radiografia de tórax antes de qualquer intervenção",
+      "Infundir 2 litros de cristaloide e transportar",
+      "Intubar e ventilar com pressão positiva já na cena",
+      "Punção de descompressão no hemitórax esquerdo"
+    ]
+  },
+  {
+    "slug": "cir-hemorragia-externa-032",
+    "stem": "Trabalhador de 40 anos sofre corte profundo na coxa com uma serra. Quando a equipe do SAMU chega, há sangramento ativo e abundante. Ele está consciente, respira bem e a via aérea está pérvia. A equipe prossegue a avaliação primária para checar a circulação.\nQual é a conduta para o sangramento?",
+    "exams": null,
+    "options": [
+      "Compressão direta da lesão e, se indicado, torniquete",
+      "Elevar o membro e aguardar a chegada ao hospital",
+      "Aplicar gelo sobre a ferida e cobrir com curativo",
+      "Pinçar às cegas o vaso sangrante dentro da ferida"
+    ]
+  },
+  {
+    "slug": "cir-evisceracao-033",
+    "stem": "Homem de 30 anos, vítima de agressão com faca, é atendido pelo SAMU com ferimento em flanco direito e alças intestinais expostas. Está consciente, com PA 118 x 74 mmHg e FC 104 bpm. O transporte até o hospital de referência levará cerca de 15 minutos.\nComo tratar as alças expostas durante o transporte?",
+    "exams": null,
+    "options": [
+      "Recolocar as alças e fazer um curativo oclusivo",
+      "Cobrir com compressa estéril úmida, sem reintroduzir",
+      "Lavar com clorexidina e recolocar as alças na cavidade",
+      "Deixar descoberto para observar a coloração das alças"
+    ]
+  },
+  {
+    "slug": "cir-parkland-calculo-034",
+    "stem": "Homem de 35 anos, com 70 kg, chega ao pronto-socorro logo após queimadura por chama, com superfície corporal queimada de 20%, de segundo e terceiro graus. A equipe usa a fórmula de Parkland com 4 mL/kg/%SCQ, com Ringer lactato.\nQual é o volume a infundir nas primeiras 8 horas?",
+    "exams": null,
+    "options": [
+      "1.400 mL",
+      "2.800 mL",
+      "4.200 mL",
+      "5.600 mL"
+    ]
+  },
+  {
+    "slug": "cir-parkland-tempo-035",
+    "stem": "Mulher de 28 anos, com 60 kg e 30% de superfície corporal queimada, é trazida à Unidade de Pronto Atendimento 3 horas depois do acidente doméstico com álcool. Pela fórmula de Parkland, com 4 mL/kg/%SCQ, a primeira metade do volume calculado é de 3.600 mL. Nada foi infundido até agora.\nEm quanto tempo essa primeira metade deve ser administrada?",
+    "exams": null,
+    "options": [
+      "Nas próximas 16 horas",
+      "Nas próximas 24 horas",
+      "Nas próximas 8 horas",
+      "Nas próximas 5 horas"
+    ]
+  },
+  {
+    "slug": "cir-queimadura-palma-036",
+    "stem": "Mulher de 45 anos procura a Unidade Básica de Saúde com queimadura por água quente, em áreas pequenas e irregulares do antebraço e da mão. O médico precisa estimar rapidamente a superfície corporal queimada, já que a lesão não ocupa um segmento inteiro.\nQual é a referência mais prática para essa estimativa?",
+    "exams": null,
+    "options": [
+      "A palma da mão da paciente, com os dedos, equivale a 1%",
+      "O antebraço inteiro da paciente equivale a 1%",
+      "A palma da mão do médico, sem os dedos, equivale a 1%",
+      "A largura de um dedo da paciente equivale a 1%"
+    ]
+  },
+  {
+    "slug": "cir-queimadura-idoso-037",
+    "stem": "Homem de 74 anos, com insuficiência cardíaca congestiva e doença renal crônica, é admitido no pronto-socorro com 25% de superfície corporal queimada. A equipe vai iniciar a reposição volêmica pela fórmula de Parkland.\nQual é o ajuste recomendado para esse paciente?",
+    "exams": null,
+    "options": [
+      "Iniciar com 4 a 6 mL/kg/%SCQ, pela gravidade",
+      "Iniciar com 2 a 3 mL/kg/%SCQ e vigiar a diurese",
+      "Evitar qualquer cristaloide nas primeiras 24 horas",
+      "Usar apenas hidratação oral para evitar congestão"
+    ]
+  },
+  {
+    "slug": "cir-queimadura-profundidade-038",
+    "stem": "Criança de 7 anos é levada à Unidade Básica de Saúde após derramar água quente no braço há 1 hora. A lesão tem bolhas rompidas, com base rósea, úmida e muito dolorosa ao toque. Não há áreas brancas, secas ou indolores.\nQual é a classificação mais provável da lesão?",
+    "exams": null,
+    "options": [
+      "Primeiro grau",
+      "Terceiro grau",
+      "Segundo grau profundo",
+      "Segundo grau superficial"
+    ]
+  },
+  {
+    "slug": "sm-audit-039",
+    "stem": "Em consulta na Unidade Básica de Saúde, um homem de 44 anos diz que bebe nos fins de semana e que a esposa reclama. Não tem sinais de abstinência nem doença hepática conhecida. O médico quer investigar, de forma estruturada e na própria consulta, o padrão de uso de álcool nos últimos 12 meses.\nQual é o instrumento adequado?",
+    "exams": null,
+    "options": [
+      "Escala de Depressão Geriátrica",
+      "Teste AUDIT, de dez perguntas",
+      "Miniexame do estado mental",
+      "Escala de coma de Glasgow"
+    ]
+  },
+  {
+    "slug": "sm-suicidio-risco-040",
+    "stem": "Adolescente de 16 anos vem à Unidade Básica de Saúde com a mãe por insônia e isolamento depois de um término de namoro. A sós com o médico, conta que há 2 meses tomou vários comprimidos, mas que foi só um descuido e que não quer conversar com psicólogo. Ele nega plano atual.\nQual informação pesa mais na avaliação do risco e como agir?",
+    "exams": null,
+    "options": [
+      "O término recente; orientar que o tempo resolve",
+      "A insônia; prescrever benzodiazepínico e rever em 30 dias",
+      "A negativa de plano; dar alta e retorno se piorar",
+      "A tentativa prévia; escutar sem preconceito e aprofundar"
+    ]
+  },
+  {
+    "slug": "sm-pts-041",
+    "stem": "A equipe de Saúde da Família discute o caso de um homem de 50 anos com esquizofrenia, estável, que perdeu o emprego e deixou de frequentar as atividades da igreja. Ele e a irmã querem retomar a rotina. A enfermeira propõe construir um Projeto Terapêutico Singular.\nComo esse projeto deve ser elaborado?",
+    "exams": null,
+    "options": [
+      "Definido pelo psiquiatra e comunicado depois ao paciente",
+      "Limitado ao ajuste das medicações, com revisão anual",
+      "Construído com o usuário, sendo dinâmico e provisório",
+      "Definido uma vez, sem alterações, ao longo do cuidado"
+    ]
+  },
+  {
+    "slug": "sm-reducao-danos-042",
+    "stem": "Homem de 36 anos, usuário de cocaína há 10 anos, procura a Unidade Básica de Saúde por lesões nasais e diz claramente que hoje não quer parar de usar, mas aceita ajuda para cuidar da saúde. A equipe discute se é possível atendê-lo sem exigir abstinência.\nQual é a postura mais adequada?",
+    "exams": null,
+    "options": [
+      "Condicionar o atendimento ao compromisso de abstinência",
+      "Encaminhar para internação, mesmo contra a sua vontade",
+      "Dar alta da unidade até que ele decida interromper o uso",
+      "Mantê-lo em cuidado, com a lógica da redução de danos"
+    ]
+  },
+  {
+    "slug": "sm-benzodiazepinico-043",
+    "stem": "Mulher de 42 anos procura a Unidade Básica de Saúde com queixas de ansiedade há mais de 1 ano. Ela pede clonazepam, porque a vizinha melhorou com o remédio. O atendimento afastou causas clínicas, e não há risco agudo. O médico planeja o tratamento de longo prazo.\nQual é a estratégia farmacológica mais adequada?",
+    "exams": null,
+    "options": [
+      "Preferir antidepressivo e poupar o benzodiazepínico",
+      "Iniciar clonazepam contínuo por tempo indeterminado",
+      "Associar logo dois benzodiazepínicos de meia-vida longa",
+      "Prescrever benzodiazepínico com sedativo para dormir"
+    ]
+  },
+  {
+    "slug": "sm-sofrimento-comum-044",
+    "stem": "Em reunião, um médico recém-chegado à Unidade Básica de Saúde estranha o grande número de pessoas com queixas de tristeza e ansiedade, muitas vezes junto de sintomas físicos, e propõe encaminhar todas ao serviço especializado em saúde mental.\nCom base nos dados epidemiológicos da atenção básica, qual é o melhor argumento para a equipe?",
+    "exams": null,
+    "options": [
+      "Isso é raro no território e indica um surto local",
+      "Sofrimento comum na AB, que deve cuidar desses casos",
+      "Essas queixas são apenas somatização, sem necessidade de cuidado",
+      "Todos precisam de atendimento em Centro de Atenção Psicossocial"
+    ]
+  },
+  {
+    "slug": "sm-crise-abordagem-045",
+    "stem": "Equipe do SAMU é chamada para atender um homem de 29 anos em crise, gritando na calçada, assustado e sem armas ou agressão a outras pessoas. A família pede que ele seja imobilizado logo para ser levado ao hospital. A cena é segura para a aproximação.\nQual é a abordagem adequada?",
+    "exams": null,
+    "options": [
+      "Contê-lo fisicamente de imediato, conforme o pedido familiar",
+      "Chegar com a sirene ligada, para chamar a atenção dele",
+      "Escolher um mediador, aproximar-se com calma e acolher",
+      "Pedir que os policiais o imobilizem antes de falar com ele"
+    ]
+  },
+  {
+    "slug": "sm-abstinencia-bzd-046",
+    "stem": "Homem de 47 anos, etilista pesado, chega à Unidade de Pronto Atendimento dois dias depois de interromper o consumo de álcool, com tremor, sudorese e ansiedade intensa. Está orientado, sem convulsões e sem outras drogas sedativas. Não há sinais de sangramento ou infecção.\nQual classe de medicamento é útil para o controle dos sintomas de abstinência?",
+    "exams": null,
+    "options": [
+      "Benzodiazepínicos, com monitorização",
+      "Antipsicóticos típicos em dose alta",
+      "Antidepressivos tricíclicos em dose única",
+      "Inibidores seletivos de serotonina"
+    ]
+  },
+  {
+    "slug": "sc-sarampo-notificacao-047",
+    "stem": "Em uma Unidade Básica de Saúde, uma criança de 5 anos, sem vacinação, tem febre, tosse, coriza, conjuntivite e exantema maculopapular há 2 dias. O médico levanta a suspeita de sarampo. A equipe quer saber o que fazer em relação à vigilância.\nQual é o prazo de notificação do caso suspeito e de investigação?",
+    "exams": null,
+    "options": [
+      "Notificar em até 7 dias e investigar em até 30 dias",
+      "Notificar só após a confirmação laboratorial do caso",
+      "Notificar em até 24 horas e investigar em até 48 horas",
+      "Notificar no fechamento mensal e investigar se houver surto"
+    ]
+  },
+  {
+    "slug": "sc-sarampo-bloqueio-048",
+    "stem": "A vigilância de um município recebe a notificação de um caso suspeito de sarampo, em um adulto atendido em uma Unidade Básica de Saúde. As amostras já foram coletadas, e o resultado ainda não saiu. A coordenação discute a vacinação dos contatos.\nQual é a orientação sobre o bloqueio vacinal seletivo?",
+    "exams": null,
+    "options": [
+      "Aguardar a confirmação laboratorial antes de vacinar",
+      "Vacinar os contatos apenas ao surgirem novos casos",
+      "Vacinar todo o município em até 30 dias, sem seleção",
+      "Fazer o bloqueio em até 72 horas após a notificação"
+    ]
+  },
+  {
+    "slug": "sc-difteria-notificacao-049",
+    "stem": "Em uma Unidade de Pronto Atendimento, um homem de 38 anos, sem registro de vacinação, apresenta febre, dor de garganta e placas branco-acinzentadas aderentes nas amígdalas. O médico levanta a hipótese de difteria e inicia as condutas clínicas.\nQual é a conduta em relação à vigilância?",
+    "exams": null,
+    "options": [
+      "Notificar imediatamente o caso, ainda como suspeito",
+      "Notificar só após o resultado da cultura ser positivo",
+      "Notificar apenas se houver mais de um caso na família",
+      "Notificar no fechamento do mês, em planilha da unidade"
+    ]
+  },
+  {
+    "slug": "sc-soro-teste-050",
+    "stem": "Em um pronto-socorro, será administrado soro heterólogo a um paciente com indicação clara de imunização passiva. O técnico de enfermagem pergunta se deve fazer antes o teste de sensibilidade cutâneo, como aprendeu há muitos anos, para prever reações.\nQual é a orientação correta?",
+    "exams": null,
+    "options": [
+      "Fazer o teste em todos os pacientes, antes do soro",
+      "Não fazer o teste, pois saiu da rotina de aplicação",
+      "Fazer o teste e contraindicar o soro se for positivo",
+      "Fazer o teste somente se houver história de alergia"
+    ]
+  },
+  {
+    "slug": "sc-leptospirose-notificacao-051",
+    "stem": "Depois de uma enchente, uma Unidade Básica de Saúde atende um homem de 33 anos com febre alta, mialgia intensa em panturrilhas e sufusão conjuntival há 3 dias. O médico suspeita de leptospirose. É o primeiro caso na unidade, sem outros pacientes parecidos até agora.\nQual é a orientação sobre a notificação?",
+    "exams": null,
+    "options": [
+      "Notificar só se surgir um surto na região",
+      "Aguardar a confirmação pela sorologia de fase tardia",
+      "Notificar o caso suspeito, o mais rápido possível",
+      "Notificar apenas quando houver necessidade de internação"
+    ]
+  },
+  {
+    "slug": "sc-ponto-corte-052",
+    "stem": "Em um estudo com homens saudáveis, um marcador tumoral usado para rastreamento teve o ponto de corte reduzido de 4 ng/mL para 2 ng/mL. A sensibilidade passou de 20,3% para 52,6%, e a especificidade caiu de 93,8% para 72,5%.\nQual é a principal consequência prática dessa mudança?",
+    "exams": null,
+    "options": [
+      "Mais casos detectados, porém mais falsos-positivos",
+      "Menos falsos-positivos e menor detecção de casos",
+      "Mais casos detectados, com menos falsos-positivos",
+      "Nenhuma mudança relevante para os pacientes"
+    ]
+  },
+  {
+    "slug": "sc-falso-negativo-053",
+    "stem": "Uma equipe da atenção primária discute um exame de rastreamento com especificidade de 94%, porém sensibilidade de apenas 20%. Um dos médicos afirma que, como a especificidade é alta, os pacientes com resultado negativo podem ficar tranquilos.\nQual é a crítica correta a essa afirmação?",
+    "exams": null,
+    "options": [
+      "Especificidade alta garante que o negativo exclui a doença",
+      "O principal problema do exame é o excesso de falsos-positivos",
+      "O negativo dá falsa segurança, já que a sensibilidade é baixa",
+      "O teste não tem utilidade para ninguém, independentemente do resultado"
+    ]
+  },
+  {
+    "slug": "mfc-mamografia-054",
+    "stem": "Mulher de 57 anos, assintomática e sem histórico familiar de câncer de mama, vem à Unidade Básica de Saúde para consulta de rotina. A última mamografia, sem alterações, foi feita há 2 anos. Ela pergunta se deveria repetir o exame. Exame físico das mamas sem alterações.\nQual é a orientação, conforme o Caderno de Rastreamento?",
+    "exams": null,
+    "options": [
+      "Mamografia bienal, indicada para sua idade",
+      "Mamografia anual e ultrassonografia associada",
+      "Sem exame, pois a mamografia anterior foi normal",
+      "Ressonância magnética em substituição à mamografia"
+    ]
+  },
+  {
+    "slug": "mfc-sigilo-adolescente-055",
+    "stem": "Adolescente de 15 anos, com capacidade de discernimento, vem sozinha à Unidade Básica de Saúde para falar sobre métodos contraceptivos. Ela conta que tem relação consentida com o namorado da mesma idade e pede que os pais não saibam. Não há sinais de violência ou situação de risco à sua saúde.\nQual é a conduta ética?",
+    "exams": null,
+    "options": [
+      "Pedir a presença dos pais, para só depois orientar",
+      "Contar aos pais, pois ela ainda é menor de idade",
+      "Acionar o Conselho Tutelar para comunicar o fato",
+      "Manter o sigilo e orientar sobre contracepção"
+    ]
+  },
+  {
+    "slug": "mfc-informar-diagnostico-056",
+    "stem": "Homem de 63 anos, lúcido, recebe na Unidade Básica de Saúde a confirmação de uma neoplasia de pulmão. Antes da consulta, a filha procura o médico e pede que ele não conte nada ao pai, porque acha que ele ficará triste. O paciente nunca pediu para não saber, nem há indício de que a informação lhe cause dano.\nQual é a conduta do médico?",
+    "exams": null,
+    "options": [
+      "Atender a filha e omitir o diagnóstico do paciente",
+      "Contar só à filha e deixar que ela decida depois",
+      "Informar o paciente sobre diagnóstico e prognóstico",
+      "Adiar a conversa até a oncologia assumir o seguimento"
+    ]
+  },
+  {
+    "slug": "mfc-recusa-tratamento-057",
+    "stem": "Mulher de 70 anos, lúcida e orientada, com osteoartrose de joelho, recusa a infiltração sugerida pelo médico da Unidade Básica de Saúde, mesmo depois de entender os benefícios e os riscos. Ela prefere seguir com fisioterapia e analgesia oral. Não há risco iminente de morte.\nQual é a conduta do médico?",
+    "exams": null,
+    "options": [
+      "Realizar a infiltração, por ser o melhor tratamento",
+      "Exigir que a família assine pela realização do procedimento",
+      "Dar alta da unidade, porque ela recusou a conduta",
+      "Respeitar a decisão e manter o plano escolhido por ela"
+    ]
+  },
+  {
+    "slug": "mfc-declaracao-obito-058",
+    "stem": "Um médico de família é procurado em casa pelos vizinhos de um idoso que morreu durante a madrugada. O médico nunca atendeu esse senhor, não verificou o corpo e não está de plantão. A família pede que ele assine a declaração de óbito à distância, usando as informações que recebeu por telefone.\nComo o médico deve agir?",
+    "exams": null,
+    "options": [
+      "Assinar, já que a causa provável parece natural",
+      "Assinar, desde que a família confirme por escrito",
+      "Não atestar um óbito que não verificou pessoalmente",
+      "Assinar, mas registrar a causa como desconhecida"
+    ]
+  },
+  {
+    "slug": "mfc-laqueadura-059",
+    "stem": "Mulher de 24 anos, sem filhos, com plena capacidade civil, procura a Unidade Básica de Saúde dizendo que decidiu fazer laqueadura. Está bem informada sobre o caráter definitivo do procedimento e não tem indicação médica específica. Seu marido não comparece à consulta.\nQual é a orientação, segundo a legislação vigente?",
+    "exams": null,
+    "options": [
+      "Negar, porque ela ainda não tem dois filhos",
+      "Encaminhar com prazo mínimo de 60 dias e aconselhamento",
+      "Encaminhar somente depois de o marido assinar autorização",
+      "Marcar a cirurgia sem nenhum prazo, como ela deseja"
+    ]
+  },
+  {
+    "slug": "mfc-idoso-vacinas-060",
+    "stem": "Mulher de 72 anos, hipertensa e funcionalmente independente, vem à Unidade Básica de Saúde em abril para consulta de rotina. Não tem registro de vacinação recente. O médico revisa a situação vacinal como parte da avaliação global da pessoa idosa.\nQual é a orientação sobre a vacina contra a influenza?",
+    "exams": null,
+    "options": [
+      "Fazer uma dose anualmente, no outono",
+      "Fazer só se ela já tiver tido gripe grave",
+      "Fazer uma dose única para o resto da vida",
+      "Evitar a vacina, por conta da idade dela"
+    ]
+  }
+]

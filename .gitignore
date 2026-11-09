@@ -1,0 +1,17 @@
+node_modules
+.next
+out
+coverage
+playwright-report
+test-results
+*.tsbuildinfo
+next-env.d.ts
+.env
+.env.local
+.env.*.local
+supabase/.temp
+supabase/.branches
+.vercel
+.DS_Store
+# Nunca versionar provas ou materiais de terceiros
+referencias-privadas/

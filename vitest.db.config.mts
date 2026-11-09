@@ -1,0 +1,15 @@
+import { defineConfig } from "vitest/config";
+import { fileURLToPath } from "node:url";
+
+// Exige o Supabase local no ar (npm run db:start) e .env.local preenchido.
+export default defineConfig({
+  resolve: { alias: { "@": fileURLToPath(new URL("./src", import.meta.url)), "server-only": fileURLToPath(new URL("./tests/empty.ts", import.meta.url)) } },
+  test: {
+    include: ["tests/db/**/*.test.ts"],
+    environment: "node",
+    testTimeout: 30000,
+    hookTimeout: 60000,
+    fileParallelism: false,
+    setupFiles: ["tests/db/setup.ts"],
+  },
+});

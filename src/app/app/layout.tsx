@@ -1,0 +1,50 @@
+import Link from "next/link";
+import { AppNav } from "@/components/AppNav";
+import { Emblem } from "@/components/Emblem";
+import { admin } from "@/lib/supabase/admin";
+import { PLACEMENT_GAMES, tierOf } from "@/lib/game/rating";
+import { TopStats } from "@/components/TopStats";
+import { displayedStreak, todayBR } from "@/lib/game/streak";
+import { getEntitlement, getProfile, requireUser } from "@/lib/server/session";
+
+export default async function AppLayout({ children }: { children: React.ReactNode }) {
+  const user = await requireUser();
+  const [profile, entitlement, rating, streak] = await Promise.all([
+    getProfile(user.id),
+    getEntitlement(user.id),
+    admin().from("rating_state").select("rating, xp_total, games").eq("user_id", user.id).single(),
+    admin().from("streaks").select("current, best, last_active, shields").eq("user_id", user.id).single(),
+  ]);
+  const inPlacement = rating.data.games < PLACEMENT_GAMES;
+  const tier = tierOf(Number(rating.data.rating));
+
+  return (
+    <>
+      <header className="topbar">
+        <div className="topbar-in">
+          <Link href="/app" aria-label="Início" style={{ textDecoration: "none" }}>
+            <span className="logo" aria-hidden>
+              E
+            </span>
+          </Link>
+          <TopStats
+            xpTotal={rating.data.xp_total}
+            streak={displayedStreak(streak.data, todayBR())}
+            shields={streak.data.shields}
+            activeToday={streak.data.last_active === todayBR()}
+          />
+          <Link href="/app/conta" aria-label={`Conta de ${profile.nickname}. ${inPlacement ? "Em nivelamento" : `Patente ${tier.tier.name}`}`}>
+            <Emblem rating={Number(rating.data.rating)} placement={inPlacement} size={30} />
+          </Link>
+        </div>
+      </header>
+      {entitlement?.payment_problem && (
+        <div className="alert alert-error" style={{ borderRadius: 0, textAlign: "center" }} role="alert">
+          Não conseguimos cobrar seu cartão. <Link href="/app/conta">Atualize o pagamento</Link> para não perder o acesso.
+        </div>
+      )}
+      <main className="wrap">{children}</main>
+      <AppNav />
+    </>
+  );
+}
