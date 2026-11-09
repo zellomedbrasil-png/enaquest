@@ -1,4 +1,5 @@
 import "server-only";
+import { cache } from "react";
 import { admin } from "@/lib/supabase/admin";
 import {
   balance,
@@ -95,3 +96,6 @@ export async function renameMascot(userId: string, raw: string): Promise<string>
   if (error) throw error;
   return name;
 }
+
+/** Para páginas: uma leitura por requisição. Ações usam getMascot, que sempre lê de novo. */
+export const getMascotForPage = cache(getMascot);

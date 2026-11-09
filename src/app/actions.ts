@@ -7,6 +7,7 @@ import { admin } from "@/lib/supabase/admin";
 import { createClient } from "@/lib/supabase/server";
 import { AppError, getProfile, requireEditor, requireUser } from "@/lib/server/session";
 import { todayMissions } from "@/lib/server/progress";
+import * as mascot from "@/lib/server/mascot";
 import { setErrorReason, submitAnswer, type AnswerResult, type ErrorReason } from "@/lib/server/answers";
 import { getDueReviews, startTraining, type TrainingFilter } from "@/lib/server/study";
 import { finishSimulado, saveSimuladoProgress } from "@/lib/server/simulados";
@@ -112,6 +113,42 @@ export async function todayMissionsAction() {
   return run(async () => {
     const user = await requireUser();
     return todayMissions(user.id);
+  });
+}
+
+// ---------- Mascote ----------
+const lookSchema = z.object({
+  character: z.string().max(40),
+  body: z.string().max(40),
+  head: z.string().max(40).nullable(),
+  accessory: z.string().max(40).nullable(),
+  background: z.string().max(40),
+});
+
+export async function buyItemAction(itemId: string) {
+  return run(async () => {
+    const user = await requireUser();
+    const view = await mascot.buyItem(user.id, z.string().min(1).max(40).parse(itemId));
+    revalidatePath("/app", "layout");
+    return view;
+  });
+}
+
+export async function equipAction(look: z.input<typeof lookSchema>) {
+  return run(async () => {
+    const user = await requireUser();
+    const view = await mascot.equip(user.id, lookSchema.parse(look));
+    revalidatePath("/app", "layout");
+    return view;
+  });
+}
+
+export async function renameMascotAction(name: string) {
+  return run(async () => {
+    const user = await requireUser();
+    const saved = await mascot.renameMascot(user.id, z.string().max(60).parse(name));
+    revalidatePath("/app", "layout");
+    return saved;
   });
 }
 

@@ -39,8 +39,11 @@ export default async function AppLayout({ children }: { children: React.ReactNod
             shields={streak.data.shields}
             activeToday={streak.data.last_active === todayBR()}
           />
-          <Link href="/app/conta" aria-label={`Conta de ${profile.nickname}. ${inPlacement ? "Em nivelamento" : `Patente ${tier.tier.name}`}`}>
+          <Link href="/app/conta" className="account-link" aria-label={`Conta de ${profile.nickname}. ${inPlacement ? "Em nivelamento" : `Patente ${tier.tier.name}`}`}>
             <Emblem rating={Number(rating.data.rating)} placement={inPlacement} size={30} />
+            <span className="account-label" aria-hidden>
+              Conta
+            </span>
           </Link>
         </div>
       </header>

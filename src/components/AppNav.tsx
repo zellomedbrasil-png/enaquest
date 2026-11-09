@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-// Cinco destinos. "Estudar" reúne Treino, Revisão e Simulados.
+// Cinco destinos. "Estudar" reúne Treino, Revisão e Simulados. A Conta fica no emblema do topo.
 const ITEMS = [
   { href: "/app", label: "Hoje", match: [] as string[], exact: true, icon: "M12 3v18M3 12h18" },
   {
@@ -14,7 +14,7 @@ const ITEMS = [
   },
   { href: "/app/ligas", label: "Ligas", match: ["/app/ligas"], icon: "M7 4h10v5a5 5 0 0 1-10 0V4Zm5 10v4m-4 3h8M7 6H4a3 3 0 0 0 3 3m10-3h3a3 3 0 0 1-3 3" },
   { href: "/app/evolucao", label: "Evolução", match: ["/app/evolucao"], icon: "M3 17l6-6 4 4 8-9" },
-  { href: "/app/conta", label: "Conta", match: ["/app/conta", "/app/como-funciona"], icon: "M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm-8 9a8 8 0 0 1 16 0" },
+  { href: "/app/mascote", label: "Mascote", match: ["/app/mascote"], icon: "M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18ZM8.500 14.500a4.500 4.500 0 0 0 7 0M9 10h.01M15 10h.01" },
 ];
 
 /** Barra inferior no celular; trilho lateral no computador (o CSS troca). */

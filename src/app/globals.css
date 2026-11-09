@@ -1678,3 +1678,130 @@ html[data-text="large"] #conteudo {
     animation: none;
   }
 }
+
+/* Ala do mascote e lojinha */
+.shop {
+  display: grid;
+  gap: 16px;
+}
+.shop-stage {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  text-align: center;
+  align-content: start;
+}
+.shop-name-form {
+  width: 100%;
+  max-width: 320px;
+  text-align: left;
+}
+.shop-balance {
+  display: grid;
+  justify-items: center;
+  background: var(--card-2);
+  border-radius: 14px;
+  padding: 8px 20px;
+}
+.shop-balance strong {
+  font-size: 30px;
+  font-variant-numeric: tabular-nums;
+}
+.shop-try {
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+  width: 100%;
+  background: var(--info-soft);
+  border: 1px solid var(--sky);
+  border-radius: 14px;
+  padding: 12px;
+}
+.shop-confirm {
+  display: grid;
+  gap: 10px;
+}
+.shop-confirm:focus {
+  outline: none;
+}
+.shop-list {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+  min-width: 0;
+}
+.shop-tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.shop-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+}
+.shop-item {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 5px;
+  padding: 12px 10px;
+  background: var(--card);
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  text-align: center;
+}
+.shop-item:hover {
+  border-color: var(--mute);
+}
+.shop-item.wearing {
+  border-color: var(--lime);
+}
+.shop-item.trying {
+  border-color: var(--sky);
+  background: var(--info-soft);
+}
+.shop-item-name {
+  font-weight: 700;
+  font-size: 14.5px;
+  line-height: 1.25;
+}
+.shop-item-desc {
+  font-size: 13px;
+  color: var(--mute);
+  line-height: 1.3;
+}
+.account-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  min-height: 44px;
+}
+.account-label {
+  display: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--mute);
+}
+@media (min-width: 900px) {
+  .account-label {
+    display: inline;
+  }
+  .wrap > *:has(.shop) {
+    max-width: none;
+  }
+  .shop {
+    grid-template-columns: 320px minmax(0, 1fr);
+    align-items: start;
+  }
+  .shop-stage {
+    position: sticky;
+    top: 84px;
+  }
+}

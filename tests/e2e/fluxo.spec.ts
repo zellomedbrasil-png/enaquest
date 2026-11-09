@@ -201,6 +201,58 @@ test.describe.serial("aluno", () => {
     await expect(page.getByRole("heading", { name: "Média de XP por aluno ativo" })).toBeVisible();
   });
 
+  test("mascote: prova, troca XP por uma peça, veste e renomeia", async ({ page }) => {
+    const { id } = await signUp(page);
+    await db.rpc("award_xp", { p_user: id, p_amount: 500, p_kind: "teste", p_ref: `e2e-${Date.now()}` });
+
+    await page.goto("/app/mascote");
+    const balance = page.locator(".shop-balance strong");
+    await expect(balance).toHaveText("500");
+
+    // Provar não gasta nada.
+    await page.getByRole("button", { name: "Cabeça", exact: true }).click();
+    await page.getByRole("button", { name: /^Touca cirúrgica/ }).click();
+    await expect(page.getByText("Provando:")).toBeVisible();
+    await expect(balance).toHaveText("500");
+
+    // Comprar pede confirmação e diz que nível e liga não mudam.
+    await page.getByRole("button", { name: "Comprar por 200 XP" }).click();
+    await expect(page.getByText(/Seu nível e sua liga não mudam. Não há devolução/)).toBeVisible();
+    await page.getByRole("button", { name: "Confirmar troca" }).click();
+    await expect(page.getByText("Touca cirúrgica agora é seu")).toBeVisible();
+    await expect(balance).toHaveText("300");
+    await expect(page.getByRole("button", { name: /^Touca cirúrgica.*Vestindo/ })).toBeVisible();
+
+    // O XP ganho (nível) continua 500 e a compra fica gravada.
+    const { data: totals } = await db.from("rating_state").select("xp_total, xp_spent").eq("user_id", id).single();
+    expect(totals).toEqual({ xp_total: 500, xp_spent: 200 });
+
+    // Sem saldo: mostra quanto falta e o caminho para ganhar.
+    await page.getByRole("button", { name: "Mascotes", exact: true }).click();
+    await page.getByRole("button", { name: /^Dra. Sutura/ }).click();
+    await expect(page.getByText("Faltam 1200 XP")).toBeVisible();
+    await expect(page.getByRole("link", { name: "Ganhar XP no Plantão" })).toBeVisible();
+    await page.getByRole("button", { name: "Parar de provar", exact: true }).click();
+
+    // Item de mérito não tem botão de compra.
+    await page.getByRole("button", { name: "Cabeça", exact: true }).click();
+    await page.getByRole("button", { name: /^Coroa de Preceptor/ }).click();
+    await expect(page.getByText(/Este item não se compra/)).toBeVisible();
+    await page.getByRole("button", { name: "Parar de provar", exact: true }).click();
+
+    // Tirar a touca e renomear; tudo continua depois de recarregar.
+    await page.getByRole("button", { name: /^Touca cirúrgica/ }).click();
+    await expect(page.getByRole("button", { name: /^Touca cirúrgica.*É seu/ })).toBeVisible();
+    await page.getByRole("button", { name: "Mudar nome" }).click();
+    await page.getByLabel("Nome do mascote").fill("Dra. Lia");
+    await page.getByRole("button", { name: "Salvar" }).click();
+    await expect(page.getByRole("heading", { name: "Dra. Lia" })).toBeVisible();
+
+    await page.reload();
+    await expect(page.getByRole("heading", { name: "Dra. Lia" })).toBeVisible();
+    await expect(balance).toHaveText("300");
+  });
+
   test("entrar, sair e excluir a conta", async ({ page }) => {
     const { email, id } = await signUp(page);
     await page.goto("/app/conta");
