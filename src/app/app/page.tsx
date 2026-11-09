@@ -1,230 +1,228 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Emblem } from "@/components/Emblem";
-import { admin } from "@/lib/supabase/admin";
-import { PLACEMENT_GAMES, tierOf } from "@/lib/game/rating";
 import { Flame, ShieldDots } from "@/components/Flame";
-import { Banner } from "@/components/ui";
+import { Banner, LevelBar, PageHeader, StatusPill } from "@/components/ui";
+import { admin } from "@/lib/supabase/admin";
+import { buildJourney, journeyStage, type JourneyStep, type StepState } from "@/lib/game/journey";
 import { achievementProgress, closestAchievements } from "@/lib/game/progress";
+import { PLACEMENT_GAMES, tierOf } from "@/lib/game/rating";
 import { displayedStreak, MAX_SHIELDS, todayBR } from "@/lib/game/streak";
-import { getDailyBoard, getDailyState } from "@/lib/server/daily";
+import { levelOf } from "@/lib/game/xp";
+import { getDailyState } from "@/lib/server/daily";
 import { lifetimeStats, todayMissions, weekActivity } from "@/lib/server/progress";
 import { getProfile, isPremium, requireUser } from "@/lib/server/session";
 
 export const metadata: Metadata = { title: "Hoje" };
 
 const WEEKDAY = ["D", "S", "T", "Q", "Q", "S", "S"];
+const STATE_LABEL: Record<StepState, { text: string; tone: "ok" | "today" | "pend" | "muted" }> = {
+  done: { text: "Feito", tone: "ok" },
+  now: { text: "Agora", tone: "today" },
+  next: { text: "Depois", tone: "muted" },
+  locked: { text: "Trancado", tone: "muted" },
+};
+
+function Step({ step, index }: { step: JourneyStep; index: number }) {
+  const label = STATE_LABEL[step.state];
+  const body = (
+    <>
+      <span className="step-num" aria-hidden>
+        {step.state === "done" ? "✓" : index + 1}
+      </span>
+      <span style={{ minWidth: 0 }}>
+        <h3>{step.title}</h3>
+        <p>{step.detail}</p>
+      </span>
+      <StatusPill tone={label.tone}>{label.text}</StatusPill>
+    </>
+  );
+  const className = `step ${step.state}`;
+  return <li>{step.href && step.state !== "locked" ? <Link href={step.href} className={className}>{body}</Link> : <div className={className}>{body}</div>}</li>;
+}
 
 export default async function TodayPage() {
   const user = await requireUser();
   const day = todayBR();
-  const [profile, premium, daily, board, missions, rating, due, streak, week, stats, owned] = await Promise.all([
+  const [profile, premium, daily, missions, rating, due, streak, week, stats, owned, answeredCount] = await Promise.all([
     getProfile(user.id),
     isPremium(user.id),
     getDailyState(user.id, day),
-    getDailyBoard(user.id, day),
     todayMissions(user.id),
-    admin().from("rating_state").select("rating, games, peak").eq("user_id", user.id).single(),
+    admin().from("rating_state").select("rating, games, xp_total").eq("user_id", user.id).single(),
     admin().from("srs_cards").select("question_id", { count: "exact", head: true }).eq("user_id", user.id).lte("due", new Date().toISOString()),
     admin().from("streaks").select("current, best, last_active, shields").eq("user_id", user.id).single(),
     weekActivity(user.id),
     lifetimeStats(user.id),
     admin().from("achievements").select("achievement_id").eq("user_id", user.id),
+    admin().from("answers").select("id", { count: "exact", head: true }).eq("user_id", user.id),
   ]);
+
+  const stage = journeyStage({ answered: answeredCount.count ?? 0, ratedGames: rating.data.games });
+  const answered = Object.keys(daily.answered).length;
+  const hits = Object.values(daily.answered).filter((a) => a.correct).length;
+  const extra = missions.filter((m) => m.id !== "m_daily");
+  const journey = buildJourney({
+    premium,
+    dailyTotal: daily.questions.length,
+    dailyAnswered: answered,
+    dailyHits: hits,
+    dueReviews: due.count ?? 0,
+    extraMissionsDone: extra.filter((m) => m.done).length,
+    extraMissionsTotal: extra.length,
+    nextMissionText: extra.find((m) => !m.done)?.text ?? null,
+  });
 
   const shownStreak = displayedStreak(streak.data, day);
   const activeToday = streak.data.last_active === day;
-  const nearAchievements = closestAchievements(
-    achievementProgress(stats, new Set((owned.data ?? []).map((a: { achievement_id: string }) => a.achievement_id))),
-    3,
-  );
-
   const value = Number(rating.data.rating);
-  const inPlacement = rating.data.games < PLACEMENT_GAMES;
-  const { tier, next } = tierOf(value);
-  const answered = Object.keys(daily.answered).length;
-  const hits = Object.values(daily.answered).filter((a) => a.correct).length;
+  const { tier, next: nextTier } = tierOf(value);
+  const level = levelOf(rating.data.xp_total);
+  const nextAchievement = closestAchievements(
+    achievementProgress(stats, new Set((owned.data ?? []).map((a: { achievement_id: string }) => a.achievement_id))),
+    1,
+  )[0];
+
+  const lead =
+    stage === "novo"
+      ? "Vamos começar. Siga os passos abaixo, um de cada vez."
+      : journey.next.allDone
+        ? "Você fechou o dia. Sua sequência está garantida."
+        : `Faltam ${journey.remaining} ${journey.remaining === 1 ? "passo" : "passos"} para fechar o dia.`;
 
   return (
-    <div style={{ display: "grid", gap: 14 }}>
-      <div>
-        <p className="muted" style={{ fontSize: 14 }}>
-          Bom plantão, {profile.nickname}
-        </p>
+    <div className="two-col">
+      <div className="stack">
+        <PageHeader title={`Bom plantão, ${profile.nickname}`} lead={lead} />
+
+        <Banner
+          tone={journey.next.allDone ? "done" : "today"}
+          title={journey.next.title}
+          text={journey.next.text}
+          action={
+            journey.next.cta && journey.next.href ? (
+              <Link href={journey.next.href} className={journey.next.allDone ? "btn btn-ghost" : "btn btn-dark"}>
+                {journey.next.cta}
+              </Link>
+            ) : undefined
+          }
+        />
+
+        <section aria-labelledby="jornada">
+          <h2 id="jornada" style={{ fontSize: 20, marginBottom: 10 }}>
+            Sua jornada de hoje
+          </h2>
+          <ol className="journey">
+            {journey.steps.map((step, i) => (
+              <Step key={step.id} step={step} index={i} />
+            ))}
+          </ol>
+        </section>
+
+        {!premium && (
+          <p className="muted" style={{ fontSize: 14.5 }}>
+            Quer estudar além do Plantão? Revisão, Treino e Simulados fazem parte da assinatura. <Link href="/planos">Ver assinatura</Link>.
+          </p>
+        )}
       </div>
 
-      {daily.questions.length === 0 ? (
-        <Banner
-          tone="info"
-          title="O plantão de hoje ainda não foi escalado"
-          text="Ainda não há questões publicadas. Assim que o primeiro lote for aprovado, elas aparecem aqui."
-        />
-      ) : daily.done ? (
-        <Banner
-          tone="done"
-          title={`Hoje está feito: ${hits}/${daily.questions.length}`}
-          text={
-            board.percentile !== null
-              ? `Você foi melhor que ${board.percentile}% de quem já fez hoje.`
-              : "Volte amanhã para manter a sequência. Novas questões à meia-noite."
-          }
-          action={
-            <Link href="/app/plantao" className="btn btn-ghost">
-              Rever questões
-            </Link>
-          }
-        />
-      ) : (
-        <Banner
-          tone="today"
-          title={answered ? `Faltam ${daily.questions.length - answered} questões` : "Plantão de hoje liberado"}
-          text={answered ? "Continue de onde parou." : `${daily.questions.length} questões comentadas, as mesmas para todo mundo.`}
-          action={
-            <Link href="/app/plantao" className="btn btn-dark">
-              {answered ? "Continuar" : "Abrir"}
-            </Link>
-          }
-        />
-      )}
+      <aside className="aside" aria-labelledby="progresso">
+        <h2 id="progresso" style={{ fontSize: 20 }}>
+          Seu progresso
+        </h2>
 
-      <section className="card">
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-            <Flame lit={activeToday && shownStreak > 0} size={38} />
-            <div>
-              <div className="display" style={{ fontSize: 28 }}>
-                {shownStreak} {shownStreak === 1 ? "dia seguido" : "dias seguidos"}
+        {stage === "novo" ? (
+          <section className="card">
+            <p>
+              Responda sua primeira questão para acender a chama da sequência, ganhar XP e começar a subir de nível.
+            </p>
+            <p className="dim" style={{ marginTop: 8, fontSize: 14.5 }}>
+              Suas 20 primeiras questões calibram seu rating. Errar no começo quase não tira pontos.
+            </p>
+          </section>
+        ) : (
+          <>
+            <section className="card" aria-label="Sequência">
+              <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                <Flame lit={activeToday && shownStreak > 0} size={34} />
+                <div>
+                  <div className="display" style={{ fontSize: 24 }}>
+                    {shownStreak} {shownStreak === 1 ? "dia seguido" : "dias seguidos"}
+                  </div>
+                  <p className="muted" style={{ fontSize: 14 }}>
+                    {activeToday ? "Garantida hoje." : shownStreak > 0 ? "Responda uma questão hoje para manter." : "Responda uma questão para acender."}
+                  </p>
+                </div>
               </div>
-              <p className="muted" style={{ fontSize: 13.5 }}>
-                {activeToday ? "Sequência garantida hoje." : shownStreak > 0 ? "Responda uma questão hoje para mantê-la." : "Responda uma questão para acender a chama."}
+              <ul className="week-dots" style={{ marginTop: 12 }} aria-label="Atividade dos últimos 7 dias">
+                {week.map((item) => (
+                  <li key={item.day} className={`${item.active ? "on" : ""} ${item.day === day ? "today" : ""}`}>
+                    <i aria-hidden>{item.active ? "✓" : ""}</i>
+                    <span className="sr-only">{item.active ? "Estudou em " : "Sem estudo em "}</span>
+                    {WEEKDAY[new Date(`${item.day}T12:00:00Z`).getUTCDay()]}
+                  </li>
+                ))}
+              </ul>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10, marginTop: 12 }}>
+                <span className="muted" style={{ fontSize: 14 }}>
+                  Trocas de plantão
+                </span>
+                <ShieldDots count={streak.data.shields} max={MAX_SHIELDS} />
+              </div>
+              <p className="dim" style={{ fontSize: 13.5, marginTop: 2 }}>
+                Cobrem um dia sem estudo. Você ganha uma a cada 7 dias seguidos.
               </p>
-            </div>
-          </div>
-          <div style={{ textAlign: "right" }}>
-            <p className="eyebrow" style={{ marginBottom: 2 }}>
-              Trocas de plantão
-            </p>
-            <ShieldDots count={streak.data.shields} max={MAX_SHIELDS} />
-            <p className="dim" style={{ fontSize: 12.5 }}>
-              Ganhe uma a cada 7 dias
-            </p>
-          </div>
-        </div>
-        <ul className="week-dots" style={{ marginTop: 12 }} aria-label="Atividade dos últimos 7 dias">
-          {week.map((item) => (
-            <li key={item.day} className={`${item.active ? "on" : ""} ${item.day === day ? "today" : ""}`}>
-              <i aria-label={item.active ? "Estudou" : "Sem estudo"} role="img" />
-              {WEEKDAY[new Date(`${item.day}T12:00:00Z`).getUTCDay()]}
-            </li>
-          ))}
-        </ul>
-      </section>
+            </section>
 
-      <div className="grid-2">
-        <section className="card" style={{ display: "flex", gap: 14, alignItems: "center" }}>
-          <Emblem rating={value} placement={inPlacement} size={58} />
-          <div>
-            <p className="eyebrow">{inPlacement ? "Nivelamento" : "Sua patente"}</p>
-            <div className="display" style={{ fontSize: 22 }}>
-              {inPlacement ? `Faltam ${PLACEMENT_GAMES - rating.data.games} questões` : tier.name}
-            </div>
-            {!inPlacement && (
-              <p className="muted" style={{ fontSize: 14 }}>
-                Rating {Math.round(value)}
-                {next ? `. Faltam ${Math.ceil(next.min - value)} para ${next.name}` : ""}
+            <section className="card" aria-label="Nível e patente" style={{ display: "grid", gap: 14 }}>
+              <LevelBar
+                label={`Nível: ${level.current.name}`}
+                value={`${rating.data.xp_total} XP`}
+                progress={level.progress}
+              />
+              {level.next && (
+                <p className="dim" style={{ fontSize: 13.5, marginTop: -6 }}>
+                  Faltam {level.toNext} XP para {level.next.name}. XP vem de responder, revisar e marcar o motivo dos erros.
+                </p>
+              )}
+              {stage === "nivelamento" ? (
+                <div>
+                  <p className="eyebrow">Nivelamento</p>
+                  <LevelBar label="Questões de calibragem" value={`${rating.data.games} de ${PLACEMENT_GAMES}`} progress={rating.data.games / PLACEMENT_GAMES} />
+                  <p className="dim" style={{ fontSize: 13.5, marginTop: 6 }}>
+                    Ao terminar, você recebe sua patente. Até lá, errar tira poucos pontos.
+                  </p>
+                </div>
+              ) : (
+                <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
+                  <Emblem rating={value} size={46} />
+                  <div>
+                    <p className="eyebrow">Sua patente</p>
+                    <div className="display" style={{ fontSize: 20 }}>
+                      {tier.name}
+                    </div>
+                    <p className="muted" style={{ fontSize: 14 }}>
+                      Rating {Math.round(value)}
+                      {nextTier ? `. Faltam ${Math.ceil(nextTier.min - value)} para ${nextTier.name}.` : ""}
+                    </p>
+                  </div>
+                </div>
+              )}
+            </section>
+
+            {nextAchievement && (
+              <p className="muted" style={{ fontSize: 14.5 }}>
+                Próxima conquista: <strong>{nextAchievement.name}</strong>, {nextAchievement.current} de {nextAchievement.goal}.{" "}
+                <Link href="/app/evolucao">Ver conquistas</Link>
               </p>
             )}
-          </div>
-        </section>
+          </>
+        )}
 
-        <section className="card">
-          <p className="eyebrow" style={{ marginBottom: 8 }}>
-            Missões de hoje
-          </p>
-          <ul style={{ display: "grid", gap: 7 }}>
-            {missions.map((mission) => (
-              <li key={mission.id} style={{ display: "flex", justifyContent: "space-between", gap: 8, fontSize: 14.5 }}>
-                <span style={mission.done ? { textDecoration: "line-through", color: "var(--dim)" } : undefined}>
-                  {mission.done ? "✓ " : ""}
-                  {mission.text}
-                </span>
-                <span className="muted" style={{ fontVariantNumeric: "tabular-nums" }}>
-                  {mission.current}/{mission.goal}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </section>
-      </div>
-
-      {nearAchievements.length > 0 && (
-        <section className="card">
-          <p className="eyebrow" style={{ marginBottom: 8 }}>
-            Conquistas perto de sair
-          </p>
-          <ul style={{ display: "grid", gap: 12 }}>
-            {nearAchievements.map((achievement) => (
-              <li key={achievement.id}>
-                <div style={{ display: "flex", justifyContent: "space-between", gap: 8, fontSize: 14.5 }}>
-                  <span>
-                    <strong>{achievement.name}</strong> <span className="dim">· {achievement.description}</span>
-                  </span>
-                  <span className="muted" style={{ fontVariantNumeric: "tabular-nums", whiteSpace: "nowrap" }}>
-                    {achievement.current}/{achievement.goal}
-                  </span>
-                </div>
-                <div className="bar achv-bar" role="progressbar" aria-label={achievement.name} aria-valuenow={Math.round(achievement.pct * 100)} aria-valuemin={0} aria-valuemax={100}>
-                  <i style={{ width: `${achievement.pct * 100}%` }} />
-                </div>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
-
-      {(due.count ?? 0) > 0 && (
-        <Link href="/app/revisao" className="card" style={{ textDecoration: "none", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10 }}>
-          <div>
-            <p className="eyebrow">Revisão</p>
-            <strong>{due.count} questões voltaram para você hoje</strong>
-          </div>
-          <span aria-hidden>→</span>
-        </Link>
-      )}
-
-      {!premium && (
-        <section className="card">
-          <h2 style={{ fontSize: 20 }}>Quer ir além do plantão?</h2>
-          <p className="muted" style={{ margin: "6px 0 12px", fontSize: 15 }}>
-            Treino por área, revisão espaçada, simulados e Termômetro de Proficiência por R$ 29 por mês.
-          </p>
-          <Link href="/planos" className="btn btn-ghost">
-            Ver assinatura
-          </Link>
-        </section>
-      )}
-
-      {board.rows.length > 0 && (
-        <section className="card">
-          <p className="eyebrow" style={{ marginBottom: 6 }}>
-            Ranking de hoje · {board.total} {board.total === 1 ? "pessoa concluiu" : "pessoas concluíram"}
-          </p>
-          <div className="rows" style={{ gap: 2 }}>
-            {board.rows.slice(0, 10).map((row, i) => (
-              <div key={row.nickname} className={`row-board ${row.me ? "me" : ""}`}>
-                <span className="display">{i + 1}</span>
-                <span style={{ minWidth: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
-                  {row.nickname}
-                  {row.school && <span className="dim"> · {row.school}</span>}
-                </span>
-                <span style={{ fontVariantNumeric: "tabular-nums" }}>
-                  {row.correct}/{daily.questions.length} · {row.minutes} min
-                </span>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
+        <p style={{ fontSize: 14.5 }}>
+          <Link href="/app/como-funciona">Como funciona o EnaQuest</Link>
+        </p>
+      </aside>
     </div>
   );
 }

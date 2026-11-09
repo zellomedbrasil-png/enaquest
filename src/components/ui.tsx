@@ -86,7 +86,7 @@ export function AreaTag({ children, color }: { children: ReactNode; color: strin
   );
 }
 
-export function StatusPill({ tone, children }: { tone: "pend" | "late" | "today" | "ok" | "bad"; children: ReactNode }) {
+export function StatusPill({ tone, children }: { tone: "pend" | "late" | "today" | "ok" | "bad" | "muted"; children: ReactNode }) {
   return <span className={`status status-${tone}`}>{children}</span>;
 }
 

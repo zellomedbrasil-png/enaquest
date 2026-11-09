@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { createGroupAction, joinGroupAction, leaveGroupAction } from "@/app/actions";
+import { PageHeader } from "@/components/ui";
+import { todayBR } from "@/lib/game/streak";
+import { DAILY_SIZE, getDailyBoard } from "@/lib/server/daily";
 import { getLeagueView, type BoardRow } from "@/lib/server/leagues";
 import { getProfile, requireUser } from "@/lib/server/session";
 
@@ -29,14 +32,36 @@ function Board({ rows, promoteUntil = 0, demoteFrom = null }: { rows: BoardRow[]
 
 export default async function LeaguesPage() {
   const user = await requireUser();
-  const [view, profile] = await Promise.all([getLeagueView(user.id), getProfile(user.id)]);
+  const [view, profile, board] = await Promise.all([getLeagueView(user.id), getProfile(user.id), getDailyBoard(user.id, todayBR())]);
 
   return (
     <div style={{ display: "grid", gap: 14 }}>
-      <div>
-        <h1 style={{ fontSize: 26 }}>Ligas</h1>
-        <p className="muted">Toda semana recomeça. O XP de segunda a domingo define quem sobe e quem desce.</p>
-      </div>
+      <PageHeader title="Ligas" lead="Ganhe XP de segunda a domingo para subir de liga. Toda semana recomeça do zero." />
+
+      {board.rows.length > 0 && (
+        <section className="card" aria-labelledby="ranking-dia">
+          <h2 id="ranking-dia" style={{ fontSize: 18, marginBottom: 2 }}>
+            Ranking do Plantão de hoje
+          </h2>
+          <p className="muted" style={{ fontSize: 14, marginBottom: 8 }}>
+            {board.total} {board.total === 1 ? "pessoa concluiu" : "pessoas concluíram"}. Vale quem acerta mais e, no empate, quem faz mais rápido.
+          </p>
+          <div className="rows" style={{ gap: 2 }}>
+            {board.rows.slice(0, 10).map((row, i) => (
+              <div key={row.nickname} className={`row-board ${row.me ? "me" : ""}`}>
+                <span className="display">{i + 1}</span>
+                <span style={{ minWidth: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                  {row.nickname}
+                  {row.school && <span className="dim"> · {row.school}</span>}
+                </span>
+                <span style={{ fontVariantNumeric: "tabular-nums" }}>
+                  {row.correct}/{DAILY_SIZE} · {row.minutes} min
+                </span>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section className="card">
         <p className="eyebrow">Sua liga</p>
