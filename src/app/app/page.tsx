@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Emblem } from "@/components/Emblem";
 import { Flame, ShieldDots } from "@/components/Flame";
+import { MyMascot } from "@/components/MyMascot";
 import { Banner, LevelBar, PageHeader, StatusPill } from "@/components/ui";
 import { admin } from "@/lib/supabase/admin";
 import { buildJourney, journeyStage, type JourneyStep, type StepState } from "@/lib/game/journey";
@@ -10,6 +11,7 @@ import { PLACEMENT_GAMES, tierOf } from "@/lib/game/rating";
 import { displayedStreak, MAX_SHIELDS, todayBR } from "@/lib/game/streak";
 import { levelOf } from "@/lib/game/xp";
 import { getDailyState } from "@/lib/server/daily";
+import { getMascotForPage } from "@/lib/server/mascot";
 import { lifetimeStats, todayMissions, weekActivity } from "@/lib/server/progress";
 import { getProfile, isPremium, requireUser } from "@/lib/server/session";
 
@@ -44,7 +46,7 @@ function Step({ step, index }: { step: JourneyStep; index: number }) {
 export default async function TodayPage() {
   const user = await requireUser();
   const day = todayBR();
-  const [profile, premium, daily, missions, rating, due, streak, week, stats, owned, answeredCount] = await Promise.all([
+  const [profile, premium, daily, missions, rating, due, streak, week, stats, owned, answeredCount, mascot] = await Promise.all([
     getProfile(user.id),
     isPremium(user.id),
     getDailyState(user.id, day),
@@ -56,6 +58,7 @@ export default async function TodayPage() {
     lifetimeStats(user.id),
     admin().from("achievements").select("achievement_id").eq("user_id", user.id),
     admin().from("answers").select("id", { count: "exact", head: true }).eq("user_id", user.id),
+    getMascotForPage(user.id),
   ]);
 
   const stage = journeyStage({ answered: answeredCount.count ?? 0, ratedGames: rating.data.games });
@@ -83,6 +86,9 @@ export default async function TodayPage() {
     1,
   )[0];
 
+  // O mascote reage ao dia: feliz com tudo feito, preocupado com a sequência em risco.
+  const mood = journey.next.allDone ? "feliz" : !activeToday && shownStreak > 0 ? "preocupado" : "neutro";
+
   const lead =
     stage === "novo"
       ? "Vamos começar. Siga os passos abaixo, um de cada vez."
@@ -99,6 +105,7 @@ export default async function TodayPage() {
           tone={journey.next.allDone ? "done" : "today"}
           title={journey.next.title}
           text={journey.next.text}
+          media={<MyMascot mood={mood} size={78} />}
           action={
             journey.next.cta && journey.next.href ? (
               <Link href={journey.next.href} className={journey.next.allDone ? "btn btn-ghost" : "btn btn-dark"}>
@@ -218,6 +225,15 @@ export default async function TodayPage() {
             )}
           </>
         )}
+
+        <Link href="/app/mascote" className="card mascot-card">
+          <MyMascot mood={mood} size={72} background />
+          <span>
+            <strong>{mascot.name}</strong>
+            <span className="muted">{mascot.balance} XP para gastar. Abrir a lojinha do mascote.</span>
+          </span>
+          <span aria-hidden>→</span>
+        </Link>
 
         <p style={{ fontSize: 14.5 }}>
           <Link href="/app/como-funciona">Como funciona o EnaQuest</Link>

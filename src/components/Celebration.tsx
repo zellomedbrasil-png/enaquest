@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Confetti } from "./Confetti";
 import { Emblem } from "./Emblem";
+import { MyMascot } from "./MyMascot";
 
 export type CelebrationItem =
   | { kind: "tier"; name: string; rating: number }
@@ -51,8 +52,8 @@ export function Celebration({ items, onClose }: { items: CelebrationItem[]; onCl
             <Emblem rating={item.rating} size={104} />
           </div>
         ) : (
-          <div className="celebrate-level display" aria-hidden>
-            ★
+          <div className="celebrate-emblem">
+            <MyMascot mood="comemorando" size={132} background />
           </div>
         )}
         <h2 id="celebrate-title" style={{ fontSize: 34, margin: "8px 0 4px" }}>

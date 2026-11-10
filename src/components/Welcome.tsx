@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { MyMascot } from "./MyMascot";
 import { ProfileForm } from "./ProfileForms";
 
 const STEPS = [
@@ -55,6 +56,10 @@ export function Welcome({
       </div>
       <div className="bar level" style={{ margin: "8px 0 16px" }} role="progressbar" aria-valuenow={step + 1} aria-valuemin={1} aria-valuemax={STEPS.length + 1} aria-label="Passos de boas-vindas">
         <i style={{ width: `${((step + 1) / (STEPS.length + 1)) * 100}%` }} />
+      </div>
+
+      <div style={{ display: "grid", justifyItems: "center", marginBottom: 8 }}>
+        <MyMascot mood={last ? "comemorando" : "feliz"} size={120} background />
       </div>
 
       {!last ? (

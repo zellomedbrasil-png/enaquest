@@ -95,6 +95,14 @@ export default function HowItWorksPage() {
             </dt>
             <dd className="muted">Questões que você errou ou acertou sem certeza, de volta na hora certa. É o que mais ajuda a fixar.</dd>
           </div>
+          <div id="mascote">
+            <dt>
+              <strong>Mascote e lojinha</strong>
+            </dt>
+            <dd className="muted">
+              Seu mascote acompanha o seu dia. Na lojinha você troca XP por roupas, acessórios e outros personagens. Trocar XP não baixa seu nível nem sua posição na liga, e nenhum item muda seu desempenho.
+            </dd>
+          </div>
           <div id="confianca">
             <dt>
               <strong>Confiança</strong>

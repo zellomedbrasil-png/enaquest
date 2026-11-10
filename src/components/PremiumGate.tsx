@@ -1,8 +1,12 @@
 import Link from "next/link";
+import { MyMascot } from "./MyMascot";
 
 export function PremiumGate({ title, text }: { title: string; text: string }) {
   return (
     <div className="card" style={{ textAlign: "center" }}>
+      <div style={{ display: "grid", justifyItems: "center", marginBottom: 6 }}>
+        <MyMascot mood="neutro" size={104} background />
+      </div>
       <p className="eyebrow">Assinatura</p>
       <h1 style={{ fontSize: 26, margin: "6px 0" }}>{title}</h1>
       <p className="muted" style={{ marginBottom: 14 }}>

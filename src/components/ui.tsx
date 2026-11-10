@@ -17,15 +17,19 @@ export function Banner({
   text,
   action,
   counter,
+  media,
 }: {
   tone: "danger" | "today" | "done" | "info";
   title: ReactNode;
   text?: ReactNode;
   action?: ReactNode;
   counter?: { value: number | string; unit: string };
+  /** Ilustração à esquerda do texto (o mascote, por exemplo). */
+  media?: ReactNode;
 }) {
   return (
     <div className={`banner banner-${tone}`}>
+      {media && <div className="banner-media">{media}</div>}
       <div style={{ minWidth: 0, flex: 1 }}>
         <div className="banner-title">{title}</div>
         {text && <div className="banner-text">{text}</div>}

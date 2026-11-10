@@ -241,7 +241,6 @@ export function MascotShop({ initial }: { initial: MascotView }) {
                   type="button"
                   className={`shop-item ${wearing ? "wearing" : ""} ${isTrying ? "trying" : ""}`}
                   aria-pressed={wearing || isTrying}
-                  aria-label={`${item.name}. ${item.description} ${badge}. Toque para ${action}.`}
                   onClick={() => pick(item)}
                 >
                   <Mascot look={withItem(view.look, item.slot, item.id)} mood="feliz" size={92} decorative />
@@ -250,6 +249,7 @@ export function MascotShop({ initial }: { initial: MascotView }) {
                   <span className={`status ${status === "owned" ? (wearing ? "status-today" : "status-ok") : status === "can_buy" ? "status-muted" : "status-pend"}`}>
                     {badge}
                   </span>
+                  <span className="sr-only">. Toque para {action}.</span>
                 </button>
               </li>
             );

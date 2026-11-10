@@ -3,17 +3,20 @@ import { AppNav } from "@/components/AppNav";
 import { Emblem } from "@/components/Emblem";
 import { admin } from "@/lib/supabase/admin";
 import { PLACEMENT_GAMES, tierOf } from "@/lib/game/rating";
+import { MascotProvider } from "@/components/MyMascot";
 import { TopStats } from "@/components/TopStats";
+import { getMascotForPage } from "@/lib/server/mascot";
 import { displayedStreak, todayBR } from "@/lib/game/streak";
 import { getEntitlement, getProfile, requireUser } from "@/lib/server/session";
 
 export default async function AppLayout({ children }: { children: React.ReactNode }) {
   const user = await requireUser();
-  const [profile, entitlement, rating, streak] = await Promise.all([
+  const [profile, entitlement, rating, streak, mascot] = await Promise.all([
     getProfile(user.id),
     getEntitlement(user.id),
     admin().from("rating_state").select("rating, xp_total, games").eq("user_id", user.id).single(),
     admin().from("streaks").select("current, best, last_active, shields").eq("user_id", user.id).single(),
+    getMascotForPage(user.id),
   ]);
   const inPlacement = rating.data.games < PLACEMENT_GAMES;
   const tier = tierOf(Number(rating.data.rating));
@@ -53,7 +56,9 @@ export default async function AppLayout({ children }: { children: React.ReactNod
         </div>
       )}
       <main id="conteudo" className="wrap" tabIndex={-1}>
-        {children}
+        <MascotProvider look={mascot.look} name={mascot.name}>
+          {children}
+        </MascotProvider>
       </main>
       </div>
       </div>

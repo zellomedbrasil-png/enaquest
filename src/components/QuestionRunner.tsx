@@ -16,6 +16,7 @@ import { Coach } from "./Coach";
 import { ComboMeter, COMBO_MILESTONES } from "./ComboMeter";
 import { Confetti } from "./Confetti";
 import { useFeedbackPrefs } from "./FeedbackSettings";
+import { MyMascot } from "./MyMascot";
 import { ExamTables, OptionsList, QuestionHeader } from "./QuestionView";
 import { RevealPanel } from "./RevealPanel";
 import { PROGRESS_EVENT, type ProgressEventDetail } from "./TopStats";
@@ -229,7 +230,8 @@ export function QuestionRunner({
         {showing && <Celebration items={showing} onClose={() => setShowing(null)} />}
         {(celebrate || hits === list.length) && list.length >= 3 && <Confetti />}
         <p className="eyebrow">Rodada concluída</p>
-        <div style={{ display: "grid", justifyItems: "center", margin: "10px 0 8px" }}>
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 16, flexWrap: "wrap", margin: "10px 0 8px" }}>
+          <MyMascot mood={list.length > 0 && hits / list.length >= 0.8 ? "comemorando" : list.length > 0 && hits / list.length >= 0.5 ? "feliz" : "neutro"} size={112} background />
           <ScoreRing correct={hits} total={list.length} />
         </div>
         <h2 style={{ fontSize: 24 }}>{scoreMessage(hits, list.length).title}</h2>

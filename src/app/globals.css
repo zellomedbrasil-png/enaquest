@@ -1805,3 +1805,23 @@ html[data-text="large"] #conteudo {
     top: 84px;
   }
 }
+
+.banner-media {
+  flex: none;
+  margin: -6px 0 -10px -4px;
+}
+.mascot-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 12px;
+  align-items: center;
+  text-decoration: none;
+  padding: 12px 14px;
+}
+.mascot-card > span:nth-child(2) {
+  display: grid;
+  font-size: 14.5px;
+}
+.mascot-card:hover {
+  border-color: var(--mute);
+}
