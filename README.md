@@ -14,6 +14,12 @@ node scripts/dev-local.mjs dev
 
 Abra http://localhost:3000/entrar com a conta de demonstração que o segundo comando mostra. `dev-seed-demo` apaga o banco local e publica o piloto **sem revisão, só nesta máquina**.
 
+## Telas e identidade visual
+
+- `/guia-de-estilo`: página viva com paleta, tipografia, componentes e o mascote.
+- `/app/mascote`: guarda-roupa e lojinha. O XP vira saldo para trocar por roupas e personagens; gastar não muda nível nem liga.
+- `/app/como-funciona`: a jornada do dia e o glossário.
+
 ## Testes
 
 ```bash

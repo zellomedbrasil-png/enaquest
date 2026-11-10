@@ -58,4 +58,23 @@ test.describe.serial("acessibilidade", () => {
     await expect(page.getByText("Em 20 segundos")).toBeVisible();
     await scan(page, "questão respondida");
   });
+
+  test("tema claro e texto grande, sem violações sérias", async ({ page }) => {
+    await page.addInitScript(() => localStorage.setItem("enaquest:reading", JSON.stringify({ theme: "light", text: "large" })));
+    const { id } = await signUp(page);
+    await makePremium(id);
+    await page.goto("/app");
+    await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
+    await scan(page, "hoje, tema claro");
+    await page.goto("/app/mascote");
+    await scan(page, "mascote, tema claro");
+    await page.goto("/app/estudar");
+    await scan(page, "estudar, tema claro");
+    await page.goto("/app/plantao");
+    await expect(page.locator(".stem")).toBeVisible();
+    await scan(page, "questão, tema claro");
+    // Texto grande não pode criar rolagem lateral no celular.
+    const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 1);
+    expect(overflow).toBe(false);
+  });
 });

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PremiumGate } from "@/components/PremiumGate";
+import { EmptyState } from "@/components/EmptyState";
 import { PageHeader } from "@/components/ui";
 import { QuestionRunner } from "@/components/QuestionRunner";
 import { admin } from "@/lib/supabase/admin";
@@ -31,7 +32,18 @@ export default async function ReviewPage() {
 
       <section>
         <h2 style={{ fontSize: 20, marginBottom: 8 }}>Caderno de erros</h2>
-        {notebook.length === 0 && <p className="muted">Nenhum erro ainda. Faça o Plantão do Dia e seus erros aparecem aqui, cada um vira uma chance de aprender.</p>}
+        {notebook.length === 0 && (
+          <EmptyState
+            title="Nenhum erro ainda"
+            action={
+              <Link href="/app/plantao" className="btn btn-primary">
+                Fazer o Plantão do Dia
+              </Link>
+            }
+          >
+            Faça o Plantão do Dia e seus erros aparecem aqui. Cada um vira uma chance de aprender.
+          </EmptyState>
+        )}
         <div style={{ display: "grid", gap: 8 }}>
           {notebook.map((entry) => (
             <Link key={entry.questionId} href={`/app/questao/${entry.slug}`} className="card" style={{ textDecoration: "none", padding: 12 }}>

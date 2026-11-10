@@ -2,6 +2,8 @@
 
 Escrito em 09/11/2026, a partir da leitura do código atual (`src/lib/game`, `src/lib/server`, telas em `src/app/app`).
 
+> **Situação em 10/11/2026:** a Fase 1 está pronta, e a jornada do estudante (ver plano de jornada) e o mascote com lojinha de XP também. As Fases 2 a 5 deste documento seguem como roteiro; o item 2.1 (missões com recompensa) continua pendente.
+
 ## 1. Onde o projeto está
 
 O EnaQuest já tem a base de um jogo sério. O que falta é fazer o jogador **sentir** o que o sistema já calcula.

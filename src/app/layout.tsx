@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Inter } from "next/font/google";
+import Script from "next/script";
 import { RegisterServiceWorker } from "@/components/RegisterServiceWorker";
 import { READING_SCRIPT } from "@/lib/ui/reading";
 import "./globals.css";
@@ -24,10 +25,8 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR" className={`${display.variable} ${body.variable}`} suppressHydrationWarning>
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: READING_SCRIPT }} />
-      </head>
       <body>
+        <Script id="leitura" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html: READING_SCRIPT }} />
         {children}
         <RegisterServiceWorker />
       </body>

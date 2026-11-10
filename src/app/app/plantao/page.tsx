@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { EmptyState } from "@/components/EmptyState";
 import { PageHeader } from "@/components/ui";
 import { QuestionRunner } from "@/components/QuestionRunner";
 import { admin } from "@/lib/supabase/admin";
@@ -17,12 +18,16 @@ export default async function DailyPage() {
 
   if (!daily.questions.length) {
     return (
-      <div className="card" style={{ textAlign: "center" }}>
-        <p>O plantão de hoje ainda não tem questões publicadas.</p>
-        <Link href="/app" className="btn btn-ghost" style={{ marginTop: 10 }}>
-          Voltar
-        </Link>
-      </div>
+      <EmptyState
+        title="O plantão de hoje ainda não foi escalado"
+        action={
+          <Link href="/app" className="btn btn-ghost">
+            Voltar para Hoje
+          </Link>
+        }
+      >
+        Ainda não há questões publicadas. Assim que o primeiro lote for aprovado, elas aparecem aqui.
+      </EmptyState>
     );
   }
 

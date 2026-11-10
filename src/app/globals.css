@@ -19,6 +19,8 @@
 
   /* Destaques */
   --lime: #c8f542;
+  /* Lima para texto: no tema claro precisa ser escuro para ter contraste. */
+  --lime-ink: #c8f542;
   --coral: #ff6b5b;
   --sky: #5bc0ff;
   --gold: #ffd84d;
@@ -62,6 +64,7 @@
 
 /* Variante clara, só se alguém pedir com data-theme="light". */
 :root[data-theme="light"] {
+  --lime-ink: #455a00;
   --bg: #f4f5fb;
   --bg-2: #eceef8;
   --card: #ffffff;
@@ -211,7 +214,7 @@ button {
 }
 .btn-dark {
   background: #12160a;
-  color: var(--lime);
+  color: #c8f542;
 }
 .btn-ghost {
   background: var(--card-2);
@@ -1150,7 +1153,7 @@ button {
 }
 .status-today {
   background: rgba(200, 245, 66, 0.15);
-  color: var(--lime);
+  color: var(--lime-ink);
 }
 .status-ok {
   background: rgba(61, 220, 151, 0.15);
@@ -1371,7 +1374,7 @@ button {
   display: grid;
   place-items: center;
   background: var(--card-2);
-  color: var(--lime);
+  color: var(--lime-ink);
 }
 .choice .ico svg {
   width: 22px;
@@ -1824,4 +1827,21 @@ html[data-text="large"] #conteudo {
 }
 .mascot-card:hover {
   border-color: var(--mute);
+}
+
+/* Tema claro: tons mais escuros nos rótulos coloridos, para manter o contraste */
+:root[data-theme="light"] .status-pend {
+  color: #a62a1c;
+}
+
+.empty-state {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+@media (max-width: 480px) {
+  .empty-state {
+    flex-direction: column;
+    text-align: center;
+  }
 }

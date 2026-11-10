@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PremiumGate } from "@/components/PremiumGate";
+import { EmptyState } from "@/components/EmptyState";
 import { PageHeader } from "@/components/ui";
 import { listSimulados } from "@/lib/server/simulados";
 import { isPremium, requireUser } from "@/lib/server/session";
@@ -19,9 +20,9 @@ export default async function SimuladosPage() {
     <div style={{ display: "grid", gap: 12 }}>
       <PageHeader title="Simulados" lead="Faça uma prova completa com tempo, como no dia, e compare seu resultado com a turma." />
       {simulados.length === 0 && (
-        <div className="card">
-          <p className="muted">O primeiro Simulado Nacional será anunciado aqui. Ele usa a proporção por área medida na prova real.</p>
-        </div>
+        <EmptyState title="Nenhum simulado aberto agora">
+          O primeiro Simulado Nacional será anunciado aqui. Ele usa a proporção por área medida na prova real. Enquanto isso, faça o Plantão do Dia.
+        </EmptyState>
       )}
       {simulados.map((simulado) => {
         const open = simulado.isOpen;
