@@ -187,6 +187,8 @@ export function QuestionRunner({
       const target = event.target as HTMLElement;
       if (target.tagName === "TEXTAREA" || target.tagName === "INPUT" || target.tagName === "SELECT") return;
       if (!question || showing) return;
+      // Ctrl+A, Ctrl+C, Cmd+D e afins são do navegador, não escolhas de alternativa.
+      if (event.ctrlKey || event.metaKey || event.altKey) return;
       if (!result) {
         const position = "abcd".indexOf(event.key.toLowerCase());
         if (position >= 0 && position < question.options.length) setPicked(position);

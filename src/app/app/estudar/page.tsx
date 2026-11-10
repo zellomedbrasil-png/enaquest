@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHeader, StatusPill } from "@/components/ui";
-import { admin } from "@/lib/supabase/admin";
+import { countDueReviews } from "@/lib/server/study";
 import { isPremium, requireUser } from "@/lib/server/session";
 
 export const metadata: Metadata = { title: "Estudar" };
@@ -26,9 +26,9 @@ export default async function StudyPage() {
   const user = await requireUser();
   const [premium, due] = await Promise.all([
     isPremium(user.id),
-    admin().from("srs_cards").select("question_id", { count: "exact", head: true }).eq("user_id", user.id).lte("due", new Date().toISOString()),
+    countDueReviews(user.id),
   ]);
-  const pending = due.count ?? 0;
+  const pending = due;
 
   return (
     <div style={{ display: "grid", gap: 14 }}>

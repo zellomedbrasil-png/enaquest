@@ -83,9 +83,15 @@ export async function buyItem(userId: string, itemId: string): Promise<MascotVie
 
   // Compra feita: o item já entra no visual.
   const after = await getMascot(userId);
+  // Vestir é o de menos: se falhar, a compra continua valendo e a pessoa veste na lojinha.
   const look = sanitizeLook({ ...after.look, [item.slot]: item.id }, new Set(after.owned));
-  await saveLook(userId, look);
-  return { ...after, look };
+  try {
+    await saveLook(userId, look);
+    return { ...after, look };
+  } catch (error) {
+    console.error("mascote: compra feita, mas não foi possível vestir", error);
+    return after;
+  }
 }
 
 export async function renameMascot(userId: string, raw: string): Promise<string> {

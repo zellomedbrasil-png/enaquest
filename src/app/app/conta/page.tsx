@@ -12,7 +12,7 @@ import { formatDate } from "@/lib/ui/labels";
 
 export const metadata: Metadata = { title: "Conta" };
 
-export default async function AccountPage({ searchParams }: { searchParams: Promise<{ bemvindo?: string; erro?: string }> }) {
+export default async function AccountPage({ searchParams }: { searchParams: Promise<{ erro?: string }> }) {
   const params = await searchParams;
   const user = await requireUser();
   const db = admin();
@@ -28,11 +28,6 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
   return (
     <div style={{ display: "grid", gap: 14 }}>
       <PageHeader title="Sua conta" lead="Ajuste seu perfil, a leitura e a assinatura." />
-      {params.bemvindo && (
-        <div className="alert alert-ok" role="status">
-          Conta criada. Escolha um apelido e, se quiser, sua faculdade. Depois, é só ir para o <Link href="/app">Plantão do Dia</Link>.
-        </div>
-      )}
 
       <section className="card">
         <h2 style={{ fontSize: 18, marginBottom: 10 }}>Perfil</h2>

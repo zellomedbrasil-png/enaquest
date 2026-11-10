@@ -12,6 +12,7 @@ import { displayedStreak, MAX_SHIELDS, todayBR } from "@/lib/game/streak";
 import { levelOf } from "@/lib/game/xp";
 import { getDailyState } from "@/lib/server/daily";
 import { getMascotForPage } from "@/lib/server/mascot";
+import { countDueReviews } from "@/lib/server/study";
 import { lifetimeStats, todayMissions, weekActivity } from "@/lib/server/progress";
 import { getProfile, isPremium, requireUser } from "@/lib/server/session";
 
@@ -20,6 +21,7 @@ export const metadata: Metadata = { title: "Hoje" };
 const WEEKDAY = ["D", "S", "T", "Q", "Q", "S", "S"];
 const STATE_LABEL: Record<StepState, { text: string; tone: "ok" | "today" | "pend" | "muted" }> = {
   done: { text: "Feito", tone: "ok" },
+  clear: { text: "Em dia", tone: "ok" },
   now: { text: "Agora", tone: "today" },
   next: { text: "Depois", tone: "muted" },
   locked: { text: "Trancado", tone: "muted" },
@@ -52,7 +54,7 @@ export default async function TodayPage() {
     getDailyState(user.id, day),
     todayMissions(user.id),
     admin().from("rating_state").select("rating, games, xp_total").eq("user_id", user.id).single(),
-    admin().from("srs_cards").select("question_id", { count: "exact", head: true }).eq("user_id", user.id).lte("due", new Date().toISOString()),
+    countDueReviews(user.id),
     admin().from("streaks").select("current, best, last_active, shields").eq("user_id", user.id).single(),
     weekActivity(user.id),
     lifetimeStats(user.id),
@@ -70,10 +72,11 @@ export default async function TodayPage() {
     dailyTotal: daily.questions.length,
     dailyAnswered: answered,
     dailyHits: hits,
-    dueReviews: due.count ?? 0,
+    dueReviews: due,
     extraMissionsDone: extra.filter((m) => m.done).length,
     extraMissionsTotal: extra.length,
     nextMissionText: extra.find((m) => !m.done)?.text ?? null,
+    nextMissionHref: extra.find((m) => !m.done)?.id === "m_rev5" ? "/app/revisao" : "/app/treino",
   });
 
   const shownStreak = displayedStreak(streak.data, day);

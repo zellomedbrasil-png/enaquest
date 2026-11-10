@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 import { admin } from "@/lib/supabase/admin";
+import { safePath } from "@/lib/safe-path";
 import { createClient } from "@/lib/supabase/server";
 import { AppError, getProfile, requireEditor, requireUser } from "@/lib/server/session";
 import { todayMissions } from "@/lib/server/progress";
@@ -38,8 +39,7 @@ const credentials = z.object({ email: z.email(), password: z.string().min(8).max
 export type AuthState = { error?: string; notice?: string; email?: string };
 
 function safeNext(value: FormDataEntryValue | null): string {
-  const next = typeof value === "string" ? value : "";
-  return next.startsWith("/") && !next.startsWith("//") ? next : "/app";
+  return safePath(value);
 }
 
 export async function signIn(_: AuthState, form: FormData): Promise<AuthState> {
@@ -58,7 +58,7 @@ export async function signUp(_: AuthState, form: FormData): Promise<AuthState> {
   const supabase = await createClient();
   const { data, error } = await supabase.auth.signUp({
     ...parsed.data,
-    options: { emailRedirectTo: `${process.env.NEXT_PUBLIC_APP_URL}/auth/callback` },
+    options: { emailRedirectTo: `${process.env.NEXT_PUBLIC_APP_URL}/auth/callback?next=${encodeURIComponent("/app/boas-vindas")}` },
   });
   if (error) return { error: "Não foi possível criar a conta. Confira os dados e tente de novo.", email: parsed.data.email };
   if (!data.session) return { notice: "Enviamos um link de confirmação para o seu e-mail." };

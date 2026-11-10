@@ -8,6 +8,16 @@ import { randomUUID } from "node:crypto";
 
 export type TrainingFilter = "novas" | "erradas" | "todas";
 
+/** Quantas questões já voltaram para revisão. Uma regra só para Hoje, Estudar e Evolução. */
+export async function countDueReviews(userId: string): Promise<number> {
+  const { count } = await admin()
+    .from("srs_cards")
+    .select("question_id", { count: "exact", head: true })
+    .eq("user_id", userId)
+    .lte("due", new Date().toISOString());
+  return count ?? 0;
+}
+
 export async function startTraining(
   userId: string,
   options: { areaId?: string | null; filter: TrainingFilter; size: number },

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState, useTransition } from "react";
 import { buyItemAction, equipAction, renameMascotAction } from "@/app/actions";
-import { CATALOG, findItem, itemStatus, NAME_MAX, NAME_MIN, OPTIONAL_SLOTS, SLOT_LABEL, SLOTS, withItem, type Look, type ShopItem, type Slot } from "@/lib/game/shop";
+import { CATALOG, itemStatus, NAME_MAX, NAME_MIN, OPTIONAL_SLOTS, SLOT_LABEL, SLOTS, withItem, type Look, type ShopItem, type Slot } from "@/lib/game/shop";
 import type { MascotView } from "@/lib/server/mascot";
 import { playCue } from "@/lib/ui/feedback";
 import { Coach } from "./Coach";
@@ -255,11 +255,9 @@ export function MascotShop({ initial }: { initial: MascotView }) {
             );
           })}
         </ul>
-        {findItem(view.look.character) && (
-          <p className="dim" style={{ fontSize: 13.5 }}>
-            As miniaturas mostram cada peça no seu mascote atual.
-          </p>
-        )}
+        <p className="dim" style={{ fontSize: 13.5 }}>
+          As miniaturas mostram cada peça no seu mascote atual.
+        </p>
       </section>
     </div>
   );

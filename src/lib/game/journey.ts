@@ -12,7 +12,8 @@ export function journeyStage(input: { answered: number; ratedGames: number }): J
   return "ativo";
 }
 
-export type StepState = "done" | "now" | "next" | "locked";
+/** clear: nada a fazer neste passo agora (diferente de done, que é algo já cumprido). */
+export type StepState = "done" | "now" | "next" | "locked" | "clear";
 
 export type JourneyStep = {
   id: "plantao" | "revisao" | "missao";
@@ -37,6 +38,8 @@ export type JourneyInput = {
   extraMissionsDone: number;
   extraMissionsTotal: number;
   nextMissionText: string | null;
+  /** Onde cumprir a primeira missão pendente: a revisão e o treino contam em lugares diferentes. */
+  nextMissionHref?: string;
 };
 
 export type NextStep = {
@@ -84,7 +87,7 @@ export function buildJourney(input: JourneyInput): Journey {
     id: "revisao",
     title: "Revisão",
     href: premium ? "/app/revisao" : null,
-    state: !premium ? "locked" : dueReviews > 0 ? "next" : "done",
+    state: !premium ? "locked" : dueReviews > 0 ? "next" : "clear",
     detail: !premium ? "Faz parte da assinatura." : dueReviews > 0 ? `${plural(dueReviews, "questão voltou", "questões voltaram")} para você.` : "Nada para revisar agora.",
     cta: "Revisar",
     heroTitle: `Revise ${plural(dueReviews, "questão", "questões")}`,
@@ -95,7 +98,7 @@ export function buildJourney(input: JourneyInput): Journey {
   const missao: JourneyStep = {
     id: "missao",
     title: "Missões do dia",
-    href: premium ? "/app/treino" : null,
+    href: premium ? (input.nextMissionHref ?? "/app/treino") : null,
     state: !premium || input.extraMissionsTotal === 0 ? "locked" : missaoDone ? "done" : "next",
     detail: !premium
       ? "Missões extras fazem parte da assinatura."

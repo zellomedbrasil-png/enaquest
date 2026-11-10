@@ -1,5 +1,6 @@
 import "server-only";
 import { admin } from "@/lib/supabase/admin";
+import { countDueReviews } from "./study";
 import { addDays, todayBR } from "@/lib/game/streak";
 import { XP } from "@/lib/game/xp";
 import { missionsFor, unlockedAchievements, type LifetimeStats, type Mission } from "@/lib/game/progress";
@@ -125,7 +126,7 @@ export type Evolution = {
 
 export async function getEvolution(userId: string): Promise<Evolution> {
   const db = admin();
-  const [{ data: rows }, { data: areas }, { data: config }, { data: state }, { count: due }] = await Promise.all([
+  const [{ data: rows }, { data: areas }, { data: config }, { data: state }, due] = await Promise.all([
     db
       .from("answers")
       .select("is_correct, confidence, error_reason, rating_delta, created_at, mode, questions(area_id, rating)")
@@ -135,7 +136,7 @@ export async function getEvolution(userId: string): Promise<Evolution> {
     db.from("matrix_areas").select("*").order("sort_order"),
     db.from("app_config").select("value").eq("key", "proficiency_calibration").single(),
     db.from("rating_state").select("rating").eq("user_id", userId).single(),
-    db.from("srs_cards").select("question_id", { count: "exact", head: true }).eq("user_id", userId).lte("due", new Date().toISOString()),
+    countDueReviews(userId),
   ]);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -184,6 +185,6 @@ export async function getEvolution(userId: string): Promise<Evolution> {
     errorReasons: [...reasons.entries()].map(([reason, count]) => ({ reason, count })).sort((a, b) => b.count - a.count),
     confidence: levels,
     totalAnswered: answers.length,
-    dueReviews: due ?? 0,
+    dueReviews: due,
   };
 }

@@ -26,7 +26,7 @@ describe("buildJourney", () => {
     const j = buildJourney(base);
     expect(j.next.title).toBe("Faça o Plantão de hoje");
     expect(j.next.href).toBe("/app/plantao");
-    expect(j.steps.map((s) => s.state)).toEqual(["now", "done", "next"]);
+    expect(j.steps.map((s) => s.state)).toEqual(["now", "clear", "next"]);
   });
 
   it("continua o Plantão começado e diz quantas faltam", () => {
@@ -74,6 +74,17 @@ describe("buildJourney", () => {
     const j = buildJourney({ ...base, dailyTotal: 0, premium: false });
     expect(j.steps[0].state).toBe("locked");
     expect(j.next.allDone).toBe(true);
+  });
+
+  it("a missão de revisão leva à Revisão, não ao Treino", () => {
+    const j = buildJourney({ ...base, dailyAnswered: 10, nextMissionText: "Revise 5 questões do caderno de erros", nextMissionHref: "/app/revisao" });
+    expect(j.steps[2].href).toBe("/app/revisao");
+  });
+
+  it("revisão sem pendência fica em dia, não feita, e não conta como passo", () => {
+    const j = buildJourney(base);
+    expect(j.steps[1].state).toBe("clear");
+    expect(j.remaining).toBe(2);
   });
 
   it("conta quantos passos faltam", () => {
