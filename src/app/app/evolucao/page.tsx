@@ -29,7 +29,7 @@ export default async function EvolutionPage() {
     <div style={{ display: "grid", gap: 14 }}>
       <PageHeader title="Evolução" lead="Veja como você está, onde melhorar e o que já conquistou." />
 
-      <h2 style={{ fontSize: 20 }}>Como você está</h2>
+      <h2 className="section-title" style={{ marginBottom: 0 }}>Como você está</h2>
 
       <StatChips>
         <StatChip label="Questões" value={stats.answered} />
@@ -38,6 +38,7 @@ export default async function EvolutionPage() {
         <StatChip label="Revisões" value={stats.reviews} />
       </StatChips>
 
+      <div className="cols-2">
       <section className="card">
         <p className="eyebrow">Termômetro de Proficiência</p>
         {!premium ? (
@@ -90,9 +91,11 @@ export default async function EvolutionPage() {
         <h2 style={{ fontSize: 18, marginBottom: 10 }}>Rating ao longo do tempo</h2>
         <RatingChart data={evolution.history} />
       </section>
+      </div>
 
-      <h2 style={{ fontSize: 20, marginTop: 8 }}>Onde melhorar</h2>
+      <h2 className="section-title" style={{ marginTop: 8, marginBottom: 0 }}>Onde melhorar</h2>
 
+      <div className="cols-2">
       <section className="card">
         <h2 style={{ fontSize: 18, marginBottom: 4 }}>Desempenho por área</h2>
         <p className="muted" style={{ fontSize: 13.5, marginBottom: 10 }}>
@@ -108,7 +111,7 @@ export default async function EvolutionPage() {
         />
       </section>
 
-      <div className="grid-2">
+      <div className="stack">
         <section className="card">
           <h2 style={{ fontSize: 18, marginBottom: 8 }}>Por que você erra</h2>
           {evolution.errorReasons.length === 0 ? (
@@ -138,10 +141,11 @@ export default async function EvolutionPage() {
           </ul>
         </section>
       </div>
+      </div>
 
       <section className="card">
-        <h2 style={{ fontSize: 20, marginBottom: 10 }}>Conquistas</h2>
-        <div className="grid-2">
+        <h2 className="section-title">Conquistas</h2>
+        <div className="achv-grid">
           {achievements.map((achievement) => (
             <div key={achievement.id} className="card-2" style={achievement.unlocked ? { background: "var(--pearl-soft)" } : undefined}>
               <div style={{ display: "flex", justifyContent: "space-between", gap: 8 }}>

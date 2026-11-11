@@ -51,6 +51,21 @@ export default async function LeaguesPage() {
     <div style={{ display: "grid", gap: 14 }}>
       <PageHeader title="Ligas" lead="Ganhe XP de segunda a domingo para subir de liga. Toda semana recomeça do zero." />
 
+      {locked && (
+        <Banner
+          tone="info"
+          title="A liga semanal abre depois do nivelamento"
+          text={`Faltam ${left} ${left === 1 ? "questão" : "questões"} para calibrar seu rating. Faça o Plantão do Dia para chegar lá. Enquanto isso, você já pode criar ou entrar em uma turma.`}
+          action={
+            <Link href="/app" className="btn btn-primary">
+              Ir para Hoje
+            </Link>
+          }
+        />
+      )}
+
+      <div className="cols-main">
+        <div className="stack">
       {board.rows.length > 0 && (
         <section className="card" aria-labelledby="ranking-dia">
           <h2 id="ranking-dia" style={{ fontSize: 18, marginBottom: 2 }}>
@@ -76,18 +91,7 @@ export default async function LeaguesPage() {
         </section>
       )}
 
-      {locked ? (
-        <Banner
-          tone="info"
-          title="A liga semanal abre depois do nivelamento"
-          text={`Faltam ${left} ${left === 1 ? "questão" : "questões"} para calibrar seu rating. Faça o Plantão do Dia para chegar lá. Enquanto isso, você já pode criar ou entrar em uma turma.`}
-          action={
-            <Link href="/app" className="btn btn-primary">
-              Ir para Hoje
-            </Link>
-          }
-        />
-      ) : (
+      {!locked && (
       <section className="card">
         <p className="eyebrow">Sua liga</p>
         <h2 style={{ fontSize: 22, marginBottom: 8 }}>Liga {view.tierName}</h2>
@@ -133,6 +137,9 @@ export default async function LeaguesPage() {
         )}
       </section>
 
+        </div>
+
+        <div className="aside">
       <section className="card">
         <p className="eyebrow">Sua turma</p>
         <h2 style={{ fontSize: 22, marginBottom: 8 }}>Dispute com os amigos</h2>
@@ -150,7 +157,7 @@ export default async function LeaguesPage() {
               </form>
             </div>
           ))}
-          <div className="grid-2">
+          <div style={{ display: "grid", gap: 14 }}>
             <form action={createGroupAction} style={{ display: "grid", gap: 6 }}>
               <label className="label" htmlFor="group-name">
                 Criar turma
@@ -168,6 +175,8 @@ export default async function LeaguesPage() {
           </div>
         </div>
       </section>
+        </div>
+      </div>
     </div>
   );
 }

@@ -34,6 +34,7 @@ export default async function StudyPage() {
     <div style={{ display: "grid", gap: 14 }}>
       <PageHeader title="Estudar" lead="Escolha como estudar agora. O Plantão do Dia fica na tela Hoje e é sempre grátis." />
 
+      <div className="grid-3 choice-grid">
       <Link href="/app/revisao" className={`choice ${premium ? "" : "locked"}`}>
         <Icon path={ICON.revisao} />
         <div>
@@ -60,6 +61,8 @@ export default async function StudyPage() {
         </div>
         {!premium && <StatusPill tone="pend">assinatura</StatusPill>}
       </Link>
+
+      </div>
 
       {!premium && (
         <p className="muted" style={{ fontSize: 14.5 }}>

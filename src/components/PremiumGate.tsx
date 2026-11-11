@@ -3,7 +3,7 @@ import { MyMascot } from "./MyMascot";
 
 export function PremiumGate({ title, text }: { title: string; text: string }) {
   return (
-    <div className="card" style={{ textAlign: "center" }}>
+    <div className="card premium-gate" style={{ textAlign: "center" }}>
       <div style={{ display: "grid", justifyItems: "center", marginBottom: 6 }}>
         <MyMascot mood="neutro" size={104} background />
       </div>

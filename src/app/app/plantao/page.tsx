@@ -35,6 +35,7 @@ export default async function DailyPage() {
     return (
       <div style={{ display: "grid", gap: 10 }}>
         <PageHeader title="Questões de hoje" lead="Toque em uma questão para rever a explicação." />
+        <div className="cols-2" style={{ gap: 10, alignItems: "stretch" }}>
         {daily.questions.map((question, i) => (
           <Link key={question.id} href={`/app/questao/${question.slug}`} className="card" style={{ textDecoration: "none", display: "flex", justifyContent: "space-between", gap: 10 }}>
             <span>
@@ -45,6 +46,7 @@ export default async function DailyPage() {
             </span>
           </Link>
         ))}
+        </div>
       </div>
     );
   }

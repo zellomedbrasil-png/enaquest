@@ -350,6 +350,18 @@ export function QuestionRunner({
   }
 
   const answeredCount = Object.keys(alreadyAnswered).length + Object.keys(results).length;
+  // Depois de responder, as alternativas corrigidas sobem para junto do enunciado e a coluna direita fica com o comentário.
+  const options = (
+    <OptionsList
+      question={question}
+      picked={result ? result.selected : picked}
+      onPick={pickOption}
+      struck={struck}
+      onStrike={strikeOption}
+      locked={Boolean(result) || pending}
+      correctIndex={result?.reveal.correctIndex ?? null}
+    />
+  );
 
   return (
     <div className="qgrid-wrap">
@@ -386,6 +398,7 @@ export function QuestionRunner({
           <QuestionHeader question={question} areaName={area?.name} areaColor={area?.color} />
           <p className="stem">{question.stem}</p>
           <ExamTables exams={question.exams} />
+          {result && options}
           </div>
           <div className="mascot-station-dock">
             <MascotStation view={mascot} onRequestHint={mascot.onRequestHint} />
@@ -393,15 +406,7 @@ export function QuestionRunner({
         </div>
 
         <div className="qright">
-          <OptionsList
-            question={question}
-            picked={result ? result.selected : picked}
-            onPick={pickOption}
-            struck={struck}
-            onStrike={strikeOption}
-            locked={Boolean(result) || pending}
-            correctIndex={result?.reveal.correctIndex ?? null}
-          />
+          {!result && options}
 
           {!result && (
             <>

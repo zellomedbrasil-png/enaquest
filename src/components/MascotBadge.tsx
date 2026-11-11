@@ -21,7 +21,7 @@ export function MascotBadge({ character, name, xpTotal }: { character: MascotId;
   return (
     <Link href="/app/mascote" className="mascot-badge" aria-label={`${name}, nível ${level}. Em plantão com você`}>
       <span className="mascot-badge-face" aria-hidden="true">
-        <Mascot character={character} size={30} decorative />
+        <Mascot character={character} size={48} decorative />
       </span>
       <span className="mascot-badge-text" aria-hidden="true">
         <strong>

@@ -81,7 +81,7 @@ export function TopStats({
 
   return (
     <>
-      <div style={{ flex: 1, minWidth: 0 }}>
+      <div className="topbar-level">
         <div style={{ display: "flex", justifyContent: "space-between", gap: 8, fontSize: 13 }}>
           <strong>{level.current.name}</strong>
           <span key={gain} className={gain ? "muted xp-float" : "muted"} style={{ fontVariantNumeric: "tabular-nums" }}>
@@ -94,7 +94,7 @@ export function TopStats({
       </div>
       <span
         key={`streak-${state.streak}`}
-        className={`streak-badge ${lit ? "lit" : ""}`}
+        className={`streak-badge topbar-push ${lit ? "lit" : ""}`}
         title={lit ? "Dias seguidos de estudo" : "Responda uma questão hoje para manter a sequência"}
         aria-label={`${state.streak} dias seguidos${lit ? "" : ", ainda sem estudo hoje"}. ${state.shields} de ${MAX_SHIELDS} trocas de plantão`}
       >

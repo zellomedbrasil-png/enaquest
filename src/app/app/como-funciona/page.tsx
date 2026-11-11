@@ -17,7 +17,7 @@ const JOURNEY = [
 
 export default function HowItWorksPage() {
   return (
-    <div style={{ display: "grid", gap: 16 }}>
+    <div className="page-read" style={{ display: "grid", gap: 16 }}>
       <PageHeader title="Como funciona" lead="Cada dia tem poucos passos. Faça um de cada vez e o resto acontece sozinho." />
 
       <section aria-labelledby="jornada-h">

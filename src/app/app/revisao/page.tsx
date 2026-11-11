@@ -31,7 +31,7 @@ export default async function ReviewPage() {
       {questions.length > 0 && <QuestionRunner questions={questions} mode="review" context={context} areas={areas ?? []} doneHref="/app/revisao" doneLabel="Ver caderno de erros" />}
 
       <section>
-        <h2 style={{ fontSize: 20, marginBottom: 8 }}>Caderno de erros</h2>
+        <h2 className="section-title">Caderno de erros</h2>
         {notebook.length === 0 && (
           <EmptyState
             title="Nenhum erro ainda"
@@ -44,7 +44,7 @@ export default async function ReviewPage() {
             Faça o Plantão do Dia e seus erros aparecem aqui. Cada um vira uma chance de aprender.
           </EmptyState>
         )}
-        <div style={{ display: "grid", gap: 8 }}>
+        <div className="cols-2" style={{ gap: 8, alignItems: "stretch" }}>
           {notebook.map((entry) => (
             <Link key={entry.questionId} href={`/app/questao/${entry.slug}`} className="card" style={{ textDecoration: "none", padding: 12 }}>
               <strong style={{ fontSize: 15 }}>{entry.theme}</strong>

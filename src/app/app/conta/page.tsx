@@ -29,19 +29,11 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
     <div style={{ display: "grid", gap: 14 }}>
       <PageHeader title="Sua conta" lead="Ajuste seu perfil, a leitura e a assinatura." />
 
+      <div className="cols-2">
+        <div className="stack">
       <section className="card">
         <h2 style={{ fontSize: 18, marginBottom: 10 }}>Perfil</h2>
         <ProfileForm nickname={profile.nickname} schoolId={profile.school_id} showSchool={profile.show_school} schools={schools ?? []} />
-      </section>
-
-      <section className="card">
-        <h2 style={{ fontSize: 18, marginBottom: 10 }}>Leitura</h2>
-        <ReadingSettings />
-      </section>
-
-      <section className="card">
-        <h2 style={{ fontSize: 18, marginBottom: 10 }}>Sons e vibração</h2>
-        <FeedbackSettings />
       </section>
 
       <section className="card">
@@ -71,6 +63,18 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
         </div>
       </section>
 
+        </div>
+        <div className="stack">
+      <section className="card">
+        <h2 style={{ fontSize: 18, marginBottom: 10 }}>Leitura</h2>
+        <ReadingSettings />
+      </section>
+
+      <section className="card">
+        <h2 style={{ fontSize: 18, marginBottom: 10 }}>Sons e vibração</h2>
+        <FeedbackSettings />
+      </section>
+
       <section className="card">
         <h2 style={{ fontSize: 18, marginBottom: 10 }}>Sair e excluir</h2>
         <form action={signOut} style={{ marginBottom: 14 }}>
@@ -95,6 +99,8 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
           </form>
         </details>
       </section>
+        </div>
+      </div>
     </div>
   );
 }

@@ -12,7 +12,6 @@ import { PLACEMENT_GAMES, tierOf } from "@/lib/game/rating";
 import { displayedStreak, MAX_SHIELDS, todayBR } from "@/lib/game/streak";
 import { levelOf } from "@/lib/game/xp";
 import { getDailyState } from "@/lib/server/daily";
-import { getMascotForPage } from "@/lib/server/mascot";
 import { countDueReviews } from "@/lib/server/study";
 import { lifetimeStats, todayMissions, weekActivity } from "@/lib/server/progress";
 import { getProfile, isPremium, requireUser } from "@/lib/server/session";
@@ -49,7 +48,7 @@ function Step({ step, index }: { step: JourneyStep; index: number }) {
 export default async function TodayPage() {
   const user = await requireUser();
   const day = todayBR();
-  const [profile, premium, daily, missions, rating, due, streak, week, stats, owned, answeredCount, mascot] = await Promise.all([
+  const [profile, premium, daily, missions, rating, due, streak, week, stats, owned, answeredCount] = await Promise.all([
     getProfile(user.id),
     isPremium(user.id),
     getDailyState(user.id, day),
@@ -61,7 +60,6 @@ export default async function TodayPage() {
     lifetimeStats(user.id),
     admin().from("achievements").select("achievement_id").eq("user_id", user.id),
     admin().from("answers").select("id", { count: "exact", head: true }).eq("user_id", user.id),
-    getMascotForPage(user.id),
   ]);
 
   const stage = journeyStage({ answered: answeredCount.count ?? 0, ratedGames: rating.data.games });
@@ -98,7 +96,7 @@ export default async function TodayPage() {
       ? "Vamos começar. Siga os passos abaixo, um de cada vez."
       : journey.next.allDone
         ? "Você fechou o dia. Sua sequência está garantida."
-        : `Faltam ${journey.remaining} ${journey.remaining === 1 ? "passo" : "passos"} para fechar o dia.`;
+        : `${journey.remaining === 1 ? "Falta 1 passo" : `Faltam ${journey.remaining} passos`} para fechar o dia.`;
 
   return (
     <div className="two-col">
@@ -121,7 +119,7 @@ export default async function TodayPage() {
         <MascotChat moment="inicio" />
 
         <section aria-labelledby="jornada">
-          <h2 id="jornada" style={{ fontSize: 20, marginBottom: 10 }}>
+          <h2 id="jornada" className="section-title">
             Sua jornada de hoje
           </h2>
           <ol className="journey">
@@ -131,15 +129,67 @@ export default async function TodayPage() {
           </ol>
         </section>
 
-        {!premium && (
-          <p className="muted" style={{ fontSize: 14.5 }}>
-            Quer estudar além do Plantão? Revisão, Treino e Simulados fazem parte da assinatura. <Link href="/planos">Ver assinatura</Link>.
-          </p>
+        {missions.length > 0 && (
+          <section className="card" aria-labelledby="missoes">
+            <div className="card-head">
+              <h2 id="missoes" className="section-title">
+                Missões do dia
+              </h2>
+              <span className="muted">
+                {missions.filter((m) => m.done).length} de {missions.length}
+              </span>
+            </div>
+            <ul className="mission-list">
+              {missions.map((mission) => (
+                <li key={mission.id} className={mission.done ? "is-done" : undefined}>
+                  <div className="mission-row">
+                    <span>
+                      {mission.done ? "✓ " : ""}
+                      {mission.text}
+                    </span>
+                    <span className="muted">
+                      {mission.current}/{mission.goal}
+                    </span>
+                  </div>
+                  <div className="bar" aria-hidden>
+                    <i style={{ width: `${Math.min(1, mission.current / mission.goal) * 100}%` }} />
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </section>
         )}
+
+        <section aria-labelledby="atalhos">
+          <h2 id="atalhos" className="section-title">
+            Atalhos
+          </h2>
+          <ul className="shortcut-grid">
+            {[
+              { href: "/app/revisao", title: "Revisão", text: due > 0 ? `${due} ${due === 1 ? "questão voltou" : "questões voltaram"} para você` : "Nada pendente hoje", paid: true },
+              { href: "/app/treino", title: "Treino", text: "Questões por área e dificuldade", paid: true },
+              { href: "/app/simulados", title: "Simulados", text: "Prova completa com tempo", paid: true },
+              { href: "/app/ligas", title: "Ligas", text: "Sua posição no ranking", paid: false },
+            ].map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className="shortcut">
+                  <strong>{item.title}</strong>
+                  <span>{item.text}</span>
+                  {item.paid && !premium && <StatusPill tone="muted">Assinatura</StatusPill>}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          {!premium && (
+            <p className="muted" style={{ fontSize: 14, marginTop: 10 }}>
+              Revisão, Treino e Simulados fazem parte da assinatura. <Link href="/planos">Ver assinatura</Link>.
+            </p>
+          )}
+        </section>
       </div>
 
       <aside className="aside" aria-labelledby="progresso">
-        <h2 id="progresso" style={{ fontSize: 20 }}>
+        <h2 id="progresso" className="section-title" style={{ marginBottom: 0 }}>
           Seu progresso
         </h2>
 
@@ -223,22 +273,20 @@ export default async function TodayPage() {
             </section>
 
             {nextAchievement && (
-              <p className="muted" style={{ fontSize: 14.5 }}>
-                Próxima conquista: <strong>{nextAchievement.name}</strong>, {nextAchievement.current} de {nextAchievement.goal}.{" "}
-                <Link href="/app/evolucao">Ver conquistas</Link>
-              </p>
+              <section className="card" aria-label="Próxima conquista" style={{ display: "grid", gap: 8 }}>
+                <p className="eyebrow">Próxima conquista</p>
+                <LevelBar
+                  label={nextAchievement.name}
+                  value={`${nextAchievement.current} de ${nextAchievement.goal}`}
+                  progress={nextAchievement.pct}
+                />
+                <Link href="/app/evolucao" style={{ fontSize: 14 }}>
+                  Ver todas as conquistas
+                </Link>
+              </section>
             )}
           </>
         )}
-
-        <Link href="/app/mascote" className="card mascot-card">
-          <MyMascot mood={mood} size={72} background />
-          <span>
-            <strong>{mascot.name}</strong>
-            <span className="muted">Seu companheiro de jornada. Escolher outro mascote.</span>
-          </span>
-          <span aria-hidden>→</span>
-        </Link>
 
         <p style={{ fontSize: 14.5 }}>
           <Link href="/app/como-funciona">Como funciona o EnaQuest</Link>

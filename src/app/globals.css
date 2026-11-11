@@ -59,6 +59,9 @@
   --r-btn: 14px;
   --r-question: 22px;
   --r-result: 24px;
+  /* Grade da área logada: topo e conteúdo usam a mesma largura e margem. */
+  --content: 1200px;
+  --gutter: 16px;
   color-scheme: dark;
 }
 
@@ -142,9 +145,9 @@ button {
 }
 
 .wrap {
-  max-width: 880px;
+  max-width: var(--content);
   margin: 0 auto;
-  padding: 20px 16px 110px;
+  padding: 20px var(--gutter) 110px;
 }
 .wrap-wide {
   max-width: 1100px;
@@ -323,9 +326,9 @@ button {
   border-bottom: 1px solid var(--line);
 }
 .topbar-in {
-  max-width: 880px;
+  max-width: var(--content);
   margin: 0 auto;
-  padding: 10px 16px;
+  padding: 10px var(--gutter);
   display: flex;
   align-items: center;
   gap: 12px;
@@ -1407,19 +1410,16 @@ button {
   gap: 12px;
   align-content: start;
 }
+/* Páginas de leitura corrida mantêm a linha curta. */
 @media (min-width: 900px) {
-  .wrap {
-    max-width: 1120px;
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-  .wrap > *:not(.two-col) {
+  .page-read {
     max-width: 780px;
   }
 }
 @media (min-width: 1100px) {
   .two-col {
-    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 24px;
+    grid-template-columns: minmax(0, 1fr) 360px;
     align-items: start;
   }
   .aside {
@@ -1700,7 +1700,7 @@ a.step:hover {
     max-width: none;
   }
 }
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
   .qgrid {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -1718,7 +1718,14 @@ a.step:hover {
     position: sticky;
     top: 84px;
     align-self: start;
+    justify-content: flex-start;
+    max-height: calc(100vh - 104px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    padding-right: 4px;
   }
+  .qgrid.is-answered .qright > .result-box:first-child { margin-top: 0; }
 }
 
 /* Boas-vindas e dicas de primeira vez */
@@ -1875,8 +1882,8 @@ html[data-text="large"] #conteudo {
 /* Posto de Plantão: mascote dentro do card da questão */
 .mascot-station-dock { margin-top: 24px; padding-top: 20px; border-top: 1px solid color-mix(in srgb, var(--line) 70%, transparent); }
 .mascot-station-dock-mobile { margin-top: 12px; }
-@media (min-width: 1024px) { .mascot-station-dock-mobile { display: none; } }
-@media (max-width: 1023px) { .mascot-station-dock { display: none; } }
+@media (min-width: 1200px) { .mascot-station-dock-mobile { display: none; } }
+@media (max-width: 1199px) { .mascot-station-dock { display: none; } }
 
 .mascot-station {
   --station-tone: var(--line);
@@ -1990,9 +1997,55 @@ html[data-text="large"] #conteudo {
 /* Mini-avatar do mascote no topo */
 .mascot-badge { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 2px 10px 2px 4px; border: 1px solid var(--line); border-radius: 99px; background: var(--card); color: var(--ink); text-decoration: none; }
 .mascot-badge:hover { border-color: var(--mute); }
-.mascot-badge-face { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; overflow: hidden; background: var(--card-2); }
-.mascot-badge-face .mascot { max-height: none; width: 30px; margin-top: 14px; }
+.mascot-badge-face { display: grid; place-items: start center; width: 36px; height: 36px; border-radius: 50%; overflow: hidden; background: var(--card-2); }
+.mascot-badge-face .mascot { max-height: none; width: 48px; max-width: none; margin-top: 1px; }
 .mascot-badge-text { display: grid; line-height: 1.15; }
 .mascot-badge-text strong { font-size: 12.5px; }
 .mascot-badge-text span { font-size: 11px; color: var(--mute); }
 @media (max-width: 639px) { .mascot-badge { padding-right: 4px; } .mascot-badge-text { display: none; } }
+
+/* Grade da área logada em telas largas */
+@media (min-width: 900px) {
+  :root { --gutter: 28px; }
+}
+@media (min-width: 1536px) {
+  :root { --content: 1360px; }
+}
+.topbar-level { flex: 1 1 auto; min-width: 0; max-width: 300px; }
+.topbar-push { margin-left: auto; }
+.section-title { font-size: 20px; margin-bottom: 10px; }
+.grid-3 { display: grid; gap: 12px; }
+@media (min-width: 1024px) { .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+/* Hoje: missões e atalhos */
+.card-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.card-head .section-title { margin-bottom: 0; }
+.card-head .muted { font-size: 13.5px; font-variant-numeric: tabular-nums; }
+.mission-list { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 12px; }
+.mission-row { display: flex; justify-content: space-between; gap: 10px; font-size: 14.5px; margin-bottom: 5px; }
+.mission-row .muted { font-variant-numeric: tabular-nums; }
+.mission-list .bar { height: 6px; }
+.mission-list li.is-done .mission-row > span:first-child { color: var(--ok); font-weight: 600; }
+.mission-list li.is-done .bar > i { background: var(--ok); }
+.shortcut-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 1280px) { .shortcut-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.shortcut { display: grid; gap: 4px; align-content: start; justify-items: start; height: 100%; padding: 14px 16px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); color: var(--ink); text-decoration: none; transition: border-color .2s, background .2s; }
+.shortcut:hover { border-color: var(--mute); background: var(--card-2); }
+.shortcut strong { font-size: 15.5px; }
+.shortcut > span { font-size: 13.5px; color: var(--mute); }
+.shortcut .status { margin-top: 6px; }
+
+/* Grades das telas internas */
+.cols-2 { display: grid; gap: 14px; align-items: start; }
+@media (min-width: 1024px) { .cols-2 { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+.cols-main { display: grid; gap: 14px; align-items: start; }
+@media (min-width: 1100px) { .cols-main { grid-template-columns: minmax(0, 1fr) 380px; gap: 24px; } }
+.achv-grid { display: grid; gap: 12px; }
+@media (min-width: 641px) { .achv-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1280px) { .achv-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 1024px) {
+  .choice-grid .choice { grid-template-columns: auto 1fr; grid-template-rows: auto 1fr; align-items: start; height: 100%; padding: 20px; }
+  .choice-grid .choice > div { grid-column: 1 / -1; }
+  .choice-grid .choice > .status { grid-column: 2; grid-row: 1; justify-self: end; }
+}
+.premium-gate { max-width: 640px; margin-inline: auto; width: 100%; }
