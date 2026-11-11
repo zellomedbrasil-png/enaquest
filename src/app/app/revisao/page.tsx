@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PremiumGate } from "@/components/PremiumGate";
 import { EmptyState } from "@/components/EmptyState";
+import { ErrorNotebook, type NotebookCard } from "@/components/ErrorNotebook";
 import { PageHeader } from "@/components/ui";
 import { agendaLabel } from "@/lib/study/agenda";
 import { QuestionRunner } from "@/components/QuestionRunner";
 import { admin } from "@/lib/supabase/admin";
 import { getDueReviews, getNotebook, reviewAgenda } from "@/lib/server/study";
 import { isPremium, requireUser } from "@/lib/server/session";
-import { ERROR_REASON_LABEL, formatDate } from "@/lib/ui/labels";
 
 export const metadata: Metadata = { title: "Revisão" };
 
@@ -24,38 +24,94 @@ export default async function ReviewPage() {
     reviewAgenda(user.id),
   ]);
 
+  const areaById = new Map<string, { id: string; name: string; color: string }>((areas ?? []).map((area: { id: string; name: string; color: string }) => [area.id, area]));
+  const cards: NotebookCard[] = notebook.map((entry) => ({
+    questionId: entry.questionId,
+    slug: entry.slug,
+    theme: entry.theme,
+    areaName: areaById.get(entry.areaId)?.name ?? "Área",
+    areaColor: areaById.get(entry.areaId)?.color ?? "var(--line)",
+    reason: entry.reason,
+    when: entry.when,
+    due: entry.due,
+    ready: entry.ready,
+  }));
+  const week = agenda.reduce((sum, entry) => sum + entry.count, 0);
+  const nextIndex = agenda.findIndex((entry, index) => index > 0 && entry.count > 0);
+  const noReason = notebook.filter((entry) => !entry.reason).length;
+
   return (
     <div style={{ display: "grid", gap: 16 }}>
       <PageHeader
         title="Revisão"
         lead={total > 0 ? `Revise ${total} ${total === 1 ? "questão" : "questões"} agora. Elas voltaram na hora certa para você não esquecer.` : "Nada para revisar agora. O que você errar ou chutar volta aqui."}
       />
-      {questions.length > 0 && <QuestionRunner questions={questions} mode="review" context={context} areas={areas ?? []} doneHref="/app/revisao" doneLabel="Ver caderno de erros" />}
 
-      <section className="card" aria-labelledby="agenda">
-        <div className="card-head">
-          <h2 id="agenda" className="section-title">
-            Agenda de revisão
-          </h2>
-          <span className="muted">Próximos 7 dias</span>
+      <section className={`card review-hero ${total > 0 ? "" : "is-clear"}`} aria-label="Resumo da revisão">
+        <div className="review-today">
+          <span className="review-today-ring" aria-hidden>
+            {total > 0 ? total : "✓"}
+          </span>
+          <div>
+            <p className="eyebrow">Hoje</p>
+            <strong>{total > 0 ? `${total} ${total === 1 ? "questão voltou" : "questões voltaram"}` : "Tudo em dia"}</strong>
+            <p className="muted">
+              {total > 0
+                ? "Responda abaixo. Quem acerta volta mais tarde; quem erra volta logo."
+                : nextIndex > 0
+                  ? `Próxima: ${agendaLabel(agenda[nextIndex].day, nextIndex).toLowerCase()}, ${agenda[nextIndex].count} ${agenda[nextIndex].count === 1 ? "questão" : "questões"}.`
+                  : "Nenhuma revisão marcada para os próximos 7 dias."}
+            </p>
+          </div>
         </div>
-        <ol className="agenda">
-          {agenda.map((entry, index) => (
-            <li key={entry.day} className={`${index === 0 ? "today" : ""} ${entry.count ? "has" : ""}`}>
-              <span className="agenda-day">{agendaLabel(entry.day, index)}</span>
-              <strong className="agenda-count">{entry.count}</strong>
-              <span className="sr-only">{entry.count === 1 ? "questão" : "questões"}</span>
-            </li>
-          ))}
-        </ol>
-        <p className="dim" style={{ fontSize: 13.5, marginTop: 10 }}>
-          O que você errou ou marcou com dúvida volta no dia certo. Questões atrasadas aparecem em Hoje.
-        </p>
+
+        <div className="review-week" aria-labelledby="agenda">
+          <div className="card-head">
+            <h2 id="agenda" className="eyebrow" style={{ margin: 0 }}>
+              Agenda de revisão
+            </h2>
+            <span className="muted">{week} na semana</span>
+          </div>
+          <ol className="agenda">
+            {agenda.map((entry, index) => (
+              <li key={entry.day} className={`${index === 0 ? "today" : ""} ${entry.count ? "has" : ""}`}>
+                <span className="agenda-day">{agendaLabel(entry.day, index)}</span>
+                <strong className="agenda-count">{entry.count}</strong>
+                <span className="sr-only">{entry.count === 1 ? "questão" : "questões"}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+
+        <dl className="review-facts">
+          <div>
+            <dt>No caderno</dt>
+            <dd>{notebook.length}</dd>
+          </div>
+          <div>
+            <dt>Sem motivo marcado</dt>
+            <dd>{noReason}</dd>
+          </div>
+        </dl>
       </section>
 
-      <section>
-        <h2 className="section-title">Caderno de erros</h2>
-        {notebook.length === 0 && (
+      {questions.length > 0 && (
+        <section aria-labelledby="revisando" style={{ display: "grid", gap: 10 }}>
+          <h2 id="revisando" className="section-title" style={{ marginBottom: 0 }}>
+            Revisando agora
+          </h2>
+          <QuestionRunner questions={questions} mode="review" context={context} areas={areas ?? []} doneHref="/app/revisao" doneLabel="Ver caderno de erros" />
+        </section>
+      )}
+
+      <section aria-labelledby="caderno" style={{ display: "grid", gap: 12 }}>
+        <div className="card-head">
+          <h2 id="caderno" className="section-title" style={{ marginBottom: 0 }}>
+            Caderno de erros
+          </h2>
+          {noReason > 0 && <span className="muted">Marcar o motivo vale +3 XP</span>}
+        </div>
+        {notebook.length === 0 ? (
           <EmptyState
             title="Nenhum erro ainda"
             action={
@@ -66,18 +122,9 @@ export default async function ReviewPage() {
           >
             Faça o Plantão do Dia e seus erros aparecem aqui. Cada um vira uma chance de aprender.
           </EmptyState>
+        ) : (
+          <ErrorNotebook entries={cards} />
         )}
-        <div className="cols-2" style={{ gap: 8, alignItems: "stretch" }}>
-          {notebook.map((entry) => (
-            <Link key={entry.questionId} href={`/app/questao/${entry.slug}`} className="card" style={{ textDecoration: "none", padding: 12 }}>
-              <strong style={{ fontSize: 15 }}>{entry.theme}</strong>
-              <p className="muted" style={{ fontSize: 13.5 }}>
-                {entry.reason ? ERROR_REASON_LABEL[entry.reason] : "Motivo não marcado"} · errou em {formatDate(entry.when)}
-                {entry.due ? ` · volta em ${formatDate(entry.due)}` : ""}
-              </p>
-            </Link>
-          ))}
-        </div>
       </section>
     </div>
   );

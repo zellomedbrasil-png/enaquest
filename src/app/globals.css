@@ -2312,3 +2312,40 @@ html[data-text="large"] #conteudo {
 .medal-progress { display: flex; align-items: center; gap: 8px; margin-top: 4px; }
 .medal-progress .bar { flex: 1; height: 6px; }
 .medal-count { font-size: 12px; color: var(--mute); font-variant-numeric: tabular-nums; }
+
+/* Revisão */
+.review-hero { display: grid; gap: 18px; padding: 20px 22px; background: linear-gradient(120deg, color-mix(in srgb, var(--coral) 9%, var(--card)), var(--card) 60%); }
+.review-hero.is-clear { background: linear-gradient(120deg, color-mix(in srgb, var(--ok) 9%, var(--card)), var(--card) 60%); }
+@media (min-width: 1100px) { .review-hero { grid-template-columns: minmax(260px, 1fr) minmax(0, 1.6fr) auto; align-items: center; } }
+.review-today { display: flex; align-items: center; gap: 14px; }
+.review-today .eyebrow { margin: 0; }
+.review-today strong { display: block; font-family: var(--font-display), sans-serif; font-size: 20px; }
+.review-today p { margin: 2px 0 0; font-size: 13.5px; }
+.review-today-ring { flex: none; display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50%; border: 4px solid var(--coral); background: color-mix(in srgb, var(--coral) 14%, var(--card)); font-family: var(--font-display), sans-serif; font-size: 26px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.review-hero.is-clear .review-today-ring { border-color: var(--ok); background: var(--ok-soft); color: var(--ok); }
+.review-week .agenda { margin-top: 8px; }
+.review-week .card-head .muted { font-size: 12.5px; }
+.review-facts { margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+@media (min-width: 1100px) { .review-facts { grid-template-columns: 1fr; min-width: 150px; } }
+.review-facts > div { padding: 10px 14px; border-radius: 14px; background: var(--card-2); border: 1px solid var(--line); }
+.review-facts dt { font-size: 11.5px; color: var(--mute); }
+.review-facts dd { margin: 2px 0 0; font-family: var(--font-display), sans-serif; font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; }
+
+.notebook-filters { display: flex; flex-wrap: wrap; gap: 8px; }
+.notebook-chip { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 0 12px; border: 1px solid var(--line); border-radius: 99px; background: var(--card); color: var(--mute); font-size: 13px; font-weight: 600; cursor: pointer; }
+.notebook-chip span { min-width: 22px; padding: 1px 7px; border-radius: 99px; background: var(--card-2); color: var(--ink); font-size: 12px; text-align: center; font-variant-numeric: tabular-nums; }
+.notebook-chip:hover { border-color: var(--mute); color: var(--ink); }
+.notebook-chip[aria-pressed="true"] { border-color: var(--lime); color: var(--ink); background: var(--tip-soft); }
+.notebook-chip:focus-visible { outline: 3px solid var(--accent-fill); outline-offset: 2px; }
+.notebook-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+@media (min-width: 700px) { .notebook-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1400px) { .notebook-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.notebook-card { display: grid; gap: 6px; height: 100%; padding: 14px 16px; border: 1px solid var(--line); border-left: 4px solid var(--line); border-radius: 16px; background: var(--card); color: var(--ink); text-decoration: none; transition: border-color .2s, background .2s; }
+.notebook-card:hover { background: var(--card-2); }
+.notebook-area { font-size: 12px; color: var(--mute); }
+.notebook-theme { font-size: 15px; line-height: 1.35; }
+.notebook-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; font-size: 12.5px; }
+.notebook-reason { padding: 2px 9px; border-radius: 99px; font-weight: 600; color: var(--coral); background: color-mix(in srgb, var(--coral) 12%, transparent); }
+.notebook-reason.is-empty { color: var(--mute); background: var(--card-2); }
+.notebook-due { justify-self: start; margin-top: 2px; font-size: 12.5px; font-weight: 600; color: var(--mute); }
+.notebook-due.is-ready { color: var(--lime-ink); }

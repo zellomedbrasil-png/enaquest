@@ -85,6 +85,8 @@ export type NotebookEntry = {
   reason: string | null;
   when: string;
   due: string | null;
+  /** Já voltou para revisão. */
+  ready: boolean;
 };
 
 export async function getNotebook(userId: string): Promise<NotebookEntry[]> {
@@ -98,6 +100,7 @@ export async function getNotebook(userId: string): Promise<NotebookEntry[]> {
     .limit(100);
   const { data: cards } = await db.from("srs_cards").select("question_id, due").eq("user_id", userId);
   const dueByQuestion = new Map<string, string>((cards ?? []).map((c: { question_id: string; due: string }) => [c.question_id, c.due]));
+  const now = Date.now();
   const seen = new Set<string>();
   const out: NotebookEntry[] = [];
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -112,6 +115,7 @@ export async function getNotebook(userId: string): Promise<NotebookEntry[]> {
       reason: row.error_reason,
       when: row.created_at,
       due: dueByQuestion.get(row.question_id) ?? null,
+      ready: dueByQuestion.has(row.question_id) && new Date(dueByQuestion.get(row.question_id)!).getTime() <= now,
     });
   }
   return out;
