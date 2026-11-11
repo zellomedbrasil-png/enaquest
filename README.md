@@ -17,7 +17,7 @@ Abra http://localhost:3000/entrar com a conta de demonstração que o segundo co
 ## Telas e identidade visual
 
 - `/guia-de-estilo`: página viva com paleta, tipografia, componentes e o mascote.
-- `/app/mascote`: guarda-roupa e lojinha. O XP vira saldo para trocar por roupas e personagens; gastar não muda nível nem liga.
+- `/app/mascote`: escolha entre oito companheiros de jornada, cada um com nome e ilustração próprios.
 - `/app/como-funciona`: a jornada do dia e o glossário.
 
 ## Testes

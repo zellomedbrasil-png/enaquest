@@ -16,7 +16,9 @@ import { Coach } from "./Coach";
 import { ComboMeter, COMBO_MILESTONES } from "./ComboMeter";
 import { Confetti } from "./Confetti";
 import { useFeedbackPrefs } from "./FeedbackSettings";
-import { MyMascot } from "./MyMascot";
+import { MascotChat } from "./MascotChat";
+import { MascotStation } from "./plantao/MascotStation";
+import { useMascotState } from "./plantao/useMascotState";
 import { ExamTables, OptionsList, QuestionHeader } from "./QuestionView";
 import { RevealPanel } from "./RevealPanel";
 import { PROGRESS_EVENT, type ProgressEventDetail } from "./TopStats";
@@ -71,6 +73,27 @@ export function QuestionRunner({
   const area = areas.find((a) => a.id === question?.areaId);
   const roundOver = !question || finished;
   const answeredInRound = Object.keys(results).length;
+  const mascot = useMascotState({
+    questionId: question?.id ?? "fim",
+    areaId: question?.areaId,
+    scenario: question?.scenario,
+    clinicalHint: question?.clinicalHint,
+  });
+
+  // Os handlers da tela avisam o mascote; a lógica de resposta continua a mesma.
+  const pickOption = (position: number) => {
+    setPicked(position);
+    mascot.onSelectOption(position);
+  };
+  const strikeOption = (position: number) => {
+    const nowStruck = !struck.includes(position);
+    setStruck((s) => (s.includes(position) ? s.filter((x) => x !== position) : [...s, position]));
+    mascot.onEliminateOption(position, nowStruck);
+  };
+  const chooseConfidence = (level: Confidence) => {
+    setConfidence(level);
+    mascot.onSelectConfidence(level);
+  };
 
   useEffect(() => {
     startedAt.current = Date.now();
@@ -147,6 +170,7 @@ export function QuestionRunner({
         return;
       }
       setResults((current) => ({ ...current, [question.id]: response.data }));
+      mascot.onAnswer({ correct: response.data.correct, xp: response.data.xpGained, combo: response.data.combo });
       setCombo({ value: response.data.combo, broken: response.data.correct ? 0 : response.data.previousCombo });
       celebrateResult(response.data);
     });
@@ -191,7 +215,7 @@ export function QuestionRunner({
       if (event.ctrlKey || event.metaKey || event.altKey) return;
       if (!result) {
         const position = "abcd".indexOf(event.key.toLowerCase());
-        if (position >= 0 && position < question.options.length) setPicked(position);
+        if (position >= 0 && position < question.options.length) pickOption(position);
         if (event.key === "Enter" && picked !== null && !pending) submit();
       } else if (event.key === "Enter" && target.tagName !== "BUTTON" && target.tagName !== "A") {
         next();
@@ -233,7 +257,7 @@ export function QuestionRunner({
         {(celebrate || hits === list.length) && list.length >= 3 && <Confetti />}
         <p className="eyebrow">Rodada concluída</p>
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 16, flexWrap: "wrap", margin: "10px 0 8px" }}>
-          <MyMascot mood={list.length > 0 && hits / list.length >= 0.8 ? "comemorando" : list.length > 0 && hits / list.length >= 0.5 ? "feliz" : "neutro"} size={112} background />
+          <MascotChat moment="fim" />
           <ScoreRing correct={hits} total={list.length} />
         </div>
         <h2 style={{ fontSize: 24 }}>{scoreMessage(hits, list.length).title}</h2>
@@ -356,20 +380,25 @@ export function QuestionRunner({
         </Coach>
       )}
 
-      <article className="card qgrid" ref={articleRef} tabIndex={-1} aria-label={`Questão ${index + 1} de ${questions.length}`}>
+      <article className={`card qgrid ${result ? "is-answered" : ""}`} ref={articleRef} tabIndex={-1} aria-label={`Questão ${index + 1} de ${questions.length}`}>
         <div className="qleft">
+          <div>
           <QuestionHeader question={question} areaName={area?.name} areaColor={area?.color} />
           <p className="stem">{question.stem}</p>
           <ExamTables exams={question.exams} />
+          </div>
+          <div className="mascot-station-dock">
+            <MascotStation view={mascot} onRequestHint={mascot.onRequestHint} />
+          </div>
         </div>
 
         <div className="qright">
           <OptionsList
             question={question}
             picked={result ? result.selected : picked}
-            onPick={setPicked}
+            onPick={pickOption}
             struck={struck}
-            onStrike={(i) => setStruck((s) => (s.includes(i) ? s.filter((x) => x !== i) : [...s, i]))}
+            onStrike={strikeOption}
             locked={Boolean(result) || pending}
             correctIndex={result?.reveal.correctIndex ?? null}
           />
@@ -389,7 +418,7 @@ export function QuestionRunner({
                       className="btn btn-ghost btn-sm"
                       aria-pressed={confidence === level}
                       style={confidence === level ? { borderColor: "var(--accent)", background: "var(--tip-soft)" } : undefined}
-                      onClick={() => setConfidence(level)}
+                      onClick={() => chooseConfidence(level)}
                     >
                       {CONFIDENCE_LABEL[level]}
                     </button>
@@ -408,6 +437,9 @@ export function QuestionRunner({
                   {error}
                 </div>
               )}
+              <div className="mascot-station-dock-mobile">
+                <MascotStation view={mascot} onRequestHint={mascot.onRequestHint} variant="compact" />
+              </div>
             </>
           )}
 
@@ -437,6 +469,10 @@ export function QuestionRunner({
                     Plantão concluído: {result.dailyFinished.correct}/{result.dailyFinished.total}
                   </span>
                 )}
+              </div>
+
+              <div className="mascot-station-dock-mobile">
+                <MascotStation view={mascot} onRequestHint={mascot.onRequestHint} variant="compact" />
               </div>
 
               <RevealPanel

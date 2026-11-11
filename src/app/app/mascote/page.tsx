@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { MascotShop } from "@/components/MascotShop";
+import { MascotPicker } from "@/components/MascotPicker";
 import { PageHeader } from "@/components/ui";
 import { getMascotForPage } from "@/lib/server/mascot";
 import { requireUser } from "@/lib/server/session";
@@ -12,8 +12,8 @@ export default async function MascotPage() {
   const view = await getMascotForPage(user.id);
   return (
     <div style={{ display: "grid", gap: 16 }}>
-      <PageHeader title="Mascote" lead="Vista seu mascote e troque XP por roupas, acessórios e novos personagens." />
-      <MascotShop initial={view} />
+      <PageHeader title="Seu mascote" lead="Toda jornada fica melhor com companhia." />
+      <MascotPicker initial={view} />
       <p className="muted" style={{ fontSize: 14.5 }}>
         Procurando seu perfil ou a assinatura? <Link href="/app/conta">Abrir Conta</Link>.
       </p>

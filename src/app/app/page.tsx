@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Emblem } from "@/components/Emblem";
 import { Flame, ShieldDots } from "@/components/Flame";
 import { MyMascot } from "@/components/MyMascot";
+import { MascotChat } from "@/components/MascotChat";
 import { Banner, LevelBar, PageHeader, StatusPill } from "@/components/ui";
 import { admin } from "@/lib/supabase/admin";
 import { buildJourney, journeyStage, type JourneyStep, type StepState } from "@/lib/game/journey";
@@ -117,6 +118,7 @@ export default async function TodayPage() {
             ) : undefined
           }
         />
+        <MascotChat moment="inicio" />
 
         <section aria-labelledby="jornada">
           <h2 id="jornada" style={{ fontSize: 20, marginBottom: 10 }}>
@@ -233,7 +235,7 @@ export default async function TodayPage() {
           <MyMascot mood={mood} size={72} background />
           <span>
             <strong>{mascot.name}</strong>
-            <span className="muted">{mascot.balance} XP para gastar. Abrir a lojinha do mascote.</span>
+            <span className="muted">Seu companheiro de jornada. Escolher outro mascote.</span>
           </span>
           <span aria-hidden>→</span>
         </Link>

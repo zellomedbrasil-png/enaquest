@@ -18,6 +18,8 @@ export type PublicQuestion = {
   verification: string;
   origin: string;
   license: string;
+  /** Pista de raciocínio sem o gabarito. Opcional: sem ela, o mascote usa pistas da área e do cenário. */
+  clinicalHint?: string | null;
 };
 
 export type Reveal = {

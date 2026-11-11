@@ -97,10 +97,10 @@ export default function HowItWorksPage() {
           </div>
           <div id="mascote">
             <dt>
-              <strong>Mascote e lojinha</strong>
+              <strong>Seu companheiro de jornada</strong>
             </dt>
             <dd className="muted">
-              Seu mascote acompanha o seu dia. Na lojinha você troca XP por roupas, acessórios e outros personagens. Trocar XP não baixa seu nível nem sua posição na liga, e nenhum item muda seu desempenho.
+              Escolha um dos oito mascotes para acompanhar seus estudos. Cada personagem tem seu próprio nome e conversa com você durante as questões, revisões e simulados. Você pode trocar de companheiro quando quiser.
             </dd>
           </div>
           <div id="confianca">

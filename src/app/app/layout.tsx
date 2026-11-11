@@ -4,6 +4,7 @@ import { Emblem } from "@/components/Emblem";
 import { admin } from "@/lib/supabase/admin";
 import { PLACEMENT_GAMES, tierOf } from "@/lib/game/rating";
 import { MascotProvider } from "@/components/MyMascot";
+import { MascotBadge } from "@/components/MascotBadge";
 import { TopStats } from "@/components/TopStats";
 import { getMascotForPage } from "@/lib/server/mascot";
 import { displayedStreak, todayBR } from "@/lib/game/streak";
@@ -42,6 +43,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
             shields={streak.data.shields}
             activeToday={streak.data.last_active === todayBR()}
           />
+          <MascotBadge character={mascot.character} name={mascot.name} xpTotal={rating.data.xp_total} />
           <Link href="/app/conta" className="account-link" aria-label={`Conta de ${profile.nickname}. ${inPlacement ? "Em nivelamento" : `Patente ${tier.tier.name}`}`}>
             <Emblem rating={Number(rating.data.rating)} placement={inPlacement} size={30} />
             <span className="account-label" aria-hidden>
@@ -56,7 +58,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
         </div>
       )}
       <main id="conteudo" className="wrap" tabIndex={-1}>
-        <MascotProvider look={mascot.look} name={mascot.name}>
+        <MascotProvider character={mascot.character} name={mascot.name}>
           {children}
         </MascotProvider>
       </main>

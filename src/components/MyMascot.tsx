@@ -1,23 +1,20 @@
 "use client";
 
 import { createContext, useContext, type ReactNode } from "react";
-import { DEFAULT_LOOK, DEFAULT_NAME, type Look } from "@/lib/game/shop";
+import { DEFAULT_MASCOT, type MascotId } from "@/lib/game/mascots";
 import { Mascot, type Mood } from "./Mascot";
 
-type Mine = { look: Look; name: string };
+type Mine = { character: MascotId; name: string };
+const MascotContext = createContext<Mine>({ character: DEFAULT_MASCOT.id, name: DEFAULT_MASCOT.name });
 
-const MascotContext = createContext<Mine>({ look: DEFAULT_LOOK, name: DEFAULT_NAME });
-
-/** O layout do app entrega aqui o mascote da pessoa, para qualquer tela poder mostrá-lo. */
-export function MascotProvider({ look, name, children }: Mine & { children: ReactNode }) {
-  return <MascotContext.Provider value={{ look, name }}>{children}</MascotContext.Provider>;
+export function MascotProvider({ character, name, children }: Mine & { children: ReactNode }) {
+  return <MascotContext.Provider value={{ character, name }}>{children}</MascotContext.Provider>;
 }
 
 export function useMyMascot(): Mine {
   return useContext(MascotContext);
 }
 
-/** O mascote da pessoa, com a roupa que ela escolheu. */
 export function MyMascot({
   mood = "neutro",
   size = 96,
@@ -29,6 +26,6 @@ export function MyMascot({
   background?: boolean;
   decorative?: boolean;
 }) {
-  const { look, name } = useMyMascot();
-  return <Mascot look={look} name={name} mood={mood} size={size} background={background} decorative={decorative} />;
+  const { character, name } = useMyMascot();
+  return <Mascot character={character} name={name} mood={mood} size={size} background={background} decorative={decorative} />;
 }

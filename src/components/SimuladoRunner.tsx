@@ -5,6 +5,7 @@ import { useCallback, useEffect, useRef, useState, useTransition } from "react";
 import { finishSimuladoAction, saveSimuladoAction } from "@/app/actions";
 import type { AttemptState } from "@/lib/server/simulados";
 import { ExamTables, OptionsList, QuestionHeader } from "./QuestionView";
+import { MascotChat } from "./MascotChat";
 
 type Area = { id: string; name: string; color: string };
 
@@ -137,6 +138,7 @@ export function SimuladoRunner({ attempt, areas }: { attempt: AttemptState; area
       <article className="card">
         <div style={{ display: "flex", justifyContent: "space-between", gap: 8, marginBottom: 6 }}>
           <strong>Questão {index + 1}</strong>
+          <MascotChat contextId={question.id} moment="simulado" />
           <button
             type="button"
             className="btn btn-ghost btn-sm"
@@ -162,7 +164,7 @@ export function SimuladoRunner({ attempt, areas }: { attempt: AttemptState; area
             })
           }
         />
-        <div style={{ display: "flex", justifyContent: "space-between", gap: 8, marginTop: 8 }}>
+        <div className="simulado-navigation" style={{ display: "flex", justifyContent: "space-between", gap: 8, marginTop: 8 }}>
           <button type="button" className="btn btn-ghost" disabled={index === 0} onClick={() => go(index - 1)}>
             Anterior
           </button>

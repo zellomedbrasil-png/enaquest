@@ -117,38 +117,12 @@ export async function todayMissionsAction() {
 }
 
 // ---------- Mascote ----------
-const lookSchema = z.object({
-  character: z.string().max(40),
-  body: z.string().max(40),
-  head: z.string().max(40).nullable(),
-  accessory: z.string().max(40).nullable(),
-  background: z.string().max(40),
-});
-
-export async function buyItemAction(itemId: string) {
+export async function selectMascotAction(character: string) {
   return run(async () => {
     const user = await requireUser();
-    const view = await mascot.buyItem(user.id, z.string().min(1).max(40).parse(itemId));
+    const view = await mascot.selectMascot(user.id, z.string().min(1).max(40).parse(character));
     revalidatePath("/app", "layout");
     return view;
-  });
-}
-
-export async function equipAction(look: z.input<typeof lookSchema>) {
-  return run(async () => {
-    const user = await requireUser();
-    const view = await mascot.equip(user.id, lookSchema.parse(look));
-    revalidatePath("/app", "layout");
-    return view;
-  });
-}
-
-export async function renameMascotAction(name: string) {
-  return run(async () => {
-    const user = await requireUser();
-    const saved = await mascot.renameMascot(user.id, z.string().max(60).parse(name));
-    revalidatePath("/app", "layout");
-    return saved;
   });
 }
 
