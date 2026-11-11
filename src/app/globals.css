@@ -2089,3 +2089,44 @@ html[data-text="large"] #conteudo {
 
 .pill-priority { margin-left: 8px; color: var(--gold); background: var(--pearl-soft); font-size: 11px; font-weight: 700; }
 .train-link { display: inline-block; margin-top: 6px; font-size: 13px; font-weight: 600; }
+
+/* Topo: painel de bordo */
+.hud-level { flex: 1 1 auto; min-width: 0; max-width: 340px; display: grid; gap: 3px; }
+.hud-level-top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; font-size: 13px; }
+.hud-level-top strong { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hud-xp { color: var(--mute); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.hud-level-next { display: none; margin: 0; font-size: 11.5px; color: var(--dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hud-chips { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.hud-chip { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 0 12px 0 8px; border: 1px solid var(--line); border-radius: 99px; background: var(--card-2); color: var(--ink); font-size: 13px; font-weight: 600; text-decoration: none; white-space: nowrap; transition: border-color .2s, background .2s; }
+.hud-chip:hover { border-color: var(--mute); }
+.hud-plantao { border-color: color-mix(in srgb, var(--lime) 55%, var(--line)); }
+.hud-ring { position: relative; display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: conic-gradient(var(--lime) var(--p, 0deg), var(--track) 0); font-size: 12px; font-weight: 800; color: var(--accent-ink); }
+.hud-ring::after { content: ""; position: absolute; inset: 4px; border-radius: 50%; background: var(--card-2); }
+.hud-plantao.is-done { border-color: color-mix(in srgb, var(--ok) 55%, var(--line)); color: var(--ok); }
+.hud-plantao.is-done .hud-ring { background: var(--ok); }
+.hud-plantao.is-done .hud-ring::after { display: none; }
+.hud-plantao.is-done .hud-ring { color: #0d0f1c; }
+.hud-reviews { padding-left: 12px; }
+.hud-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--coral); box-shadow: 0 0 0 3px color-mix(in srgb, var(--coral) 25%, transparent); }
+.account-label { flex-direction: column; line-height: 1.15; }
+.account-label strong { font-size: 13px; color: var(--ink); }
+.account-label small { font-size: 11px; color: var(--dim); }
+@media (min-width: 900px) {
+  .hud-level-next { display: block; }
+  .account-label { display: flex; }
+}
+@media (max-width: 1279px) { .mascot-badge-text span { display: none; } }
+.mascot-badge-text strong, .mascot-badge-text span { white-space: nowrap; }
+@media (max-width: 899px) {
+  .hud-chips { gap: 6px; }
+  .hud-reviews span, .hud-plantao > span:last-child { display: none; }
+  .hud-chip { padding: 0 8px; }
+}
+@media (max-width: 639px) {
+  .hud-level-top .hud-xp { display: none; }
+  .mascot-badge-text { display: none; }
+}
+@media (max-width: 639px) {
+  .mascot-badge, .hud-reviews { display: none; }
+  .topbar-in { gap: 10px; }
+}

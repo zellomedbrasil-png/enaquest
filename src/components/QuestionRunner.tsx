@@ -147,7 +147,14 @@ export function QuestionRunner({
     if (data.dailyFinished) setCelebrate(true);
 
     window.dispatchEvent(
-      new CustomEvent<ProgressEventDetail>(PROGRESS_EVENT, { detail: { xpTotal: data.xpTotal, streak: data.streak, shields: data.shields } }),
+      new CustomEvent<ProgressEventDetail>(PROGRESS_EVENT, { detail: {
+          xpTotal: data.xpTotal,
+          streak: data.streak,
+          shields: data.shields,
+          // No Plantão do Dia, o topo mostra quantas das 10 já foram respondidas.
+          ...(mode === "daily" ? { dailyDone: Object.keys(alreadyAnswered).length + Object.keys(results).length + 1 } : null),
+        },
+      }),
     );
   };
 
