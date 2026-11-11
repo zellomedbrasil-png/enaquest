@@ -222,6 +222,9 @@ export function Comments({ questionId }: { questionId: string }) {
 }
 
 /** Comentário em camadas: do resumo rápido até a fonte. */
+/** Selo da questão, aviso educacional, discussão e denúncia. Desligado por enquanto: troque para true para voltar. */
+const SHOW_TRUST_NOTICES = false;
+
 export function RevealPanel({
   reveal,
   options,
@@ -318,17 +321,19 @@ export function RevealPanel({
             </ul>
           </div>
         )}
-        {seal && (
+        {SHOW_TRUST_NOTICES && seal && (
           <p style={{ marginTop: 6 }}>
             <span className="pill">{seal.label}</span> {seal.detail}
           </p>
         )}
-        <p className="dim" style={{ marginTop: 4 }}>
-          Conteúdo educacional, não substitui orientação clínica nem os protocolos vigentes.
-        </p>
+        {SHOW_TRUST_NOTICES && (
+          <p className="dim" style={{ marginTop: 4 }}>
+            Conteúdo educacional, não substitui orientação clínica nem os protocolos vigentes.
+          </p>
+        )}
       </div>
 
-      {showCommunity && (
+      {SHOW_TRUST_NOTICES && showCommunity && (
         <>
           <Comments questionId={questionId} />
           <ReportBox questionId={questionId} />

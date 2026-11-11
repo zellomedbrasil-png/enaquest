@@ -73,7 +73,7 @@ test.describe.serial("aluno", () => {
       await page.getByRole("button", { name: "Responder" }).click();
       await expect(page.getByText("Em 20 segundos")).toBeVisible();
       await expect(page.getByText("Macete de prova")).toBeVisible();
-      await expect(page.getByText(/Verificada por IA/).first()).toBeVisible();
+      // Selo "Verificada por IA" fica escondido por enquanto (SHOW_TRUST_NOTICES em RevealPanel).
       if (i === 0) {
         await expect(page.getByText(/\+\d+ XP/).first()).toBeVisible();
         await expect(page.getByText(/Nivelamento: faltam/)).toBeVisible();
@@ -97,14 +97,7 @@ test.describe.serial("aluno", () => {
     await expect(page.getByText("A liga semanal abre depois do nivelamento")).toBeVisible();
     await expect(page.getByText(/Ranking do Plantão de hoje/)).toBeVisible();
 
-    // Discussão da turma
-    await page.goto("/app/plantao");
-    await page.getByRole("link", { name: /Tema Plantão/ }).first().click();
-    await page.getByRole("button", { name: "Ver discussão da turma" }).click();
-    await expect(page.getByText("Ninguém comentou ainda")).toBeVisible();
-    await page.getByLabel("Seu comentário").fill("Vale lembrar do critério principal do caso.");
-    await page.getByRole("button", { name: "Publicar" }).click();
-    await expect(page.getByText("Vale lembrar do critério principal do caso.")).toBeVisible();
+    // Discussão da turma fica escondida por enquanto (SHOW_TRUST_NOTICES em RevealPanel).
 
     // Evolução
     await page.goto("/app/evolucao");
