@@ -3,9 +3,7 @@ import Link from "next/link";
 import { Emblem } from "@/components/Emblem";
 import { Flame, ShieldDots } from "@/components/Flame";
 import { MyMascot } from "@/components/MyMascot";
-import { MascotChat } from "@/components/MascotChat";
 import { Banner, LevelBar, PageHeader, StatusPill, ToolIcon } from "@/components/ui";
-import { TutorialBanner } from "@/components/TutorialBanner";
 import { admin } from "@/lib/supabase/admin";
 import { buildJourney, journeyStage, type JourneyStep, type StepState } from "@/lib/game/journey";
 import { achievementProgress, closestAchievements } from "@/lib/game/progress";
@@ -105,8 +103,6 @@ export default async function TodayPage() {
       <div className="stack">
         <PageHeader title={`Bom plantão, ${profile.nickname}`} lead={lead} />
 
-        {stage !== "ativo" && <TutorialBanner />}
-
         <Banner
           tone={journey.next.allDone ? "done" : "today"}
           title={journey.next.title}
@@ -120,7 +116,6 @@ export default async function TodayPage() {
             ) : undefined
           }
         />
-        <MascotChat moment="inicio" />
 
         <section aria-labelledby="jornada">
           <h2 id="jornada" className="section-title">

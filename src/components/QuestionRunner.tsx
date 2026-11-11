@@ -16,7 +16,6 @@ import { Coach } from "./Coach";
 import { ComboMeter, COMBO_MILESTONES } from "./ComboMeter";
 import { Confetti } from "./Confetti";
 import { useFeedbackPrefs } from "./FeedbackSettings";
-import { MascotChat } from "./MascotChat";
 import { MascotStation } from "./plantao/MascotStation";
 import { useMascotState } from "./plantao/useMascotState";
 import { ExamTables, OptionsList, QuestionHeader } from "./QuestionView";
@@ -257,7 +256,6 @@ export function QuestionRunner({
         {(celebrate || hits === list.length) && list.length >= 3 && <Confetti />}
         <p className="eyebrow">Rodada concluída</p>
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 16, flexWrap: "wrap", margin: "10px 0 8px" }}>
-          <MascotChat moment="fim" />
           <ScoreRing correct={hits} total={list.length} />
         </div>
         <h2 style={{ fontSize: 24 }}>{scoreMessage(hits, list.length).title}</h2>
