@@ -2130,3 +2130,74 @@ html[data-text="large"] #conteudo {
   .mascot-badge, .hud-reviews { display: none; }
   .topbar-in { gap: 10px; }
 }
+
+/* Aba Mascote: palco, ficha de plantão e elenco */
+.mascot-lab { --accent-mascot: var(--lime); display: grid; gap: 20px; align-items: start; }
+@media (min-width: 1100px) { .mascot-lab { grid-template-columns: 400px minmax(0, 1fr); gap: 24px; } .mascot-stage { position: sticky; top: 84px; } }
+
+.mascot-stage { display: grid; gap: 14px; padding: 20px; overflow: hidden; background: linear-gradient(180deg, color-mix(in srgb, var(--accent-mascot) 10%, var(--card)) 0%, var(--card) 55%); border-color: color-mix(in srgb, var(--accent-mascot) 30%, var(--line)); transition: border-color .3s, background .3s; }
+.mascot-stage-tag { margin: 0; justify-self: start; padding: 3px 10px; border-radius: 99px; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ink); background: color-mix(in srgb, var(--accent-mascot) 18%, transparent); border: 1px solid color-mix(in srgb, var(--accent-mascot) 40%, transparent); }
+.mascot-stage-tag.is-preview { color: var(--gold); background: var(--pearl-soft); border-color: color-mix(in srgb, var(--gold) 40%, transparent); }
+
+.mascot-stage-scene { position: relative; display: grid; place-items: end center; height: 290px; isolation: isolate; }
+.mascot-stage-glow { position: absolute; inset: 6% 8% 14%; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--accent-mascot) 32%, transparent) 0%, transparent 68%); z-index: -2; transition: background .4s; }
+.mascot-stage-floor { position: absolute; bottom: 4px; left: 22%; right: 22%; height: 26px; border-radius: 50%; background: radial-gradient(ellipse, color-mix(in srgb, var(--accent-mascot) 45%, transparent), transparent 70%); z-index: -1; }
+.mascot-stage-figure { display: block; transform-origin: 50% 95%; }
+.mascot-stage-figure .mascot { width: 200px; height: auto; image-rendering: pixelated; filter: drop-shadow(0 10px 14px #00000055); }
+
+.mascot-stage-id { display: grid; justify-items: center; gap: 4px; text-align: center; }
+.mascot-stage-id h2 { font-size: 28px; }
+.mascot-stage-tagline { margin: 0; color: var(--mute); font-size: 14.5px; }
+.mascot-traits { list-style: none; margin: 6px 0 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+.mascot-traits li { padding: 3px 10px; border-radius: 99px; font-size: 12px; font-weight: 600; background: var(--card-2); border: 1px solid var(--line); }
+
+.mascot-quote { position: relative; margin: 0; padding: 12px 14px; border-radius: 14px; background: var(--card-2); border: 1px solid var(--line); border-left: 3px solid var(--accent-mascot); font-size: 14px; line-height: 1.5; color: var(--ink); }
+
+.mascot-sheet { display: grid; gap: 8px; padding-top: 14px; border-top: 1px solid var(--line); }
+.mascot-sheet .eyebrow { margin: 0; }
+.mascot-sheet dl { margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.mascot-sheet dl > div { padding: 10px 12px; border-radius: 12px; background: var(--card-2); }
+.mascot-sheet dt { font-size: 11.5px; color: var(--mute); }
+.mascot-sheet dd { margin: 2px 0 0; font-family: var(--font-display), sans-serif; font-size: 17px; font-weight: 800; font-variant-numeric: tabular-nums; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.mascot-roster { display: grid; gap: 14px; min-width: 0; }
+.mascot-roster-head h2 { font-size: 22px; margin-bottom: 2px; }
+.mascot-roster-head p { margin: 0; font-size: 14px; }
+.mascot-roster-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 700px) { .mascot-roster-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 1400px) { .mascot-roster-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+.mascot-card-pick { position: relative; display: grid; justify-items: center; align-content: start; gap: 4px; width: 100%; height: 100%; padding: 14px 10px 14px; border: 1px solid var(--line); border-radius: 18px; background: var(--card); color: var(--ink); text-align: center; cursor: pointer; overflow: hidden; transition: border-color .2s, transform .2s, background .2s; }
+.mascot-card-pick::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 4px; background: var(--accent-mascot); opacity: .7; }
+.mascot-card-pick:hover, .mascot-card-pick:focus-visible { border-color: color-mix(in srgb, var(--accent-mascot) 55%, var(--line)); background: color-mix(in srgb, var(--accent-mascot) 6%, var(--card)); }
+.mascot-card-pick:focus-visible { outline: 3px solid var(--accent-mascot); outline-offset: 3px; }
+.mascot-card-pick.is-selected { border-color: var(--accent-mascot); background: color-mix(in srgb, var(--accent-mascot) 10%, var(--card)); }
+.mascot-card-pick:disabled { cursor: wait; }
+.mascot-card-portrait { display: grid; place-items: end center; width: 100%; height: 118px; margin-bottom: 4px; border-radius: 12px; background: radial-gradient(circle at 50% 70%, color-mix(in srgb, var(--accent-mascot) 22%, transparent), transparent 70%); }
+.mascot-card-portrait .mascot { width: 76px; height: auto; image-rendering: pixelated; }
+.mascot-card-pick strong { font-size: 15px; }
+.mascot-card-tagline { font-size: 12.5px; color: var(--mute); line-height: 1.35; }
+.mascot-card-badge { position: absolute; top: 10px; right: 10px; padding: 2px 8px; border-radius: 99px; font-size: 11px; font-weight: 700; background: var(--accent-mascot); color: #12160a; }
+
+@media (max-width: 1099px) {
+  .mascot-stage { grid-template-columns: 150px minmax(0, 1fr); column-gap: 16px; align-items: center; }
+  .mascot-stage-tag, .mascot-quote, .mascot-sheet { grid-column: 1 / -1; }
+  .mascot-stage-scene { height: 200px; }
+  .mascot-stage-figure .mascot { width: 130px; }
+  .mascot-stage-id { justify-items: start; text-align: left; }
+  .mascot-stage-id h2 { font-size: 24px; }
+  .mascot-traits { justify-content: flex-start; }
+}
+@media (min-width: 700px) and (max-width: 1099px) { .mascot-sheet dl { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+@media (prefers-reduced-motion: no-preference) {
+  .mascot-stage-figure { animation: mascot-stage-in .35s ease-out, mascot-station-breathe 3.2s ease-in-out .35s infinite; }
+  .mascot-quote { animation: mascot-station-line-in .3s ease-out; }
+  .mascot-card-pick:hover .mascot-card-portrait .mascot { animation: mascot-hop .6s ease-in-out; }
+}
+@keyframes mascot-stage-in { from { opacity: 0; transform: translateY(10px) scale(.96); } to { opacity: 1; transform: none; } }
+@media (min-width: 1400px) {
+  .mascot-card-pick { padding: 18px 12px; }
+  .mascot-card-portrait { height: 168px; }
+  .mascot-card-portrait .mascot { width: 104px; }
+}
