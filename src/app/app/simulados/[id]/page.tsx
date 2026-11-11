@@ -1,9 +1,12 @@
+import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import { SimuladoRunner } from "@/components/SimuladoRunner";
 import { admin } from "@/lib/supabase/admin";
 import { startOrResumeSimulado } from "@/lib/server/simulados";
 import { AppError, requireUser } from "@/lib/server/session";
 import { z } from "zod";
+
+export const metadata: Metadata = { title: "Simulado" };
 
 export default async function SimuladoPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
