@@ -2028,12 +2028,14 @@ html[data-text="large"] #conteudo {
 .mission-list li.is-done .mission-row > span:first-child { color: var(--ok); font-weight: 600; }
 .mission-list li.is-done .bar > i { background: var(--ok); }
 .shortcut-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-@media (min-width: 1280px) { .shortcut-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (min-width: 1280px) { .shortcut-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .shortcut { display: grid; gap: 4px; align-content: start; justify-items: start; height: 100%; padding: 14px 16px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); color: var(--ink); text-decoration: none; transition: border-color .2s, background .2s; }
 .shortcut:hover { border-color: var(--mute); background: var(--card-2); }
 .shortcut strong { font-size: 15.5px; }
 .shortcut > span { font-size: 13.5px; color: var(--mute); }
-.shortcut .status { margin-top: 6px; }
+.shortcut-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; width: 100%; margin-bottom: 6px; }
+.shortcut .ico { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: var(--card-2); color: var(--lime-ink); }
+.shortcut .ico svg { width: 20px; height: 20px; }
 
 /* Grades das telas internas */
 .cols-2 { display: grid; gap: 14px; align-items: start; }
@@ -2049,3 +2051,41 @@ html[data-text="large"] #conteudo {
   .choice-grid .choice > .status { grid-column: 2; grid-row: 1; justify-self: end; }
 }
 .premium-gate { max-width: 640px; margin-inline: auto; width: 100%; }
+
+/* Trilho lateral agrupado (computador) */
+.appnav-groups, .appnav-foot { display: none; }
+@media (min-width: 900px) {
+  .appnav-in { display: none; }
+  .appnav { overflow-y: auto; gap: 18px; }
+  .appnav-groups { display: grid; gap: 18px; align-content: start; flex: 1; }
+  .appnav-group { display: grid; gap: 2px; }
+  .appnav-label { margin: 0 0 4px; padding: 0 14px; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--dim); }
+  .appnav-group a, .appnav-foot a { display: flex; align-items: center; gap: 12px; min-height: 42px; padding: 9px 14px; border-radius: 12px; font-size: 14.5px; font-weight: 600; color: var(--mute); text-decoration: none; }
+  .appnav-group a svg, .appnav-foot a svg { width: 20px; height: 20px; flex: none; }
+  .appnav-group a:hover, .appnav-foot a:hover { background: var(--card-2); color: var(--ink); }
+  .appnav-group a[aria-current="page"], .appnav-foot a[aria-current="page"] { background: var(--card-2); color: var(--ink); box-shadow: inset 3px 0 0 var(--lime); }
+  .appnav-count { margin-left: auto; min-width: 22px; padding: 1px 7px; border-radius: 99px; background: var(--coral); color: #1a0705; font-size: 12px; font-weight: 800; text-align: center; font-variant-numeric: tabular-nums; }
+  .appnav-foot { display: grid; gap: 2px; padding-top: 12px; border-top: 1px solid var(--line); }
+}
+
+.tutorial-banner { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; padding: 12px 16px; border: 1px solid var(--sky); border-radius: var(--radius); background: var(--info-soft); }
+.tutorial-banner > div:nth-child(2) { flex: 1 1 220px; min-width: 0; }
+.tutorial-banner strong { font-size: 15.5px; }
+.tutorial-banner p { margin: 2px 0 0; font-size: 14px; color: var(--mute); }
+.tutorial-banner-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* Agenda de revisão */
+.agenda { list-style: none; margin: 12px 0 0; padding: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px; }
+.agenda li { display: grid; justify-items: center; gap: 2px; padding: 10px 4px; border: 1px solid var(--line); border-radius: 14px; background: var(--card-2); }
+.agenda li.today { border-color: var(--lime); }
+.agenda-day { font-size: 12px; color: var(--mute); }
+.agenda-count { font-family: var(--font-display), sans-serif; font-size: 22px; line-height: 1.1; color: var(--dim); font-variant-numeric: tabular-nums; }
+.agenda li.has .agenda-count { color: var(--ink); }
+.agenda li.today.has .agenda-count { color: var(--lime-ink); }
+.agenda-mini { display: grid; gap: 8px; text-decoration: none; color: var(--ink); }
+.agenda-mini:hover { border-color: var(--mute); }
+.agenda-mini-row { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 14px; color: var(--mute); }
+.agenda-mini-row strong { font-size: 18px; color: var(--ink); font-variant-numeric: tabular-nums; }
+
+.pill-priority { margin-left: 8px; color: var(--gold); background: var(--pearl-soft); font-size: 11px; font-weight: 700; }
+.train-link { display: inline-block; margin-top: 6px; font-size: 13px; font-weight: 600; }

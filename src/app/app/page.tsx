@@ -4,7 +4,8 @@ import { Emblem } from "@/components/Emblem";
 import { Flame, ShieldDots } from "@/components/Flame";
 import { MyMascot } from "@/components/MyMascot";
 import { MascotChat } from "@/components/MascotChat";
-import { Banner, LevelBar, PageHeader, StatusPill } from "@/components/ui";
+import { Banner, LevelBar, PageHeader, StatusPill, ToolIcon } from "@/components/ui";
+import { TutorialBanner } from "@/components/TutorialBanner";
 import { admin } from "@/lib/supabase/admin";
 import { buildJourney, journeyStage, type JourneyStep, type StepState } from "@/lib/game/journey";
 import { achievementProgress, closestAchievements } from "@/lib/game/progress";
@@ -12,7 +13,7 @@ import { PLACEMENT_GAMES, tierOf } from "@/lib/game/rating";
 import { displayedStreak, MAX_SHIELDS, todayBR } from "@/lib/game/streak";
 import { levelOf } from "@/lib/game/xp";
 import { getDailyState } from "@/lib/server/daily";
-import { countDueReviews } from "@/lib/server/study";
+import { countDueReviews, reviewAgenda } from "@/lib/server/study";
 import { lifetimeStats, todayMissions, weekActivity } from "@/lib/server/progress";
 import { getProfile, isPremium, requireUser } from "@/lib/server/session";
 
@@ -48,7 +49,7 @@ function Step({ step, index }: { step: JourneyStep; index: number }) {
 export default async function TodayPage() {
   const user = await requireUser();
   const day = todayBR();
-  const [profile, premium, daily, missions, rating, due, streak, week, stats, owned, answeredCount] = await Promise.all([
+  const [profile, premium, daily, missions, rating, due, streak, week, stats, owned, answeredCount, agenda] = await Promise.all([
     getProfile(user.id),
     isPremium(user.id),
     getDailyState(user.id, day),
@@ -60,6 +61,7 @@ export default async function TodayPage() {
     lifetimeStats(user.id),
     admin().from("achievements").select("achievement_id").eq("user_id", user.id),
     admin().from("answers").select("id", { count: "exact", head: true }).eq("user_id", user.id),
+    reviewAgenda(user.id),
   ]);
 
   const stage = journeyStage({ answered: answeredCount.count ?? 0, ratedGames: rating.data.games });
@@ -102,6 +104,8 @@ export default async function TodayPage() {
     <div className="two-col">
       <div className="stack">
         <PageHeader title={`Bom plantão, ${profile.nickname}`} lead={lead} />
+
+        {stage !== "ativo" && <TutorialBanner />}
 
         <Banner
           tone={journey.next.allDone ? "done" : "today"}
@@ -162,20 +166,25 @@ export default async function TodayPage() {
 
         <section aria-labelledby="atalhos">
           <h2 id="atalhos" className="section-title">
-            Atalhos
+            Como estudar no EnaQuest
           </h2>
           <ul className="shortcut-grid">
             {[
-              { href: "/app/revisao", title: "Revisão", text: due > 0 ? `${due} ${due === 1 ? "questão voltou" : "questões voltaram"} para você` : "Nada pendente hoje", paid: true },
-              { href: "/app/treino", title: "Treino", text: "Questões por área e dificuldade", paid: true },
-              { href: "/app/simulados", title: "Simulados", text: "Prova completa com tempo", paid: true },
-              { href: "/app/ligas", title: "Ligas", text: "Sua posição no ranking", paid: false },
+              { href: "/app/plantao", icon: "plantao" as const, title: "Plantão do Dia", text: "10 questões iguais para todos, todo dia. Sempre grátis.", paid: false },
+              { href: "/app/revisao", icon: "revisao" as const, title: "Revisão", text: due > 0 ? `${due} ${due === 1 ? "questão voltou" : "questões voltaram"} para você.` : "O que você errar volta na hora certa.", paid: true },
+              { href: "/app/treino", icon: "treino" as const, title: "Treino", text: "Escolha a área e o tamanho da rodada.", paid: true },
+              { href: "/app/simulados", icon: "simulados" as const, title: "Simulados", text: "Prova completa com tempo, como no dia.", paid: true },
+              { href: "/app/evolucao", icon: "evolucao" as const, title: "Evolução", text: "Veja seus pontos fortes e fracos por área.", paid: false },
+              { href: "/app/ligas", icon: "ligas" as const, title: "Ligas", text: "Dispute o ranking da semana com a turma.", paid: false },
             ].map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className="shortcut">
+                  <span className="shortcut-head">
+                    <ToolIcon name={item.icon} />
+                    {item.paid && !premium && <StatusPill tone="muted">Assinatura</StatusPill>}
+                  </span>
                   <strong>{item.title}</strong>
                   <span>{item.text}</span>
-                  {item.paid && !premium && <StatusPill tone="muted">Assinatura</StatusPill>}
                 </Link>
               </li>
             ))}
@@ -271,6 +280,23 @@ export default async function TodayPage() {
                 </div>
               )}
             </section>
+
+            {premium && (
+              <Link href="/app/revisao" className="card agenda-mini" aria-label="Agenda de revisão">
+                <p className="eyebrow">Agenda de revisão</p>
+                <div className="agenda-mini-row">
+                  <span>
+                    <strong>{agenda[0].count}</strong> hoje
+                  </span>
+                  <span>
+                    <strong>{agenda[1].count}</strong> amanhã
+                  </span>
+                  <span>
+                    <strong>{agenda.reduce((sum, entry) => sum + entry.count, 0)}</strong> na semana
+                  </span>
+                </div>
+              </Link>
+            )}
 
             {nextAchievement && (
               <section className="card" aria-label="Próxima conquista" style={{ display: "grid", gap: 8 }}>

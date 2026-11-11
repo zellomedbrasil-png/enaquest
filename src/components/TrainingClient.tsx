@@ -7,8 +7,8 @@ import { QuestionRunner } from "./QuestionRunner";
 
 type Area = { id: string; name: string; color: string; published: number };
 
-export function TrainingClient({ areas }: { areas: Area[] }) {
-  const [areaId, setAreaId] = useState<string | null>(null);
+export function TrainingClient({ areas, initialAreaId = null }: { areas: Area[]; initialAreaId?: string | null }) {
+  const [areaId, setAreaId] = useState<string | null>(initialAreaId);
   const [filter, setFilter] = useState<"novas" | "erradas" | "todas">("novas");
   const [size, setSize] = useState(10);
   const [round, setRound] = useState<{ context: string; questions: PublicQuestion[] } | null>(null);

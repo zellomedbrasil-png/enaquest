@@ -1,6 +1,7 @@
 import "server-only";
 import { admin } from "@/lib/supabase/admin";
 import { todayBR } from "@/lib/game/streak";
+import { addDays, buildAgenda, type AgendaDay } from "@/lib/study/agenda";
 import { AppError, enforceRateLimit, isPremium } from "./session";
 import { getPublicQuestions, getReveal, type PublicQuestion, type Reveal } from "./questions";
 import { pickBalanced, seededShuffle } from "./selection";
@@ -16,6 +17,19 @@ export async function countDueReviews(userId: string): Promise<number> {
     .eq("user_id", userId)
     .lte("due", new Date().toISOString());
   return count ?? 0;
+}
+
+/** Quantas questões voltam em cada um dos próximos 7 dias (atrasadas entram em hoje). */
+export async function reviewAgenda(userId: string): Promise<AgendaDay[]> {
+  const today = todayBR();
+  const { data } = await admin()
+    .from("srs_cards")
+    .select("due")
+    .eq("user_id", userId)
+    .lt("due", new Date(`${addDays(today, 8)}T12:00:00Z`).toISOString())
+    .limit(5000);
+  const days = (data ?? []).map((row: { due: string }) => todayBR(new Date(row.due)));
+  return buildAgenda(days, today);
 }
 
 export async function startTraining(

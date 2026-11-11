@@ -11,6 +11,26 @@ export const AREA_COLOR = {
   coletiva: "var(--prev)",
 } as const;
 
+/** Ícones de linha das ferramentas do app, no mesmo traço do menu lateral. */
+export const TOOL_ICON = {
+  plantao: "M3 12h4l3-8 4 16 3-8h4",
+  revisao: "M4 12a8 8 0 0 1 14-5.3L20 9M20 4v5h-5M20 12a8 8 0 0 1-14 5.3L4 15m0 5v-5h5",
+  treino: "M4 19V9m5 10V5m6 14v-7m5 7V8",
+  simulados: "M12 7v5l3 2M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z",
+  evolucao: "M3 17l6-6 4 4 8-9",
+  ligas: "M7 4h10v5a5 5 0 0 1-10 0V4Zm5 10v4m-4 3h8M7 6H4a3 3 0 0 0 3 3m10-3h3a3 3 0 0 1-3 3",
+} as const;
+
+export function ToolIcon({ name }: { name: keyof typeof TOOL_ICON }) {
+  return (
+    <span className="ico" aria-hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d={TOOL_ICON[name]} />
+      </svg>
+    </span>
+  );
+}
+
 export function Banner({
   tone,
   title,

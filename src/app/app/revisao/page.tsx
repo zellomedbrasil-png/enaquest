@@ -3,9 +3,10 @@ import Link from "next/link";
 import { PremiumGate } from "@/components/PremiumGate";
 import { EmptyState } from "@/components/EmptyState";
 import { PageHeader } from "@/components/ui";
+import { agendaLabel } from "@/lib/study/agenda";
 import { QuestionRunner } from "@/components/QuestionRunner";
 import { admin } from "@/lib/supabase/admin";
-import { getDueReviews, getNotebook } from "@/lib/server/study";
+import { getDueReviews, getNotebook, reviewAgenda } from "@/lib/server/study";
 import { isPremium, requireUser } from "@/lib/server/session";
 import { ERROR_REASON_LABEL, formatDate } from "@/lib/ui/labels";
 
@@ -16,10 +17,11 @@ export default async function ReviewPage() {
   if (!(await isPremium(user.id))) {
     return <PremiumGate title="Nunca mais erre a mesma questão" text="O que você errou ou acertou sem certeza volta na hora certa, calculada para você não esquecer." />;
   }
-  const [{ context, total, questions }, notebook, { data: areas }] = await Promise.all([
+  const [{ context, total, questions }, notebook, { data: areas }, agenda] = await Promise.all([
     getDueReviews(user.id),
     getNotebook(user.id),
     admin().from("matrix_areas").select("id, name, color"),
+    reviewAgenda(user.id),
   ]);
 
   return (
@@ -29,6 +31,27 @@ export default async function ReviewPage() {
         lead={total > 0 ? `Revise ${total} ${total === 1 ? "questão" : "questões"} agora. Elas voltaram na hora certa para você não esquecer.` : "Nada para revisar agora. O que você errar ou chutar volta aqui."}
       />
       {questions.length > 0 && <QuestionRunner questions={questions} mode="review" context={context} areas={areas ?? []} doneHref="/app/revisao" doneLabel="Ver caderno de erros" />}
+
+      <section className="card" aria-labelledby="agenda">
+        <div className="card-head">
+          <h2 id="agenda" className="section-title">
+            Agenda de revisão
+          </h2>
+          <span className="muted">Próximos 7 dias</span>
+        </div>
+        <ol className="agenda">
+          {agenda.map((entry, index) => (
+            <li key={entry.day} className={`${index === 0 ? "today" : ""} ${entry.count ? "has" : ""}`}>
+              <span className="agenda-day">{agendaLabel(entry.day, index)}</span>
+              <strong className="agenda-count">{entry.count}</strong>
+              <span className="sr-only">{entry.count === 1 ? "questão" : "questões"}</span>
+            </li>
+          ))}
+        </ol>
+        <p className="dim" style={{ fontSize: 13.5, marginTop: 10 }}>
+          O que você errou ou marcou com dúvida volta no dia certo. Questões atrasadas aparecem em Hoje.
+        </p>
+      </section>
 
       <section>
         <h2 className="section-title">Caderno de erros</h2>

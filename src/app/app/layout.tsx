@@ -7,17 +7,19 @@ import { MascotProvider } from "@/components/MyMascot";
 import { MascotBadge } from "@/components/MascotBadge";
 import { TopStats } from "@/components/TopStats";
 import { getMascotForPage } from "@/lib/server/mascot";
+import { countDueReviews } from "@/lib/server/study";
 import { displayedStreak, todayBR } from "@/lib/game/streak";
 import { getEntitlement, getProfile, requireUser } from "@/lib/server/session";
 
 export default async function AppLayout({ children }: { children: React.ReactNode }) {
   const user = await requireUser();
-  const [profile, entitlement, rating, streak, mascot] = await Promise.all([
+  const [profile, entitlement, rating, streak, mascot, dueReviews] = await Promise.all([
     getProfile(user.id),
     getEntitlement(user.id),
     admin().from("rating_state").select("rating, xp_total, games").eq("user_id", user.id).single(),
     admin().from("streaks").select("current, best, last_active, shields").eq("user_id", user.id).single(),
     getMascotForPage(user.id),
+    countDueReviews(user.id),
   ]);
   const inPlacement = rating.data.games < PLACEMENT_GAMES;
   const tier = tierOf(Number(rating.data.rating));
@@ -28,7 +30,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
         Pular para o conteúdo
       </a>
       <div className="shell">
-      <AppNav />
+      <AppNav dueReviews={dueReviews} />
       <div className="shell-main">
       <header className="topbar">
         <div className="topbar-in">

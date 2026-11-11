@@ -7,8 +7,9 @@ import { isPremium, requireUser } from "@/lib/server/session";
 
 export const metadata: Metadata = { title: "Treino" };
 
-export default async function TrainingPage() {
+export default async function TrainingPage({ searchParams }: { searchParams: Promise<{ area?: string }> }) {
   const user = await requireUser();
+  const { area: requestedArea } = await searchParams;
   if (!(await isPremium(user.id))) {
     return <PremiumGate title="Treine do seu jeito" text="Escolha a área, refaça o que errou e monte rodadas no tamanho que couber no seu dia." />;
   }
@@ -18,7 +19,10 @@ export default async function TrainingPage() {
     <div>
       <PageHeader title="Treino" lead="Escolha a área e o tamanho da rodada, depois toque em Começar treino." />
       <div style={{ height: 12 }} />
-      <TrainingClient areas={(areas ?? []).map((area: { id: string; name: string; color: string }) => ({ ...area, published: 0 }))} />
+      <TrainingClient
+        areas={(areas ?? []).map((area: { id: string; name: string; color: string }) => ({ ...area, published: 0 }))}
+        initialAreaId={(areas ?? []).some((area: { id: string }) => area.id === requestedArea) ? (requestedArea ?? null) : null}
+      />
     </div>
   );
 }

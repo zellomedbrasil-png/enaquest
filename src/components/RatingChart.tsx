@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { formatDate } from "@/lib/ui/labels";
 
@@ -67,7 +68,11 @@ export function RatingChart({ data }: { data: { day: string; rating: number }[] 
 }
 
 /** Barras de desempenho: mesma cor, um valor por linha, sem depender de cor para ler. */
-export function PerformanceBars({ rows }: { rows: { label: string; value: number | null; detail: string; color?: string }[] }) {
+export function PerformanceBars({
+  rows,
+}: {
+  rows: { label: string; value: number | null; detail: string; color?: string; priority?: boolean; href?: string }[];
+}) {
   return (
     <div style={{ display: "grid", gap: 12 }}>
       {rows.map((row) => (
@@ -76,6 +81,7 @@ export function PerformanceBars({ rows }: { rows: { label: string; value: number
             <span>
               {row.color && <i className="area-dot" style={{ background: row.color, marginRight: 8 }} />}
               {row.label}
+              {row.priority && <span className="pill pill-priority">Prioridade</span>}
             </span>
             <span className="muted" style={{ fontVariantNumeric: "tabular-nums" }}>
               {row.value === null ? row.detail : `${row.value}% · ${row.detail}`}
@@ -84,6 +90,11 @@ export function PerformanceBars({ rows }: { rows: { label: string; value: number
           <div className="bar" style={{ marginTop: 4 }}>
             <i style={{ width: `${row.value ?? 0}%`, ...(row.color ? { background: row.color } : null) }} />
           </div>
+          {row.href && (
+            <Link href={row.href} className="train-link">
+              Treinar {row.label}
+            </Link>
+          )}
         </div>
       ))}
     </div>

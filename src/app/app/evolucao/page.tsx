@@ -23,6 +23,24 @@ export default async function EvolutionPage() {
   ]);
   const achievements = achievementProgress(stats, new Set((owned ?? []).map((a: { achievement_id: string }) => a.achievement_id)));
   const { overall } = evolution;
+  // As duas áreas mais fracas (com leitura já liberada e abaixo de 70%) sobem para o topo.
+  const weakest = new Set(
+    evolution.areas
+      .filter((area) => area.pct !== null && area.pct < 70)
+      .sort((a, b) => (a.pct ?? 0) - (b.pct ?? 0))
+      .slice(0, 2)
+      .map((area) => area.id),
+  );
+  const areaRows = evolution.areas
+    .map((area) => ({
+      label: area.name,
+      value: area.pct,
+      detail: area.pct === null ? `${area.n} de ${MIN_AREA_RESPONSES} respostas` : `${area.correct} de ${area.n}`,
+      color: area.color,
+      priority: weakest.has(area.id),
+      href: premium ? `/app/treino?area=${area.id}` : undefined,
+    }))
+    .sort((a, b) => Number(b.priority) - Number(a.priority));
   const accuracy = stats.answered ? Math.round((stats.correct / stats.answered) * 100) : null;
 
   return (
@@ -101,14 +119,7 @@ export default async function EvolutionPage() {
         <p className="muted" style={{ fontSize: 13.5, marginBottom: 10 }}>
           A porcentagem aparece a partir de {MIN_AREA_RESPONSES} respostas na área.
         </p>
-        <PerformanceBars
-          rows={evolution.areas.map((area) => ({
-            label: area.name,
-            value: area.pct,
-            detail: area.pct === null ? `${area.n} de ${MIN_AREA_RESPONSES} respostas` : `${area.correct} de ${area.n}`,
-            color: area.color,
-          }))}
-        />
+        <PerformanceBars rows={areaRows} />
       </section>
 
       <div className="stack">
