@@ -40,8 +40,8 @@ const GROUPS: { label: string; items: Item[] }[] = [
   {
     label: "Estudar",
     items: [
-      { href: "/app/revisao", label: "Revisão", match: ["/app/revisao"], icon: ICON.revisao },
-      { href: "/app/treino", label: "Treino", match: ["/app/treino", "/app/questao"], icon: ICON.treino },
+      { href: "/app/revisao", label: "Revisão", match: ["/app/revisao", "/app/questao"], icon: ICON.revisao },
+      { href: "/app/treino", label: "Treino", match: ["/app/treino"], icon: ICON.treino },
       { href: "/app/simulados", label: "Simulados", match: ["/app/simulados"], icon: ICON.simulados },
     ],
   },

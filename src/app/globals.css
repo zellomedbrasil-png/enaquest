@@ -2385,3 +2385,7 @@ html[data-text="large"] #conteudo {
   .agenda-day { font-size: 10px; }
   .agenda-count { font-size: 18px; }
 }
+
+.back-link { justify-self: start; display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; color: var(--mute); text-decoration: none; }
+.back-link:hover { color: var(--ink); }
+.qgrid.is-answered .qright > .result-box:first-child { margin-top: 0; }
