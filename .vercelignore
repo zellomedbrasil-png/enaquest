@@ -1,0 +1,19 @@
+# Nunca enviar segredos locais nem material que não vai para o site.
+.env
+.env.*
+!.env.example
+.git
+node_modules
+.next
+.vercel
+Mascote
+design
+docs
+content
+test-results
+playwright-report
+tests
+supabase/.branches
+supabase/.temp
+referencias-privadas
+*.tsbuildinfo
