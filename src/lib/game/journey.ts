@@ -126,9 +126,18 @@ export function buildJourney(input: JourneyInput): Journey {
   const current = steps.find((s) => s.state === "now") ?? null;
   const remaining = steps.filter((s) => s.state === "now" || s.state === "next").length;
 
+  // Sem questões publicadas não há o que comemorar: o dia não está "feito", o plantão é que não foi escalado.
   const next: NextStep = current
     ? { title: current.heroTitle, text: current.heroText, cta: current.cta, href: current.href, allDone: false }
-    : {
+    : dailyTotal === 0
+      ? {
+          title: "O plantão de hoje ainda não foi escalado",
+          text: "Assim que as questões forem publicadas, elas aparecem aqui. Enquanto isso, conheça como o EnaQuest funciona.",
+          cta: "Como funciona",
+          href: "/app/como-funciona",
+          allDone: false,
+        }
+      : {
         title: "Hoje está feito",
         text: premium ? "Volte amanhã para manter a sequência. Se quiser estudar mais, faça um Treino." : "Volte amanhã para manter a sequência. Novas questões à meia-noite.",
         cta: premium ? "Treinar mais" : null,

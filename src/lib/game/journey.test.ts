@@ -73,7 +73,7 @@ describe("buildJourney", () => {
   it("sem questões publicadas, não há passo atual", () => {
     const j = buildJourney({ ...base, dailyTotal: 0, premium: false });
     expect(j.steps[0].state).toBe("locked");
-    expect(j.next.allDone).toBe(true);
+    expect(j.next.allDone).toBe(false);
   });
 
   it("a missão de revisão leva à Revisão, não ao Treino", () => {
@@ -85,6 +85,12 @@ describe("buildJourney", () => {
     const j = buildJourney(base);
     expect(j.steps[1].state).toBe("clear");
     expect(j.remaining).toBe(2);
+  });
+
+  it("sem questões publicadas não diz que o dia está feito", () => {
+    const journey = buildJourney({ ...base, premium: false, dailyTotal: 0, extraMissionsTotal: 0 });
+    expect(journey.next.allDone).toBe(false);
+    expect(journey.next.title).toBe("O plantão de hoje ainda não foi escalado");
   });
 
   it("conta quantos passos faltam", () => {
