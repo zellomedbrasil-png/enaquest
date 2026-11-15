@@ -94,8 +94,6 @@ export default async function QuestionPage({ params }: { params: Promise<{ slug:
             questionId={page.question.id}
             verification={page.question.verification}
             selected={answer.selected}
-            answerId={answer.id}
-            errorReason={answer.reason}
           />
         </div>
       </article>

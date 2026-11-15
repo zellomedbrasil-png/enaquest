@@ -671,7 +671,6 @@ export function QuestionRunner({
                   questionId={question.id}
                   verification={question.verification}
                   selected={answeredSelected}
-                  answerId={result?.answerId}
                   showReport={false}
                 />
               ) : (

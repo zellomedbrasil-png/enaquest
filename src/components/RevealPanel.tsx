@@ -4,7 +4,6 @@ import { useEffect, useState, useTransition } from "react";
 import {
   addCommentAction,
   appealAction,
-  errorReasonAction,
   listCommentsAction,
   reportCommentAction,
   reportQuestionAction,
@@ -12,39 +11,8 @@ import {
 } from "@/app/actions";
 import type { CommentView, ReportKind } from "@/lib/server/community";
 import type { Reveal } from "@/lib/server/questions";
-import type { ErrorReason } from "@/lib/server/answers";
-import { ERROR_REASON_LABEL, formatDate, REPORT_LABEL, SEALS } from "@/lib/ui/labels";
+import { formatDate, REPORT_LABEL, SEALS } from "@/lib/ui/labels";
 import { StudyPanel } from "./StudyPanel";
-
-export function ErrorDiagnosis({ answerId, initial }: { answerId: string; initial?: string | null }) {
-  const [reason, setReason] = useState<string | null>(initial ?? null);
-  return (
-    <div className="why-wrong" role="group" aria-labelledby="why-wrong-title">
-      <div id="why-wrong-title" className="eyebrow" style={{ marginBottom: 2 }}>
-        Por que você errou?
-      </div>
-      <p className="dim" style={{ fontSize: 13.5, marginBottom: 8 }}>
-        Marque o motivo: vale +3 XP e mostra seus padrões na Evolução.
-      </p>
-      <div className="why-wrong-options">
-        {Object.entries(ERROR_REASON_LABEL).map(([key, label]) => (
-          <button
-            key={key}
-            type="button"
-            className="why-wrong-btn"
-            aria-pressed={reason === key}
-            onClick={() => {
-              setReason(key);
-              errorReasonAction(answerId, key as ErrorReason);
-            }}
-          >
-            {label}
-          </button>
-        ))}
-      </div>
-    </div>
-  );
-}
 
 export function ReportBox({ questionId, initialOpen = null }: { questionId: string; initialOpen?: "report" | "appeal" | null }) {
   const [open, setOpen] = useState<"report" | "appeal" | null>(initialOpen);
@@ -232,8 +200,6 @@ export function RevealPanel({
   questionId,
   verification,
   selected,
-  answerId,
-  errorReason,
   showCommunity = true,
   showReport = true,
 }: {
@@ -242,8 +208,6 @@ export function RevealPanel({
   questionId: string;
   verification: string;
   selected: number | null;
-  answerId?: string | null;
-  errorReason?: string | null;
   showCommunity?: boolean;
   /** O runner tem o próprio botão de reportar no rodapé. */
   showReport?: boolean;
@@ -252,8 +216,6 @@ export function RevealPanel({
   const wrong = selected !== null && selected !== reveal.correctIndex;
   return (
     <div style={{ marginTop: 6 }}>
-      {wrong && answerId && <ErrorDiagnosis answerId={answerId} initial={errorReason} />}
-
       <div className="layer layer-quick">
         <h4 style={{ color: "var(--sky)" }}>Em 20 segundos</h4>
         <p>{reveal.quick}</p>

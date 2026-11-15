@@ -99,9 +99,7 @@ test.describe.serial("aluno", () => {
         await expect(page.getByRole("button", { name: "Gostei", exact: true })).toHaveAttribute("aria-pressed", "true");
       }
       if (i === questions.length - 1) {
-        await expect(page.getByText("Por que você errou?")).toBeVisible();
         await expect(page.locator(".opt.wrong").getByText("INCORRETA.", { exact: true })).toBeVisible();
-        await page.getByRole("button", { name: "Li errado" }).click();
         await expect(page.getByText(/Plantão concluído: 9\/10/)).toBeVisible();
       }
       await page.getByRole("button", { name: "Continuar" }).click();
@@ -123,7 +121,6 @@ test.describe.serial("aluno", () => {
     // Evolução
     await page.goto("/app/evolucao");
     await expect(page.getByRole("heading", { name: "Conquistas" })).toBeVisible();
-    await expect(page.getByText("Li errado")).toBeVisible();
     await expect(page.getByText(/faz parte da assinatura/)).toBeVisible();
 
     // Plano grátis: treino bloqueado

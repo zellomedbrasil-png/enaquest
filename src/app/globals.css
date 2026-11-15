@@ -2554,12 +2554,6 @@ html[data-text="large"] #conteudo {
 .opt-comment strong.is-bad { color: var(--bad); }
 @media (max-width: 640px) { .opt-comment { margin-left: 12px; } }
 
-/* Por que você errou */
-.why-wrong { margin-top: 14px; }
-.why-wrong-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; }
-.why-wrong-btn { min-height: 44px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 99px; background: var(--bg-2); font-size: 13.5px; font-weight: 700; text-align: left; transition: border-color .12s, background .12s; }
-.why-wrong-btn:hover { border-color: var(--mute); }
-.why-wrong-btn[aria-pressed="true"] { border-color: var(--accent); background: var(--tip-soft); color: var(--accent); }
 
 /* Aprofunde: quatro cartões e o material aberto */
 .study { container-type: inline-size; margin-top: 14px; border: 1px solid var(--line); border-radius: var(--radius); padding: 14px; background: color-mix(in srgb, var(--card-2) 45%, transparent); }
