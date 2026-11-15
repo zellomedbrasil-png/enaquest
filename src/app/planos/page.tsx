@@ -1,68 +1,73 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { SiteFooter } from "@/components/SiteFooter";
-import { SiteHeader } from "@/components/SiteHeader";
+import { currentUser } from "@/lib/server/session";
+import { MarketingHeader } from "../MarketingHeader";
+import brand from "../landing.module.css";
+import s from "./plans.module.css";
 
-export const metadata: Metadata = { title: "Planos" };
+export const metadata: Metadata = {
+  title: "Planos",
+  description: "Compare o Plantão do Dia gratuito com a assinatura mensal do EnaQuest para ENAMED e ENARE.",
+};
 
-const FREE = ["Plantão do Dia com 10 questões", "Comentário completo dessas questões", "Discussão da turma", "XP, patentes, sequência e ligas"];
-const PREMIUM = [
-  "Tudo do plano grátis",
-  "Treino ilimitado por área",
-  "Revisão espaçada e caderno de erros",
-  "Simulados completos com percentil",
-  "Termômetro de Proficiência",
-];
+const freeFeatures = ["10 questões no Plantão do Dia", "Comentários completos das questões do dia", "Discussão das questões com a turma", "XP, patentes, sequência e ligas"];
+const paidFeatures = ["Treino ilimitado por área", "Revisão espaçada e caderno de erros", "Simulados completos com percentil", "Termômetro de Proficiência por área"];
 
-export default function PlansPage() {
+function Benefits({ title, items }: { title: string; items: string[] }) {
+  return <div className={s.benefits}>
+    <h3>{title}</h3>
+    <ul>{items.map(item => <li key={item}><span aria-hidden="true">✓</span>{item}</li>)}</ul>
+  </div>;
+}
+
+export default async function PlansPage() {
+  const user = await currentUser();
   return (
-    <>
-      <SiteHeader />
-      <main className="wrap-wide" style={{ paddingTop: 20 }}>
-        <h1 style={{ fontSize: 36 }}>Um plano simples</h1>
-        <p className="muted" style={{ margin: "6px 0 20px" }}>
-          Comece de graça e assine só se fizer sentido para você.
-        </p>
-        <div className="grid-2">
-          <section className="card">
-            <h2 style={{ fontSize: 20 }}>Grátis</h2>
-            <p className="display" style={{ fontSize: 34, margin: "6px 0" }}>
-              R$ 0
-            </p>
-            <ul style={{ display: "grid", gap: 6, margin: "12px 0 16px" }}>
-              {FREE.map((item) => (
-                <li key={item}>✓ {item}</li>
-              ))}
-            </ul>
-            <Link href="/cadastrar" className="btn btn-ghost" style={{ width: "100%" }}>
-              Criar conta grátis
-            </Link>
-          </section>
-          <section className="card" style={{ borderColor: "var(--accent)", borderWidth: 2 }}>
-            <h2 style={{ fontSize: 20 }}>Assinatura</h2>
-            <p className="display" style={{ fontSize: 34, margin: "6px 0" }}>
-              R$ 29<span style={{ fontSize: 16, fontWeight: 600 }}> por mês</span>
-            </p>
-            <ul style={{ display: "grid", gap: 6, margin: "12px 0 16px" }}>
-              {PREMIUM.map((item) => (
-                <li key={item}>✓ {item}</li>
-              ))}
-            </ul>
-            <Link href="/assinar" className="btn btn-primary" style={{ width: "100%" }}>
-              Assinar
-            </Link>
-            <p className="muted" style={{ fontSize: 13.5, marginTop: 10 }}>
-              Cancele quando quiser. Até 7 dias depois do primeiro pagamento, você pode desistir e receber o valor de volta.
-            </p>
-          </section>
+    <div className={brand.page}>
+      <MarketingHeader signedIn={Boolean(user)} plans />
+      <main className={s.main}>
+        <header className={s.intro}>
+          <p className={s.kicker}>Planos EnaQuest</p>
+          <h1>Como você quer <em>estudar?</em></h1>
+          <p>Faça o plantão diário com a turma ou monte uma rotina de treino por área.</p>
+        </header>
+        <div className={s.grid}>
+          <article className={s.card}>
+            <div className={s.band}>
+              <Image src="/campanha/estudo.webp" fill sizes="(max-width: 700px) 95vw, 510px" alt="" />
+              <h2>Grátis</h2>
+            </div>
+            <div className={s.body}>
+              <p className={s.price}>R$ 0</p>
+              <p className={s.detail}>Acesso diário, sem cartão de crédito.</p>
+              <Link className={s.button} href={user ? "/app" : "/cadastrar"}>{user ? "Abrir meu plantão" : "Criar conta grátis"} <span aria-hidden="true">→</span></Link>
+              <Benefits title="Incluído no plano grátis" items={freeFeatures} />
+            </div>
+          </article>
+          <article className={s.premium}>
+            <div className={s.band}>
+              <Image src="/campanha/plantao.webp" fill sizes="(max-width: 700px) 95vw, 510px" alt="" />
+              <h2>Assinatura</h2>
+            </div>
+            <div className={s.body}>
+              <p className={s.price}>R$ 29 <small>/ mês</small></p>
+              <p className={s.detail}>Cobrança mensal. Cancele quando quiser.</p>
+              <Link className={s.button} href="/assinar">Assinar plano mensal <span aria-hidden="true">→</span></Link>
+              <Benefits title="Tudo do grátis, mais" items={paidFeatures} />
+            </div>
+          </article>
         </div>
-
-        <div className="alert alert-info" style={{ marginTop: 14 }}>
-          <strong>Formas de pagamento:</strong> cartão de crédito Visa ou Mastercard, Google Pay e Apple Pay. Por enquanto, não aceitamos cartão de
-          débito, Pix, Elo, Hipercard nem American Express.
-        </div>
+        <section className={s.billing} aria-labelledby="pagamento">
+          <h2 id="pagamento">Pagamento e cancelamento</h2>
+          <div className={s.terms}>
+            <div><h3>Como posso pagar?</h3><p>Use cartão de crédito Visa ou Mastercard, Google Pay ou Apple Pay. Por enquanto, não aceitamos cartão de débito, Pix, Elo, Hipercard nem American Express.</p></div>
+            <div><h3>Como funciona o cancelamento?</h3><p>Cancele pela sua conta e use o plano até o fim do período pago. Você pode pedir reembolso em até 7 dias após o primeiro pagamento.</p><Link href="/termos">Ler os termos de uso →</Link></div>
+          </div>
+        </section>
       </main>
       <SiteFooter />
-    </>
+    </div>
   );
 }
