@@ -1922,6 +1922,7 @@ html[data-text="large"] #conteudo {
   border: 1px solid color-mix(in srgb, var(--ok) 35%, transparent);
   transition: color .3s, background .3s, border-color .3s;
 }
+:root[data-theme="light"] .mascot-station .mascot-station-badge { color: var(--ink); }
 .mascot-station.is-info .mascot-station-badge { color: var(--sky); background: var(--info-soft); border-color: color-mix(in srgb, var(--sky) 35%, transparent); }
 .mascot-station.is-hint .mascot-station-badge,
 .mascot-station.is-warning .mascot-station-badge { color: var(--gold); background: var(--pearl-soft); border-color: color-mix(in srgb, var(--gold) 35%, transparent); }
