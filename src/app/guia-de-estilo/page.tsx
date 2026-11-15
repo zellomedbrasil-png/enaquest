@@ -20,17 +20,17 @@ import {
 export const metadata: Metadata = { title: "Guia de estilo", robots: { index: false } };
 
 const SURFACES = [
-  ["--bg", "#0d0f1c", "fundo"],
-  ["--bg-2", "#121527", "alternativas"],
-  ["--card", "#181c33", "cards"],
-  ["--card-2", "#1f2442", "elevado"],
-  ["--line", "#2a3058", "bordas"],
-  ["--ink", "#eef0ff", "texto"],
-  ["--mute", "#9aa1c7", "secundário"],
-  ["--dim", "#6b7299", "terciário"],
+  ["--bg", "#10121d", "fundo"],
+  ["--bg-2", "#131520", "alternativas"],
+  ["--card", "#1a1c29", "cards"],
+  ["--card-2", "#212232", "elevado"],
+  ["--line", "#343645", "bordas"],
+  ["--ink", "#f6f5fb", "texto"],
+  ["--mute", "#b4b7c8", "secundário"],
+  ["--dim", "#9390a8", "terciário"],
 ];
 const ACCENTS = [
-  ["--lime", "#c8f542", "marca, CTA"],
+  ["--lime", "#cefa60", "marca, CTA"],
   ["--coral", "#ff6b5b", "atraso, HARD"],
   ["--sky", "#5bc0ff", "gráficos"],
   ["--gold", "#ffd84d", "marcada"],
@@ -45,9 +45,9 @@ const AREAS = [
   ["Preventiva", "--prev", "#7ee8a2"],
 ];
 const GRADIENTS = [
-  ["Progresso", "var(--grad-progress)", "#c8f542 → #7ee8a2"],
+  ["Progresso", "var(--grad-progress)", "#cefa60 → #7ee8a2"],
   ["HARD / atraso", "var(--grad-hard)", "#ff5d5d → #ff8a3d"],
-  ["Avatar", "var(--grad-avatar)", "sky → lime"],
+  ["Avatar", "var(--grad-avatar)", "lilás → lime"],
   ["Sombra 3D", "#8fb21e", "#8fb21e · botão e logo"],
 ];
 const RADII = [
