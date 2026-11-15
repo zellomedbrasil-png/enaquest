@@ -19,6 +19,7 @@
     "db:reset": "supabase db reset",
     "content:import": "tsx scripts/import-lot.ts",
     "content:pipeline": "tsx scripts/pipeline/run.ts",
+    "content:enrich": "tsx scripts/pipeline/enrich.ts",
     "dev:publish-pilot": "tsx scripts/dev-publish-pilot.ts",
     "dev:make-admin": "tsx scripts/dev-make-admin.ts"
   },

@@ -1,6 +1,8 @@
 import { approveLotAction, decideSampleAction, rejectLotAction } from "@/app/actions";
 import { getLotReview } from "@/lib/server/editorial";
 import { LETTERS } from "@/lib/ui/labels";
+import { parseSummary, parseTheory } from "@/lib/study/content";
+import { SummaryView, TheoryView } from "@/components/StudyPanel";
 
 const DECISION: Record<string, string> = { ok: "Aprovada", minor: "Com ressalva", critical: "Erro crítico" };
 
@@ -109,6 +111,24 @@ export default async function LotReviewPage({ params, searchParams }: { params: 
             <h4>Armadilha clássica</h4>
             <p>{item.explanation?.pearl}</p>
           </div>
+          {item.explanation?.key_why && (
+            <div className="layer layer-quick">
+              <h4>Por que a correta é a correta</h4>
+              <p>{item.explanation.key_why}</p>
+            </div>
+          )}
+          {parseTheory(item.explanation?.theory) && (
+            <div className="layer layer-reason tone-sky">
+              <h4>Revisão do tema</h4>
+              <TheoryView theory={parseTheory(item.explanation?.theory)!} />
+            </div>
+          )}
+          {parseSummary(item.explanation?.summary) && (
+            <div className="layer layer-reason tone-ok">
+              <h4>Resumo</h4>
+              <SummaryView summary={parseSummary(item.explanation?.summary)!} />
+            </div>
+          )}
           <div style={{ fontSize: 13.5, marginTop: 8 }} className="muted">
             <strong>Fontes:</strong>
             <ul style={{ listStyle: "disc", paddingLeft: 18 }}>

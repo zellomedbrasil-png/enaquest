@@ -8,17 +8,14 @@
 import "dotenv/config";
 import { readFileSync, writeFileSync } from "node:fs";
 import Anthropic from "@anthropic-ai/sdk";
-import { zodOutputFormat } from "@anthropic-ai/sdk/helpers/zod";
 import { z } from "zod";
-import { BlindAnswerSchema, BlueprintItemSchema, DraftSchema, FactCheckSchema, LotSchema, SourceSchema, type BlueprintItem, type Draft, type LotQuestion } from "./schema";
+import { AuthorDraftSchema, BlindAnswerSchema, BlueprintItemSchema, FactCheckSchema, LotSchema, SourceSchema, type BlueprintItem, type LotQuestion } from "./schema";
+
 import { lintDraft, lintLot } from "./lint";
+import { AUTHOR_MODEL, CHECK_MODEL, structured } from "./llm";
 import { STYLE_RULES } from "./style";
 
-const AUTHOR_MODEL = "claude-opus-5-5";
-// Modelo diferente de propósito: a checagem precisa ser independente de quem escreveu.
-const CHECK_MODEL = "claude-sonnet-5-5";
-
-const client = new Anthropic();
+type Draft = z.infer<typeof AuthorDraftSchema>;
 
 const BlueprintFile = z.object({
   id: z.string(),
@@ -30,32 +27,10 @@ const BlueprintFile = z.object({
 
 type Outcome = { slug: string; stage: string; reason: string };
 
-function textOf(response: Anthropic.Message): string {
-  return response.content.flatMap((block) => (block.type === "text" ? [block.text] : [])).join("");
-}
-
-/** Chamada com saída estruturada. Recusa do modelo vira descarte, não erro fatal. */
-async function structured<T>(model: string, schema: z.ZodType<T>, system: string, prompt: string, effort: "medium" | "high"): Promise<T | null> {
-  // Com fallback ativado: se os filtros de segurança recusarem um tema médico sensível,
-  // a API tenta outro modelo. A checagem independente continua valendo para o resultado.
-  const stream = client.beta.messages.stream({
-    model,
-    max_tokens: 16000,
-    system,
-    betas: ["server-side-fallback-2026-07-01"],
-    fallbacks: "default",
-    output_config: { effort, format: zodOutputFormat(schema as never) },
-    messages: [{ role: "user", content: prompt }],
-  } as never);
-  const response = (await stream.finalMessage()) as unknown as Anthropic.Message;
-  if (response.stop_reason === "refusal" || response.stop_reason === "max_tokens") return null;
-  return schema.parse(JSON.parse(textOf(response)));
-}
-
 async function draftQuestion(item: BlueprintItem, sourceText: string): Promise<Draft | null> {
   return structured(
     AUTHOR_MODEL,
-    DraftSchema,
+    AuthorDraftSchema,
     `Você escreve questões originais de múltipla escolha para estudantes de medicina que se preparam para o ENAMED.\n${STYLE_RULES}`,
     `Escreva uma questão original.\n\nÁrea: ${item.area_id}\nCompetência: ${item.competency_id}\nTema: ${item.theme}\nCenário: ${item.scenario}\nDificuldade: ${item.difficulty}\n\nUse apenas o que estas fontes sustentam. Em "claims", cite o source_id exato e o local.\n\n<fontes>\n${sourceText}\n</fontes>`,
     "high",
@@ -79,7 +54,7 @@ async function factCheck(draft: Draft, sourceText: string) {
     CHECK_MODEL,
     FactCheckSchema,
     "Você revisa conteúdo médico educacional. Marque como sustentada apenas a afirmação que está de fato nas fontes fornecidas. Conhecimento próprio não conta como sustentação.",
-    `<fontes>\n${sourceText}\n</fontes>\n\n<questao>\n${JSON.stringify(draft)}\n</questao>\n\nConfira cada item de "claims". Diga se o gabarito está correto e aponte qualquer conteúdo que possa causar dano se um médico o seguisse.`,
+    `<fontes>\n${sourceText}\n</fontes>\n\n<questao>\n${JSON.stringify(draft)}\n</questao>\n\nConfira cada item de "claims" e também os campos key_why, theory e summary: cada número, dose, critério ou recomendação neles entra em "verdicts" e só é sustentado se estiver nas fontes. Diga se o gabarito está correto e aponte qualquer conteúdo que possa causar dano se um médico o seguisse.`,
     "high",
   );
 }

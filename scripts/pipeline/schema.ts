@@ -27,8 +27,44 @@ export const DraftSchema = z.object({
 });
 export type Draft = z.infer<typeof DraftSchema>;
 
-/** Questão pronta para entrar em um lote. */
-export const LotQuestionSchema = DraftSchema.extend({
+/**
+ * Material de estudo extra. Sem limites de tamanho aqui (a saída estruturada não aceita todos);
+ * o lint confere o formato final com os limites de src/lib/study/content.ts.
+ */
+export const StudyExtrasSchema = z.object({
+  key_why: z.string().describe("Por que a alternativa correta é a correta, em 30 a 70 palavras, ligando os dados do caso à conduta."),
+  theory: z
+    .object({
+      title: z.string().describe("Título do tema, curto."),
+      intro: z.string().describe("Abertura de 2 a 3 frases situando o tema."),
+      sections: z
+        .array(
+          z.object({
+            heading: z.string(),
+            body: z.string().optional(),
+            items: z.array(z.string()).optional().describe("Até 6 itens curtos."),
+          }),
+        )
+        .describe("De 2 a 4 seções: quando suspeitar ou indicar, como conduzir, critérios e doses que a fonte sustenta."),
+      alert: z.string().optional().describe("Um alerta de segurança ou de prova, se houver."),
+    })
+    .describe("Revisão do tema da questão, para quem nunca estudou o assunto. Até 350 palavras no total."),
+  summary: z
+    .object({
+      title: z.string(),
+      points: z
+        .array(z.object({ label: z.string().describe("Rótulo curto, como Conceito, Indicação, Conduta."), text: z.string(), sub: z.array(z.string()).optional() }))
+        .describe("De 4 a 7 pontos para revisar em 30 segundos."),
+    })
+    .describe("Resumo do tema em tópicos."),
+});
+export type StudyExtras = z.infer<typeof StudyExtrasSchema>;
+
+/** O que o modelo escreve em lotes novos: questão completa com o material de estudo. */
+export const AuthorDraftSchema = DraftSchema.extend(StudyExtrasSchema.shape);
+
+/** Questão pronta para entrar em um lote. Os extras são opcionais para os lotes antigos continuarem válidos. */
+export const LotQuestionSchema = DraftSchema.extend(StudyExtrasSchema.partial().shape).extend({
   slug: z.string().regex(/^[a-z0-9-]+$/),
   area_id: z.enum(AREA_IDS),
   competency_id: z.enum(COMPETENCY_IDS),

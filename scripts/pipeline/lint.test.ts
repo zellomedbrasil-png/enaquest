@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { findDuplicates, keyBalance, lintDraft, lintLot, similarity } from "./lint";
-import type { Draft, Lot, LotQuestion } from "./schema";
+import type { Draft, Lot, LotQuestion, StudyExtras } from "./schema";
 
 const good: Draft = {
   stem: "Mulher de 40 anos procura a UBS com tosse há três semanas, febre vespertina e perda de peso. Radiografia mostra lesão cavitária em ápice direito. Qual é o próximo exame para confirmar o diagnóstico?",
@@ -91,5 +91,46 @@ describe("checagem do lote", () => {
     expect(result.fatalCount).toBeGreaterThan(0);
     expect(result.duplicateSlugs).toEqual(["a"]);
     expect(lintLot({ ...lot, sources: [source], questions: [q("a", 0)] }).fatalCount).toBe(0);
+  });
+});
+
+describe("material de estudo extra", () => {
+  const extras: StudyExtras = {
+    key_why: "Tosse há mais de três semanas com lesão cavitária pede confirmação bacteriológica, e o teste rápido molecular é o exame inicial previsto no protocolo.",
+    theory: {
+      title: "Diagnóstico de tuberculose pulmonar",
+      intro: "A tuberculose pulmonar é suspeitada em quem tem tosse persistente, e a confirmação começa na própria UBS.",
+      sections: [
+        { heading: "Quando investigar", items: ["Tosse por três semanas ou mais na população geral."] },
+        { heading: "Primeiro exame", body: "O teste rápido molecular no escarro é o exame inicial quando disponível." },
+      ],
+    },
+    summary: {
+      title: "Resumo: tuberculose na UBS",
+      points: [
+        { label: "Suspeita", text: "Tosse por três semanas ou mais." },
+        { label: "Exame", text: "Teste rápido molecular no escarro." },
+        { label: "Armadilha", text: "Baciloscopia negativa não exclui." },
+      ],
+    },
+  };
+  const codesWith = (extra: Partial<StudyExtras>) => lintDraft({ ...good, ...extra }).filter((i) => i.fatal).map((i) => i.code);
+
+  it("aceita questão sem os extras e com extras bem formados", () => {
+    expect(codesWith({})).toEqual([]);
+    expect(codesWith(extras)).toEqual([]);
+  });
+  it("rejeita comentário da correta raso", () => {
+    expect(codesWith({ key_why: "Porque sim." })).toContain("key_why_thin");
+  });
+  it("rejeita revisão do tema sem seções", () => {
+    expect(codesWith({ theory: { ...extras.theory, sections: [] } })).toContain("theory_shape");
+  });
+  it("rejeita resumo com poucos pontos", () => {
+    expect(codesWith({ summary: { ...extras.summary, points: extras.summary.points.slice(0, 2) } })).toContain("summary_shape");
+  });
+  it("rejeita marcação de markdown", () => {
+    expect(codesWith({ summary: { ...extras.summary, title: "**Resumo** do tema" } })).toContain("markdown");
+    expect(codesWith({ theory: { ...extras.theory, intro: "- Primeiro ponto da revisão do tema, escrito como lista." } })).toContain("markdown");
   });
 });

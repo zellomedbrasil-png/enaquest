@@ -14,25 +14,25 @@ import type { CommentView, ReportKind } from "@/lib/server/community";
 import type { Reveal } from "@/lib/server/questions";
 import type { ErrorReason } from "@/lib/server/answers";
 import { ERROR_REASON_LABEL, formatDate, REPORT_LABEL, SEALS } from "@/lib/ui/labels";
+import { StudyPanel } from "./StudyPanel";
 
 export function ErrorDiagnosis({ answerId, initial }: { answerId: string; initial?: string | null }) {
   const [reason, setReason] = useState<string | null>(initial ?? null);
   return (
-    <div style={{ marginTop: 12 }}>
-      <div className="eyebrow" style={{ marginBottom: 2 }}>
+    <div className="why-wrong" role="group" aria-labelledby="why-wrong-title">
+      <div id="why-wrong-title" className="eyebrow" style={{ marginBottom: 2 }}>
         Por que você errou?
       </div>
-      <p className="dim" style={{ fontSize: 13.5, marginBottom: 6 }}>
+      <p className="dim" style={{ fontSize: 13.5, marginBottom: 8 }}>
         Marque o motivo: vale +3 XP e mostra seus padrões na Evolução.
       </p>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+      <div className="why-wrong-options">
         {Object.entries(ERROR_REASON_LABEL).map(([key, label]) => (
           <button
             key={key}
             type="button"
-            className="btn btn-ghost btn-sm"
+            className="why-wrong-btn"
             aria-pressed={reason === key}
-            style={reason === key ? { borderColor: "var(--accent)", background: "var(--tip-soft)" } : undefined}
             onClick={() => {
               setReason(key);
               errorReasonAction(answerId, key as ErrorReason);
@@ -46,8 +46,8 @@ export function ErrorDiagnosis({ answerId, initial }: { answerId: string; initia
   );
 }
 
-function ReportBox({ questionId }: { questionId: string }) {
-  const [open, setOpen] = useState<"report" | "appeal" | null>(null);
+export function ReportBox({ questionId, initialOpen = null }: { questionId: string; initialOpen?: "report" | "appeal" | null }) {
+  const [open, setOpen] = useState<"report" | "appeal" | null>(initialOpen);
   const [kind, setKind] = useState<ReportKind>("gabarito");
   const [text, setText] = useState("");
   const [message, setMessage] = useState<{ ok: boolean; text: string } | null>(null);
@@ -234,6 +234,7 @@ export function RevealPanel({
   answerId,
   errorReason,
   showCommunity = true,
+  showReport = true,
 }: {
   reveal: Reveal;
   options: string[];
@@ -243,6 +244,8 @@ export function RevealPanel({
   answerId?: string | null;
   errorReason?: string | null;
   showCommunity?: boolean;
+  /** O runner tem o próprio botão de reportar no rodapé. */
+  showReport?: boolean;
 }) {
   const seal = SEALS[verification];
   const wrong = selected !== null && selected !== reveal.correctIndex;
@@ -254,53 +257,10 @@ export function RevealPanel({
         <h4 style={{ color: "var(--sky)" }}>Em 20 segundos</h4>
         <p>{reveal.quick}</p>
       </div>
-      <p className="dim" style={{ fontSize: 13.5, margin: "6px 0 2px" }}>
-        Toque em um título abaixo para ler mais.
-      </p>
 
-      <details className="layer layer-reason" open={wrong}>
-        <summary>
-          <h4>Raciocínio clínico</h4>
-        </summary>
-        <p>{reveal.reasoning}</p>
-      </details>
+      <StudyPanel key={questionId} reveal={reveal} wrong={wrong || selected === null} />
 
-      <details className="layer layer-reason">
-        <summary>
-          <h4>Por que as outras estão erradas</h4>
-        </summary>
-        <div style={{ display: "grid", gap: 6, marginTop: 4 }}>
-          {reveal.distractors.map((item) => (
-            <p key={item.index}>
-              <strong>{String.fromCharCode(65 + item.index)}.</strong> {item.why}
-              {reveal.stats.optionPct.length > 0 && <span className="dim"> ({reveal.stats.optionPct[item.index] ?? 0}% marcaram)</span>}
-            </p>
-          ))}
-        </div>
-      </details>
-
-      <details className="layer layer-tip">
-        <summary>
-          <h4 style={{ color: "var(--accent)" }}>Macete de prova</h4>
-        </summary>
-        <p>{reveal.tip}</p>
-      </details>
-
-      <details className="layer layer-pearl">
-        <summary>
-          <h4 style={{ color: "var(--gold)" }}>Armadilha clássica</h4>
-        </summary>
-        <p>{reveal.pearl}</p>
-      </details>
-
-      <details className="layer layer-reason">
-        <summary>
-          <h4>O que a prova quer de você</h4>
-        </summary>
-        <p>{reveal.competencyNote}</p>
-      </details>
-
-      <div style={{ marginTop: 10, fontSize: 13.5 }} className="muted">
+      <div style={{ marginTop: 14, fontSize: 13.5 }} className="muted">
         {reveal.stats.correctPct !== null && (
           <p>
             <strong>{reveal.stats.correctPct}%</strong> dos {reveal.stats.n} alunos acertaram.
@@ -333,12 +293,8 @@ export function RevealPanel({
         )}
       </div>
 
-      {SHOW_TRUST_NOTICES && showCommunity && (
-        <>
-          <Comments questionId={questionId} />
-          <ReportBox questionId={questionId} />
-        </>
-      )}
+      {SHOW_TRUST_NOTICES && showCommunity && <Comments questionId={questionId} />}
+      {showReport && <ReportBox questionId={questionId} />}
       {options.length === 0 && null}
     </div>
   );

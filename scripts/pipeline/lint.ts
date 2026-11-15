@@ -1,5 +1,6 @@
 // Checagens automáticas de escrita. Não dependem de IA, então valem para qualquer questão.
-import type { Draft, Lot } from "./schema";
+import type { Draft, Lot, StudyExtras } from "./schema";
+import { SummarySchema, TheorySchema } from "../../src/lib/study/content";
 
 export type LintIssue = { code: string; message: string; fatal: boolean };
 
@@ -13,7 +14,7 @@ function words(text: string) {
   return text.trim().split(/\s+/).filter(Boolean).length;
 }
 
-export function lintDraft(draft: Draft, options: { expectedOptions?: number } = {}): LintIssue[] {
+export function lintDraft(draft: Draft & Partial<StudyExtras>, options: { expectedOptions?: number } = {}): LintIssue[] {
   const expected = options.expectedOptions ?? 4;
   const issues: LintIssue[] = [];
   const fatal = (code: string, message: string) => issues.push({ code, message, fatal: true });
@@ -69,6 +70,31 @@ export function lintDraft(draft: Draft, options: { expectedOptions?: number } = 
 
   for (const field of ["quick", "reasoning", "tip", "pearl", "competency_note"] as const) {
     if (words(draft[field]) < 4) fatal("explanation_empty", `Campo "${field}" vazio ou raso.`);
+  }
+  issues.push(...lintExtras(draft));
+  return issues;
+}
+
+/** Material de estudo extra (opcional): formato, tamanho e ausência de marcação. */
+export function lintExtras(extras: Partial<StudyExtras>): LintIssue[] {
+  const issues: LintIssue[] = [];
+  const fatal = (code: string, message: string) => issues.push({ code, message, fatal: true });
+  if (extras.key_why !== undefined) {
+    const n = words(extras.key_why);
+    if (n < 8) fatal("key_why_thin", "O comentário da alternativa correta está raso.");
+    if (n > 110) fatal("key_why_long", "O comentário da alternativa correta está longo demais.");
+  }
+  if (extras.theory !== undefined) {
+    const parsed = TheorySchema.safeParse(extras.theory);
+    if (!parsed.success) fatal("theory_shape", `Revisão do tema fora do formato: ${parsed.error.issues[0]?.path.join(".")} ${parsed.error.issues[0]?.message}`);
+    if (words(JSON.stringify(extras.theory)) > 480) fatal("theory_long", "Revisão do tema longa demais.");
+  }
+  if (extras.summary !== undefined) {
+    const parsed = SummarySchema.safeParse(extras.summary);
+    if (!parsed.success) fatal("summary_shape", `Resumo fora do formato: ${parsed.error.issues[0]?.path.join(".")} ${parsed.error.issues[0]?.message}`);
+  }
+  for (const text of [extras.key_why, extras.theory && JSON.stringify(extras.theory), extras.summary && JSON.stringify(extras.summary)]) {
+    if (text && (FORBIDDEN_MARKS.test(text) || /(^|\n|\\n|")\s*[-*•#]\s/.test(text))) fatal("markdown", "O material de estudo não pode ter marcação.");
   }
   return issues;
 }

@@ -1,6 +1,7 @@
 import "server-only";
 import { admin } from "@/lib/supabase/admin";
 import { DIFFICULTY_LABEL, type Difficulty } from "@/lib/game/rating";
+import { parseSummary, parseTheory, type Summary, type Theory } from "@/lib/study/content";
 
 export type ExamTable = { title: string; rows: [string, string, string?][] };
 
@@ -30,7 +31,11 @@ export type Reveal = {
   tip: string;
   pearl: string;
   competencyNote: string;
-  sources: { title: string; publisher: string; year: number; url: string; locator: string | null }[];
+  /** Por que a correta é a correta. Null em questões que ainda não têm. */
+  keyWhy: string | null;
+  theory: Theory | null;
+  summary: Summary | null;
+  sources:{ title: string; publisher: string; year: number; url: string; locator: string | null }[];
   stats: { n: number; correctPct: number | null; optionPct: number[] };
 };
 
@@ -89,6 +94,9 @@ export async function getReveal(questionId: string): Promise<Reveal> {
     tip: explanation.data.tip,
     pearl: explanation.data.pearl,
     competencyNote: explanation.data.competency_note,
+    keyWhy: explanation.data.key_why ?? null,
+    theory: parseTheory(explanation.data.theory),
+    summary: parseSummary(explanation.data.summary),
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     sources: (sources.data ?? []).map((row: any) => ({ ...row.sources, locator: row.locator })),
     stats: {

@@ -184,6 +184,72 @@
           "locator": "p. 28 do PDF"
         }
       ],
+      "key_why": "No quinto dia de febre em epidemia de dengue, dor abdominal intensa e contínua e vômitos persistentes são sinais de alarme. Como a pressão, a frequência cardíaca e o enchimento capilar estão preservados, não há choque. O paciente é do grupo C, e a reposição de 10 mL/kg de soro fisiológico na primeira hora começa ali mesmo, sem aguardar hemograma.",
+      "theory": {
+        "title": "Dengue com sinais de alarme",
+        "intro": "Na dengue, a classificação clínica define a conduta. A presença de sinais de alarme muda o tratamento. Quando há sinal de alarme sem choque, o paciente é do grupo C e precisa de hidratação venosa imediata.",
+        "sections": [
+          {
+            "heading": "Quando suspeitar de grupo C",
+            "body": "Pense em grupo C quando o paciente com suspeita de dengue apresenta sinal de alarme, mas mantém pressão e perfusão preservadas, ou seja, não tem sinais de choque.",
+            "items": [
+              "Dor abdominal intensa e contínua é sinal de alarme.",
+              "Vômitos persistentes são sinal de alarme.",
+              "Pressão e enchimento capilar normais afastam choque e mantêm o paciente no grupo C, não no D."
+            ]
+          },
+          {
+            "heading": "Como conduzir",
+            "body": "A reposição volêmica começa imediatamente, em qualquer ponto de atenção, inclusive na UBS, mesmo sem resultado de exames.",
+            "items": [
+              "Soro fisiológico, 10 mL/kg na primeira hora.",
+              "Após a primeira hora, reavaliar sinais vitais e diurese.",
+              "Não adiar a hidratação à espera do hematócrito ou de transferência."
+            ]
+          },
+          {
+            "heading": "Diferenciar dos outros grupos",
+            "items": [
+              "Sem sinais de alarme e sem fator que exija observação: hidratação oral e retorno.",
+              "Com choque ou sangramento grave (grupo D): soro fisiológico, 20 mL/kg em até 20 minutos."
+            ]
+          }
+        ],
+        "alert": "Exame normal ou ainda não colhido não deve atrasar a conduta. No primeiro momento, quem decide é a clínica."
+      },
+      "summary": {
+        "title": "Dengue grupo C em 30 segundos",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "Grupo C é dengue com sinal de alarme e sem sinais de choque."
+          },
+          {
+            "label": "Sinais de alarme",
+            "text": "Exemplos cobrados no caso:",
+            "sub": [
+              "Dor abdominal intensa e contínua",
+              "Vômitos persistentes"
+            ]
+          },
+          {
+            "label": "Conduta",
+            "text": "Soro fisiológico, 10 mL/kg na primeira hora, em qualquer ponto de atenção, mesmo sem exames."
+          },
+          {
+            "label": "Reavaliação",
+            "text": "Após a primeira hora, reavaliar sinais vitais e diurese."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Esperar o hematócrito para iniciar a hidratação é erro. A reposição começa antes do exame."
+          },
+          {
+            "label": "Comparação",
+            "text": "Com choque ou sangramento grave é grupo D: 20 mL/kg em até 20 minutos. Sem sinal de alarme: hidratação oral e retorno."
+          }
+        ]
+      },
       "slug": "cm-dengue-sinais-alarme-001",
       "area_id": "clinica",
       "competency_id": "urgencia",
@@ -234,6 +300,72 @@
           "locator": "cap. 2.2 do manual"
         }
       ],
+      "key_why": "No sexto dia, com a defervescência, a paciente tem hipotensão, taquicardia, pulso fino, enchimento capilar de 4 segundos, extremidades frias e sonolência. É choque por dengue, ou seja, grupo D. A conduta é a expansão rápida com soro fisiológico, 20 mL/kg em até 20 minutos, iniciada já na UPA e mantida durante a transferência, porque o atraso piora o prognóstico.",
+      "theory": {
+        "title": "Dengue grave com choque",
+        "intro": "Na dengue, a fase crítica costuma surgir entre o terceiro e o sétimo dia, justamente quando a febre cai. Por isso, a defervescência não deve ser lida como melhora. O choque classifica o paciente no grupo D e exige expansão volêmica imediata.",
+        "sections": [
+          {
+            "heading": "Quando suspeitar de choque",
+            "body": "Pense em choque no paciente com dengue que apresenta sinais de má perfusão, sobretudo na fase de queda da febre.",
+            "items": [
+              "Hipotensão",
+              "Taquicardia com pulso fino",
+              "Enchimento capilar lentificado",
+              "Extremidades frias",
+              "Alteração do nível de consciência, como sonolência"
+            ]
+          },
+          {
+            "heading": "Conduta no grupo D",
+            "body": "Faça a expansão rápida com soro fisiológico, 20 mL/kg em até 20 minutos. Ela deve começar em qualquer nível de complexidade, mesmo sem exames, e continuar durante a transferência. Tratar primeiro e transferir depois, sem interromper a reposição.",
+            "items": [
+              "Não adiar a expansão para o hospital de referência",
+              "Não usar hidratação oral em paciente em choque",
+              "Não usar o volume do grupo C, 10 mL/kg na primeira hora, porque é insuficiente e lento para o choque"
+            ]
+          },
+          {
+            "heading": "O que a prova cobra",
+            "body": "A prova testa se você reconhece o choque pelos sinais clínicos e se sabe que o nível de complexidade do serviço nunca justifica atrasar a expansão. O retardo do tratamento é o que piora o prognóstico."
+          }
+        ],
+        "alert": "Queda da febre não significa melhora. Paciente em choque recebe expansão rápida onde estiver, inclusive durante o transporte."
+      },
+      "summary": {
+        "title": "Dengue grave com choque em 30 segundos",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "Choque por dengue corresponde ao grupo D."
+          },
+          {
+            "label": "Quando suspeitar",
+            "text": "Fase crítica entre o terceiro e o sétimo dia, com a queda da febre.",
+            "sub": [
+              "Hipotensão e pulso fino",
+              "Enchimento capilar lentificado e extremidades frias",
+              "Sonolência"
+            ]
+          },
+          {
+            "label": "Conduta",
+            "text": "Soro fisiológico, 20 mL/kg em até 20 minutos."
+          },
+          {
+            "label": "Onde tratar",
+            "text": "Em qualquer serviço, mesmo sem exames, e também durante a transferência."
+          },
+          {
+            "label": "Armadilha",
+            "text": "10 mL/kg na primeira hora é volume do grupo C, insuficiente no choque."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Transferir antes de expandir ou oferecer hidratação oral atrasa o tratamento e piora o prognóstico."
+          }
+        ]
+      },
       "slug": "cm-dengue-choque-002",
       "area_id": "clinica",
       "competency_id": "urgencia",
@@ -279,6 +411,69 @@
           "locator": "p. 35 do PDF"
         }
       ],
+      "key_why": "A paciente está no segundo dia de sintomas, fase de viremia em que ainda não há anticorpos em quantidade detectável. Por isso, para confirmar a dengue neste atendimento, o exame adequado busca o próprio vírus, com NS1 ou RT-PCR. A sorologia colhida agora tende a ser precoce demais, e plaquetas e hematócrito acompanham a gravidade sem provar a etiologia.",
+      "theory": {
+        "title": "Confirmação laboratorial da dengue",
+        "intro": "Confirmar a dengue depende do momento da doença em que a amostra é colhida. No início há vírus circulante e poucos anticorpos. Mais tarde, a resposta de anticorpos passa a ser o alvo do exame.",
+        "sections": [
+          {
+            "heading": "Primeiros dias: detecção viral",
+            "body": "No início da doença há viremia e ainda não há anticorpos detectáveis. Nessa fase, o manual indica métodos que identificam o vírus ou seus componentes.",
+            "items": [
+              "Pesquisa de antígeno NS1",
+              "RT-PCR",
+              "Isolamento viral"
+            ]
+          },
+          {
+            "heading": "A partir do sexto dia: sorologia",
+            "body": "A sorologia é reservada para amostras colhidas a partir do sexto dia de sintomas. Colhida antes disso, tende a ser precoce demais para confirmar o diagnóstico."
+          },
+          {
+            "heading": "Exames de acompanhamento não confirmam",
+            "body": "Hemograma, plaquetas e hematócrito orientam a conduta e a avaliação de gravidade, como a hemoconcentração, mas não provam que a doença é dengue.",
+            "items": [
+              "Plaquetas: acompanhamento do paciente",
+              "Hematócrito: hemoconcentração e gravidade"
+            ]
+          }
+        ],
+        "alert": "A prova costuma oferecer sorologia ou hemograma como distratores no início do quadro. Primeiro identifique o dia de sintomas e depois escolha o exame que confirma a etiologia."
+      },
+      "summary": {
+        "title": "Confirmação da dengue em 30 segundos",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "O exame confirmatório depende do tempo de doença."
+          },
+          {
+            "label": "Início",
+            "text": "Há viremia e ainda não há anticorpos detectáveis. Busque o vírus.",
+            "sub": [
+              "NS1",
+              "RT-PCR",
+              "Isolamento viral"
+            ]
+          },
+          {
+            "label": "Sexto dia em diante",
+            "text": "A sorologia passa a ser o exame indicado."
+          },
+          {
+            "label": "Regra prática",
+            "text": "Até o quinto dia, busque o vírus. Do sexto em diante, busque o anticorpo."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Plaquetas e hematócrito acompanham o paciente e a gravidade, mas não confirmam a etiologia."
+          },
+          {
+            "label": "Competência",
+            "text": "Escolha o exame certo para o momento da doença, em vez de pedir tudo."
+          }
+        ]
+      },
       "slug": "cm-dengue-exame-003",
       "area_id": "clinica",
       "competency_id": "propedeutica",
@@ -329,6 +524,59 @@
           "locator": "p. 56-57 do PDF"
         }
       ],
+      "key_why": "O homem de 47 anos tem tosse há 4 semanas e foi encontrado na busca ativa. Por isso é sintomático respiratório e precisa de investigação bacteriológica. Ele nunca teve tuberculose, ou seja, é um caso novo em adulto, e o município tem a rede disponível. O exame indicado é o teste rápido molecular no escarro.",
+      "theory": {
+        "title": "Investigação de tuberculose pulmonar na atenção primária",
+        "intro": "A busca ativa de sintomáticos respiratórios é uma das principais estratégias para encontrar casos de tuberculose no território. O generalista da UBS precisa reconhecer quem deve ser investigado e saber qual exame pedir primeiro.",
+        "sections": [
+          {
+            "heading": "Quando suspeitar",
+            "body": "Na busca ativa, a pessoa com tosse por 3 semanas ou mais é considerada sintomático respiratório e deve ser investigada com exames bacteriológicos. Não é preciso esperar febre, emagrecimento ou piora do estado geral. Em populações especiais esse critério muda, e em alguns grupos vulneráveis a duração exigida da tosse é menor."
+          },
+          {
+            "heading": "Qual exame pedir",
+            "body": "O teste rápido molecular para tuberculose (TRM-TB), feito no escarro, está indicado prioritariamente para diagnosticar casos novos de tuberculose pulmonar e laríngea em adultos e adolescentes. Quando a rede está disponível, ele é o exame inicial da pessoa que nunca teve tuberculose."
+          },
+          {
+            "heading": "O que não confirma doença ativa",
+            "items": [
+              "Exame de imagem pode ajudar, mas não substitui a confirmação bacteriológica.",
+              "A prova tuberculínica investiga infecção latente e não confirma doença pulmonar ativa.",
+              "A sorologia para micobactérias não é o exame bacteriológico indicado."
+            ]
+          }
+        ],
+        "alert": "Bom estado geral não afasta tuberculose. Tosse há 3 semanas ou mais na busca ativa já basta para pedir investigação bacteriológica."
+      },
+      "summary": {
+        "title": "Tuberculose pulmonar: investigação inicial",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "Na busca ativa, sintomático respiratório é quem tem tosse por 3 semanas ou mais."
+          },
+          {
+            "label": "Indicação",
+            "text": "Todo sintomático respiratório deve ser investigado com exames bacteriológicos."
+          },
+          {
+            "label": "Conduta",
+            "text": "Caso novo de tuberculose pulmonar ou laríngea em adulto ou adolescente: pedir teste rápido molecular no escarro."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Prova tuberculínica avalia infecção latente e não diagnostica doença ativa.",
+            "sub": [
+              "Imagem não substitui a confirmação bacteriológica.",
+              "Sorologia não é o exame indicado."
+            ]
+          },
+          {
+            "label": "Exceção",
+            "text": "Em algumas populações especiais e vulneráveis, a duração de tosse exigida para investigar é menor."
+          }
+        ]
+      },
       "slug": "cm-tb-investigacao-004",
       "area_id": "clinica",
       "competency_id": "propedeutica",
@@ -379,6 +627,67 @@
           "locator": "p. 105 do PDF"
         }
       ],
+      "key_why": "A paciente tem 32 anos, tuberculose pulmonar sem resistência à rifampicina, sem tratamento prévio e sem forma meningoencefálica ou osteoarticular. Para pessoas com 10 anos ou mais, o esquema básico é 2RHZE/4RH: dois meses de rifampicina, isoniazida, pirazinamida e etambutol, seguidos de quatro meses de rifampicina e isoniazida.",
+      "theory": {
+        "title": "Esquema básico da tuberculose",
+        "intro": "O tratamento da tuberculose no SUS segue esquemas padronizados, definidos pela idade e pela forma clínica da doença. A prova costuma cobrar a diferença entre o esquema do adulto, o da criança menor de 10 anos e o das formas meningoencefálica e osteoarticular.",
+        "sections": [
+          {
+            "heading": "Esquema básico a partir dos 10 anos",
+            "body": "Para pessoas com 10 anos ou mais, o esquema básico é 2RHZE/4RH, com duração total de 6 meses.",
+            "items": [
+              "Fase intensiva de 2 meses: rifampicina (R), isoniazida (H), pirazinamida (Z) e etambutol (E)",
+              "Fase de manutenção de 4 meses: rifampicina (R) e isoniazida (H)"
+            ]
+          },
+          {
+            "heading": "Crianças menores de 10 anos",
+            "body": "A fase intensiva usa três fármacos (RHZ), sem etambutol. Por isso, o esquema 2RHZ/4RH corresponde à criança, e não ao adulto."
+          },
+          {
+            "heading": "Formas meningoencefálica e osteoarticular",
+            "body": "Nessas formas, a fase de manutenção é prolongada e o esquema passa a ser 2RHZE/10RH."
+          },
+          {
+            "heading": "Erros que a prova explora",
+            "items": [
+              "Trocar o esquema do adulto pelo da criança, omitindo o etambutol",
+              "Usar a manutenção de 10 meses em tuberculose pulmonar, quando ela vale para as formas meningoencefálica e osteoarticular",
+              "Manter os quatro fármacos por 6 meses, o que não corresponde a nenhum esquema padronizado"
+            ]
+          }
+        ],
+        "alert": "Antes de prescrever, confira a idade e a forma clínica. São esses dois dados que definem o esquema."
+      },
+      "summary": {
+        "title": "Esquema básico da tuberculose em 30 segundos",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "No SUS, o tratamento da tuberculose usa esquemas padronizados conforme a idade e a forma clínica."
+          },
+          {
+            "label": "Adulto",
+            "text": "A partir dos 10 anos, o esquema é 2RHZE/4RH, com total de 6 meses.",
+            "sub": [
+              "2 meses de RHZE",
+              "4 meses de RH"
+            ]
+          },
+          {
+            "label": "Criança",
+            "text": "Abaixo de 10 anos, a fase intensiva tem três fármacos (RHZ), sem etambutol."
+          },
+          {
+            "label": "Formas especiais",
+            "text": "Nas formas meningoencefálica e osteoarticular, o esquema é 2RHZE/10RH."
+          },
+          {
+            "label": "Armadilha",
+            "text": "O esquema de 6 meses de RHZE contínuo não existe. Na manutenção ficam apenas a rifampicina e a isoniazida."
+          }
+        ]
+      },
       "slug": "cm-tb-esquema-005",
       "area_id": "clinica",
       "competency_id": "terapeutica",
@@ -429,6 +738,56 @@
           "locator": "p. 31 do PDF"
         }
       ],
+      "key_why": "O paciente tem um único valor de 148 x 92 mmHg, assintomático e sem lesão de órgão-alvo. Como hipertensão exige elevação sustentada, um valor isolado acima de 140 x 90 mmHg não fecha o diagnóstico. A conduta na própria UBS é repetir a medida em mais dois momentos, com intervalo de 1 a 2 semanas, antes de rotular ou medicar.",
+      "theory": {
+        "title": "Diagnóstico de hipertensão arterial",
+        "intro": "A hipertensão arterial sistêmica é definida por níveis pressóricos elevados e sustentados, de 140 x 90 mmHg ou mais. Por isso, uma medida isolada alterada não basta para o diagnóstico. A confirmação é feita na atenção primária.",
+        "sections": [
+          {
+            "heading": "Quando suspeitar",
+            "body": "Suspeite quando uma medida feita corretamente mostrar PA de 140 x 90 mmHg ou mais. Em paciente assintomático, sem urgência, esse primeiro valor alto abre uma investigação e ainda não fecha o diagnóstico."
+          },
+          {
+            "heading": "Como confirmar",
+            "items": [
+              "Repita a medida em mais dois momentos, com intervalo de 1 a 2 semanas.",
+              "Quando possível, meça também fora do consultório.",
+              "A medida fora do consultório ajuda a afastar o efeito do avental branco.",
+              "A confirmação é feita na própria UBS e não exige especialista."
+            ]
+          },
+          {
+            "heading": "O que a prova cobra",
+            "body": "As bancas costumam apresentar um primeiro valor alterado em paciente sem sintomas e oferecer como opções tratar de imediato, encaminhar ou adiar demais. A resposta esperada é confirmar a elevação sustentada em semanas, com os recursos da atenção primária."
+          }
+        ],
+        "alert": "Não inicie anti-hipertensivo nem rotule o paciente como hipertenso por uma medida única em paciente assintomático e sem urgência. Também não espere a consulta anual seguinte para reavaliar."
+      },
+      "summary": {
+        "title": "Diagnóstico de HAS em 30 segundos",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "HAS é elevação sustentada da PA, de 140 x 90 mmHg ou mais."
+          },
+          {
+            "label": "Conduta",
+            "text": "Diante do primeiro valor alto, repita a medida em mais dois momentos, com intervalo de 1 a 2 semanas."
+          },
+          {
+            "label": "Fora do consultório",
+            "text": "Quando possível, meça fora do consultório para afastar o efeito do avental branco."
+          },
+          {
+            "label": "Local",
+            "text": "A confirmação é papel da atenção primária e não exige cardiologista."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Tratar por medida única rotula e medica antes de confirmar. Esperar um ano deixa sem confirmação um valor alterado que precisa ser checado em semanas."
+          }
+        ]
+      },
       "slug": "cm-has-diagnostico-006",
       "area_id": "clinica",
       "competency_id": "hipotese",
@@ -474,6 +833,71 @@
           "locator": "p. 77 do PDF"
         }
       ],
+      "key_why": "A paciente tem PA elevada desencadeada por estresse, com cefaleia e ansiedade, e esqueceu a medicação. Exame neurológico e ausculta normais, sem dor torácica, dispneia ou déficit focal, indicam ausência de lesão de órgão-alvo. Isso caracteriza pseudocrise: trata-se a causa com analgesia, retoma-se o anti-hipertensivo e reavalia-se a pressão, sem redução agressiva que possa provocar isquemia.",
+      "theory": {
+        "title": "Pseudocrise hipertensiva",
+        "intro": "Pseudocrise hipertensiva é a elevação da pressão arterial acompanhada de queixas vagas, como cefaleia ou ansiedade, sem comprometimento de órgão-alvo. É comum na atenção básica e costuma ser resolvida na própria unidade. O erro mais cobrado é tratar o número da pressão em vez da causa.",
+        "sections": [
+          {
+            "heading": "Quando suspeitar",
+            "body": "PA elevada associada a dor, ansiedade ou estresse, sem sinal de lesão de órgão-alvo. Muitas vezes há má adesão ou doses insuficientes do anti-hipertensivo.",
+            "items": [
+              "Queixas vagas, como cefaleia difusa ou ansiedade",
+              "Exame neurológico e cardiopulmonar normais",
+              "Ausência de dor torácica, dispneia ou déficit focal",
+              "Esquecimento ou uso irregular da medicação"
+            ]
+          },
+          {
+            "heading": "Como conduzir",
+            "body": "O tratamento é dirigido à causa da elevação, e não ao número da pressão.",
+            "items": [
+              "Tratar a causa, como a dor ou a ansiedade",
+              "Retomar a medicação de uso habitual",
+              "Reavaliar a pressão na própria unidade",
+              "Conversar na consulta sobre adesão ao tratamento"
+            ]
+          },
+          {
+            "heading": "Diferença para a emergência hipertensiva",
+            "body": "Na emergência hipertensiva há lesão aguda de órgão-alvo, e aí se usa medicação intravenosa contínua. Sem lesão de órgão-alvo, não há indicação de remoção de urgência nem de anti-hipertensivo intravenoso."
+          }
+        ],
+        "alert": "Reduzir a pressão de forma abrupta e sem necessidade traz risco de hipotensão e de isquemia cerebral ou miocárdica."
+      },
+      "summary": {
+        "title": "Pseudocrise hipertensiva em 30 segundos",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "PA elevada com queixas vagas, sem comprometimento de órgão-alvo."
+          },
+          {
+            "label": "Primeiro passo",
+            "text": "Antes de olhar o número, procure lesão de órgão-alvo."
+          },
+          {
+            "label": "Conduta",
+            "text": "Tratar a causa, retomar a medicação e reavaliar a PA na unidade.",
+            "sub": [
+              "Analgesia se houver dor",
+              "Abordar a adesão na consulta"
+            ]
+          },
+          {
+            "label": "Causa frequente",
+            "text": "Má adesão ou doses insuficientes do anti-hipertensivo."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Baixar a pressão de forma agressiva pode causar hipotensão e isquemia cerebral ou miocárdica."
+          },
+          {
+            "label": "Contraste",
+            "text": "Medicação intravenosa contínua é reservada à emergência hipertensiva, com lesão aguda de órgão-alvo."
+          }
+        ]
+      },
       "slug": "cm-has-pseudocrise-007",
       "area_id": "clinica",
       "competency_id": "decisao",
@@ -524,6 +948,51 @@
           "locator": "quadro 8, efeitos adversos"
         }
       ],
+      "key_why": "O paciente tem diabetes tipo 2 recém-diagnosticado, obesidade (IMC de 31 kg/m²) e nenhum sinal de descompensação. Nesse perfil, o fluxograma da atenção básica orienta começar a metformina já no diagnóstico, junto com a alimentação e a atividade física. Não há motivo para iniciar insulina, adiar o remédio ou usar sulfonilureia em dose máxima.",
+      "theory": {
+        "title": "Início do tratamento do diabetes tipo 2",
+        "intro": "Quando o diabetes tipo 2 é diagnosticado na UBS, o generalista precisa decidir se já entra com medicamento e qual. O fluxograma terapêutico da atenção básica é direto para quem tem excesso de peso: mudança de estilo de vida e metformina começam juntas.",
+        "sections": [
+          {
+            "heading": "Quando iniciar metformina",
+            "body": "Em pessoas com sobrepeso ou obesidade, a orientação é introduzir metformina ao diagnóstico. Ela não substitui alimentação e atividade física. As duas medidas são somadas desde a primeira consulta."
+          },
+          {
+            "heading": "Quando pensar em insulina no início",
+            "body": "A insulina como primeira medida fica reservada para quadros de descompensação intensa. Em paciente assintomático, sem cetose e sem sinais de descompensação, ela não é a conduta inicial."
+          },
+          {
+            "heading": "Por que não começar por sulfonilureia em dose máxima",
+            "body": "A glibenclamida pode causar hipoglicemia. Iniciar o tratamento por ela, ainda mais em dose máxima, não segue o fluxograma e expõe o paciente a esse risco sem necessidade."
+          }
+        ],
+        "alert": "Armadilha comum: alternativa que propõe esperar meses só com dieta e exercício antes de medicar. Com excesso de peso, a metformina entra já no diagnóstico."
+      },
+      "summary": {
+        "title": "Início do tratamento do DM2 na atenção básica",
+        "points": [
+          {
+            "label": "Conduta",
+            "text": "DM2 com sobrepeso ou obesidade: metformina já no diagnóstico."
+          },
+          {
+            "label": "Conceito",
+            "text": "Estilo de vida e metformina andam juntos, um somado ao outro."
+          },
+          {
+            "label": "Insulina inicial",
+            "text": "Reservada para descompensação intensa, não para o paciente assintomático e estável."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Adiar o medicamento por meses em quem tem excesso de peso contraria o fluxograma."
+          },
+          {
+            "label": "Sulfonilureia",
+            "text": "A glibenclamida pode causar hipoglicemia. Não é o ponto de partida, muito menos em dose máxima."
+          }
+        ]
+      },
       "slug": "cm-dm-metformina-008",
       "area_id": "clinica",
       "competency_id": "terapeutica",
@@ -574,6 +1043,66 @@
           "locator": "p. 10 do PDF"
         }
       ],
+      "key_why": "O paciente tem déficit focal compatível com AVC isquêmico, horário de início bem definido há 2 horas, tomografia sem hemorragia e PA de 170 x 95 mmHg, abaixo do limite de 185 x 110 mmHg. Ele preenche os critérios de inclusão e não tem exclusão. Por isso, o rtPA deve ser iniciado logo, dentro da janela de 4,5 horas.",
+      "theory": {
+        "title": "Trombólise no AVC isquêmico",
+        "intro": "A trombólise com rtPA é o tratamento de reperfusão do AVC isquêmico agudo e depende de tempo. A prova cobra o reconhecimento rápido de quem preenche os critérios de inclusão e de quem tem critério de exclusão.",
+        "sections": [
+          {
+            "heading": "Critérios de inclusão",
+            "items": [
+              "AVC isquêmico",
+              "Possibilidade de iniciar o rtPA em até 4,5 horas, com horário de início preciso",
+              "Tomografia ou ressonância sem hemorragia",
+              "Idade acima de 18 anos"
+            ]
+          },
+          {
+            "heading": "Como definir o horário de início",
+            "body": "O tempo conta a partir do início dos sintomas. Quando o déficit é notado ao acordar, vale o último horário em que o paciente foi visto normal, e não a hora em que acordou."
+          },
+          {
+            "heading": "Pressão arterial",
+            "body": "A PA só exclui a trombólise quando a sistólica fica em 185 mmHg ou mais, ou a diastólica em 110 mmHg ou mais, e se mantém refratária ao tratamento. Abaixo desses valores não é preciso baixar a pressão de forma agressiva antes do rtPA."
+          }
+        ],
+        "alert": "Condutas que atrasam a decisão, como repetir a imagem depois ou apenas antiagregar e observar, fazem o paciente elegível perder a janela de 4,5 horas."
+      },
+      "summary": {
+        "title": "Trombólise no AVC isquêmico em 30 segundos",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "O rtPA é o tratamento de reperfusão do AVC isquêmico e depende de tempo."
+          },
+          {
+            "label": "Indicação",
+            "text": "Os critérios de inclusão são estes:",
+            "sub": [
+              "AVC isquêmico",
+              "Início em até 4,5 horas, com horário preciso",
+              "Imagem sem hemorragia",
+              "Idade acima de 18 anos"
+            ]
+          },
+          {
+            "label": "Horário",
+            "text": "Se o paciente acordou com o déficit, conta o último horário em que foi visto normal."
+          },
+          {
+            "label": "Exclusão por PA",
+            "text": "PAS de 185 ou PAD de 110 mmHg ou mais, refratária ao tratamento."
+          },
+          {
+            "label": "Conduta",
+            "text": "Se os critérios forem preenchidos, iniciar o rtPA sem atraso."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Baixar a PA para menos de 120 x 80 mmHg, repetir a TC em 24 horas ou só antiagregar são condutas erradas no paciente elegível."
+          }
+        ]
+      },
       "slug": "cm-avc-trombolise-009",
       "area_id": "clinica",
       "competency_id": "urgencia",
@@ -619,6 +1148,69 @@
           "locator": "p. 65 do PDF"
         }
       ],
+      "key_why": "Dor retroesternal em aperto há 40 minutos, irradiada para o braço esquerdo e com sudorese, em diabético, sugere síndrome coronariana aguda. O paciente nega alergia, úlcera ativa e sangramentos, portanto não há contraindicação conhecida. O protocolo do SAMU indica AAS 300 mg por via oral, precocemente, com o comprimido macerado e mastigado.",
+      "theory": {
+        "title": "Síndrome coronariana aguda no pré-hospitalar",
+        "intro": "No atendimento pré-hospitalar, a suspeita de síndrome coronariana aguda deve levar ao início precoce do tratamento ainda na cena. Entre as primeiras condutas está o AAS por via oral, desde que não haja contraindicação.",
+        "sections": [
+          {
+            "heading": "Quando suspeitar",
+            "body": "Pense em síndrome coronariana aguda diante de dor torácica com características típicas, como a do caso.",
+            "items": [
+              "Dor retroesternal em aperto",
+              "Irradiação para o braço esquerdo",
+              "Sudorese associada",
+              "Paciente com fator de risco, como diabetes"
+            ]
+          },
+          {
+            "heading": "Conduta com o AAS",
+            "body": "O protocolo do SAMU orienta administrar AAS 300 mg por via oral, macerado e precocemente. Peça que o paciente mastigue o comprimido. Mastigar faz parte da orientação e não é um detalhe."
+          },
+          {
+            "heading": "Contraindicações a conferir antes",
+            "body": "Antes de oferecer o AAS, pergunte ativamente sobre as situações que o contraindicam.",
+            "items": [
+              "Hipersensibilidade conhecida",
+              "Úlcera péptica ativa",
+              "Discrasia sanguínea",
+              "Hepatopatia grave"
+            ]
+          }
+        ],
+        "alert": "Analgésicos comuns, anti-inflamatórios e protetores gástricos não tratam a síndrome coronariana. Tratar a dor como gástrica deixa sem tratamento a principal hipótese."
+      },
+      "summary": {
+        "title": "AAS na suspeita de síndrome coronariana aguda",
+        "points": [
+          {
+            "label": "Suspeita",
+            "text": "Dor retroesternal em aperto, irradiada para o braço esquerdo, com sudorese."
+          },
+          {
+            "label": "Conduta",
+            "text": "AAS 300 mg por via oral, o quanto antes."
+          },
+          {
+            "label": "Forma",
+            "text": "Comprimido macerado, com o paciente mastigando."
+          },
+          {
+            "label": "Contraindicações",
+            "text": "Confira antes de administrar.",
+            "sub": [
+              "Hipersensibilidade conhecida",
+              "Úlcera péptica ativa",
+              "Discrasia sanguínea",
+              "Hepatopatia grave"
+            ]
+          },
+          {
+            "label": "Armadilha",
+            "text": "Ibuprofeno, paracetamol ou omeprazol não substituem o AAS na síndrome coronariana."
+          }
+        ]
+      },
       "slug": "cm-sca-aas-010",
       "area_id": "clinica",
       "competency_id": "urgencia",
@@ -669,6 +1261,75 @@
           "locator": "p. 98 do PDF"
         }
       ],
+      "key_why": "Urticária, edema labial, sibilos, hipotensão e taquicardia minutos após a dipirona configuram anafilaxia com choque. A primeira medicação é a adrenalina intramuscular na face anterolateral da coxa. Pelo peso, 0,01 mg/kg daria 0,7 mg, mas no adulto a dose máxima é 0,5 mg. Corticoide e anti-histamínico são adjuvantes, e a via subcutânea com 1 mg está errada.",
+      "theory": {
+        "title": "Anafilaxia: primeira conduta",
+        "intro": "Anafilaxia é uma reação alérgica grave, de instalação rápida após a exposição a um desencadeante, como um medicamento. Pode comprometer pele, via aérea e circulação ao mesmo tempo. A prova cobra o reconhecimento do quadro e a escolha da medicação, da dose e da via corretas.",
+        "sections": [
+          {
+            "heading": "Quando suspeitar",
+            "body": "Suspeite quando surgem manifestações em mais de um sistema logo após a exposição.",
+            "items": [
+              "Pele e mucosas: urticária generalizada e edema de lábios",
+              "Respiratório: dispneia, sibilos e queda da saturação",
+              "Circulatório: hipotensão e taquicardia, sinais de choque"
+            ]
+          },
+          {
+            "heading": "Adrenalina: a primeira medicação",
+            "items": [
+              "Apresentação 1:1000 (1 mg/mL)",
+              "Dose de 0,01 mg/kg, com máximo de 0,5 mg no adulto",
+              "Via intramuscular, na região anterolateral da coxa",
+              "Pode ser repetida a cada 5 a 15 minutos",
+              "A via intravenosa fica reservada para situações específicas"
+            ]
+          },
+          {
+            "heading": "Medidas associadas",
+            "items": [
+              "Oxigênio suplementar se houver hipoxemia",
+              "Choque: reposição volêmica rápida",
+              "Persistência do quadro: hidrocortisona",
+              "Corticoide e anti-histamínico são adjuvantes e não substituem a adrenalina"
+            ]
+          }
+        ],
+        "alert": "Em adulto com mais de 50 kg, o cálculo por peso ultrapassa 0,5 mg. Respeite a dose máxima e use a via intramuscular na coxa, não a subcutânea."
+      },
+      "summary": {
+        "title": "Anafilaxia em 30 segundos",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "Pele, via aérea e circulação acometidas logo após a exposição a um desencadeante indicam anafilaxia."
+          },
+          {
+            "label": "Conduta",
+            "text": "Adrenalina 1 mg/mL, 0,01 mg/kg, por via intramuscular na face anterolateral da coxa.",
+            "sub": [
+              "Máximo de 0,5 mg no adulto",
+              "Repetir a cada 5 a 15 minutos se necessário"
+            ]
+          },
+          {
+            "label": "Choque",
+            "text": "Associar reposição volêmica rápida à adrenalina."
+          },
+          {
+            "label": "Adjuvantes",
+            "text": "A hidrocortisona entra se o quadro persistir. Anti-histamínico não reverte choque nem broncoespasmo."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Começar por corticoide ou anti-histamínico, usar a via subcutânea ou dar 1 mg no adulto."
+          },
+          {
+            "label": "Via IV",
+            "text": "A adrenalina intravenosa fica reservada para situações específicas."
+          }
+        ]
+      },
       "slug": "cm-anafilaxia-011",
       "area_id": "clinica",
       "competency_id": "urgencia",
@@ -719,6 +1380,69 @@
           "locator": "p. 9 e 23 do PDF"
         }
       ],
+      "key_why": "O lactente tem 9 meses, faixa em que respiração rápida começa em 50 irpm. Com 56 irpm, contados em um minuto e com a criança tranquila, ele tem respiração rápida. Sem sinal geral de perigo e sem tiragem subcostal, a classificação do AIDPI é pneumonia. O tratamento é em casa, com amoxicilina oral por 7 dias.",
+      "theory": {
+        "title": "Pneumonia na criança pelo AIDPI",
+        "intro": "O AIDPI classifica a criança com tosse ou dificuldade para respirar por sinais clínicos simples, que podem ser avaliados na atenção primária. O dado central é a frequência respiratória comparada ao corte da idade. Com ela e com a pesquisa de sinais de gravidade, o generalista define a conduta sem precisar de exames.",
+        "sections": [
+          {
+            "heading": "Quando classificar como pneumonia",
+            "body": "A respiração rápida, definida pelo corte da faixa etária, classifica a criança como pneumonia.",
+            "items": [
+              "De 2 meses a menos de 12 meses: 50 irpm ou mais",
+              "De 1 ano a menos de 5 anos: 40 irpm ou mais",
+              "Conte a frequência com a criança tranquila, durante um minuto inteiro"
+            ]
+          },
+          {
+            "heading": "Como conduzir",
+            "body": "Sem sinal geral de perigo e sem tiragem subcostal, a pneumonia é tratada em casa com antibiótico por 7 dias. A amoxicilina é o antibiótico de primeira linha. Se houver sinal de perigo ou tiragem subcostal, a conduta é referir com urgência ao hospital."
+          },
+          {
+            "heading": "O que a prova cobra",
+            "items": [
+              "Saber o corte de respiração rápida para cada idade",
+              "Diferenciar pneumonia tratada em casa da situação que exige referência urgente",
+              "Lembrar que a classificação é clínica e o tratamento não depende de radiografia",
+              "Não tratar só com sintomáticos quando há respiração rápida"
+            ]
+          }
+        ],
+        "alert": "Choro e agitação aumentam a frequência respiratória. Contar com a criança agitada ou por menos de um minuto leva à classificação errada."
+      },
+      "summary": {
+        "title": "Pneumonia pelo AIDPI em 30 segundos",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "Respiração rápida pelo corte da idade classifica a criança como pneumonia.",
+            "sub": [
+              "2 a menos de 12 meses: 50 irpm ou mais",
+              "1 a menos de 5 anos: 40 irpm ou mais"
+            ]
+          },
+          {
+            "label": "Técnica",
+            "text": "Conte a frequência por um minuto inteiro, com a criança tranquila."
+          },
+          {
+            "label": "Conduta",
+            "text": "Sem sinal de perigo e sem tiragem: tratamento em casa com amoxicilina oral por 7 dias."
+          },
+          {
+            "label": "Gravidade",
+            "text": "Sinal geral de perigo ou tiragem subcostal indicam referência urgente ao hospital."
+          },
+          {
+            "label": "Armadilha",
+            "text": "A classificação é clínica: não espere radiografia para tratar."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Tosse com respiração rápida não é caso para apenas sintomáticos."
+          }
+        ]
+      },
       "slug": "ped-pneumonia-aidpi-012",
       "area_id": "pediatria",
       "competency_id": "terapeutica",
@@ -769,6 +1493,55 @@
           "locator": "p. 8-9 do PDF"
         }
       ],
+      "key_why": "A menina tem tosse e febre e está acordada e aceitando líquidos, mas apresenta tiragem subcostal evidente em repouso. No AIDPI, esse único achado já coloca a criança na classificação de maior gravidade, mesmo com bom estado geral. Essa classificação não permite tratamento domiciliar e exige referência urgente ao hospital, com oxigênio se disponível.",
+      "theory": {
+        "title": "Tiragem subcostal na criança",
+        "intro": "No AIDPI, a criança com tosse ou dificuldade para respirar é classificada pelos sinais clínicos encontrados, e cada classificação define a conduta. A tiragem subcostal é um sinal de gravidade que muda a decisão: a criança deixa de ser caso para casa e passa a precisar de hospital.",
+        "sections": [
+          {
+            "heading": "Quando classificar como grave",
+            "body": "A tosse acompanhada de qualquer sinal geral de perigo ou de tiragem subcostal entra na classificação de maior gravidade. Basta um único sinal dessa categoria para classificar. O bom estado geral, como estar acordada e aceitar líquidos, não anula a tiragem."
+          },
+          {
+            "heading": "Como conduzir",
+            "items": [
+              "Referir com urgência ao hospital, após o tratamento prévio indicado.",
+              "Oferecer oxigênio, se disponível.",
+              "Não tratar em casa, nem com antibiótico nem só com sintomáticos."
+            ]
+          },
+          {
+            "heading": "O que a prova cobra",
+            "body": "Diferenciar a criança com respiração rápida sem tiragem, que pode receber antibiótico em casa, da criança com tiragem subcostal, que deve ser encaminhada com urgência. A ausência de sibilância também afasta condutas centradas em nebulização com observação."
+          }
+        ],
+        "alert": "Criança com tosse e tiragem subcostal não é caso domiciliar, mesmo que pareça bem."
+      },
+      "summary": {
+        "title": "Tiragem subcostal no AIDPI",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "Tiragem subcostal em criança com tosse indica a classificação de maior gravidade."
+          },
+          {
+            "label": "Critério",
+            "text": "Um único sinal grave basta: tiragem subcostal ou qualquer sinal geral de perigo."
+          },
+          {
+            "label": "Conduta",
+            "text": "Referir com urgência ao hospital, com oxigênio se disponível."
+          },
+          {
+            "label": "Diferencial",
+            "text": "Respiração rápida sem tiragem permite antibiótico em casa; com tiragem, não."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Bom estado geral não anula a tiragem nem autoriza tratamento domiciliar."
+          }
+        ]
+      },
       "slug": "ped-tiragem-aidpi-013",
       "area_id": "pediatria",
       "competency_id": "urgencia",
@@ -814,6 +1587,68 @@
           "locator": "p. 8 do PDF"
         }
       ],
+      "key_why": "O menino vomita tudo o que ingere e está difícil de acordar, ou seja, letárgico. Cada um desses achados é sinal geral de perigo no AIDPI, e basta um para exigir assistência urgente: completar a avaliação, fazer o tratamento prévio e referir com urgência ao hospital. Planos A ou B e espera por exames atrasam o cuidado.",
+      "theory": {
+        "title": "Sinais gerais de perigo no AIDPI",
+        "intro": "No AIDPI, os sinais gerais de perigo indicam que a criança pode estar gravemente doente, qualquer que seja a queixa principal. Basta um deles para mudar toda a conduta. A prova costuma cobrar o reconhecimento desses sinais e a sequência de ação.",
+        "sections": [
+          {
+            "heading": "Quando suspeitar",
+            "body": "Fique atento à criança que vomita tudo o que ingere ou que está letárgica, difícil de acordar. A criança quieta demais pode ser a mais grave, por isso não deve aguardar por ordem de chegada.",
+            "items": [
+              "Vomita tudo o que ingere",
+              "Letárgica ou difícil de acordar"
+            ]
+          },
+          {
+            "heading": "Como conduzir",
+            "body": "Diante de qualquer sinal geral de perigo, a assistência é urgente.",
+            "items": [
+              "Completar imediatamente a avaliação",
+              "Administrar o tratamento indicado antes da referência",
+              "Referir com urgência ao hospital"
+            ]
+          },
+          {
+            "heading": "O que não fazer",
+            "items": [
+              "Usar o Plano B, que serve para desidratação sem gravidade",
+              "Orientar o Plano A em casa: quem vomita tudo não consegue se hidratar por via oral",
+              "Pedir exames e manter a criança na unidade, o que atrasa a referência"
+            ]
+          }
+        ],
+        "alert": "O acolhimento com classificação de risco existe para identificar a criança grave que não chama atenção. Atender por ordem de chegada pode atrasar um caso urgente."
+      },
+      "summary": {
+        "title": "Sinais gerais de perigo: revisão rápida",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "Um único sinal geral de perigo já indica possível doença grave.",
+            "sub": [
+              "Vomita tudo o que ingere",
+              "Letárgica ou difícil de acordar"
+            ]
+          },
+          {
+            "label": "Conduta",
+            "text": "Assistência urgente: completar a avaliação, fazer o tratamento prévio e referir com urgência ao hospital."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Planos A ou B não bastam quando há sinal geral de perigo."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Aguardar exames na unidade atrasa a referência, que é a prioridade."
+          },
+          {
+            "label": "Organização",
+            "text": "Criança quieta pode ser a mais grave: a classificação de risco vem antes da ordem de chegada."
+          }
+        ]
+      },
       "slug": "ped-sinal-perigo-014",
       "area_id": "pediatria",
       "competency_id": "urgencia",
@@ -864,6 +1699,66 @@
           "locator": "p. 13 do PDF"
         }
       ],
+      "key_why": "A criança tem desidratação sem sinais de gravidade, está alerta e bebe: é o Plano B. Por isso não deve ir para casa logo, como deseja a mãe. Ela fica na UBS recebendo SRO por 4 horas, até reidratar. O volume estimado é peso x 75, ou seja, 12 x 75 = 900 mL, e pode ser ampliado se ela quiser mais.",
+      "theory": {
+        "title": "Desidratação: Plano B",
+        "intro": "O Plano B é a reidratação oral supervisionada, feita no próprio serviço de saúde, para a criança com diarreia classificada com desidratação sem sinais de gravidade. Diferencia-se do Plano A, feito em casa, e da expansão intravenosa, reservada a sinais de má perfusão.",
+        "sections": [
+          {
+            "heading": "Quando indicar",
+            "body": "Use o Plano B na criança com diarreia aguda classificada com desidratação, sem sinais de gravidade, que consegue beber. Se a criança está desidratada, o tratamento domiciliar não basta: ela precisa ser reidratada agora, sob observação."
+          },
+          {
+            "heading": "Como conduzir",
+            "items": [
+              "A criança permanece no serviço de saúde até a reidratação completa.",
+              "Oferecer SRO ao longo de 4 horas.",
+              "Volume estimado para as 4 horas: peso em kg x 75, em mL.",
+              "Se a criança quiser mais do que o calculado, oferecer mais.",
+              "Depois, prescrever zinco oral por 10 dias e orientar a mãe sobre o retorno."
+            ]
+          },
+          {
+            "heading": "O que a prova cobra",
+            "items": [
+              "Diferenciar Plano A (SRO em casa) do Plano B (SRO na unidade).",
+              "Fazer o cálculo do volume: peso x 75.",
+              "Não confundir com expansão intravenosa, indicada para má perfusão.",
+              "Não suspender a alimentação."
+            ]
+          }
+        ],
+        "alert": "O volume de peso x 75 é estimativa, não teto. Mandar para casa uma criança já desidratada é erro: no Plano B ela só sai do serviço depois de reidratada."
+      },
+      "summary": {
+        "title": "Plano B em 30 segundos",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "Reidratação oral supervisionada no serviço de saúde."
+          },
+          {
+            "label": "Indicação",
+            "text": "Diarreia com desidratação sem sinais de gravidade, criança capaz de beber."
+          },
+          {
+            "label": "Conduta",
+            "text": "SRO por 4 horas, na unidade, até reidratar.",
+            "sub": [
+              "Volume: peso em kg x 75 mL",
+              "Se quiser mais, dar mais"
+            ]
+          },
+          {
+            "label": "Complemento",
+            "text": "Zinco oral por 10 dias e orientação de retorno à mãe."
+          },
+          {
+            "label": "Armadilha",
+            "text": "SRO em casa é Plano A; via intravenosa é para má perfusão; suspender a alimentação não faz parte da conduta."
+          }
+        ]
+      },
       "slug": "ped-plano-b-015",
       "area_id": "pediatria",
       "competency_id": "terapeutica",
@@ -914,6 +1809,59 @@
           "locator": "p. 27 do PDF"
         }
       ],
+      "key_why": "Lactente febril, prostrado, com extremidades frias e enchimento capilar de 4 segundos tem má perfusão. Com acesso venoso disponível, o AIDPI manda iniciar expansão de 20 mL/kg com soro fisiológico a 0,9% ou Ringer lactato durante a espera pela referência. Para 8 kg, são 160 mL infundidos como expansão, e não diluídos em 24 horas.",
+      "theory": {
+        "title": "Criança com má perfusão",
+        "intro": "O enchimento capilar é um sinal simples, feito à beira do leito, que identifica a criança com má perfusão. No AIDPI, esse achado exige tratamento imediato na própria unidade, ao mesmo tempo em que se organiza a referência hospitalar.",
+        "sections": [
+          {
+            "heading": "Quando suspeitar",
+            "body": "Suspeite quando o tempo de enchimento capilar for maior que 2 segundos. Extremidades frias e prostração, como no caso, reforçam a gravidade."
+          },
+          {
+            "heading": "Como conduzir",
+            "items": [
+              "Obter acesso venoso periférico.",
+              "Iniciar expansão de 20 mL/kg com soro fisiológico a 0,9% ou Ringer lactato.",
+              "Referir ao hospital, sem atrasar o início da expansão à espera da ambulância."
+            ]
+          },
+          {
+            "heading": "Como calcular e o que a prova cobra",
+            "body": "Multiplique 20 mL pelo peso. Uma criança de 8 kg recebe 160 mL. A prova costuma oferecer o volume certo em ritmo errado: infundido em 24 horas, ele vira manutenção e deixa de ser expansão. Outra armadilha é o flush de soro glicosado a 10% (5 a 10 mL/kg), que trata hipoglicemia e não corrige a perfusão. A via nasogástrica é lenta e inadequada quando já existe acesso venoso."
+          }
+        ],
+        "alert": "Reconhecer a má perfusão não basta para encaminhar. O tratamento começa antes da chegada da ambulância."
+      },
+      "summary": {
+        "title": "Má perfusão na criança pelo AIDPI",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "Enchimento capilar maior que 2 segundos indica má perfusão."
+          },
+          {
+            "label": "Conduta",
+            "text": "Acesso venoso e expansão de 20 mL/kg com SF 0,9% ou Ringer lactato enquanto refere."
+          },
+          {
+            "label": "Cálculo",
+            "text": "20 mL multiplicado pelo peso. Para 8 kg, são 160 mL em expansão."
+          },
+          {
+            "label": "Armadilha",
+            "text": "O volume certo infundido em 24 horas é manutenção, não expansão."
+          },
+          {
+            "label": "Diferencial",
+            "text": "Flush de SG 10% (5 a 10 mL/kg) é para hipoglicemia e não restaura a perfusão."
+          },
+          {
+            "label": "Competência",
+            "text": "Estabilizar a criança grave na unidade enquanto organiza a transferência."
+          }
+        ]
+      },
       "slug": "ped-ma-perfusao-016",
       "area_id": "pediatria",
       "competency_id": "urgencia",
@@ -959,6 +1907,64 @@
           "locator": "calendário da criança"
         }
       ],
+      "key_why": "O recém-nascido a termo, sem intercorrências, ainda na maternidade, está no momento \"ao nascer\" do Calendário Nacional de Vacinação. Nessa fase o calendário prevê a dose única de BCG e a dose de hepatite B. Pentavalente, VIP e rotavírus só começam aos 2 meses e não fazem parte da alta da maternidade.",
+      "theory": {
+        "title": "Vacinas ao nascer",
+        "intro": "O Calendário Nacional de Vacinação da criança define quais vacinas o bebê recebe em cada idade. O primeiro marco é o nascimento, e a prova costuma cobrar a distinção entre o que se aplica ao nascer e o que fica para os 2 meses.",
+        "sections": [
+          {
+            "heading": "O que se aplica ao nascer",
+            "body": "Duas vacinas estão previstas para o recém-nascido no calendário da criança.",
+            "items": [
+              "BCG, em dose única",
+              "Hepatite B, uma dose ao nascer"
+            ]
+          },
+          {
+            "heading": "O que fica para os 2 meses",
+            "body": "Várias vacinas aparecem como alternativa errada porque começam aos 2 meses, e não ao nascer.",
+            "items": [
+              "Pentavalente",
+              "Poliomielite inativada (VIP)",
+              "Rotavírus"
+            ]
+          },
+          {
+            "heading": "Orientação à família",
+            "body": "Ao responder às dúvidas da mãe, o generalista deve explicar quais vacinas o bebê recebe antes da alta e que o esquema continua aos 2 meses na unidade de saúde."
+          }
+        ],
+        "alert": "O calendário é atualizado com frequência. Na prova e na prática, confira sempre a versão vigente do Ministério da Saúde."
+      },
+      "summary": {
+        "title": "Vacinas ao nascer em 30 segundos",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "O calendário da criança define vacinas por idade, começando ao nascer."
+          },
+          {
+            "label": "Ao nascer",
+            "text": "BCG em dose única e uma dose de hepatite B."
+          },
+          {
+            "label": "Aos 2 meses",
+            "text": "Início de pentavalente, VIP e rotavírus."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Pentavalente, VIP e rotavírus ao lado de BCG ou hepatite B tornam a alternativa errada para o nascimento."
+          },
+          {
+            "label": "Conduta",
+            "text": "Orientar a família sobre as vacinas da maternidade e a continuidade do esquema aos 2 meses."
+          },
+          {
+            "label": "Pérola",
+            "text": "Confira sempre a versão vigente do calendário do Ministério da Saúde."
+          }
+        ]
+      },
       "slug": "ped-vacina-nascimento-017",
       "area_id": "pediatria",
       "competency_id": "decisao",
@@ -1004,6 +2010,70 @@
           "locator": "calendário da criança"
         }
       ],
+      "key_why": "O menino tem 15 meses, está saudável e com tudo em dia até os 12 meses, inclusive a primeira dose de tríplice viral. Nessa idade, o calendário da criança prevê o primeiro reforço de DTP e de VIP, a segunda dose de tríplice viral, a varicela e a hepatite A. Como não há contraindicação, todas podem ser aplicadas na mesma consulta.",
+      "theory": {
+        "title": "Vacinas aos 15 meses",
+        "intro": "Os 15 meses são uma das idades com mais vacinas no calendário da criança. Nela entram os primeiros reforços da série básica e as doses que completam a proteção contra doenças virais da infância. A prova costuma cobrar quais vacinas pertencem a essa idade e quais já ficaram para trás.",
+        "sections": [
+          {
+            "heading": "O que o calendário prevê aos 15 meses",
+            "items": [
+              "DTP como primeiro reforço",
+              "VIP como primeiro reforço",
+              "Tríplice viral (SCR) como segunda dose",
+              "Varicela",
+              "Hepatite A"
+            ]
+          },
+          {
+            "heading": "O que não é dessa idade",
+            "items": [
+              "BCG e hepatite B são vacinas do nascimento",
+              "Rotavírus tem doses só nos primeiros meses de vida",
+              "Pentavalente e meningocócica C pertencem ao primeiro ano",
+              "Febre amarela é aos 9 meses",
+              "O reforço dos 15 meses é feito com DTP e VIP, e não com nova dose de pentavalente"
+            ]
+          },
+          {
+            "heading": "Como conduzir na UBS",
+            "body": "Na consulta de puericultura, confira a caderneta e aplique no mesmo dia todas as vacinas previstas para a idade. Uma criança saudável, sem febre e sem uso de imunossupressores não tem motivo para adiar doses."
+          }
+        ],
+        "alert": "Não confunda o reforço dos 15 meses com uma nova dose de pentavalente. O reforço é feito com DTP e VIP."
+      },
+      "summary": {
+        "title": "Vacinas aos 15 meses em 30 segundos",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "Aos 15 meses, a criança recebe cinco vacinas.",
+            "sub": [
+              "DTP (reforço)",
+              "VIP (reforço)",
+              "Tríplice viral (segunda dose)",
+              "Varicela",
+              "Hepatite A"
+            ]
+          },
+          {
+            "label": "Armadilha",
+            "text": "O reforço é com DTP e VIP, e não com pentavalente."
+          },
+          {
+            "label": "Fora da idade",
+            "text": "BCG e hepatite B são do nascimento, rotavírus é dos primeiros meses, e penta e meningocócica C são do primeiro ano."
+          },
+          {
+            "label": "Febre amarela",
+            "text": "É aplicada aos 9 meses, não aos 15."
+          },
+          {
+            "label": "Conduta",
+            "text": "Criança saudável e com calendário em dia recebe todas as doses na mesma consulta, sem adiar."
+          }
+        ]
+      },
       "slug": "ped-vacina-15-meses-018",
       "area_id": "pediatria",
       "competency_id": "decisao",
@@ -1049,6 +2119,69 @@
           "locator": "p. 81 do PDF"
         }
       ],
+      "key_why": "Lactente de 6 meses, a termo, com peso adequado e assintomático, entra na faixa em que o Programa Nacional de Suplementação de Ferro indica ferro preventivo para todas as crianças, de 6 a 18 meses. A indicação não depende de exame nem de sinal clínico, por isso a conduta é iniciar a suplementação profilática já nesta consulta.",
+      "theory": {
+        "title": "Suplementação profilática de ferro na criança",
+        "intro": "A suplementação preventiva de ferro é uma ação do Programa Nacional de Suplementação de Ferro, aplicada na puericultura da atenção básica. O objetivo é prevenir a anemia, e não tratar uma anemia já instalada.",
+        "sections": [
+          {
+            "heading": "Quem recebe e quando começa",
+            "body": "A regra geral vale para todas as crianças, independentemente de sintomas. Algumas situações antecipam o início.",
+            "items": [
+              "Todas as crianças de 6 a 18 meses de idade.",
+              "A partir dos 4 meses nas crianças que não estão em aleitamento materno exclusivo.",
+              "Mais cedo nas crianças prematuras e nas que nasceram com baixo peso."
+            ]
+          },
+          {
+            "heading": "Exames antes de suplementar",
+            "body": "Como existe suplementação preventiva para toda a faixa etária, o caderno de saúde da criança do Ministério da Saúde não recomenda diagnóstico laboratorial de rotina para todas as crianças. Pedir hemograma e ferritina antes de iniciar o ferro profilático não muda a indicação."
+          },
+          {
+            "heading": "O que a prova cobra",
+            "items": [
+              "Criança a termo, com peso adequado e em aleitamento exclusivo: inicia aos 6 meses.",
+              "Os 18 meses marcam o fim da faixa de suplementação, e não o início.",
+              "Esperar palidez para dar ferro transforma prevenção em tratamento tardio.",
+              "As exceções que antecipam o início: sem aleitamento exclusivo, prematuridade e baixo peso."
+            ]
+          }
+        ],
+        "alert": "Na suplementação profilática não se espera sinal clínico nem se pede exame de rotina. A indicação depende da idade e dos fatores de risco."
+      },
+      "summary": {
+        "title": "Ferro profilático em 30 segundos",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "Suplementação preventiva de ferro pelo Programa Nacional de Suplementação de Ferro."
+          },
+          {
+            "label": "Indicação",
+            "text": "Todas as crianças de 6 a 18 meses."
+          },
+          {
+            "label": "Início antecipado",
+            "text": "Algumas crianças começam antes dos 6 meses.",
+            "sub": [
+              "Sem aleitamento exclusivo: a partir dos 4 meses.",
+              "Prematuros e baixo peso ao nascer: mais cedo."
+            ]
+          },
+          {
+            "label": "Exames",
+            "text": "Não se recomenda diagnóstico laboratorial de rotina para todas as crianças."
+          },
+          {
+            "label": "Conduta",
+            "text": "Lactente de 6 meses assintomático: iniciar o ferro profilático na própria consulta."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Aguardar palidez ou adiar até os 18 meses é um erro, porque 18 meses é o fim da faixa."
+          }
+        ]
+      },
       "slug": "ped-ferro-profilatico-019",
       "area_id": "pediatria",
       "competency_id": "decisao",
@@ -1094,6 +2227,58 @@
           "locator": "p. 124 do PDF"
         }
       ],
+      "key_why": "O bebê tem 2 meses e meio, nasceu a termo, cresce bem e começou a sorrir ao ouvir a mãe. O sorriso social aparece entre 2 e 3 meses, e levantar a cabeça de bruços, entre 2 e 4 meses. Os dois marcos estão dentro da faixa esperada. Por isso, a conduta é tranquilizar a mãe e seguir a puericultura, sem encaminhamento.",
+      "theory": {
+        "title": "Marcos do desenvolvimento no lactente",
+        "intro": "Na puericultura, o desenvolvimento é avaliado comparando os marcos observados com a faixa de idade em que costumam aparecer. Cada marco tem uma janela, e não uma data exata. Interpretar essa janela corretamente evita rótulos de atraso e encaminhamentos desnecessários.",
+        "sections": [
+          {
+            "heading": "Marcos cobrados nos primeiros meses",
+            "items": [
+              "Sorriso social: surge entre 2 e 3 meses.",
+              "De bruços, levanta a cabeça e os ombros: entre 2 e 4 meses."
+            ]
+          },
+          {
+            "heading": "Como interpretar",
+            "body": "Se o marco aparece dentro da janela esperada, o desenvolvimento é adequado, mesmo que surja perto do fim da faixa ou mais tarde que em outra criança. Um bebê de 2 meses e meio que acabou de começar a sorrir está dentro da janela de 2 a 3 meses, e não atrasado."
+          },
+          {
+            "heading": "Conduta diante de marco adequado",
+            "body": "Tranquilize a família e mantenha o acompanhamento de rotina na puericultura. Sem atraso nem sinal de alerta, não há indicação de fisioterapia, de neuropediatra ou de investigação de autismo. Parte do cuidado é explicar aos pais que comparar bebês gera ansiedade sem motivo, porque cada marco tem uma faixa esperada."
+          }
+        ],
+        "alert": "A prova costuma apresentar um marco dentro da janela, porém próximo do limite, junto com a ansiedade familiar. Rotular como atraso e encaminhar é o erro esperado."
+      },
+      "summary": {
+        "title": "Marcos do desenvolvimento: revisão rápida",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "Marcos do desenvolvimento têm janela de idade, não data exata."
+          },
+          {
+            "label": "Sorriso social",
+            "text": "Surge entre 2 e 3 meses."
+          },
+          {
+            "label": "Motor de bruços",
+            "text": "Levanta a cabeça e os ombros entre 2 e 4 meses."
+          },
+          {
+            "label": "Conduta",
+            "text": "Se o marco está dentro da janela, tranquilize a família e siga a puericultura."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Considerar atraso um marco que surge dentro da faixa e encaminhar sem necessidade."
+          },
+          {
+            "label": "Comunicação",
+            "text": "Explique aos pais que comparar bebês gera ansiedade desnecessária."
+          }
+        ]
+      },
       "slug": "ped-marco-sorriso-020",
       "area_id": "pediatria",
       "competency_id": "hipotese",
@@ -1139,6 +2324,64 @@
           "locator": "p. 38 do PDF"
         }
       ],
+      "key_why": "O bebê tem icterícia que já ultrapassou o umbigo e chega às pernas, além de gemidos e menor interesse em mamar. Icterícia abaixo do umbigo e gemidos estão entre os sinais de perigo do recém-nascido. Por isso não cabe manejo em casa nem esperar: a conduta é encaminhar com urgência para avaliação em serviço com recursos.",
+      "theory": {
+        "title": "Sinais de perigo no recém-nascido",
+        "intro": "Na consulta de rotina da primeira semana, o generalista precisa reconhecer o recém-nascido que não pode esperar. Alguns achados indicam gravidade e mudam a conduta de acompanhamento ambulatorial para avaliação imediata.",
+        "sections": [
+          {
+            "heading": "Quando suspeitar de gravidade",
+            "body": "O caderno de atenção à saúde da criança lista sinais de perigo no recém-nascido. Entre eles estão:",
+            "items": [
+              "Icterícia visível abaixo do umbigo",
+              "Icterícia que aparece nas primeiras 24 horas de vida",
+              "Gemidos"
+            ]
+          },
+          {
+            "heading": "Como avaliar a icterícia",
+            "body": "Não basta notar que a pele está amarela. Observe até onde a icterícia chega no corpo e quando ela começou. A extensão abaixo do umbigo e o início precoce são o que definem o sinal de perigo."
+          },
+          {
+            "heading": "Conduta",
+            "body": "Diante de um sinal de perigo, o manejo domiciliar está afastado. A criança deve ser encaminhada com urgência para avaliação em serviço com recursos. Não se suspende o aleitamento nem se oferece água, e banho de sol com retorno programado não resolve um quadro que exige avaliação imediata."
+          }
+        ],
+        "alert": "Não rotule como icterícia fisiológica o bebê com icterícia abaixo do umbigo, icterícia nas primeiras 24 horas ou gemidos."
+      },
+      "summary": {
+        "title": "Sinais de perigo no recém-nascido: revisão rápida",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "Sinais de perigo identificam o recém-nascido que não pode esperar na consulta de rotina."
+          },
+          {
+            "label": "Icterícia de perigo",
+            "text": "Considere sinal de perigo quando a icterícia:",
+            "sub": [
+              "É visível abaixo do umbigo",
+              "Surge nas primeiras 24 horas de vida"
+            ]
+          },
+          {
+            "label": "Outro sinal",
+            "text": "Gemidos também são sinal de perigo."
+          },
+          {
+            "label": "Conduta",
+            "text": "Encaminhar com urgência para avaliação em serviço com recursos."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Banho de sol, retorno em 7 dias ou rótulo de icterícia fisiológica não servem para o bebê com sinal de perigo."
+          },
+          {
+            "label": "Aleitamento",
+            "text": "Não suspender o aleitamento nem oferecer água."
+          }
+        ]
+      },
       "slug": "ped-rn-sinais-perigo-021",
       "area_id": "pediatria",
       "competency_id": "urgencia",
@@ -1184,6 +2427,55 @@
           "locator": "p. 142 do PDF"
         }
       ],
+      "key_why": "A gestante não tem diabetes prévio conhecido e fez a glicemia de jejum na primeira consulta, com 10 semanas. O valor de 104 mg/dL está na faixa de 92 a 125 mg/dL, que já define diabetes gestacional. Não chega a 126 mg/dL, que indicaria diabetes prévio, e não é baixo o bastante para aguardar o teste de 24 a 28 semanas.",
+      "theory": {
+        "title": "Diabetes gestacional no primeiro trimestre",
+        "intro": "O rastreamento do diabetes na gestação é universal e começa na primeira consulta de pré-natal, com a glicemia de jejum. A interpretação usa limites próprios da gestação, diferentes dos usados fora da gravidez.",
+        "sections": [
+          {
+            "heading": "Quando e como rastrear",
+            "body": "Toda gestante faz glicemia de jejum na primeira consulta de pré-natal, mesmo assintomática e sem diabetes conhecido. O resultado define o diagnóstico ou o próximo passo."
+          },
+          {
+            "heading": "Como interpretar a glicemia de jejum da primeira consulta",
+            "items": [
+              "Menor que 92 mg/dL: normal nesse momento; segue para o teste de tolerância oral com 75 g entre 24 e 28 semanas.",
+              "De 92 a 125 mg/dL: diabetes mellitus gestacional já estabelecido.",
+              "126 mg/dL ou mais: diabetes prévio, diagnosticado durante a gestação."
+            ]
+          },
+          {
+            "heading": "O que a prova cobra",
+            "body": "A pegadinha é aplicar o raciocínio de fora da gravidez. Um jejum que seria chamado de pré-diabetes na não gestante já é diagnóstico de diabetes gestacional. Também é comum oferecer a opção de apenas repetir o teste entre 24 e 28 semanas, o que só vale para jejum abaixo de 92 mg/dL."
+          }
+        ],
+        "alert": "Na gestante não existe a categoria pré-diabetes para o jejum da primeira consulta: de 92 a 125 mg/dL já é diabetes gestacional."
+      },
+      "summary": {
+        "title": "Glicemia de jejum na primeira consulta do pré-natal",
+        "points": [
+          {
+            "label": "Indicação",
+            "text": "Rastreamento universal com glicemia de jejum na primeira consulta."
+          },
+          {
+            "label": "Normal",
+            "text": "Menor que 92 mg/dL: fazer teste de tolerância oral com 75 g entre 24 e 28 semanas."
+          },
+          {
+            "label": "DMG",
+            "text": "De 92 a 125 mg/dL: diabetes gestacional já estabelecido."
+          },
+          {
+            "label": "Diabetes prévio",
+            "text": "126 mg/dL ou mais: diabetes prévio diagnosticado na gestação."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Não usar limites de fora da gravidez: não existe pré-diabetes aqui."
+          }
+        ]
+      },
       "slug": "go-dmg-jejum-022",
       "area_id": "go",
       "competency_id": "hipotese",
@@ -1255,6 +2547,73 @@
           "locator": "p. 143 do PDF"
         }
       ],
+      "key_why": "A gestante tem jejum de 88 e 1 hora de 176 mg/dL, ambos abaixo dos limites, mas a glicemia de 2 horas foi de 158 mg/dL, acima de 153 mg/dL. No TOTG com 75 g, um único valor igual ou acima do limite já confirma diabetes gestacional. Não há indicação de repetir o exame nem de exigir dois valores alterados.",
+      "theory": {
+        "title": "Teste de tolerância à glicose na gestação",
+        "intro": "O teste oral de tolerância à glicose (TOTG) com 75 g é usado para diagnosticar diabetes mellitus gestacional (DMG). Ele mede a glicemia em jejum, 1 hora e 2 horas após a sobrecarga. A prova cobra principalmente os limites de cada tempo e quantos valores alterados bastam para o diagnóstico.",
+        "sections": [
+          {
+            "heading": "Limites diagnósticos",
+            "body": "Cada tempo tem um limite próprio. O valor de 2 horas tem limite menor que o de 1 hora, e inverter essa ordem é um erro comum.",
+            "items": [
+              "Jejum: 92 mg/dL",
+              "1 hora: 180 mg/dL",
+              "2 horas: 153 mg/dL"
+            ]
+          },
+          {
+            "heading": "Como interpretar",
+            "body": "Basta um valor igual ou acima do limite para confirmar DMG. Não é necessário ter dois valores alterados e não se deve repetir o exame, porque isso só atrasa o tratamento."
+          },
+          {
+            "heading": "Diabetes gestacional ou diabetes prévio",
+            "body": "Um valor alterado no TOTG define diabetes gestacional. Diabetes prévio é definido por outros critérios, como glicemia de jejum de 126 mg/dL ou mais."
+          },
+          {
+            "heading": "Conduta após o diagnóstico",
+            "items": [
+              "Iniciar adequação nutricional",
+              "Orientar exercício físico",
+              "Iniciar automonitorização da glicemia capilar, o método mais usado para avaliar os níveis glicêmicos no DMG"
+            ]
+          }
+        ],
+        "alert": "Não peça para repetir um TOTG alterado. Um único valor acima do limite já fecha o diagnóstico, e repetir atrasa o tratamento."
+      },
+      "summary": {
+        "title": "TOTG 75 g na gestação em 30 segundos",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "O TOTG com 75 g mede a glicemia em jejum, 1 hora e 2 horas para diagnosticar diabetes gestacional."
+          },
+          {
+            "label": "Limites",
+            "text": "92, 180 e 153 mg/dL.",
+            "sub": [
+              "Jejum: 92 mg/dL",
+              "1 hora: 180 mg/dL",
+              "2 horas: 153 mg/dL"
+            ]
+          },
+          {
+            "label": "Critério",
+            "text": "Um único valor igual ou acima do limite confirma diabetes gestacional."
+          },
+          {
+            "label": "Conduta",
+            "text": "Adequação nutricional, exercício e automonitorização da glicemia capilar."
+          },
+          {
+            "label": "Armadilha",
+            "text": "O limite de 2 horas é menor que o de 1 hora. Não inverta a ordem."
+          },
+          {
+            "label": "Diferencial",
+            "text": "Diabetes prévio usa outros critérios, como jejum de 126 mg/dL ou mais, e não o TOTG alterado em um ponto."
+          }
+        ]
+      },
       "slug": "go-totg-limites-023",
       "area_id": "go",
       "competency_id": "propedeutica",
@@ -1300,6 +2659,56 @@
           "locator": "p. 144 do PDF"
         }
       ],
+      "key_why": "A gestante já faz dieta e exercício há 2 semanas e mantém cerca de 40% das glicemias capilares acima da meta, o que ultrapassa o limiar de 30% de valores alterados. Isso caracteriza falha do tratamento não farmacológico e indica insulina, a primeira escolha farmacológica na gestação, somada à dieta e ao exercício.",
+      "theory": {
+        "title": "Tratamento do diabetes gestacional",
+        "intro": "O tratamento do diabetes gestacional começa com medidas não farmacológicas: orientação nutricional e atividade física, com acompanhamento da glicemia capilar. Quando essas medidas não bastam para atingir as metas glicêmicas, entra o tratamento farmacológico.",
+        "sections": [
+          {
+            "heading": "Quando indicar tratamento farmacológico",
+            "body": "O critério é a falha das medidas não farmacológicas em atingir as metas, reconhecida quando 30% ou mais dos valores glicêmicos registrados estão alterados."
+          },
+          {
+            "heading": "Qual medicamento escolher",
+            "body": "A insulina é a primeira escolha farmacológica na gestação. Ela é associada ao tratamento, sem substituir a dieta e o exercício, que continuam fazendo parte da conduta."
+          },
+          {
+            "heading": "O que a prova cobra",
+            "items": [
+              "Contar a proporção de valores fora da meta e comparar com o limiar de 30%",
+              "Escolher insulina, e não antidiabético oral, como primeira opção",
+              "Não adiar o tratamento quando o critério já foi atingido",
+              "Não propor restrição calórica extrema como alternativa ao tratamento farmacológico"
+            ]
+          }
+        ],
+        "alert": "Ao iniciar insulina, mantenha dieta e exercício: a insulina se soma a essas medidas, não as substitui."
+      },
+      "summary": {
+        "title": "Diabetes gestacional: quando e como medicar",
+        "points": [
+          {
+            "label": "Base",
+            "text": "Todo tratamento começa com orientação nutricional e atividade física."
+          },
+          {
+            "label": "Indicação",
+            "text": "Tratamento farmacológico quando 30% ou mais das glicemias ficam fora da meta apesar das medidas não farmacológicas."
+          },
+          {
+            "label": "Conduta",
+            "text": "Insulina é a primeira escolha farmacológica na gestação."
+          },
+          {
+            "label": "Manutenção",
+            "text": "Dieta e exercício continuam após o início da insulina."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Esperar mais semanas ou restringir calorias de forma extrema não substitui a insulina quando o critério já foi atingido."
+          }
+        ]
+      },
       "slug": "go-dmg-insulina-024",
       "area_id": "go",
       "competency_id": "terapeutica",
@@ -1350,6 +2759,60 @@
           "locator": "p. 69 do PDF"
         }
       ],
+      "key_why": "A paciente é O negativo e teve abortamento. A recomendação de imunoglobulina anti-D 300 mcg vale nos casos de abortamento independentemente da idade gestacional, então as 8 semanas não justificam a hesitação. A profilaxia é feita agora, após este evento, para evitar sensibilização e proteger futuras gestações, sem depender de curetagem.",
+      "theory": {
+        "title": "Imunoglobulina anti-D no abortamento",
+        "intro": "Mulheres Rh negativo expostas a sangue fetal podem se sensibilizar e comprometer gestações futuras. Por isso, o abortamento em gestante Rh negativo é indicação de profilaxia com imunoglobulina anti-D. É uma conduta simples que costuma ser esquecida no atendimento de urgência ginecológica.",
+        "sections": [
+          {
+            "heading": "Quando indicar",
+            "body": "Toda mulher Rh negativo com abortamento deve receber imunoglobulina anti-D, independentemente da idade gestacional. A indicação decorre do evento em si, não do procedimento realizado.",
+            "items": [
+              "Abortamento em mulher Rh negativo: indicar anti-D",
+              "Idade gestacional precoce não dispensa a profilaxia",
+              "A indicação não depende de curetagem"
+            ]
+          },
+          {
+            "heading": "Como conduzir",
+            "body": "Prescrever imunoglobulina anti-D 300 mcg após o abortamento. A profilaxia é feita no momento do evento, não adiada para uma próxima gestação, pois o objetivo é impedir a sensibilização desde já."
+          },
+          {
+            "heading": "Situação semelhante: gravidez ectópica",
+            "body": "Na gravidez ectópica em paciente Rh negativo, o anti-D também está indicado, seja qual for o tratamento adotado."
+          }
+        ],
+        "alert": "Armadilha clássica: dispensar o anti-D por ser gestação inicial ou condicioná-lo à curetagem. A recomendação vale em qualquer idade gestacional."
+      },
+      "summary": {
+        "title": "Anti-D no abortamento em revisão rápida",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "O anti-D previne a sensibilização Rh e protege gestações futuras."
+          },
+          {
+            "label": "Indicação",
+            "text": "Mulher Rh negativo com abortamento, em qualquer idade gestacional."
+          },
+          {
+            "label": "Dose",
+            "text": "Imunoglobulina anti-D 300 mcg."
+          },
+          {
+            "label": "Momento",
+            "text": "Após o evento atual, sem adiar para a próxima gestação."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Não depende de curetagem nem de idade gestacional acima de 12 semanas."
+          },
+          {
+            "label": "Pérola",
+            "text": "Na gravidez ectópica em Rh negativo, o anti-D também está indicado, independentemente do tratamento."
+          }
+        ]
+      },
       "slug": "go-anti-d-abortamento-025",
       "area_id": "go",
       "competency_id": "terapeutica",
@@ -1400,6 +2863,62 @@
           "locator": "p. 109 do PDF"
         }
       ],
+      "key_why": "Com 29 semanas, está abaixo do limite de 31 semanas e 6 dias, e o trabalho de parto avançado torna o nascimento provável nas próximas 24 horas. Esse é exatamente o cenário de neuroproteção com sulfato de magnésio. O corticoide já feito não substitui o magnésio, e tocolítico ou progesterona não protegem o cérebro fetal.",
+      "theory": {
+        "title": "Neuroproteção fetal com sulfato de magnésio",
+        "intro": "Na ameaça de parto prematuro, algumas medidas visam proteger o recém-nascido. A neuroproteção fetal com sulfato de magnésio busca reduzir o risco de dano neurológico ao prematuro e tem critérios próprios de idade gestacional e de iminência do parto.",
+        "sections": [
+          {
+            "heading": "Quando indicar",
+            "body": "Os dois critérios precisam estar presentes ao mesmo tempo.",
+            "items": [
+              "Idade gestacional até 31 semanas e 6 dias.",
+              "Parto com alta probabilidade de ocorrer nas próximas 24 horas."
+            ]
+          },
+          {
+            "heading": "Esquema de administração",
+            "items": [
+              "Ataque: 4 g IV em 20 a 30 minutos.",
+              "Manutenção: 1 g IV por hora.",
+              "Manter até o nascimento ou por no máximo 24 horas."
+            ]
+          },
+          {
+            "heading": "O que a prova cobra",
+            "body": "A questão costuma misturar medidas para o prematuro. O corticoide antenatal já feito não dispensa o magnésio, porque as duas medidas têm finalidades diferentes. A nifedipina é tocolítico e não faz neuroproteção. A progesterona não tem papel na neuroproteção em trabalho de parto já avançado."
+          }
+        ],
+        "alert": "Cuidado ao associar nifedipina e sulfato de magnésio: a combinação potencializa o risco de bloqueio neuromuscular e de hipotensão."
+      },
+      "summary": {
+        "title": "Neuroproteção fetal em 30 segundos",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "Sulfato de magnésio para reduzir o risco de dano neurológico no prematuro."
+          },
+          {
+            "label": "Indicação",
+            "text": "Até 31 semanas e 6 dias, com parto provável nas próximas 24 horas."
+          },
+          {
+            "label": "Conduta",
+            "text": "Ataque de 4 g IV em 20 a 30 minutos, depois 1 g IV por hora.",
+            "sub": [
+              "Manter até o nascimento ou por no máximo 24 horas."
+            ]
+          },
+          {
+            "label": "Armadilha",
+            "text": "Corticoide já feito não substitui o magnésio. Nifedipina e progesterona não fazem neuroproteção."
+          },
+          {
+            "label": "Segurança",
+            "text": "Nifedipina associada ao magnésio pode potencializar o bloqueio neuromuscular e causar hipotensão."
+          }
+        ]
+      },
       "slug": "go-sulfato-neuroprotecao-026",
       "area_id": "go",
       "competency_id": "decisao",
@@ -1450,6 +2969,67 @@
           "locator": "p. 95 do PDF"
         }
       ],
+      "key_why": "Úlcera genital indolor surgida há 10 dias, com teste rápido reagente e sem tratamento prévio, caracteriza sífilis primária, que é uma forma recente. Para as formas com até um ano de evolução, o protocolo indica penicilina G benzatina 2,4 milhões UI, IM, em dose única. O esquema de três semanas é reservado às formas tardias ou de duração ignorada.",
+      "theory": {
+        "title": "Sífilis recente",
+        "intro": "A sífilis recente reúne as formas primária, secundária e latente recente, ou seja, as que têm até um ano de evolução. O tratamento depende da fase clínica, e a prova cobra justamente a ligação entre a fase e o esquema correto.",
+        "sections": [
+          {
+            "heading": "Quando suspeitar",
+            "body": "Lesão genital ulcerada e indolor, de surgimento recente, com teste para sífilis reagente, sugere sífilis primária. Defina a fase e o tempo de evolução antes de escolher o esquema."
+          },
+          {
+            "heading": "Tratamento conforme a fase",
+            "items": [
+              "Primária, secundária e latente recente, com até um ano de evolução: penicilina G benzatina 2,4 milhões UI, IM, em dose única, com 1,2 milhão UI em cada glúteo.",
+              "Latente tardia, duração ignorada ou terciária: penicilina G benzatina 7,2 milhões UI, divididas em três semanas.",
+              "Alternativa nas formas recentes: ceftriaxona 1 g por 8 a 10 dias, e não em dose única.",
+              "A azitromicina não faz parte das opções do protocolo para a sífilis."
+            ]
+          },
+          {
+            "heading": "Seguimento",
+            "items": [
+              "Notificar o caso.",
+              "Acompanhar com titulação do teste não treponêmico: mensal em gestantes e trimestral nas demais pessoas."
+            ]
+          }
+        ],
+        "alert": "Não confunda os esquemas: dose única vale para sífilis com até um ano; três doses semanais ficam para a sífilis tardia ou de duração desconhecida."
+      },
+      "summary": {
+        "title": "Sífilis recente em 30 segundos",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "Formas primária, secundária e latente recente, com até um ano de evolução."
+          },
+          {
+            "label": "Suspeita",
+            "text": "Úlcera genital indolor e recente com teste reagente indica sífilis primária."
+          },
+          {
+            "label": "Conduta",
+            "text": "Penicilina G benzatina 2,4 milhões UI, IM, dose única, 1,2 milhão UI em cada glúteo."
+          },
+          {
+            "label": "Alternativa",
+            "text": "Ceftriaxona 1 g por 8 a 10 dias."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Três semanas (7,2 milhões UI) é para tardia, duração ignorada ou terciária; azitromicina não está no protocolo; ceftriaxona não é dose única."
+          },
+          {
+            "label": "Seguimento",
+            "text": "Notificar e titular o teste não treponêmico.",
+            "sub": [
+              "Gestantes: mensal.",
+              "Demais pessoas: trimestral."
+            ]
+          }
+        ]
+      },
       "slug": "go-sifilis-recente-027",
       "area_id": "go",
       "competency_id": "terapeutica",
@@ -1500,6 +3080,63 @@
           "locator": "p. 98 do PDF"
         }
       ],
+      "key_why": "A gestante tem sífilis latente e anafilaxia à penicilina confirmada em serviço especializado. Nenhum outro medicamento garante o tratamento da mãe e do feto, então o caminho é encaminhar para dessensibilização em serviço terciário e tratar com penicilina benzatina. Doxiciclina é contraindicada na gestação, azitromicina não garante o tratamento fetal e adiar expõe o feto à sífilis congênita.",
+      "theory": {
+        "title": "Sífilis na gestante alérgica à penicilina",
+        "intro": "Na gestante com sífilis, a penicilina benzatina é o tratamento que protege a mãe e o feto. Quando há alergia confirmada à penicilina, a prova testa se você sabe que a troca de antibiótico não resolve o problema da sífilis congênita.",
+        "sections": [
+          {
+            "heading": "Por que não trocar o antibiótico",
+            "body": "O protocolo afirma que outros medicamentos não garantem o tratamento da gestante e do feto. Qualquer tratamento com outro fármaco não é considerado adequado para a prevenção da sífilis congênita."
+          },
+          {
+            "heading": "Conduta",
+            "items": [
+              "Alergia confirmada: encaminhar para dessensibilização em serviço terciário.",
+              "Após a dessensibilização: tratar com penicilina benzatina.",
+              "Se a dessensibilização for impossível: o comentário cita a ceftriaxona como alternativa, com seguimento cuidadoso."
+            ]
+          },
+          {
+            "heading": "O que a prova cobra",
+            "items": [
+              "Doxiciclina aparece como alternativa à penicilina, exceto para gestantes.",
+              "Azitromicina não é opção do protocolo e não garante o tratamento do feto.",
+              "Adiar o tratamento até o fim da gestação deixa o feto exposto à sífilis congênita."
+            ]
+          }
+        ],
+        "alert": "Na gestante, tratar sem penicilina não é considerado tratamento adequado para prevenir a sífilis congênita."
+      },
+      "summary": {
+        "title": "Sífilis na gestante alérgica à penicilina em 30 segundos",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "Só a penicilina garante o tratamento da gestante e do feto."
+          },
+          {
+            "label": "Conduta",
+            "text": "Alergia confirmada: dessensibilização em serviço terciário e penicilina benzatina."
+          },
+          {
+            "label": "Exceção",
+            "text": "Dessensibilização impossível: ceftriaxona, com seguimento cuidadoso."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Doxiciclina é alternativa à penicilina, mas não na gestante.",
+            "sub": [
+              "Azitromicina não garante o tratamento do feto.",
+              "Adiar o tratamento expõe o feto à sífilis congênita."
+            ]
+          },
+          {
+            "label": "Pérola",
+            "text": "Outro fármaco não conta como tratamento adequado para prevenir a sífilis congênita."
+          }
+        ]
+      },
       "slug": "go-sifilis-gestante-alergia-028",
       "area_id": "go",
       "competency_id": "decisao",
@@ -1550,6 +3187,77 @@
           "locator": "Quadro 17, p. 80 do PDF"
         }
       ],
+      "key_why": "A dor à mobilização do colo e a dor anexial, com corrimento e dispareunia, sugerem DIP. A paciente não está grávida, não tem abscesso, está em bom estado geral e tolera via oral, então não tem critério de internação. O tratamento é ambulatorial: ceftriaxona IM em dose única, doxiciclina e metronidazol orais por 14 dias.",
+      "theory": {
+        "title": "Doença inflamatória pélvica",
+        "intro": "A doença inflamatória pélvica (DIP) é uma infecção do trato genital superior feminino que a prova cobra principalmente pela conduta. A primeira decisão é onde tratar, ambulatório ou hospital, e a segunda é o esquema antibiótico.",
+        "sections": [
+          {
+            "heading": "Quando suspeitar",
+            "body": "Mulher com dor pélvica, corrimento e dispareunia. Ao exame, dor à mobilização do colo uterino e dor à palpação anexial sugerem o diagnóstico. Teste de gravidez faz parte da avaliação, porque a gravidez muda a conduta."
+          },
+          {
+            "heading": "Critérios de tratamento hospitalar",
+            "body": "Qualquer um dos itens abaixo indica internação. Sem nenhum deles, o tratamento é ambulatorial.",
+            "items": [
+              "Abscesso tubo-ovariano",
+              "Gravidez",
+              "Falha do tratamento ambulatorial em 72 horas",
+              "Intolerância à medicação oral",
+              "Estado geral grave",
+              "Dúvida diagnóstica com emergência cirúrgica"
+            ]
+          },
+          {
+            "heading": "Esquema ambulatorial de primeira opção",
+            "body": "Os três fármacos são associados.",
+            "items": [
+              "Ceftriaxona 500 mg IM em dose única",
+              "Doxiciclina 100 mg via oral, 2 vezes ao dia, por 14 dias",
+              "Metronidazol 250 mg, 2 comprimidos via oral, 2 vezes ao dia, por 14 dias"
+            ]
+          },
+          {
+            "heading": "Erros que a prova explora",
+            "items": [
+              "Incluir fluconazol: é antifúngico e não faz parte do esquema",
+              "Usar dose única oral: não trata adequadamente a DIP",
+              "Usar metronidazol isolado por 7 dias: trata vaginose, mas não cobre a DIP"
+            ]
+          }
+        ],
+        "alert": "Antes de prescrever o esquema oral, confirme que não há gravidez, abscesso, estado grave, intolerância oral ou suspeita de emergência cirúrgica."
+      },
+      "summary": {
+        "title": "DIP em 30 segundos",
+        "points": [
+          {
+            "label": "Suspeita",
+            "text": "Dor pélvica com dor à mobilização do colo e dor anexial."
+          },
+          {
+            "label": "Primeira decisão",
+            "text": "Definir se o tratamento é ambulatorial ou hospitalar."
+          },
+          {
+            "label": "Internação",
+            "text": "Indicada se houver qualquer um destes critérios.",
+            "sub": [
+              "Abscesso tubo-ovariano ou gravidez",
+              "Falha em 72 horas ou intolerância oral",
+              "Estado grave ou dúvida de emergência cirúrgica"
+            ]
+          },
+          {
+            "label": "Conduta ambulatorial",
+            "text": "Ceftriaxona 500 mg IM em dose única, mais doxiciclina 100 mg 2 vezes ao dia e metronidazol 500 mg 2 vezes ao dia, ambos por 14 dias."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Metronidazol isolado, dose única ou antifúngico não tratam DIP."
+          }
+        ]
+      },
       "slug": "go-dip-ambulatorial-029",
       "area_id": "go",
       "competency_id": "terapeutica",
@@ -1600,6 +3308,65 @@
           "locator": "p. 50 do PDF"
         }
       ],
+      "key_why": "Corrimento branco-acinzentado, com odor fétido que piora após a relação, sem dor pélvica e com colo normal, mais exame a fresco sugestivo, fecha vaginose bacteriana em mulher não gestante. Nesse cenário, o protocolo indica metronidazol oral por 7 dias como primeira opção. Fluconazol, ceftriaxona e azitromicina miram outros agentes.",
+      "theory": {
+        "title": "Vaginose bacteriana",
+        "intro": "A vaginose bacteriana é uma causa frequente de corrimento vaginal atendida na UBS. A prova cobra o reconhecimento do quadro clínico, a diferenciação de outros corrimentos e a escolha do tratamento de primeira opção.",
+        "sections": [
+          {
+            "heading": "Quando suspeitar",
+            "body": "Pense em vaginose diante de um corrimento com estas características, sem sinais de comprometimento pélvico.",
+            "items": [
+              "Corrimento branco-acinzentado",
+              "Odor fétido, que costuma piorar após a relação sexual",
+              "Ausência de dor pélvica e colo uterino sem alterações",
+              "Exame a fresco sugestivo"
+            ]
+          },
+          {
+            "heading": "Diferencial com outros corrimentos",
+            "items": [
+              "Candidíase: corrimento grumoso com prurido, tratada com fluconazol",
+              "Gonorreia: tratada com ceftriaxona, mas não é o agente da vaginose",
+              "Azitromicina: voltada a outros agentes, não é a primeira opção na vaginose"
+            ]
+          },
+          {
+            "heading": "Tratamento",
+            "body": "A primeira opção é o metronidazol 250 mg, 2 comprimidos por via oral, duas vezes ao dia por 7 dias. O metronidazol em gel vaginal é a alternativa prevista no protocolo."
+          },
+          {
+            "heading": "Gestação",
+            "body": "Na gestante com risco de parto pré-termo, o protocolo orienta rastrear a vaginose para reduzir efeitos adversos perinatais."
+          }
+        ],
+        "alert": "Não confunda vaginose com candidíase. Odor fétido e corrimento acinzentado indicam metronidazol. Prurido e corrimento grumoso indicam fluconazol."
+      },
+      "summary": {
+        "title": "Vaginose bacteriana em 30 segundos",
+        "points": [
+          {
+            "label": "Quadro",
+            "text": "Corrimento branco-acinzentado, fétido, que piora após a relação, sem dor pélvica."
+          },
+          {
+            "label": "Conduta",
+            "text": "Metronidazol 250 mg, 2 comprimidos VO, duas vezes ao dia por 7 dias, ou gel vaginal."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Fluconazol é para candidíase, com corrimento grumoso e prurido."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Ceftriaxona e azitromicina miram outros agentes, como a gonorreia, e não são a primeira opção."
+          },
+          {
+            "label": "Gestação",
+            "text": "Rastrear vaginose na gestante com risco de parto pré-termo."
+          }
+        ]
+      },
       "slug": "go-vaginose-030",
       "area_id": "go",
       "competency_id": "terapeutica",
@@ -1650,6 +3417,69 @@
           "locator": "p. 206 do PDF"
         }
       ],
+      "key_why": "Após trauma torácico à esquerda, o paciente tem insuficiência respiratória, murmúrio vesicular ausente e PA sistólica de 80 mmHg sem outra causa de choque. Esse conjunto preenche os sinais que indicam punção de descompressão. O diagnóstico é clínico, então a descompressão do hemitórax esquerdo vem antes de imagem, volume ou ventilação com pressão positiva.",
+      "theory": {
+        "title": "Pneumotórax hipertensivo",
+        "intro": "O pneumotórax hipertensivo é uma causa obstrutiva e reversível de choque no trauma torácico. O diagnóstico é clínico, e esperar exame de imagem atrasa uma conduta que salva a vida. A prova cobra o reconhecimento à beira do leito e a descompressão imediata.",
+        "sections": [
+          {
+            "heading": "Quando suspeitar e indicar a punção",
+            "body": "No trauma de tórax, a punção de descompressão está indicada quando o paciente apresenta os três sinais abaixo.",
+            "items": [
+              "Insuficiência respiratória",
+              "Murmúrio vesicular diminuído ou ausente no lado afetado",
+              "Pressão arterial sistólica abaixo de 90 mmHg"
+            ]
+          },
+          {
+            "heading": "Como conduzir",
+            "body": "Faça a punção de descompressão no lado afetado, sem aguardar radiografia. O protocolo do SAMU descreve o 2º espaço intercostal, identificado a partir do ângulo de Louis. O local da punção varia entre diretrizes, por isso confira a versão vigente do seu serviço.",
+            "items": [
+              "Reavaliar o paciente logo após o procedimento",
+              "Cuidar para não perder o cateter durante o transporte"
+            ]
+          },
+          {
+            "heading": "O que não resolve",
+            "body": "Infundir cristaloide não corrige a causa obstrutiva do choque, que persiste sem descompressão. Ventilar com pressão positiva antes de descomprimir inverte a prioridade neste quadro."
+          }
+        ],
+        "alert": "No paciente já intubado, confira primeiro a posição da cânula: a intubação seletiva pode simular murmúrio abolido de um lado."
+      },
+      "summary": {
+        "title": "Pneumotórax hipertensivo em 30 segundos",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "Causa obstrutiva e reversível de choque no trauma torácico, com diagnóstico clínico."
+          },
+          {
+            "label": "Indicação",
+            "text": "Punção de descompressão quando há os três sinais.",
+            "sub": [
+              "Insuficiência respiratória",
+              "Murmúrio diminuído ou ausente",
+              "PAS abaixo de 90 mmHg"
+            ]
+          },
+          {
+            "label": "Conduta",
+            "text": "Descomprimir o lado afetado imediatamente; o protocolo do SAMU descreve o 2º espaço intercostal a partir do ângulo de Louis, mas o local varia entre diretrizes."
+          },
+          {
+            "label": "Depois",
+            "text": "Reavaliar o paciente e não perder o cateter no transporte."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Pedir radiografia, dar volume ou ventilar sob pressão positiva antes de descomprimir."
+          },
+          {
+            "label": "Intubado",
+            "text": "Checar a cânula antes: intubação seletiva pode simular murmúrio abolido."
+          }
+        ]
+      },
       "slug": "cir-pneumotorax-hipertensivo-031",
       "area_id": "cirurgia",
       "competency_id": "urgencia",
@@ -1695,6 +3525,59 @@
           "locator": "p. 119 do PDF"
         }
       ],
+      "key_why": "O paciente tem via aérea pérvia e respiração adequada, e a equipe chega à etapa da circulação, que inclui controlar sangramentos externos. Diante de sangramento ativo e abundante na coxa, a conduta do protocolo é a compressão direta da lesão e, se indicado, o torniquete, ainda na cena, sem deixar o controle para depois do transporte.",
+      "theory": {
+        "title": "Hemorragia externa no trauma",
+        "intro": "No atendimento ao trauma, a avaliação primária segue uma sequência, e a avaliação da circulação é a etapa em que se controlam os sangramentos externos. Hemorragia ativa e abundante deve ser tratada já na cena, pela equipe que faz o primeiro atendimento.",
+        "sections": [
+          {
+            "heading": "Quando agir",
+            "body": "Ao chegar à etapa da circulação na avaliação primária, qualquer sangramento externo deve ser identificado e controlado, junto com a avaliação do enchimento capilar."
+          },
+          {
+            "heading": "Como conduzir",
+            "items": [
+              "Compressão direta sobre a lesão como medida inicial",
+              "Torniquete conforme indicado, quando a compressão não basta",
+              "Avaliar o enchimento capilar como parte da etapa da circulação"
+            ]
+          },
+          {
+            "heading": "Condutas que não controlam o sangramento",
+            "items": [
+              "Elevar o membro e aguardar o hospital deixa a hemorragia sem tratamento na cena",
+              "Gelo e curativo simples não contêm sangramento ativo e abundante",
+              "Pinçar às cegas dentro da ferida não faz parte do protocolo e pode lesar outras estruturas"
+            ]
+          }
+        ],
+        "alert": "O controle da hemorragia externa faz parte da avaliação da circulação e não deve ser adiado para depois do transporte."
+      },
+      "summary": {
+        "title": "Hemorragia externa no trauma: revisão rápida",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "Controlar sangramentos externos faz parte da etapa da circulação na avaliação primária."
+          },
+          {
+            "label": "Conduta",
+            "text": "Compressão direta da lesão e torniquete conforme indicado."
+          },
+          {
+            "label": "Avaliação associada",
+            "text": "Na mesma etapa, avaliar o enchimento capilar."
+          },
+          {
+            "label": "Momento",
+            "text": "Tratar na cena, sem esperar a chegada ao hospital."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Elevação isolada, gelo com curativo simples e pinçamento às cegas não são a conduta do protocolo."
+          }
+        ]
+      },
       "slug": "cir-hemorragia-externa-032",
       "area_id": "cirurgia",
       "competency_id": "urgencia",
@@ -1740,6 +3623,56 @@
           "locator": "p. 153 do PDF"
         }
       ],
+      "key_why": "O paciente tem alças intestinais expostas por ferimento de faca e será transportado pelo SAMU. Na evisceração, o cuidado é proteger as vísceras sem reintroduzi-las, cobrindo-as com compressas estéreis umedecidas com soro fisiológico. Recolocar as alças, lavá-las com antisséptico ou deixá-las descobertas contraria o protocolo e expõe as vísceras a mais dano.",
+      "theory": {
+        "title": "Evisceração no trauma abdominal",
+        "intro": "Evisceração é a exposição de órgãos abdominais, como alças intestinais, através de um ferimento na parede do abdome. É típica de ferimentos penetrantes, como os por arma branca. No atendimento pré-hospitalar, a prova cobra o que fazer e, sobretudo, o que não fazer com as vísceras expostas.",
+        "sections": [
+          {
+            "heading": "Como proteger as vísceras",
+            "body": "O objetivo na cena e no transporte é proteger as vísceras expostas até a chegada ao hospital.",
+            "items": [
+              "Cobrir as vísceras com compressas estéreis umedecidas com soro fisiológico.",
+              "Usar plástico especial para evisceração, quando disponível."
+            ]
+          },
+          {
+            "heading": "O que não fazer",
+            "items": [
+              "Não tentar recolocar os órgãos na cavidade abdominal.",
+              "Não usar antisséptico sobre as vísceras.",
+              "Não deixar as vísceras descobertas, pois ficam expostas e ressecam.",
+              "Não palpar o abdome, para evitar maior laceração de vísceras."
+            ]
+          }
+        ],
+        "alert": "A armadilha clássica é a alternativa que manda recolocar as alças antes de fazer o curativo. Na evisceração, o órgão nunca é empurrado de volta."
+      },
+      "summary": {
+        "title": "Evisceração: revisão rápida",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "Exposição de vísceras abdominais por ferimento na parede, comum na agressão com arma branca."
+          },
+          {
+            "label": "Conduta",
+            "text": "Cobrir com compressas estéreis umedecidas com soro fisiológico e plástico próprio, se houver."
+          },
+          {
+            "label": "Proibido",
+            "text": "Recolocar as alças na cavidade abdominal."
+          },
+          {
+            "label": "Exame físico",
+            "text": "Não palpar o abdome, para não aumentar a laceração de vísceras."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Lavar com antisséptico ou deixar descoberto para observar as alças são condutas erradas."
+          }
+        ]
+      },
       "slug": "cir-evisceracao-033",
       "area_id": "cirurgia",
       "competency_id": "urgencia",
@@ -1785,6 +3718,64 @@
           "locator": "p. 10 do PDF"
         }
       ],
+      "key_why": "Com 70 kg, 20% de SCQ e 4 mL na fórmula de Parkland, o volume de 24 horas é de 5.600 mL de Ringer lactato. A regra divide esse total ao meio: metade nas primeiras 8 horas, contadas a partir da queimadura. Por isso o volume é de 2.800 mL, e os 2.800 mL restantes vão nas 16 horas seguintes.",
+      "theory": {
+        "title": "Hidratação no grande queimado",
+        "intro": "A reposição volêmica do queimado é calculada pela fórmula de Parkland, a partir do peso e da porcentagem de superfície corporal queimada (%SCQ). A prova costuma cobrar o cálculo do volume total e, principalmente, a forma de distribuí-lo ao longo das 24 horas.",
+        "sections": [
+          {
+            "heading": "Como calcular",
+            "body": "A fórmula de Parkland multiplica de 2 a 4 mL pela %SCQ e pelo peso em kg. O resultado é o volume das primeiras 24 horas. A solução preferida é o Ringer lactato.",
+            "items": [
+              "Volume em 24 h = 2 a 4 mL x %SCQ x peso",
+              "Exemplo com 4 mL: 4 x 70 kg x 20% = 5.600 mL"
+            ]
+          },
+          {
+            "heading": "Como distribuir no tempo",
+            "body": "Metade do volume total vai nas primeiras 8 horas. A outra metade é infundida nas 16 horas seguintes. O tempo conta a partir da hora da queimadura, e não da chegada ao hospital.",
+            "items": [
+              "50% nas primeiras 8 horas",
+              "50% nas 16 horas seguintes",
+              "Se o paciente chega tarde, o volume das primeiras 8 horas precisa caber no tempo que resta"
+            ]
+          },
+          {
+            "heading": "Ajuste do fator",
+            "body": "Em idosos e cardiopatas, o cálculo começa com 2 a 3 mL/kg/%SCQ, no limite inferior da fórmula."
+          }
+        ],
+        "alert": "Erros mais comuns: dar o volume de 24 horas como se fosse o das primeiras 8 horas, usar um quarto do total em vez da metade e contar as horas a partir da admissão em vez da hora da queimadura."
+      },
+      "summary": {
+        "title": "Parkland em 30 segundos",
+        "points": [
+          {
+            "label": "Fórmula",
+            "text": "Multiplique 2 a 4 mL pela %SCQ e pelo peso. O resultado é o volume de 24 horas."
+          },
+          {
+            "label": "Solução",
+            "text": "Prefira o Ringer lactato."
+          },
+          {
+            "label": "Distribuição",
+            "text": "Dê metade nas primeiras 8 horas e metade nas 16 horas seguintes."
+          },
+          {
+            "label": "Relógio",
+            "text": "Conte as horas a partir da queimadura, e não da chegada ao serviço."
+          },
+          {
+            "label": "Ajuste",
+            "text": "Em idosos e cardiopatas, comece com 2 a 3 mL/kg/%SCQ."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Não confunda o volume total de 24 horas com o volume das primeiras 8 horas, que é a metade dele."
+          }
+        ]
+      },
       "slug": "cir-parkland-calculo-034",
       "area_id": "cirurgia",
       "competency_id": "terapeutica",
@@ -1830,6 +3821,64 @@
           "locator": "p. 10 do PDF"
         }
       ],
+      "key_why": "Ela chegou 3 horas após o acidente e nada foi infundido. Como as 8 horas da primeira metade contam desde a queimadura, e não desde a chegada, sobram 5 horas para infundir os 3.600 mL. Por isso, a infusão precisa ser mais rápida que o habitual, para compensar o atraso.",
+      "theory": {
+        "title": "Tempo na reposição do queimado",
+        "intro": "Na reposição volêmica do grande queimado, além de calcular o volume, é preciso distribuí-lo no tempo certo. A prova costuma cobrar a armadilha de contar o tempo a partir da chegada ao serviço, quando o certo é contar a partir da queimadura.",
+        "sections": [
+          {
+            "heading": "Como dividir o volume",
+            "body": "Pela fórmula de Parkland (4 mL/kg/%SCQ), calcula-se o volume total das primeiras 24 horas e divide-se em duas metades.",
+            "items": [
+              "Primeira metade (50%): até a 8ª hora após a queimadura.",
+              "Segunda metade: nas 16 horas seguintes.",
+              "24 horas: período total da reposição."
+            ]
+          },
+          {
+            "heading": "De onde o relógio começa",
+            "body": "As horas contam a partir da queimadura. Se o paciente chega tarde, o tempo já decorrido é descontado das 8 horas, e a primeira metade precisa ser infundida no tempo que resta. Por isso, é essencial perguntar a hora exata do acidente."
+          },
+          {
+            "heading": "Aplicando ao caso",
+            "body": "Uma mulher de 60 kg com 30% de SCQ tem volume total de 7.200 mL, com primeira metade de 3.600 mL. Ela chegou 3 horas após o acidente, então restam 5 horas para infundir esses 3.600 mL, o que exige velocidade de infusão maior."
+          }
+        ],
+        "alert": "Contar as 8 horas a partir da chegada à unidade atrasa a reposição justamente no paciente que já chegou atrasado."
+      },
+      "summary": {
+        "title": "Tempo na reposição do queimado em 30 segundos",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "Metade do volume calculado vai nas primeiras 8 horas e a outra metade nas 16 horas seguintes, totalizando 24 horas."
+          },
+          {
+            "label": "Regra-chave",
+            "text": "As horas contam a partir da queimadura, e não da chegada ao serviço."
+          },
+          {
+            "label": "Conduta",
+            "text": "Desconte o tempo já decorrido das 8 horas e infunda a primeira metade no tempo restante."
+          },
+          {
+            "label": "Caso",
+            "text": "Chegada 3 horas após o acidente: restam 5 horas para os 3.600 mL."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Confundir as 8 horas com as 16 horas da segunda metade ou com as 24 horas totais.",
+            "sub": [
+              "16 horas: segunda metade.",
+              "24 horas: período total."
+            ]
+          },
+          {
+            "label": "Pérola",
+            "text": "Quem chega tarde precisa de infusão mais rápida. Pergunte sempre a hora exata da queimadura."
+          }
+        ]
+      },
       "slug": "cir-parkland-tempo-035",
       "area_id": "cirurgia",
       "competency_id": "decisao",
@@ -1875,6 +3924,61 @@
           "locator": "p. 5 do PDF"
         }
       ],
+      "key_why": "A queimadura atinge áreas pequenas e irregulares do antebraço e da mão, sem ocupar um segmento inteiro. Nessa situação, a regra dos nove perde praticidade, e a referência indicada é a palma da mão da própria paciente, incluindo os dedos, que corresponde a 1% da superfície corporal queimada.",
+      "theory": {
+        "title": "Estimativa da área queimada",
+        "intro": "Estimar a superfície corporal queimada (SCQ) é um passo do atendimento inicial ao queimado. Existem duas ferramentas simples: a regra dos nove, para segmentos inteiros, e a palma da mão do paciente, para áreas pequenas ou irregulares.",
+        "sections": [
+          {
+            "heading": "Quando usar cada método",
+            "items": [
+              "Regra dos nove: mais adequada quando a queimadura atinge segmentos corporais inteiros.",
+              "Palma da mão: indicada para superfícies pequenas ou que atingem apenas parte de um segmento."
+            ]
+          },
+          {
+            "heading": "Como aplicar a regra da palma",
+            "body": "Usa-se o tamanho da palma da mão do próprio paciente, incluindo os dedos, como equivalente a 1% da SCQ. Na prática, conta-se quantas palmas do paciente cabem na área lesada."
+          },
+          {
+            "heading": "O que a prova cobra",
+            "items": [
+              "A mão de referência é a do paciente, não a do examinador.",
+              "Os dedos entram na medida.",
+              "Segmentos inteiros, como o antebraço, ou partes menores, como um dedo, não servem como unidade de 1%."
+            ]
+          }
+        ],
+        "alert": "Em crianças, usar a mão do examinador no lugar da mão do paciente distorce muito a estimativa, pela diferença de tamanho."
+      },
+      "summary": {
+        "title": "Estimativa da SCQ em revisão rápida",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "A palma da mão do paciente, com os dedos, equivale a 1% da superfície corporal."
+          },
+          {
+            "label": "Indicação",
+            "text": "Usar em queimaduras pequenas ou irregulares, que atingem só parte de um segmento."
+          },
+          {
+            "label": "Regra dos nove",
+            "text": "Preferir quando a queimadura atinge segmentos inteiros."
+          },
+          {
+            "label": "Conduta",
+            "text": "Contar quantas palmas do paciente cabem na área queimada."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Usar a mão do examinador ou excluir os dedos da medida.",
+            "sub": [
+              "Em criança, o erro de usar a mão do examinador muda muito a conta."
+            ]
+          }
+        ]
+      },
       "slug": "cir-queimadura-palma-036",
       "area_id": "cirurgia",
       "competency_id": "hipotese",
@@ -1920,6 +4024,61 @@
           "locator": "p. 10 do PDF"
         }
       ],
+      "key_why": "O paciente reúne três fatores que reduzem a tolerância a volume: idade de 74 anos, insuficiência cardíaca congestiva e doença renal crônica. Por isso, a reposição começa com 2 a 3 mL/kg/%SCQ, abaixo do habitual. Ela não é suspensa nem trocada pela via oral, e a diurese passa a ser acompanhada com mais rigor para guiar os ajustes.",
+      "theory": {
+        "title": "Hidratação do queimado idoso ou cardiopata",
+        "intro": "No grande queimado, a reposição volêmica parte de uma fórmula que relaciona peso e porcentagem de superfície corporal queimada (%SCQ). Alguns pacientes toleram mal o volume, e para eles o ponto de partida precisa ser ajustado.",
+        "sections": [
+          {
+            "heading": "Quem precisa de ajuste",
+            "body": "Há três grupos com menor reserva para receber volume. Neles, o risco de congestão é maior.",
+            "items": [
+              "Idosos",
+              "Portadores de insuficiência renal",
+              "Portadores de insuficiência cardíaca congestiva"
+            ]
+          },
+          {
+            "heading": "Como conduzir",
+            "body": "Nesses grupos, a reposição começa com 2 a 3 mL/kg/%SCQ, e a diurese é observada de forma mais criteriosa. A fórmula define só o ponto de partida. Quem orienta os ajustes é a resposta do paciente, medida pela diurese."
+          },
+          {
+            "heading": "O que a prova cobra",
+            "body": "A prova testa se você sabe adaptar o protocolo ao paciente com comorbidades, sem cair nos extremos.",
+            "items": [
+              "Aumentar o volume pela gravidade da queimadura expõe à congestão.",
+              "Suspender o cristaloide deixa sem tratamento um paciente que continua precisando de reposição.",
+              "Usar só hidratação oral em queimadura extensa não é a conduta indicada."
+            ]
+          }
+        ],
+        "alert": "Comorbidade não dispensa a reposição. O que muda é o volume inicial, que fica menor, e a vigilância da diurese, que fica mais rigorosa."
+      },
+      "summary": {
+        "title": "Queimado idoso, renal ou cardiopata: hidratação",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "Idosos, renais crônicos e cardiopatas toleram menos volume e correm mais risco de congestão."
+          },
+          {
+            "label": "Conduta",
+            "text": "Iniciar com 2 a 3 mL/kg/%SCQ e observar a diurese com mais critério."
+          },
+          {
+            "label": "Monitorização",
+            "text": "A diurese guia os ajustes. A fórmula só dá o ponto de partida."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Não suspender o cristaloide nem trocar por hidratação oral em queimadura extensa."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Não aumentar o volume por causa da gravidade quando a reserva cardíaca ou renal é baixa."
+          }
+        ]
+      },
       "slug": "cir-queimadura-idoso-037",
       "area_id": "cirurgia",
       "competency_id": "terapeutica",
@@ -1965,6 +4124,58 @@
           "locator": "p. 8 do PDF"
         }
       ],
+      "key_why": "A criança tem bolhas, o que já afasta o primeiro grau e coloca a lesão no segundo grau. A base da bolha é rósea, úmida e muito dolorosa, sem áreas brancas, secas ou indolores. Esse é exatamente o padrão do segundo grau superficial. Base branca, seca e menos dolorosa indicaria segundo grau profundo.",
+      "theory": {
+        "title": "Profundidade da queimadura",
+        "intro": "Classificar a profundidade da queimadura é um passo do exame físico que o generalista faz na UBS, na UPA ou no pronto-socorro. A classificação se apoia em dois achados: a presença de bolhas e o aspecto da base da lesão.",
+        "sections": [
+          {
+            "heading": "Primeiro passo: há bolhas?",
+            "body": "A queimadura de primeiro grau atinge só a epiderme e não forma bolhas. A presença de bolhas indica segundo grau."
+          },
+          {
+            "heading": "Segundo passo: como é a base da bolha?",
+            "items": [
+              "Segundo grau superficial: base rósea, úmida e dolorosa.",
+              "Segundo grau profundo: base branca, seca e menos dolorosa."
+            ]
+          },
+          {
+            "heading": "Por que a dor ajuda",
+            "body": "Dor intensa costuma indicar profundidade menor, porque as terminações nervosas estão preservadas. Quanto menos dolorosa a lesão, mais se deve pensar em acometimento profundo. O terceiro grau atinge toda a espessura da pele, tem aspecto bem diferente e não apresenta esse padrão de dor."
+          }
+        ],
+        "alert": "Não confunda dor intensa com gravidade maior. Base rósea, úmida e muito dolorosa sugere lesão mais superficial."
+      },
+      "summary": {
+        "title": "Profundidade da queimadura em 30 segundos",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "A classificação se faz no exame físico, pela presença de bolhas e pelo aspecto da base."
+          },
+          {
+            "label": "Primeiro grau",
+            "text": "Atinge só a epiderme e não forma bolhas."
+          },
+          {
+            "label": "Segundo grau superficial",
+            "text": "Bolha com base rósea, úmida e dolorosa."
+          },
+          {
+            "label": "Segundo grau profundo",
+            "text": "Bolha com base branca, seca e menos dolorosa."
+          },
+          {
+            "label": "Terceiro grau",
+            "text": "Atinge toda a espessura da pele, com aspecto bem diferente e sem a dor do segundo grau superficial."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Dor intensa sugere menor profundidade, porque as terminações nervosas estão preservadas."
+          }
+        ]
+      },
       "slug": "cir-queimadura-profundidade-038",
       "area_id": "cirurgia",
       "competency_id": "hipotese",
@@ -2010,6 +4221,73 @@
           "locator": "p. 96 do PDF"
         }
       ],
+      "key_why": "O paciente bebe nos fins de semana, a esposa reclama e não há urgência clínica. O médico quer avaliar de forma estruturada o padrão de uso dos últimos 12 meses ainda na consulta da UBS. Para isso serve o AUDIT, que tem dez perguntas, é de fácil uso na Atenção Básica e, pela soma dos pontos, indica se há problemas relacionados ao álcool e qual a intensidade deles.",
+      "theory": {
+        "title": "Rastreio do uso de álcool na Atenção Básica",
+        "intro": "O consumo de álcool aparece com frequência na consulta da UBS, muitas vezes trazido de forma indireta, como a queixa de um familiar. Para não depender só da impressão clínica, o generalista pode aplicar um questionário estruturado. O AUDIT é o instrumento consagrado para isso.",
+        "sections": [
+          {
+            "heading": "Quando usar",
+            "body": "Use quando surgir suspeita ou relato de consumo de álcool e o objetivo for conhecer o padrão de uso de forma organizada, dentro da própria consulta."
+          },
+          {
+            "heading": "Como é o AUDIT",
+            "items": [
+              "Tem dez perguntas.",
+              "As perguntas tratam do padrão de uso nos últimos 12 meses.",
+              "A soma da pontuação indica a presença e a intensidade dos problemas relacionados ao álcool.",
+              "É de fácil aplicação na Atenção Básica."
+            ]
+          },
+          {
+            "heading": "O teste como ferramenta de conversa",
+            "body": "A aplicação do questionário também abre o diálogo. A pontuação ajuda a pessoa a enxergar o próprio padrão de uso sem que o profissional precise confrontá-la."
+          },
+          {
+            "heading": "Instrumentos que a prova usa para confundir",
+            "items": [
+              "Escala de Depressão Geriátrica: rastreia depressão em idosos.",
+              "Miniexame do estado mental: avalia cognição.",
+              "Escala de coma de Glasgow: avalia nível de consciência em situações agudas."
+            ]
+          }
+        ],
+        "alert": "Cada instrumento mede uma coisa. Para o padrão de uso de álcool, a escolha é o AUDIT, e não escalas de humor, cognição ou consciência."
+      },
+      "summary": {
+        "title": "AUDIT em 30 segundos",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "O AUDIT é o questionário consagrado para rastrear o uso de álcool."
+          },
+          {
+            "label": "Estrutura",
+            "text": "São dez perguntas sobre os últimos 12 meses."
+          },
+          {
+            "label": "Interpretação",
+            "text": "A soma dos pontos indica a presença e a intensidade dos problemas com o álcool."
+          },
+          {
+            "label": "Cenário",
+            "text": "É de fácil uso na Atenção Básica e pode ser aplicado na própria consulta."
+          },
+          {
+            "label": "Pérola",
+            "text": "A pontuação ajuda o paciente a enxergar o próprio padrão de uso sem confronto."
+          },
+          {
+            "label": "Armadilha",
+            "text": "GDS, miniexame e Glasgow não avaliam consumo de álcool.",
+            "sub": [
+              "GDS: depressão em idosos",
+              "Miniexame: cognição",
+              "Glasgow: nível de consciência no quadro agudo"
+            ]
+          }
+        ]
+      },
       "slug": "sm-audit-039",
       "area_id": "mental",
       "competency_id": "propedeutica",
@@ -2055,6 +4333,60 @@
           "locator": "p. 111 do PDF"
         }
       ],
+      "key_why": "O dado que mais pesa é a ingestão de vários comprimidos há 2 meses, uma tentativa prévia recente e o maior indicador de risco. Chamar o episódio de descuido e recusar o psicólogo não reduz esse risco. Por isso a conduta é escutar sem preconceito e aprofundar a investigação, e não tranquilizar, sedar ou dar alta.",
+      "theory": {
+        "title": "Risco de suicídio no adolescente",
+        "intro": "Na atenção básica, o adolescente com sofrimento psíquico muitas vezes chega por queixas como insônia ou isolamento. A avaliação do risco de suicídio depende de uma escuta qualificada e de perguntas diretas sobre a história de tentativas.",
+        "sections": [
+          {
+            "heading": "O que mais pesa na avaliação",
+            "body": "Investigue tentativas prévias recentes, porque são o maior indicador de risco. Esse dado vale mais que o fator desencadeante (um término, por exemplo) e mais que a negativa de plano atual."
+          },
+          {
+            "heading": "Tentativas disfarçadas de descuido",
+            "body": "Algumas tentativas são apresentadas como tropeços ou descuidos. Nesses casos, o adolescente costuma relutar em procurar um serviço e corre o risco de não ser escutado. Um relato de que tomou vários comprimidos por descuido deve ser investigado, nunca aceito sem perguntas."
+          },
+          {
+            "heading": "Como conduzir",
+            "items": [
+              "Escutar sem preconceito e sem minimizar o relato.",
+              "Aprofundar a investigação do episódio prévio e do momento atual.",
+              "Não encerrar a avaliação só porque o adolescente nega plano.",
+              "Não tratar apenas o sintoma, como a insônia, deixando o risco sem abordagem."
+            ]
+          }
+        ],
+        "alert": "Perguntar sobre suicídio não induz o ato. O que aumenta o risco é a falta de escuta, principalmente quando o adolescente minimiza o episódio."
+      },
+      "summary": {
+        "title": "Risco de suicídio no adolescente: revisão rápida",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "Tentativa prévia recente é o maior indicador de risco de suicídio."
+          },
+          {
+            "label": "Atenção",
+            "text": "Há tentativas relatadas como tropeço ou descuido, e o adolescente tende a evitar o serviço."
+          },
+          {
+            "label": "Conduta",
+            "text": "Escutar sem preconceito e aprofundar a investigação."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Negar plano atual não afasta o risco de quem tentou há pouco tempo."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Tratar só a insônia com sedativo não aborda o risco e dá acesso a um meio de intoxicação."
+          },
+          {
+            "label": "Pérola",
+            "text": "Perguntar sobre suicídio não induz o ato. A falta de escuta é que aumenta o risco."
+          }
+        ]
+      },
       "slug": "sm-suicidio-risco-040",
       "area_id": "mental",
       "competency_id": "etica",
@@ -2100,6 +4432,60 @@
           "locator": "p. 34 do PDF"
         }
       ],
+      "key_why": "O caso envolve perda de emprego, afastamento da igreja e o desejo do paciente e da irmã de retomar a rotina. São necessidades que vão além do controle da esquizofrenia. Por isso o projeto precisa ser construído com o usuário e mirar o cuidado integral. Como a vida dele está mudando, o plano é dinâmico e provisório e será revisto conforme a situação evolui.",
+      "theory": {
+        "title": "Projeto Terapêutico Singular",
+        "intro": "O Projeto Terapêutico Singular é uma ferramenta de cuidado usada pela equipe de saúde, muito cobrada em questões de saúde mental na Atenção Básica. É um plano de ação compartilhado, voltado ao cuidado integral da pessoa, e não apenas ao tratamento da doença.",
+        "sections": [
+          {
+            "heading": "Quando pensar no Projeto Terapêutico Singular",
+            "body": "Ele se aplica quando as necessidades da pessoa ultrapassam o controle clínico da doença, como no paciente estável que perdeu vínculos, trabalho ou rotina. Tratar a doença é apenas uma das ações do plano."
+          },
+          {
+            "heading": "Como deve ser elaborado",
+            "items": [
+              "É construído com o usuário, e não decidido por um profissional e comunicado depois.",
+              "É compartilhado e tem intervenções voltadas ao cuidado integral.",
+              "Parte de uma análise das múltiplas dimensões do sujeito.",
+              "É dinâmico e provisório, por isso exige revisão ao longo do cuidado."
+            ]
+          },
+          {
+            "heading": "O que a prova cobra",
+            "body": "As alternativas erradas costumam descrever um plano definido só pelo especialista, um plano restrito à medicação ou um plano fixo que não muda. Nenhum desses formatos corresponde ao Projeto Terapêutico Singular."
+          }
+        ],
+        "alert": "Se o plano foi feito sem o paciente, por melhor que pareça, não é um Projeto Terapêutico Singular."
+      },
+      "summary": {
+        "title": "Projeto Terapêutico Singular em 30 segundos",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "Plano de ação compartilhado voltado ao cuidado integral da pessoa."
+          },
+          {
+            "label": "Construção",
+            "text": "Feito com o usuário, a partir da análise das múltiplas dimensões do sujeito."
+          },
+          {
+            "label": "Característica",
+            "text": "É dinâmico e provisório e precisa de revisão."
+          },
+          {
+            "label": "Abrangência",
+            "text": "Tratar a doença é apenas uma das ações."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Plano definido só pelo psiquiatra, restrito à medicação ou fixo não é Projeto Terapêutico Singular."
+          },
+          {
+            "label": "Competência",
+            "text": "Trabalhar em equipe e colocar a pessoa no centro do plano de cuidado."
+          }
+        ]
+      },
       "slug": "sm-pts-041",
       "area_id": "mental",
       "competency_id": "decisao",
@@ -2145,6 +4531,59 @@
           "locator": "p. 125 do PDF"
         }
       ],
+      "key_why": "O paciente procurou a UBS por lesões nasais, declarou que hoje não quer parar o uso e aceita cuidar da saúde. A abstinência é uma direção muitas vezes necessária, mas nem sempre possível. Não querer parar não encerra o cuidado: a equipe o mantém acompanhado pela lógica da redução de danos, preservando o vínculo e respeitando suas escolhas.",
+      "theory": {
+        "title": "Redução de danos",
+        "intro": "Nem todas as pessoas que usam drogas conseguem ou querem interromper o uso. A abstinência é uma direção muitas vezes necessária, mas nem sempre possível, e os serviços de saúde assumem a redução de danos como estratégia de cuidado.",
+        "sections": [
+          {
+            "heading": "Quando aplicar",
+            "body": "Quando o usuário não quer ou não consegue parar naquele momento, mas aceita algum cuidado. A recusa da abstinência não é motivo para encerrar o acompanhamento."
+          },
+          {
+            "heading": "Como conduzir",
+            "items": [
+              "Manter a pessoa em cuidado na unidade, sem exigir abstinência como condição de atendimento.",
+              "Considerar a singularidade e as escolhas de cada pessoa.",
+              "Preservar o vínculo, deixando a porta aberta para outras decisões no futuro."
+            ]
+          },
+          {
+            "heading": "O que a prova cobra",
+            "body": "Reconhecer posturas que afastam o usuário do cuidado: condicionar o atendimento à abstinência, dar alta até que decida parar ou propor internação forçada em paciente orientado que procurou ajuda. A resposta esperada é manter o cuidado com a lógica da redução de danos, sem julgamento."
+          }
+        ],
+        "alert": "Redução de danos não é incentivar o uso: é oferecer o cuidado possível hoje."
+      },
+      "summary": {
+        "title": "Redução de danos em 30 segundos",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "Abstinência é uma direção muitas vezes necessária, mas nem sempre possível."
+          },
+          {
+            "label": "Estratégia",
+            "text": "Os serviços assumem a redução de danos, considerando a singularidade e as escolhas de cada pessoa."
+          },
+          {
+            "label": "Conduta",
+            "text": "Quem não quer parar agora segue em cuidado na unidade, com vínculo preservado."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Condicionar atendimento à abstinência, dar alta ou internar à força paciente orientado.",
+            "sub": [
+              "Exigir abstinência afasta quem mais precisa de cuidado.",
+              "Dar alta rompe o vínculo e abandona a pessoa."
+            ]
+          },
+          {
+            "label": "Pérola",
+            "text": "Redução de danos não é incentivar o uso, é manter a porta aberta para decisões futuras."
+          }
+        ]
+      },
       "slug": "sm-reducao-danos-042",
       "area_id": "mental",
       "competency_id": "decisao",
@@ -2195,6 +4634,62 @@
           "locator": "p. 164 do PDF"
         }
       ],
+      "key_why": "A paciente tem ansiedade há mais de um ano, sem causa clínica e sem risco agudo, e o plano é de longo prazo. Nesse cenário, o caminho é incluir um antidepressivo, esgotar essas opções e resguardar ao máximo o benzodiazepínico, pelo risco de dependência, de sedação com acidentes e de depressão respiratória quando associado a outros sedativos. O pedido da paciente não muda a indicação.",
+      "theory": {
+        "title": "Benzodiazepínicos na ansiedade crônica",
+        "intro": "Queixas de ansiedade de longa duração são comuns na Atenção Básica, e muitas vezes o próprio paciente chega pedindo um benzodiazepínico. O manejo de longo prazo, porém, segue outra lógica: o antidepressivo vem primeiro e o benzodiazepínico é poupado.",
+        "sections": [
+          {
+            "heading": "Estratégia de longo prazo",
+            "body": "Quando a ansiedade é crônica, já se afastaram as causas clínicas e não há risco agudo, a orientação é incluir medicação antidepressiva e esgotar essas opções antes de pensar em benzodiazepínico.",
+            "items": [
+              "Antidepressivos citados: amitriptilina ou fluoxetina",
+              "Benzodiazepínicos devem ser resguardados ao máximo"
+            ]
+          },
+          {
+            "heading": "Por que poupar o benzodiazepínico",
+            "items": [
+              "Risco de dependência, maior no uso contínuo",
+              "Sedação, com risco de acidentes",
+              "Depressão respiratória quando associado a outras drogas sedativas"
+            ]
+          },
+          {
+            "heading": "O que a prova cobra",
+            "body": "Reconhecer como erro o uso contínuo por tempo indeterminado, a associação de dois benzodiazepínicos e a combinação com outro sedativo. Também cobra entender que o pedido do paciente não é indicação e que conversar sobre riscos e alternativas faz parte do tratamento."
+          }
+        ],
+        "alert": "Benzodiazepínico associado a outro sedativo aumenta o risco de depressão respiratória."
+      },
+      "summary": {
+        "title": "Ansiedade crônica e benzodiazepínicos",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "No manejo de longo prazo da ansiedade crônica, o antidepressivo é a base do tratamento farmacológico."
+          },
+          {
+            "label": "Conduta",
+            "text": "Incluir antidepressivo, esgotar essas opções e resguardar ao máximo o benzodiazepínico.",
+            "sub": [
+              "Exemplos: amitriptilina ou fluoxetina"
+            ]
+          },
+          {
+            "label": "Riscos",
+            "text": "O benzodiazepínico pode causar dependência, sedação com acidentes e depressão respiratória quando associado a outros sedativos."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Uso contínuo por tempo indeterminado, associação de dois benzodiazepínicos ou combinação com outro sedativo."
+          },
+          {
+            "label": "Comunicação",
+            "text": "Pedido do paciente não é indicação. Explicar riscos e alternativas costuma preservar o vínculo."
+          }
+        ]
+      },
       "slug": "sm-benzodiazepinico-043",
       "area_id": "mental",
       "competency_id": "terapeutica",
@@ -2245,6 +4740,59 @@
           "locator": "p. 90 do PDF"
         }
       ],
+      "key_why": "A equipe deve lembrar que tristeza e ansiedade, muitas vezes com sintomas físicos, são demanda habitual da atenção básica: cerca de 1 em cada 4 pessoas atendidas tem transtorno mental, e 1 em cada 2 quando se contam casos subclínicos. Esse volume não cabe no serviço especializado, que se volta aos casos graves e persistentes. Por isso a unidade deve assumir esse cuidado.",
+      "theory": {
+        "title": "Transtornos mentais comuns na atenção básica",
+        "intro": "Queixas de tristeza, ansiedade e sintomas físicos associados aparecem todos os dias na Unidade Básica de Saúde. Os dados epidemiológicos mostram que esse sofrimento é frequente e faz parte do trabalho da atenção básica, e não uma demanda a ser repassada automaticamente ao serviço especializado.",
+        "sections": [
+          {
+            "heading": "Quanto é frequente",
+            "items": [
+              "Cerca de 1 em cada 4 pessoas atendidas na atenção básica tem algum transtorno mental pela CID-10.",
+              "Incluindo os casos subclínicos, a proporção chega a cerca de 1 em cada 2 pessoas.",
+              "Transtornos graves e persistentes são bem menos frequentes, cerca de 2 em cada 100 adultos, mas têm grande impacto na saúde dessas pessoas."
+            ]
+          },
+          {
+            "heading": "Papel da atenção básica na rede",
+            "body": "Pela frequência, os transtornos mentais comuns não têm como ser todos absorvidos pelo serviço especializado, cujo foco maior são os casos graves e persistentes. O cuidado desse sofrimento comum é atribuição da própria unidade."
+          },
+          {
+            "heading": "Erros de raciocínio que a prova cobra",
+            "items": [
+              "Tratar a alta frequência como surto local ou fenômeno raro.",
+              "Rotular as queixas como somatização e dispensar o cuidado, ignorando um sofrimento real.",
+              "Propor encaminhar todos ao serviço especializado, o que é inviável e não corresponde à gravidade da maioria dos casos."
+            ]
+          }
+        ],
+        "alert": "Sofrimento mental comum não é motivo de encaminhamento automático: é demanda habitual da atenção básica."
+      },
+      "summary": {
+        "title": "Transtornos mentais comuns na AB em 30 segundos",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "Tristeza e ansiedade, muitas vezes com sintomas físicos, são queixas muito frequentes na atenção básica."
+          },
+          {
+            "label": "Números",
+            "text": "Cerca de 1 em cada 4 atendidos tem transtorno mental, e 1 em cada 2 incluindo subclínicos."
+          },
+          {
+            "label": "Casos graves",
+            "text": "Transtornos graves e persistentes atingem cerca de 2 em cada 100 adultos e são o foco maior do serviço especializado."
+          },
+          {
+            "label": "Conduta",
+            "text": "A unidade básica deve cuidar do sofrimento mental comum."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Chamar de somatização e não cuidar, ou encaminhar todos ao serviço especializado, são respostas erradas."
+          }
+        ]
+      },
       "slug": "sm-sofrimento-comum-044",
       "area_id": "mental",
       "competency_id": "sus",
@@ -2295,6 +4843,66 @@
           "locator": "p. 115 do PDF"
         }
       ],
+      "key_why": "A cena é segura, o paciente está assustado e não agride ninguém. Por isso, a conduta começa pelo manejo verbal: escolher um mediador, chegar com calma e sem sirene, identificar-se, explicar que veio ajudar e acolher a emoção. O pedido da família não justifica conter antes de esgotar esse manejo.",
+      "theory": {
+        "title": "Abordagem à crise em saúde mental",
+        "intro": "Na crise em saúde mental, o atendimento pré-hospitalar busca reduzir a agitação e preservar a dignidade da pessoa. A prova cobra a sequência de aproximação e o lugar correto da contenção física, que é o último recurso.",
+        "sections": [
+          {
+            "heading": "Como se aproximar",
+            "body": "O protocolo do SAMU orienta uma sequência simples, que começa antes de qualquer contato físico.",
+            "items": [
+              "Avaliar a segurança da cena antes da aproximação.",
+              "Definir um mediador, que será a pessoa da equipe responsável por conversar com o paciente.",
+              "Chegar de forma tranquila, sem acionar o sinal sonoro.",
+              "Identificar-se e explicar que veio ajudar.",
+              "Acolher a emoção do paciente."
+            ]
+          },
+          {
+            "heading": "Contenção física",
+            "body": "A contenção física existe, mas não deve ser usada antes de esgotar os recursos de manejo. Também é vedado usá-la para disciplinar, retaliar ou coagir o paciente. O pedido da família não muda essa regra."
+          },
+          {
+            "heading": "Erros que a prova explora",
+            "items": [
+              "Conter de imediato porque a família pediu.",
+              "Chegar com a sirene ligada, o que tende a aumentar a agitação.",
+              "Pedir que terceiros imobilizem o paciente antes de qualquer tentativa de diálogo, mesmo com a cena segura."
+            ]
+          }
+        ],
+        "alert": "A contenção física nunca pode servir para disciplinar, retaliar ou coagir. Ela só entra depois de esgotado o manejo."
+      },
+      "summary": {
+        "title": "Crise em saúde mental no SAMU",
+        "points": [
+          {
+            "label": "Primeiro passo",
+            "text": "Avaliar a segurança da cena antes de se aproximar."
+          },
+          {
+            "label": "Conduta",
+            "text": "Definir um mediador, chegar com calma e acolher a emoção.",
+            "sub": [
+              "Sem sinal sonoro.",
+              "Identificar-se e explicar que veio ajudar."
+            ]
+          },
+          {
+            "label": "Contenção",
+            "text": "É o último recurso, depois de esgotar os recursos de manejo."
+          },
+          {
+            "label": "Vedação",
+            "text": "Não conter para disciplinar, retaliar ou coagir."
+          },
+          {
+            "label": "Armadilha",
+            "text": "O pedido da família não autoriza contenção imediata."
+          }
+        ]
+      },
       "slug": "sm-crise-abordagem-045",
       "area_id": "mental",
       "competency_id": "etica",
@@ -2340,6 +4948,62 @@
           "locator": "p. 164 do PDF"
         }
       ],
+      "key_why": "O paciente parou de beber há dois dias e tem tremor, sudorese e ansiedade intensa, quadro típico de síndrome de abstinência de álcool. Os benzodiazepínicos são a classe útil nesse contexto. Como ele não usa outros sedativos, o risco de depressão respiratória cai, mas a monitorização continua necessária pela sedação.",
+      "theory": {
+        "title": "Benzodiazepínicos na abstinência de álcool",
+        "intro": "A interrupção do álcool em quem bebe muito pode desencadear a síndrome de abstinência, com tremor, sudorese e ansiedade. Os benzodiazepínicos são a classe útil para controlar esses sintomas. O principal cuidado é a sedação, sobretudo quando há outros sedativos em uso.",
+        "sections": [
+          {
+            "heading": "Quando suspeitar",
+            "body": "Pense em abstinência quando um etilista pesado interrompe o consumo e, nos dias seguintes, surgem sintomas como tremor, sudorese e ansiedade intensa."
+          },
+          {
+            "heading": "Conduta",
+            "body": "Os benzodiazepínicos podem ser úteis para controlar os sintomas de abstinência. O uso deve ser acompanhado de monitorização."
+          },
+          {
+            "heading": "Riscos",
+            "body": "A associação com outras drogas sedativas aumenta o risco, especialmente de sedação excessiva e depressão respiratória. Por isso, pergunte sempre sobre o uso de outras substâncias sedativas."
+          },
+          {
+            "heading": "O que a prova cobra",
+            "items": [
+              "Reconhecer o benzodiazepínico como a classe útil na abstinência de álcool.",
+              "Diferenciar o contexto: o mesmo remédio que deve ser poupado na ansiedade crônica é bem indicado na abstinência.",
+              "Descartar antipsicóticos, tricíclicos e inibidores seletivos de serotonina para controlar os sintomas agudos de abstinência."
+            ]
+          }
+        ],
+        "alert": "Investigue o uso de outros sedativos antes de prescrever benzodiazepínico, porque a associação aumenta o risco de depressão respiratória."
+      },
+      "summary": {
+        "title": "Benzodiazepínicos na abstinência de álcool",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "A interrupção do álcool em etilista pesado pode causar abstinência, com tremor, sudorese e ansiedade."
+          },
+          {
+            "label": "Conduta",
+            "text": "O benzodiazepínico é a classe útil para controlar os sintomas, com monitorização."
+          },
+          {
+            "label": "Risco",
+            "text": "Sedação e depressão respiratória, sobretudo em associação com outros sedativos."
+          },
+          {
+            "label": "Contexto",
+            "text": "O benzodiazepínico é poupado na ansiedade crônica, mas bem indicado na abstinência."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Antipsicóticos, tricíclicos e inibidores seletivos de serotonina não controlam a abstinência aguda.",
+            "sub": [
+              "Inibidores seletivos de serotonina têm início de ação lento."
+            ]
+          }
+        ]
+      },
       "slug": "sm-abstinencia-bzd-046",
       "area_id": "mental",
       "competency_id": "terapeutica",
@@ -2385,6 +5049,61 @@
           "locator": "p. 229 do PDF"
         }
       ],
+      "key_why": "A criança tem quadro compatível com sarampo (febre, tosse, coriza, conjuntivite e exantema maculopapular) e não é vacinada, o que basta para ser caso suspeito. A notificação não espera confirmação laboratorial nem surto. Deve ser feita em até 24 horas, e a investigação começa em até 48 horas, porque a doença se espalha muito rápido.",
+      "theory": {
+        "title": "Vigilância do sarampo",
+        "intro": "O sarampo é uma doença muito transmissível, e a vigilância trabalha com o caso suspeito, sem esperar a confirmação. O generalista da UBS ou do pronto-socorro é quem costuma levantar a suspeita e disparar as ações. A prova cobra principalmente os prazos dessas ações.",
+        "sections": [
+          {
+            "heading": "Quando agir",
+            "body": "Basta a suspeita clínica. No caso da questão, uma criança não vacinada com febre, tosse, coriza, conjuntivite e exantema maculopapular já justifica acionar a vigilância. A notificação é do caso suspeito, um a um, e não depende de confirmação laboratorial nem da existência de surto."
+          },
+          {
+            "heading": "Sequência de prazos",
+            "body": "O Guia de Vigilância em Saúde organiza as ações em uma sequência com prazos curtos.",
+            "items": [
+              "Notificar o caso suspeito em até 24 horas",
+              "Investigar em até 48 horas da notificação",
+              "Coletar amostras para o diagnóstico laboratorial",
+              "Fazer o bloqueio vacinal seletivo em até 72 horas após a notificação"
+            ]
+          },
+          {
+            "heading": "O que a prova cobra",
+            "body": "As alternativas erradas costumam trazer prazos longos, como 7 e 30 dias, ou condicionar a notificação à confirmação, ao fechamento mensal ou ao surto. Todas essas opções atrasam o controle de uma doença que se espalha rápido."
+          }
+        ],
+        "alert": "Não espere o resultado do exame para notificar. A notificação é do caso suspeito e é imediata."
+      },
+      "summary": {
+        "title": "Sarampo: vigilância em 30 segundos",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "A vigilância age sobre o caso suspeito, sem esperar a confirmação."
+          },
+          {
+            "label": "Notificação",
+            "text": "Imediata, em até 24 horas da suspeita."
+          },
+          {
+            "label": "Investigação",
+            "text": "Em até 48 horas da notificação, com coleta de amostras."
+          },
+          {
+            "label": "Bloqueio",
+            "text": "Vacinação seletiva em até 72 horas após a notificação."
+          },
+          {
+            "label": "Memorize",
+            "text": "A sequência é 24, 48 e 72 horas."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Notificar só após o exame, no fechamento mensal ou apenas se houver surto está errado."
+          }
+        ]
+      },
       "slug": "sc-sarampo-notificacao-047",
       "area_id": "coletiva",
       "competency_id": "sus",
@@ -2430,6 +5149,60 @@
           "locator": "p. 229 do PDF"
         }
       ],
+      "key_why": "O caso ainda é suspeito e o exame não saiu, mas isso não adia a ação. O prazo do bloqueio vacinal seletivo conta a partir da notificação, não da confirmação laboratorial. Vacinar os contatos em até 72 horas dá a melhor chance de interromper a transmissão. Esperar o resultado ou novos casos faz perder esse tempo, e vacinar todo o município em 30 dias não é bloqueio seletivo.",
+      "theory": {
+        "title": "Bloqueio vacinal no sarampo",
+        "intro": "O bloqueio vacinal seletivo é a vacinação dos contatos de um caso suspeito de sarampo, feita para interromper a cadeia de transmissão. A prova cobra o momento de agir: o gatilho é a suspeita notificada, e não o diagnóstico confirmado.",
+        "sections": [
+          {
+            "heading": "Quando agir",
+            "body": "A ação começa com o caso suspeito. A confirmação laboratorial não é pré-requisito. Esperar o resultado do exame ou o aparecimento de novos casos significa perder o tempo em que a vacinação ainda pode bloquear a transmissão."
+          },
+          {
+            "heading": "Prazos diante do caso suspeito",
+            "items": [
+              "Notificar em até 24 horas",
+              "Investigar em até 48 horas",
+              "Fazer o bloqueio vacinal seletivo em até 72 horas após a notificação"
+            ]
+          },
+          {
+            "heading": "Ação complementar",
+            "body": "Além do bloqueio, faz-se a busca retrospectiva de casos nos últimos 30 dias, contados a partir do exantema do primeiro caso confirmado."
+          }
+        ],
+        "alert": "Não confunda os 30 dias da busca retrospectiva com o prazo do bloqueio. O bloqueio é seletivo e deve ocorrer em até 72 horas da notificação, não uma vacinação geral do município em 30 dias."
+      },
+      "summary": {
+        "title": "Bloqueio vacinal seletivo no sarampo",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "Vacinação seletiva dos contatos do caso suspeito para interromper a transmissão."
+          },
+          {
+            "label": "Gatilho",
+            "text": "A notificação do caso suspeito. Não é preciso aguardar a confirmação laboratorial."
+          },
+          {
+            "label": "Prazos",
+            "text": "Os prazos são contados a partir do caso suspeito.",
+            "sub": [
+              "Notificação em até 24 horas",
+              "Investigação em até 48 horas",
+              "Bloqueio em até 72 horas da notificação"
+            ]
+          },
+          {
+            "label": "Complemento",
+            "text": "Busca retrospectiva de casos nos 30 dias anteriores ao exantema do primeiro caso confirmado."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Esperar o exame ou novos casos, ou trocar o bloqueio seletivo por uma vacinação geral em 30 dias."
+          }
+        ]
+      },
       "slug": "sc-sarampo-bloqueio-048",
       "area_id": "coletiva",
       "competency_id": "sus",
@@ -2475,6 +5248,60 @@
           "locator": "p. 173 do PDF"
         }
       ],
+      "key_why": "O paciente não vacinado, com febre, dor de garganta e placas branco-acinzentadas aderentes nas amígdalas, já preenche a suspeita clínica de difteria. Isso basta para notificar imediatamente na ficha do Sinan, sem esperar a cultura. A notificação precoce é o que dispara a investigação do caso e dos comunicantes, necessária pela incubação curta e pela alta transmissibilidade da doença.",
+      "theory": {
+        "title": "Notificação da difteria",
+        "intro": "A difteria é uma doença de notificação compulsória em que a vigilância precisa agir rápido. O ponto central cobrado em prova é o momento da notificação: ela deve ocorrer já na suspeita, sem aguardar a confirmação laboratorial.",
+        "sections": [
+          {
+            "heading": "Quando notificar",
+            "body": "Todo caso suspeito de difteria deve ser notificado imediatamente. Não é preciso esperar o resultado da cultura nem a ocorrência de outros casos. Um único caso suspeito já basta."
+          },
+          {
+            "heading": "Como notificar",
+            "body": "A notificação usa a ficha de investigação do Sinan. Ela não deve ser deixada para consolidação mensal nem registrada só em planilha interna da unidade."
+          },
+          {
+            "heading": "Por que a urgência",
+            "body": "Logo após a notificação, a vigilância investiga o caso e os comunicantes. O período de incubação é curto e a transmissibilidade é alta, por isso qualquer atraso compromete as medidas de controle.",
+            "items": [
+              "Notificar na suspeita clínica",
+              "Investigar caso e comunicantes logo em seguida",
+              "Não condicionar a notificação à cultura"
+            ]
+          }
+        ],
+        "alert": "Armadilha clássica: esperar a cultura positiva para notificar. Na difteria, a suspeita é suficiente e a notificação é imediata."
+      },
+      "summary": {
+        "title": "Difteria: notificação em 30 segundos",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "Todo caso suspeito de difteria é de notificação imediata."
+          },
+          {
+            "label": "Instrumento",
+            "text": "A notificação é feita na ficha de investigação do Sinan."
+          },
+          {
+            "label": "Conduta",
+            "text": "Após a notificação, a vigilância investiga o caso e os comunicantes.",
+            "sub": [
+              "Incubação curta",
+              "Alta transmissibilidade"
+            ]
+          },
+          {
+            "label": "Armadilha",
+            "text": "Não aguardar cultura, mais casos na família nem fechamento mensal para notificar."
+          },
+          {
+            "label": "Regra prática",
+            "text": "Suspeitou de difteria, notifica imediatamente."
+          }
+        ]
+      },
       "slug": "sc-difteria-notificacao-049",
       "area_id": "coletiva",
       "competency_id": "sus",
@@ -2520,6 +5347,56 @@
           "locator": "p. 169 do PDF"
         }
       ],
+      "key_why": "O soro está indicado e a dúvida é só sobre o teste cutâneo prévio. Esse teste foi excluído da rotina porque seu valor preditivo para reações de hipersensibilidade imediata, precoce ou tardia é discutível e imprevisível. Por isso não se faz, nem em todos, nem só em alérgicos, e um resultado dele não serve para contraindicar o soro.",
+      "theory": {
+        "title": "Aplicação de soros heterólogos",
+        "intro": "Soros heterólogos, como os de origem equina, são usados na imunização passiva quando há indicação clara. Por muitos anos fez-se um teste de sensibilidade cutâneo antes da aplicação, mas essa prática foi abandonada. A prova cobra justamente essa atualização.",
+        "sections": [
+          {
+            "heading": "Teste de sensibilidade cutâneo",
+            "body": "O teste foi excluído da rotina de aplicação de soros. Seu valor preditivo é discutível e imprevisível para as reações de hipersensibilidade imediata, precoce ou tardia. Por isso não se indica sua realização.",
+            "items": [
+              "Não fazer o teste em todos os pacientes",
+              "Não restringir o teste a quem tem história de alergia",
+              "Não usar resultado de teste para contraindicar o soro"
+            ]
+          },
+          {
+            "heading": "Onde está a segurança",
+            "body": "A segurança da aplicação depende de ter estrutura pronta para reconhecer e tratar reações, e não de um teste prévio que não prevê bem o que vai acontecer."
+          },
+          {
+            "heading": "Reação prévia a soro equino",
+            "body": "Se o paciente já teve reação a soro de origem equina e for necessário repetir a imunização passiva, usam-se imunoglobulinas humanas quando possível."
+          }
+        ],
+        "alert": "Armadilha clássica: a alternativa que propõe o teste só para quem tem alergia parece prudente, mas o teste não prevê reações em nenhum grupo."
+      },
+      "summary": {
+        "title": "Soros heterólogos em 30 segundos",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "Teste de sensibilidade cutâneo saiu da rotina de aplicação de soros."
+          },
+          {
+            "label": "Motivo",
+            "text": "Valor preditivo discutível e imprevisível para reações imediatas, precoces ou tardias."
+          },
+          {
+            "label": "Conduta",
+            "text": "Com indicação clara, aplicar o soro sem teste prévio, com estrutura pronta para tratar reações."
+          },
+          {
+            "label": "Reação prévia",
+            "text": "Se houve reação a soro equino e for preciso repetir, preferir imunoglobulinas humanas quando possível."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Teste positivo não contraindica o soro, e história de alergia não justifica fazer o teste."
+          }
+        ]
+      },
       "slug": "sc-soro-teste-050",
       "area_id": "coletiva",
       "competency_id": "decisao",
@@ -2565,6 +5442,59 @@
           "locator": "p. 965 do PDF"
         }
       ],
+      "key_why": "O homem tem febre, mialgia em panturrilhas e sufusão conjuntival depois de uma enchente, e isso já basta para a suspeita de leptospirose. Como o agravo é de notificação compulsória, o caso suspeito deve ser notificado o mais rápido possível, mesmo sendo o único na unidade. Não é preciso esperar surto, sorologia ou internação.",
+      "theory": {
+        "title": "Notificação da leptospirose",
+        "intro": "A leptospirose é uma doença de notificação compulsória. A prova costuma testar se o aluno sabe que a suspeita clínica já obriga a notificar, sem esperar confirmação laboratorial nem surto. Depois de enchentes, a equipe deve pensar no diagnóstico e reforçar a vigilância ativa no território.",
+        "sections": [
+          {
+            "heading": "O que notificar",
+            "body": "A notificação vale para o caso suspeito. Ela não depende de confirmação nem da gravidade do quadro.",
+            "items": [
+              "Casos suspeitos isolados",
+              "Surtos"
+            ]
+          },
+          {
+            "heading": "Quando e onde",
+            "body": "A notificação deve ser feita o mais rapidamente possível, para disparar as ações de vigilância e controle. O registro é feito no Sinan."
+          },
+          {
+            "heading": "Erros que a prova explora",
+            "items": [
+              "Esperar surto: um caso isolado já precisa ser notificado.",
+              "Esperar a sorologia: atrasa as ações de vigilância, e a suspeita basta.",
+              "Condicionar à internação: a notificação independe da gravidade clínica."
+            ]
+          }
+        ],
+        "alert": "Um único caso suspeito, sem outros parecidos na unidade, já deve ser notificado o mais rápido possível."
+      },
+      "summary": {
+        "title": "Notificação da leptospirose em 30 segundos",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "A leptospirose é de notificação compulsória."
+          },
+          {
+            "label": "Indicação",
+            "text": "Notificar casos suspeitos isolados e também surtos."
+          },
+          {
+            "label": "Conduta",
+            "text": "Notificar o mais rapidamente possível, com registro no Sinan."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Não esperar surto, sorologia nem internação para notificar."
+          },
+          {
+            "label": "Contexto",
+            "text": "Depois de enchentes, pensar em leptospirose e reforçar a vigilância ativa no território."
+          }
+        ]
+      },
       "slug": "sc-leptospirose-notificacao-051",
       "area_id": "coletiva",
       "competency_id": "sus",
@@ -2610,6 +5540,62 @@
           "locator": "p. 25 do PDF (o caderno grafa ng/dL; a unidade usual do PSA é ng/mL)"
         }
       ],
+      "key_why": "Ao baixar o corte de 4 para 2 ng/mL, a sensibilidade subiu de 20,3% para 52,6%, então mais casos são detectados. A especificidade caiu de 93,8% para 72,5%, o que significa mais saudáveis com teste positivo. Na prática, isso gera mais falsos-positivos e mais biópsias desnecessárias, invasivas e com riscos.",
+      "theory": {
+        "title": "Ponto de corte: sensibilidade e especificidade",
+        "intro": "Muitos testes de rastreamento dão um resultado numérico, e é preciso escolher um valor a partir do qual o exame é considerado positivo. Esse ponto de corte define o equilíbrio entre detectar casos e evitar falsos-positivos. O Caderno de Rastreamento usa o PSA como exemplo desse dilema.",
+        "sections": [
+          {
+            "heading": "O efeito de mover o ponto de corte",
+            "body": "Sensibilidade e especificidade andam em sentidos opostos quando o corte muda.",
+            "items": [
+              "Corte mais baixo: a sensibilidade sobe, mais casos são detectados, a especificidade cai e os falsos-positivos aumentam.",
+              "Corte mais alto: a especificidade sobe, os falsos-positivos diminuem, a sensibilidade cai e menos casos são detectados."
+            ]
+          },
+          {
+            "heading": "O exemplo do PSA",
+            "items": [
+              "Corte de 4: sensibilidade de 20,3% e especificidade de 93,8%.",
+              "Corte de 2: sensibilidade de 52,6% e especificidade de 72,5%."
+            ]
+          },
+          {
+            "heading": "Consequências para as pessoas",
+            "body": "Com o corte alto, quem tem exame negativo pode ganhar uma falsa segurança, porque muitos casos não são detectados. Com o corte baixo, aumentam os falsos-positivos, e com eles as biópsias desnecessárias, que são invasivas e têm riscos. A prova cobra a leitura dessas consequências práticas, e não só a definição dos termos."
+          }
+        ],
+        "alert": "Nenhum dos dois cortes resolve o problema do PSA. Por isso ele não atende aos critérios de confiabilidade de um bom programa de rastreamento."
+      },
+      "summary": {
+        "title": "Ponto de corte em 30 segundos",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "O ponto de corte define a partir de qual valor o teste é considerado positivo."
+          },
+          {
+            "label": "Corte baixo",
+            "text": "A sensibilidade sobe e a especificidade cai: mais casos detectados e mais falsos-positivos."
+          },
+          {
+            "label": "Corte alto",
+            "text": "A especificidade sobe e a sensibilidade cai: menos falsos-positivos e menos casos detectados."
+          },
+          {
+            "label": "Exemplo",
+            "text": "No PSA, com corte de 4 a sensibilidade é 20,3% e a especificidade 93,8%; com corte de 2, 52,6% e 72,5%."
+          },
+          {
+            "label": "Impacto",
+            "text": "Os falsos-positivos levam a biópsias desnecessárias, invasivas e com riscos. O corte alto traz falsa segurança a quem teve exame negativo."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Não existe mudança de corte que melhore as duas medidas ao mesmo tempo, e toda mudança tem consequência real para os pacientes."
+          }
+        ]
+      },
       "slug": "sc-ponto-corte-052",
       "area_id": "coletiva",
       "competency_id": "sus",
@@ -2655,6 +5641,61 @@
           "locator": "p. 25 do PDF"
         }
       ],
+      "key_why": "O exame tem sensibilidade de 20%, ou seja, deixa de detectar a maioria dos doentes, que recebem resultado negativo. A especificidade de 94% não muda isso, porque é a sensibilidade que dá segurança ao negativo. Por isso, a crítica correta é que o negativo transmite falsa segurança, cenário descrito pelo Caderno de Rastreamento.",
+      "theory": {
+        "title": "Falsa segurança no rastreamento",
+        "intro": "Rastreamento é a aplicação de exames em pessoas sem sintomas. Por isso, um bom exame de rastreamento precisa ter ótima sensibilidade e ótima especificidade. Quando a sensibilidade é baixa, o resultado negativo passa a enganar.",
+        "sections": [
+          {
+            "heading": "O que cada propriedade garante",
+            "items": [
+              "Sensibilidade boa dá segurança ao resultado negativo, porque poucos doentes escapam da detecção.",
+              "Especificidade boa dá segurança ao resultado positivo, porque poucos sadios são marcados como doentes."
+            ]
+          },
+          {
+            "heading": "Como surge a falsa segurança",
+            "body": "Com sensibilidade baixa, como 20%, a maioria dos doentes não é detectada e recebe resultado negativo. Essas pessoas acreditam estar livres da doença. Especificidade alta não corrige esse problema, pois ela trata de outro tipo de erro. O Caderno de Rastreamento descreve esse cenário como falsa segurança a quem teve teste negativo."
+          },
+          {
+            "heading": "O que a prova cobra",
+            "body": "A prova costuma trocar os papéis das duas propriedades. Diante de especificidade alta e sensibilidade baixa, o problema principal não é o excesso de falsos-positivos, e sim o negativo que não exclui a doença. Afirmar que o teste é inútil para todos também é impreciso: a crítica correta recai sobre o significado do resultado negativo."
+          }
+        ],
+        "alert": "Rastreamento atinge pessoas sem sintomas. Falsa segurança e falso alarme causam dano real, por isso é preciso avaliar os dois lados antes de confiar no resultado."
+      },
+      "summary": {
+        "title": "Falsa segurança no rastreamento",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "Exame de rastreamento deve ter ótima sensibilidade e ótima especificidade."
+          },
+          {
+            "label": "Negativo",
+            "text": "Quem dá segurança ao negativo é a sensibilidade."
+          },
+          {
+            "label": "Positivo",
+            "text": "Quem dá segurança ao positivo é a especificidade."
+          },
+          {
+            "label": "Cenário clássico",
+            "text": "Sensibilidade baixa com especificidade alta: muitos doentes recebem negativo e ficam falsamente tranquilos."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Especificidade alta não garante que o negativo exclui a doença.",
+            "sub": [
+              "Nesse cenário, excesso de falsos-positivos não é o problema principal."
+            ]
+          },
+          {
+            "label": "Pérola",
+            "text": "Falsa segurança e falso alarme causam dano real em pessoas sem sintomas."
+          }
+        ]
+      },
       "slug": "sc-falso-negativo-053",
       "area_id": "coletiva",
       "competency_id": "sus",
@@ -2700,6 +5741,71 @@
           "locator": "p. 72 do PDF"
         }
       ],
+      "key_why": "A paciente tem 57 anos, está dentro da faixa de 50 a 74 anos em que o caderno recomenda mamografia a cada dois anos. Seu último exame normal foi há 2 anos, então o intervalo se completou e cabe repetir. Um exame normal não encerra o rastreamento, e nada no caso justifica exame anual, ultrassonografia associada ou ressonância.",
+      "theory": {
+        "title": "Rastreamento do câncer de mama",
+        "intro": "Rastreamento é a realização periódica de um exame em pessoas assintomáticas, com o objetivo de detectar a doença precocemente. No câncer de mama, o Caderno de Rastreamento define o método, a faixa etária e o intervalo, e a prova costuma cobrar exatamente esses três pontos.",
+        "sections": [
+          {
+            "heading": "Quem e como rastrear",
+            "items": [
+              "Método: mamografia.",
+              "Faixa etária: mulheres de 50 a 74 anos.",
+              "Intervalo: a cada dois anos (bienal)."
+            ]
+          },
+          {
+            "heading": "Antes dos 50 anos",
+            "body": "Nessa faixa a decisão de rastrear é individualizada, discutida caso a caso com a paciente."
+          },
+          {
+            "heading": "Como conduzir na UBS",
+            "body": "Na consulta de rotina, confirme a idade e a data da última mamografia. Se a mulher está entre 50 e 74 anos e o intervalo de dois anos se completou, solicite nova mamografia e explique que o rastreamento é periódico. Um exame anterior normal não dispensa os próximos."
+          },
+          {
+            "heading": "O que a prova cobra",
+            "items": [
+              "Intervalo bienal, e não anual.",
+              "Exame normal não encerra o rastreamento.",
+              "Ressonância magnética e ultrassonografia não são o método de rastreamento recomendado para a mulher sem queixas desse caso."
+            ]
+          }
+        ],
+        "alert": "As recomendações de rastreamento mudam com o tempo. Responda conforme a norma citada no enunciado e confira sempre a versão vigente."
+      },
+      "summary": {
+        "title": "Rastreamento do câncer de mama em 30 segundos",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "Exame periódico em mulheres assintomáticas para detectar o câncer precocemente."
+          },
+          {
+            "label": "Indicação",
+            "text": "Mulheres de 50 a 74 anos."
+          },
+          {
+            "label": "Conduta",
+            "text": "Mamografia a cada dois anos."
+          },
+          {
+            "label": "Antes dos 50",
+            "text": "A decisão é individualizada."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Mamografia anterior normal não dispensa os próximos exames.",
+            "sub": [
+              "Não é anual de rotina.",
+              "Ressonância não substitui a mamografia nesse cenário."
+            ]
+          },
+          {
+            "label": "Comunicação",
+            "text": "Explicar à paciente por que repetir e quando será o próximo exame."
+          }
+        ]
+      },
       "slug": "mfc-mamografia-054",
       "area_id": "mfc",
       "competency_id": "decisao",
@@ -2745,6 +5851,60 @@
           "locator": "art. 74"
         }
       ],
+      "key_why": "A paciente tem 15 anos e capacidade de discernimento, procurou a UBS sozinha e pediu que os pais não soubessem. Como não há violência nem risco à sua saúde, não existe a exceção de dano prevista no art. 74 do Código de Ética Médica. Por isso, o médico mantém o sigilo, inclusive diante dos pais, e faz a orientação contraceptiva que ela pediu.",
+      "theory": {
+        "title": "Sigilo na consulta com adolescente",
+        "intro": "O sigilo médico também protege crianças e adolescentes com capacidade de discernimento. O Código de Ética Médica, no art. 74, trata do tema e define quando o sigilo pode ser quebrado. Na prova, a pergunta costuma ser se o médico deve contar aos pais.",
+        "sections": [
+          {
+            "heading": "O que diz a regra",
+            "body": "O art. 74 do Código de Ética Médica proíbe o médico de revelar o sigilo de criança ou adolescente com capacidade de discernimento, inclusive aos pais ou responsáveis. A única exceção prevista é quando a não revelação puder causar dano ao paciente."
+          },
+          {
+            "heading": "Como conduzir a consulta",
+            "items": [
+              "Avaliar se o adolescente tem capacidade de discernimento.",
+              "Procurar sinais de violência ou de situação de risco à saúde.",
+              "Se não houver risco, manter o sigilo e atender ao pedido, como a orientação sobre contracepção.",
+              "Se o silêncio puder prejudicar o paciente, a quebra do sigilo pode ser necessária, e isso deve ser conversado com ele."
+            ]
+          },
+          {
+            "heading": "Erros que a prova explora",
+            "items": [
+              "Achar que ser menor de idade basta para quebrar o sigilo.",
+              "Exigir a presença dos pais antes de orientar um adolescente com discernimento.",
+              "Acionar o Conselho Tutelar sem haver violência ou risco no caso."
+            ]
+          }
+        ],
+        "alert": "O que permite quebrar o sigilo é o risco de dano ao paciente, e não a idade."
+      },
+      "summary": {
+        "title": "Sigilo com adolescente em 30 segundos",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "Pelo art. 74 do CEM, o médico não pode revelar o sigilo de criança ou adolescente com capacidade de discernimento, inclusive aos pais."
+          },
+          {
+            "label": "Exceção",
+            "text": "A quebra é possível quando a não revelação puder causar dano ao paciente."
+          },
+          {
+            "label": "Conduta",
+            "text": "Sem violência ou risco, o médico mantém o sigilo e orienta, por exemplo, sobre contracepção."
+          },
+          {
+            "label": "Comunicação",
+            "text": "Se a quebra do sigilo for necessária, isso deve ser conversado com o paciente."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Menoridade, sozinha, não justifica contar aos pais, exigir a presença deles ou acionar o Conselho Tutelar."
+          }
+        ]
+      },
       "slug": "mfc-sigilo-adolescente-055",
       "area_id": "mfc",
       "competency_id": "etica",
@@ -2790,6 +5950,69 @@
           "locator": "art. 34"
         }
       ],
+      "key_why": "O paciente está lúcido, nunca pediu para não saber e não há indício de que a informação lhe cause dano. Por isso, a exceção do art. 34 não se aplica. O pedido da filha, mesmo bem-intencionado, não autoriza omitir. Cabe ao médico informar diretamente o paciente sobre diagnóstico e prognóstico, comunicando com cuidado.",
+      "theory": {
+        "title": "Direito à informação do paciente",
+        "intro": "O Código de Ética Médica garante ao paciente o direito de conhecer sua condição de saúde. O tema costuma aparecer em casos de más notícias, nos quais a família pede ao médico que esconda o diagnóstico.",
+        "sections": [
+          {
+            "heading": "O que diz o art. 34",
+            "body": "É vedado ao médico deixar de informar ao paciente o diagnóstico, o prognóstico, os riscos e os objetivos do tratamento.",
+            "items": [
+              "A informação pertence ao paciente.",
+              "Quem recebe a notícia é o próprio paciente, e não a família."
+            ]
+          },
+          {
+            "heading": "A única exceção",
+            "body": "A comunicação pode deixar de ser feita diretamente ao paciente quando ela puder lhe provocar dano. Nesse caso, a informação é dada ao representante legal.",
+            "items": [
+              "A exceção exige indício de dano real causado pela comunicação direta.",
+              "O desejo da família de poupar o paciente não preenche essa exceção."
+            ]
+          },
+          {
+            "heading": "Como conduzir",
+            "body": "Diante de um paciente lúcido, sem risco de dano pela informação, o médico informa a ele mesmo o diagnóstico e o prognóstico. A comunicação cuidadosa respeita o paciente e acolhe a preocupação da família.",
+            "items": [
+              "Não omitir o diagnóstico a pedido de familiar.",
+              "Não transferir à família a decisão de contar.",
+              "Não adiar a conversa sem motivo, porque isso tira do paciente a participação nas decisões."
+            ]
+          }
+        ],
+        "alert": "A prova costuma apresentar um familiar bem-intencionado. Sem indício de dano pela comunicação direta, o diagnóstico continua sendo do paciente."
+      },
+      "summary": {
+        "title": "Direito à informação: revisão rápida",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "O art. 34 veda deixar de informar diagnóstico, prognóstico, riscos e objetivos do tratamento."
+          },
+          {
+            "label": "Titular",
+            "text": "Paciente lúcido é quem tem direito à informação, e não a família."
+          },
+          {
+            "label": "Exceção",
+            "text": "Quando a comunicação direta puder provocar dano, informa-se o representante legal."
+          },
+          {
+            "label": "Conduta",
+            "text": "Sem indício de dano, informar o próprio paciente com comunicação cuidadosa."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Pedido da família, por mais bem-intencionado, não justifica a omissão.",
+            "sub": [
+              "Omitir viola o art. 34.",
+              "Contar só ao familiar transfere a ele uma decisão que não lhe cabe.",
+              "Adiar sem motivo deixa o paciente fora das decisões."
+            ]
+          }
+        ]
+      },
       "slug": "mfc-informar-diagnostico-056",
       "area_id": "mfc",
       "competency_id": "etica",
@@ -2835,6 +6058,65 @@
           "locator": "art. 31"
         }
       ],
+      "key_why": "A paciente está lúcida, orientada, entendeu benefícios e riscos da infiltração e não corre risco iminente de morte. Nessa situação, o Código de Ética garante a ela o direito de decidir livremente sobre a terapêutica. Cabe ao médico respeitar a recusa e seguir acompanhando com fisioterapia e analgesia oral, sem impor o procedimento, sem transferir a decisão à família e sem interromper o cuidado.",
+      "theory": {
+        "title": "Autonomia do paciente",
+        "intro": "Autonomia é o direito do paciente de decidir livremente sobre as práticas diagnósticas e terapêuticas propostas pelo médico. O art. 31 do Código de Ética Médica proíbe o médico de desrespeitar esse direito, que vale para o paciente ou para seu representante legal.",
+        "sections": [
+          {
+            "heading": "O que o art. 31 estabelece",
+            "body": "É vedado ao médico desrespeitar o direito do paciente, ou de seu representante legal, de decidir livremente sobre a execução de práticas diagnósticas ou terapêuticas. A única exceção prevista é o iminente risco de morte."
+          },
+          {
+            "heading": "Como conduzir a recusa",
+            "items": [
+              "Confirmar que o paciente está lúcido e entendeu benefícios e riscos da proposta",
+              "Na ausência de iminente risco de morte, respeitar a decisão",
+              "Manter o acompanhamento com o plano que o paciente aceitou",
+              "Não transferir a decisão à família quando o paciente é capaz"
+            ]
+          },
+          {
+            "heading": "O que a prova costuma testar",
+            "body": "Alternativas que propõem fazer o procedimento por ser o melhor tratamento, pedir a assinatura da família ou dar alta por causa da recusa. Todas desrespeitam a autonomia ou rompem o cuidado."
+          }
+        ],
+        "alert": "Recusar uma conduta não é abandonar o tratamento. O vínculo e o cuidado continuam dentro do plano aceito pelo paciente."
+      },
+      "summary": {
+        "title": "Autonomia do paciente em 30 segundos",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "O paciente ou seu representante legal decide livremente sobre práticas diagnósticas e terapêuticas."
+          },
+          {
+            "label": "Base",
+            "text": "Art. 31 do Código de Ética Médica veda desrespeitar esse direito."
+          },
+          {
+            "label": "Exceção",
+            "text": "Iminente risco de morte."
+          },
+          {
+            "label": "Conduta",
+            "text": "Paciente capaz e informado que recusa: respeitar a decisão e seguir com o plano que ele escolheu."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Erros comuns diante de paciente capaz que recusa a conduta.",
+            "sub": [
+              "Fazer o procedimento contra a vontade do paciente",
+              "Pedir que a família decida no lugar dele",
+              "Dar alta ou interromper o cuidado por causa da recusa"
+            ]
+          },
+          {
+            "label": "APS",
+            "text": "Respeitar a autonomia e manter o vínculo com o paciente."
+          }
+        ]
+      },
       "slug": "mfc-recusa-tratamento-057",
       "area_id": "mfc",
       "competency_id": "etica",
@@ -2880,6 +6162,63 @@
           "locator": "art. 83"
         }
       ],
+      "key_why": "O médico nunca assistiu o idoso, não examinou o corpo e não está de plantão nem substituindo outro colega. O Código de Ética veda atestar óbito sem verificação pessoal, e nenhuma das exceções se aplica. A aparência de causa natural, o pedido escrito da família ou o registro de causa desconhecida não suprem essa falta. Por isso, ele não deve atestar.",
+      "theory": {
+        "title": "Atestar o óbito: limites éticos",
+        "intro": "Atestar o óbito é ato médico com peso legal, e o Código de Ética Médica define quando o médico pode fazê-lo. A prova costuma cobrar a regra da verificação pessoal e as exceções ligadas à assistência prévia.",
+        "sections": [
+          {
+            "heading": "O que o Código de Ética veda",
+            "body": "O art. 83 proíbe o médico de atestar óbito em duas situações:",
+            "items": [
+              "Quando não verificou o óbito pessoalmente.",
+              "Quando não prestou assistência ao paciente."
+            ]
+          },
+          {
+            "heading": "Exceções previstas",
+            "body": "A exceção vale apenas para a falta de assistência prévia. O médico pode atestar mesmo sem ter acompanhado o paciente quando atua como plantonista, como médico substituto ou nas demais situações previstas. A exigência de verificação pessoal do óbito continua valendo."
+          },
+          {
+            "heading": "Como a prova testa o tema",
+            "body": "O caso típico traz pressão de familiares ou vizinhos para que o médico assine à distância. Nenhum destes argumentos torna o ato permitido:",
+            "items": [
+              "Causa aparentemente natural.",
+              "Confirmação ou pedido por escrito da família.",
+              "Registro da causa como desconhecida."
+            ]
+          }
+        ],
+        "alert": "Sem verificar o óbito pessoalmente, o médico não atesta, qualquer que seja o pedido da família."
+      },
+      "summary": {
+        "title": "Atestar o óbito em 30 segundos",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "A declaração de óbito é ato médico com peso legal."
+          },
+          {
+            "label": "Regra",
+            "text": "O art. 83 veda atestar óbito sem verificação pessoal ou sem ter prestado assistência ao paciente."
+          },
+          {
+            "label": "Exceção",
+            "text": "A falta de assistência prévia é admitida para o plantonista, o substituto e as demais situações previstas."
+          },
+          {
+            "label": "Conduta",
+            "text": "Se não verificou o óbito e não se enquadra em exceção, não atesta."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Causa provavelmente natural, termo escrito da família ou causa registrada como desconhecida não autorizam assinar.",
+            "sub": [
+              "A pressão da família não muda a regra."
+            ]
+          }
+        ]
+      },
       "slug": "mfc-declaracao-obito-058",
       "area_id": "mfc",
       "competency_id": "etica",
@@ -2925,6 +6264,68 @@
           "locator": "art. 2º e 3º"
         }
       ],
+      "key_why": "Aos 24 anos e com plena capacidade civil, ela já cumpre o critério etário, que é alternativo ao de dois filhos vivos. A lei não exige mais a autorização do marido, mas impõe ao menos 60 dias entre a manifestação da vontade e a cirurgia, com acesso a aconselhamento. Por isso, o correto é encaminhar respeitando esse prazo.",
+      "theory": {
+        "title": "Esterilização voluntária",
+        "intro": "A esterilização voluntária (laqueadura ou vasectomia) é regulada pela Lei nº 9.263/1996, de planejamento familiar, alterada pela Lei nº 14.443/2022. A prova costuma cobrar os critérios de elegibilidade, o prazo mínimo e o fim da exigência de consentimento do cônjuge.",
+        "sections": [
+          {
+            "heading": "Quem pode solicitar",
+            "body": "Pessoas com capacidade civil plena que atendam a um dos dois critérios abaixo. Os critérios são alternativos, e basta cumprir um deles.",
+            "items": [
+              "Ser maior de 21 anos",
+              "Ter ao menos 2 filhos vivos"
+            ]
+          },
+          {
+            "heading": "Como conduzir",
+            "body": "Ao receber o pedido, o generalista orienta e encaminha. É preciso respeitar o prazo mínimo legal, que não pode ser dispensado pela vontade da pessoa.",
+            "items": [
+              "Prazo mínimo de 60 dias entre a manifestação da vontade e a cirurgia",
+              "Nesse período, garantir acesso a serviço de regulação da fecundidade e a aconselhamento multidisciplinar",
+              "Na esterilização durante o parto, os 60 dias são contados entre a manifestação da vontade e o parto"
+            ]
+          },
+          {
+            "heading": "O que mudou em 2022",
+            "body": "A Lei nº 14.443/2022 revogou o § 5º do art. 10, que exigia o consentimento do cônjuge. Hoje a decisão é da própria pessoa, desde que preencha os critérios e cumpra o prazo."
+          }
+        ],
+        "alert": "Não exija autorização do cônjuge e não negue a laqueadura a quem tem mais de 21 anos só porque não tem filhos. Também não marque a cirurgia sem respeitar os 60 dias."
+      },
+      "summary": {
+        "title": "Esterilização voluntária em 30 segundos",
+        "points": [
+          {
+            "label": "Base legal",
+            "text": "Lei nº 9.263/1996, alterada pela Lei nº 14.443/2022."
+          },
+          {
+            "label": "Indicação",
+            "text": "Capacidade civil plena e um dos critérios abaixo.",
+            "sub": [
+              "Maior de 21 anos",
+              "Ou ao menos 2 filhos vivos"
+            ]
+          },
+          {
+            "label": "Conduta",
+            "text": "Encaminhar com prazo mínimo de 60 dias entre o pedido e a cirurgia, com aconselhamento multidisciplinar."
+          },
+          {
+            "label": "Parto",
+            "text": "Os 60 dias também valem, contados entre a manifestação da vontade e o parto."
+          },
+          {
+            "label": "Cônjuge",
+            "text": "O consentimento do cônjuge deixou de ser exigido com a revogação do § 5º do art. 10."
+          },
+          {
+            "label": "Armadilha",
+            "text": "Os critérios são alternativos: quem tem mais de 21 anos não precisa ter filhos."
+          }
+        ]
+      },
       "slug": "mfc-laqueadura-059",
       "area_id": "mfc",
       "competency_id": "etica",
@@ -2970,6 +6371,56 @@
           "locator": "p. 35 do PDF"
         }
       ],
+      "key_why": "A paciente tem 72 anos, está sem registro vacinal recente e foi atendida em abril. A avaliação global da pessoa idosa inclui investigar a situação vacinal de forma sistemática. Contra a influenza, a recomendação é uma dose a cada ano, aplicada no outono. A vacina tem caráter preventivo, não dispensa a repetição anual e a idade não a contraindica.",
+      "theory": {
+        "title": "Vacinação da pessoa idosa",
+        "intro": "A vacinação faz parte da avaliação global da pessoa idosa na atenção primária. A situação vacinal deve ser investigada de forma sistemática em toda consulta, e não só quando o paciente pede ou adoece.",
+        "sections": [
+          {
+            "heading": "Quando abordar",
+            "body": "Em qualquer contato da pessoa idosa com a UBS, inclusive consultas de rotina. A vacinação entra como item fixo da avaliação, sem depender de queixa ou de doença prévia."
+          },
+          {
+            "heading": "Influenza",
+            "items": [
+              "Uma dose anual da vacina contra influenza.",
+              "Aplicação no outono.",
+              "A indicação é preventiva e não depende de gripe grave anterior.",
+              "A idade é motivo para vacinar, e não para contraindicar."
+            ]
+          },
+          {
+            "heading": "Pneumococo",
+            "body": "Verifique também a vacina antipneumocócica, recomendada para maiores de 60 anos."
+          }
+        ],
+        "alert": "Armadilha comum: tratar a vacina contra influenza como dose única ou deixar de indicar por causa da idade avançada. A dose é anual, e a idade reforça a indicação."
+      },
+      "summary": {
+        "title": "Vacinação da pessoa idosa em 30 segundos",
+        "points": [
+          {
+            "label": "Conceito",
+            "text": "Investigar a situação vacinal de forma sistemática faz parte da avaliação global da pessoa idosa."
+          },
+          {
+            "label": "Influenza",
+            "text": "Uma dose anual, no outono."
+          },
+          {
+            "label": "Pneumococo",
+            "text": "Vacina antipneumocócica para maiores de 60 anos."
+          },
+          {
+            "label": "Conduta",
+            "text": "Vacinar de forma preventiva, sem esperar gripe grave nem outro evento prévio."
+          },
+          {
+            "label": "Armadilha",
+            "text": "A vacina contra influenza não é dose única, e a idade não a contraindica."
+          }
+        ]
+      },
       "slug": "mfc-idoso-vacinas-060",
       "area_id": "mfc",
       "competency_id": "decisao",

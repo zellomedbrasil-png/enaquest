@@ -1,6 +1,9 @@
 // Importa um lote como rascunho. Nada é publicado aqui: a publicação só acontece
 // quando um médico aprova a amostra no painel editorial.
 // Uso: npm run content:import -- content/lots/piloto-001.json
+//
+// Com --enrich-only, só grava o material de estudo (key_why, theory, summary) das questões que já
+// existem, sem tocar em status, enunciado ou gabarito. É o jeito seguro de atualizar questões publicadas.
 import { config } from "dotenv";
 import { readFileSync } from "node:fs";
 import { createClient } from "@supabase/supabase-js";
@@ -11,8 +14,10 @@ import { DIFFICULTY_RATING } from "../src/lib/game/rating";
 config({ path: ".env.local" });
 
 async function main() {
-  const file = process.argv[2];
-  if (!file) throw new Error("Uso: content:import <lote.json>");
+  const args = process.argv.slice(2);
+  const enrichOnly = args.includes("--enrich-only");
+  const file = args.find((a) => !a.startsWith("--"));
+  if (!file) throw new Error("Uso: content:import <lote.json> [--enrich-only]");
   const lot = LotSchema.parse(JSON.parse(readFileSync(file, "utf8")));
 
   const report = lintLot(lot);
@@ -27,6 +32,29 @@ async function main() {
     if (value.error) throw new Error(value.error.message);
     return value;
   };
+
+  if (enrichOnly) {
+    let updated = 0;
+    const missing: string[] = [];
+    for (const q of lot.questions) {
+      if (!q.key_why && !q.theory && !q.summary) continue;
+      const { data } = await check(db.from("questions").select("id").eq("slug", q.slug).maybeSingle());
+      const id = (data as { id: string } | null)?.id;
+      if (!id) {
+        missing.push(q.slug);
+        continue;
+      }
+      await check(
+        db
+          .from("explanations")
+          .update({ key_why: q.key_why ?? null, theory: q.theory ?? null, summary: q.summary ?? null })
+          .eq("question_id", id),
+      );
+      updated += 1;
+    }
+    console.log(`Lote ${lot.id}: material de estudo gravado em ${updated} questões.${missing.length ? ` Não encontradas no banco: ${missing.join(", ")}.` : ""}`);
+    return;
+  }
 
   await check(db.from("sources").upsert(lot.sources));
   await check(db.from("review_lots").upsert({ id: lot.id, notes: lot.notes ?? null, status: "pending_review" }));
@@ -72,6 +100,9 @@ async function main() {
         tip: q.tip,
         pearl: q.pearl,
         competency_note: q.competency_note,
+        key_why: q.key_why ?? null,
+        theory: q.theory ?? null,
+        summary: q.summary ?? null,
       }),
     );
     await check(db.from("question_sources").delete().eq("question_id", id));

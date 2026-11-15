@@ -10,7 +10,15 @@ import { AppError, getProfile, requireEditor, requireUser } from "@/lib/server/s
 import { todayMissions } from "@/lib/server/progress";
 import * as mascot from "@/lib/server/mascot";
 import { setErrorReason, submitAnswer, type AnswerResult, type ErrorReason } from "@/lib/server/answers";
-import { getDueReviews, startTraining, type TrainingFilter } from "@/lib/server/study";
+import {
+  getDueReviews,
+  getRevealForAnswered,
+  getStudyState,
+  rateQuestion,
+  setQuestionMark,
+  startTraining,
+  type TrainingFilter,
+} from "@/lib/server/study";
 import { finishSimulado, saveSimuladoProgress } from "@/lib/server/simulados";
 import * as community from "@/lib/server/community";
 import * as leagues from "@/lib/server/leagues";
@@ -130,6 +138,34 @@ export async function errorReasonAction(answerId: string, reason: ErrorReason) {
   return run(async () => {
     const user = await requireUser();
     await setErrorReason(user.id, z.uuid().parse(answerId), reason);
+  });
+}
+
+export async function rateQuestionAction(questionId: string, vote: -1 | 0 | 1) {
+  return run(async () => {
+    const user = await requireUser();
+    await rateQuestion(user.id, z.uuid().parse(questionId), z.union([z.literal(-1), z.literal(0), z.literal(1)]).parse(vote));
+  });
+}
+
+export async function markQuestionAction(questionId: string, marked: boolean) {
+  return run(async () => {
+    const user = await requireUser();
+    await setQuestionMark(user.id, z.uuid().parse(questionId), z.boolean().parse(marked));
+  });
+}
+
+export async function studyStateAction(questionIds: string[]) {
+  return run(async () => {
+    const user = await requireUser();
+    return getStudyState(user.id, z.array(z.uuid()).max(60).parse(questionIds));
+  });
+}
+
+export async function revealAction(questionId: string) {
+  return run(async () => {
+    const user = await requireUser();
+    return getRevealForAnswered(user.id, z.uuid().parse(questionId));
   });
 }
 

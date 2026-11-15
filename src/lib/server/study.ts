@@ -2,6 +2,7 @@ import "server-only";
 import { admin } from "@/lib/supabase/admin";
 import { todayBR } from "@/lib/game/streak";
 import { addDays, buildAgenda, type AgendaDay } from "@/lib/study/agenda";
+import { scheduleCard } from "@/lib/study/srs";
 import { AppError, enforceRateLimit, isPremium } from "./session";
 import { getPublicQuestions, getReveal, type PublicQuestion, type Reveal } from "./questions";
 import { pickBalanced, seededShuffle } from "./selection";
@@ -119,6 +120,66 @@ export async function getNotebook(userId: string): Promise<NotebookEntry[]> {
     });
   }
   return out;
+}
+
+async function requirePublished(questionId: string) {
+  const { data } = await admin().from("questions").select("id").eq("id", questionId).eq("status", "published").maybeSingle();
+  if (!data) throw new AppError("not_found", "Questão indisponível.");
+}
+
+/** Gostei (1), não gostei (-1) ou tirar a avaliação (0). */
+export async function rateQuestion(userId: string, questionId: string, vote: -1 | 0 | 1) {
+  await enforceRateLimit(`rate:${userId}`, 60, 60);
+  await requirePublished(questionId);
+  const db = admin();
+  if (vote === 0) {
+    await db.from("question_feedback").delete().eq("user_id", userId).eq("question_id", questionId);
+    return;
+  }
+  const { error } = await db.from("question_feedback").upsert({ user_id: userId, question_id: questionId, vote, created_at: new Date().toISOString() });
+  if (error) throw error;
+}
+
+/** Marcar para rever: a questão entra na Revisão mesmo se a pessoa acertou. */
+export async function setQuestionMark(userId: string, questionId: string, marked: boolean) {
+  await enforceRateLimit(`mark:${userId}`, 60, 60);
+  await requirePublished(questionId);
+  const db = admin();
+  if (!marked) {
+    await db.from("question_marks").delete().eq("user_id", userId).eq("question_id", questionId);
+    return;
+  }
+  const { error } = await db.from("question_marks").upsert({ user_id: userId, question_id: questionId });
+  if (error) throw error;
+  const { data: card } = await db.from("srs_cards").select("question_id").eq("user_id", userId).eq("question_id", questionId).maybeSingle();
+  if (!card) {
+    // Carta nova como se fosse um erro: volta logo na Revisão.
+    const scheduled = scheduleCard(null, false, null);
+    await db.from("srs_cards").insert({ user_id: userId, question_id: questionId, state: scheduled.state, due: scheduled.due });
+  }
+}
+
+export type StudyState = { votes: Record<string, -1 | 1>; marked: string[] };
+
+/** Avaliações e marcações da pessoa para um conjunto de questões. */
+export async function getStudyState(userId: string, questionIds: string[]): Promise<StudyState> {
+  if (!questionIds.length) return { votes: {}, marked: [] };
+  const db = admin();
+  const [{ data: votes }, { data: marks }] = await Promise.all([
+    db.from("question_feedback").select("question_id, vote").eq("user_id", userId).in("question_id", questionIds),
+    db.from("question_marks").select("question_id").eq("user_id", userId).in("question_id", questionIds),
+  ]);
+  return {
+    votes: Object.fromEntries((votes ?? []).map((v: { question_id: string; vote: -1 | 1 }) => [v.question_id, v.vote])),
+    marked: (marks ?? []).map((m: { question_id: string }) => m.question_id),
+  };
+}
+
+/** Comentário de uma questão que a pessoa já respondeu (para rever na mesma rodada). */
+export async function getRevealForAnswered(userId: string, questionId: string): Promise<Reveal> {
+  const { count } = await admin().from("answers").select("id", { count: "exact", head: true }).eq("user_id", userId).eq("question_id", questionId);
+  if (!count) throw new AppError("not_found", "Responda a questão para ver o comentário.");
+  return getReveal(questionId);
 }
 
 /** Página de uma questão: gabarito e comentários só para quem já respondeu. */

@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState, useTransition } from "react";
-import { answerAction, todayMissionsAction } from "@/app/actions";
-import type { PublicQuestion } from "@/lib/server/questions";
+import { answerAction, markQuestionAction, rateQuestionAction, revealAction, studyStateAction, todayMissionsAction } from "@/app/actions";
+import type { PublicQuestion, Reveal } from "@/lib/server/questions";
+import { optionComments } from "@/lib/ui/comments";
 import type { AnswerResult } from "@/lib/server/answers";
 import { ACHIEVEMENTS, type Mission } from "@/lib/game/progress";
 import { XP } from "@/lib/game/xp";
@@ -18,8 +19,9 @@ import { Confetti } from "./Confetti";
 import { useFeedbackPrefs } from "./FeedbackSettings";
 import { MascotStation } from "./plantao/MascotStation";
 import { useMascotState } from "./plantao/useMascotState";
-import { ExamTables, OptionsList, QuestionHeader } from "./QuestionView";
-import { RevealPanel } from "./RevealPanel";
+import { ExamTables, OptionsList, QuestionHeader, Stem, useHighlights } from "./QuestionView";
+import { ReportBox, RevealPanel } from "./RevealPanel";
+import { Icon } from "./StudyIcons";
 import { PROGRESS_EVENT, type ProgressEventDetail } from "./TopStats";
 import { ToastStack, useToasts } from "./Toasts";
 import { ScoreRing, scoreMessage } from "./ui";
@@ -59,6 +61,15 @@ export function QuestionRunner({
   const [queue, setQueue] = useState<CelebrationItem[]>([]);
   const [showing, setShowing] = useState<CelebrationItem[] | null>(null);
   const [missions, setMissions] = useState<Mission[] | null>(null);
+  /** Comentário das questões respondidas antes de abrir a página (só o Plantão tem). */
+  const [priorReveals, setPriorReveals] = useState<Record<string, Reveal>>({});
+  const [confidences, setConfidences] = useState<Record<string, Confidence | null>>({});
+  const [votes, setVotes] = useState<Record<string, -1 | 1>>({});
+  const [marked, setMarked] = useState<string[]>([]);
+  const [highlighting, setHighlighting] = useState(false);
+  const [showKeys, setShowKeys] = useState(false);
+  const [reportFor, setReportFor] = useState<string | null>(null);
+  const highlights = useHighlights();
   const [pending, start] = useTransition();
   const startedAt = useRef<number>(0);
   const firstRender = useRef(true);
@@ -69,6 +80,10 @@ export function QuestionRunner({
 
   const question = questions[index];
   const result = question ? results[question.id] : undefined;
+  const prior = question && !result ? alreadyAnswered[question.id] : undefined;
+  const reveal = result?.reveal ?? (question ? priorReveals[question.id] : undefined);
+  const answered = Boolean(result || prior);
+  const answeredSelected = result ? result.selected : prior ? prior.selected : null;
   const area = areas.find((a) => a.id === question?.areaId);
   const roundOver = !question || finished;
   const answeredInRound = Object.keys(results).length;
@@ -106,9 +121,37 @@ export function QuestionRunner({
   }, [index]);
 
   // Depois de responder, o foco vai para o resultado, que é anunciado.
+  const resultId = result?.answerId;
   useEffect(() => {
-    if (result) resultRef.current?.focus();
-  }, [result]);
+    if (resultId !== undefined) resultRef.current?.focus();
+  }, [resultId]);
+
+  // Avaliações e marcações da rodada, para os botões já virem no estado certo.
+  const idsKey = questions.map((q) => q.id).join(",");
+  useEffect(() => {
+    let alive = true;
+    studyStateAction(idsKey ? idsKey.split(",") : []).then((response) => {
+      if (!alive || !response.ok) return;
+      setVotes(response.data.votes);
+      setMarked(response.data.marked);
+    });
+    return () => {
+      alive = false;
+    };
+  }, [idsKey]);
+
+  // Voltou para uma questão respondida antes de abrir a página: busca o comentário.
+  const needsReveal = prior && question && !priorReveals[question.id] ? question.id : null;
+  useEffect(() => {
+    if (!needsReveal) return;
+    let alive = true;
+    revealAction(needsReveal).then((response) => {
+      if (alive && response.ok) setPriorReveals((all) => ({ ...all, [needsReveal]: response.data }));
+    });
+    return () => {
+      alive = false;
+    };
+  }, [needsReveal]);
 
   // No fim da rodada, busca como ficaram as missões do dia.
   useEffect(() => {
@@ -176,24 +219,79 @@ export function QuestionRunner({
         return;
       }
       setResults((current) => ({ ...current, [question.id]: response.data }));
+      setConfidences((current) => ({ ...current, [question.id]: confidence }));
       mascot.onAnswer({ correct: response.data.correct, xp: response.data.xpGained, combo: response.data.combo });
       setCombo({ value: response.data.combo, broken: response.data.correct ? 0 : response.data.previousCombo });
       celebrateResult(response.data);
     });
   };
 
-  const advance = () => {
+  const isOpen = (q: PublicQuestion) => !alreadyAnswered[q.id] && !results[q.id];
+
+  /** Muda a questão em vista sem responder (mapa, Anterior, Próxima). */
+  const goTo = (target: number) => {
+    if (target < 0 || target >= questions.length || target === index) return;
     setPicked(null);
     setConfidence(null);
     setStruck([]);
     setCelebrate(false);
-    const nextIndex = questions.findIndex((q, i) => i > index && !alreadyAnswered[q.id] && !results[q.id]);
+    setHighlighting(false);
+    setReportFor(null);
+    setIndex(target);
+  };
+
+  /** Próxima pendente depois desta, dando a volta; sem nenhuma, a rodada acaba. */
+  const advance = () => {
+    setCelebrate(false);
+    const after = questions.findIndex((q, i) => i > index && isOpen(q));
+    const nextIndex = after !== -1 ? after : questions.findIndex((q, i) => i < index && isOpen(q));
     if (nextIndex === -1) {
       setFinished(true);
       onDone?.();
     } else {
-      setIndex(nextIndex);
+      goTo(nextIndex);
     }
+  };
+
+  const vote = (value: -1 | 1) => {
+    if (!question) return;
+    const id = question.id;
+    const previous = votes[id];
+    const nextVote = previous === value ? 0 : value;
+    setVotes((all) => {
+      const copy = { ...all };
+      if (nextVote === 0) delete copy[id];
+      else copy[id] = nextVote;
+      return copy;
+    });
+    rateQuestionAction(id, nextVote).then((response) => {
+      if (response.ok) {
+        if (nextVote !== 0) push({ tone: "info", title: "Obrigado pela avaliação", text: "Ela ajuda a curadoria a melhorar as questões." });
+        return;
+      }
+      setVotes((all) => {
+        const copy = { ...all };
+        if (previous) copy[id] = previous;
+        else delete copy[id];
+        return copy;
+      });
+      push({ tone: "info", title: "Não deu para salvar a avaliação", text: response.message });
+    });
+  };
+
+  const toggleMark = () => {
+    if (!question) return;
+    const id = question.id;
+    const nowMarked = !marked.includes(id);
+    setMarked((all) => (nowMarked ? [...all, id] : all.filter((x) => x !== id)));
+    markQuestionAction(id, nowMarked).then((response) => {
+      if (response.ok) {
+        if (nowMarked) push({ tone: "ok", title: "Marcada para rever", text: "Ela volta na sua Revisão." });
+        return;
+      }
+      setMarked((all) => (nowMarked ? all.filter((x) => x !== id) : [...all, id]));
+      push({ tone: "info", title: "Não deu para marcar", text: response.message });
+    });
   };
 
   // Subida de patente ou de nível aparece ao continuar, depois de ler a explicação.
@@ -219,7 +317,7 @@ export function QuestionRunner({
       if (!question || showing) return;
       // Ctrl+A, Ctrl+C, Cmd+D e afins são do navegador, não escolhas de alternativa.
       if (event.ctrlKey || event.metaKey || event.altKey) return;
-      if (!result) {
+      if (!answered) {
         const position = "abcd".indexOf(event.key.toLowerCase());
         if (position >= 0 && position < question.options.length) pickOption(position);
         if (event.key === "Enter" && picked !== null && !pending) submit();
@@ -355,55 +453,125 @@ export function QuestionRunner({
   }
 
   const answeredCount = Object.keys(alreadyAnswered).length + Object.keys(results).length;
-  // Depois de responder, as alternativas corrigidas sobem para junto do enunciado e a coluna direita fica com o comentário.
+  const hitsSoFar =
+    Object.values(results).filter((r) => r.correct).length +
+    Object.entries(alreadyAnswered).filter(([id, a]) => a.correct && !results[id]).length;
+
+  /** Situação de cada questão no mapa e na barra de progresso. */
+  const statusOf = (q: PublicQuestion) => {
+    const done = results[q.id] ?? alreadyAnswered[q.id];
+    const level = confidences[q.id];
+    return {
+      state: done ? (done.correct ? "ok" : "bad") : "open",
+      doubt: marked.includes(q.id) || level === "duvida" || level === "chute",
+    } as const;
+  };
+
   const options = (
     <OptionsList
       question={question}
-      picked={result ? result.selected : picked}
+      picked={answered ? answeredSelected : picked}
       onPick={pickOption}
       struck={struck}
       onStrike={strikeOption}
-      locked={Boolean(result) || pending}
-      correctIndex={result?.reveal.correctIndex ?? null}
+      locked={answered || pending}
+      correctIndex={reveal?.correctIndex ?? null}
+      comments={reveal ? optionComments(reveal) : undefined}
+      optionPct={reveal?.stats.optionPct}
     />
   );
+  const isMarked = marked.includes(question.id);
+  const myVote = votes[question.id];
 
   return (
     <div className="qgrid-wrap">
       {celebrate && <Confetti />}
       {showing && <Celebration items={showing} onClose={closeCelebration} />}
       <ToastStack toasts={toasts} />
-      <div className="round-head">
-        <span className="round-count">
-          Questão {index + 1} de {questions.length}
-        </span>
-        <div className="bar level" style={{ flex: 1 }} role="progressbar" aria-valuenow={answeredCount} aria-valuemin={0} aria-valuemax={questions.length} aria-label="Progresso da rodada">
-          <i style={{ width: `${(answeredCount / questions.length) * 100}%` }} />
+
+      <div className="qhead">
+        <div className="qhead-top">
+          <p className="qhead-title round-count">
+            Questão {index + 1}
+            <small>/{questions.length}</small>
+          </p>
+          <span className="qhead-hits">
+            <Icon name="target" size={14} /> {hitsSoFar} {hitsSoFar === 1 ? "acerto" : "acertos"}
+          </span>
+          <button
+            type="button"
+            className="btn btn-ghost btn-sm"
+            aria-pressed={prefs.sound}
+            title={prefs.sound ? "Desligar sons" : "Ligar sons"}
+            onClick={() => writePrefs({ ...prefs, sound: !prefs.sound })}
+          >
+            {prefs.sound ? "Som ligado" : "Som desligado"}
+          </button>
         </div>
-        <button
-          type="button"
-          className="btn btn-ghost btn-sm"
-          aria-pressed={prefs.sound}
-          title={prefs.sound ? "Desligar sons" : "Ligar sons"}
-          onClick={() => writePrefs({ ...prefs, sound: !prefs.sound })}
-        >
-          {prefs.sound ? "Som ligado" : "Som desligado"}
-        </button>
+        <div className="qseg" role="progressbar" aria-valuenow={answeredCount} aria-valuemin={0} aria-valuemax={questions.length} aria-label="Progresso da rodada">
+          {questions.map((q, i) => (
+            <i key={q.id} className={`is-${statusOf(q).state} ${i === index ? "is-current" : ""}`} />
+          ))}
+        </div>
       </div>
       <ComboMeter combo={combo.value} broken={combo.broken} />
-      {!result && (
+      {!answered && (
         <Coach id="primeira-questao" title="Como responder">
           Escolha uma alternativa, diga o quanto você tem de certeza (é opcional) e toque em Responder. A explicação aparece logo depois.
         </Coach>
       )}
 
-      <article className={`card qgrid ${result ? "is-answered" : ""}`} ref={articleRef} tabIndex={-1} aria-label={`Questão ${index + 1} de ${questions.length}`}>
+      <article className={`card qgrid ${answered ? "is-answered" : ""}`} ref={articleRef} tabIndex={-1} aria-label={`Questão ${index + 1} de ${questions.length}`}>
         <div className="qleft">
           <div>
-          <QuestionHeader question={question} areaName={area?.name} areaColor={area?.color} />
-          <p className="stem">{question.stem}</p>
-          <ExamTables exams={question.exams} />
-          {result && options}
+            <div className="q-toprow">
+              <QuestionHeader question={question} areaName={area?.name} areaColor={area?.color} />
+              <div className="q-tools" role="toolbar" aria-label="Ferramentas da questão">
+                <button
+                  type="button"
+                  className="q-tool"
+                  aria-pressed={highlighting}
+                  title={highlighting ? "Desligar marca-texto" : "Marca-texto: selecione um trecho do enunciado para grifar"}
+                  onClick={() => setHighlighting((on) => !on)}
+                >
+                  <Icon name="marker" />
+                  <span className="sr-only">Marca-texto</span>
+                </button>
+                {!answered && (
+                  <button type="button" className="q-tool" title="Pedir pista clínica ao mascote" onClick={mascot.onRequestHint}>
+                    <Icon name="bulb" />
+                    <span className="sr-only">Pedir pista clínica</span>
+                  </button>
+                )}
+                <button type="button" className="q-tool" aria-pressed={showKeys} title="Atalhos de teclado" onClick={() => setShowKeys((on) => !on)}>
+                  <Icon name="keyboard" />
+                  <span className="sr-only">Atalhos de teclado</span>
+                </button>
+              </div>
+            </div>
+            {showKeys && (
+              <p className="q-keys" role="note">
+                <kbd>A</kbd> a <kbd>D</kbd> escolhem a alternativa, <kbd>Enter</kbd> responde e, depois, continua. Com o marca-texto ligado, selecione um trecho do enunciado para grifar; selecione de novo para apagar.
+              </p>
+            )}
+            {highlighting && (
+              <p className="q-keys" role="status">
+                Marca-texto ligado: selecione um trecho do enunciado.{" "}
+                {highlights.get(question.id).length > 0 && (
+                  <button type="button" className="link-btn" onClick={() => highlights.clear(question.id)}>
+                    Apagar grifos
+                  </button>
+                )}
+              </p>
+            )}
+            <Stem
+              text={question.stem}
+              ranges={highlights.get(question.id)}
+              highlighting={highlighting}
+              onHighlight={(range) => highlights.toggle(question.id, range)}
+            />
+            <ExamTables exams={question.exams} />
+            {answered && options}
           </div>
           <div className="mascot-station-dock">
             <MascotStation view={mascot} onRequestHint={mascot.onRequestHint} />
@@ -411,9 +579,9 @@ export function QuestionRunner({
         </div>
 
         <div className="qright">
-          {!result && options}
+          {!answered && options}
 
-          {!result && (
+          {!answered && (
             <>
               <div style={{ marginTop: 8 }} role="group" aria-labelledby="confianca-q">
                 <div id="confianca-q" className="eyebrow">
@@ -454,45 +622,63 @@ export function QuestionRunner({
           )}
 
           {result && (
+            <div
+              ref={resultRef}
+              tabIndex={-1}
+              className="xp-float result-box"
+              role="status"
+              style={{ background: result.correct ? "var(--ok-soft)" : "var(--bad-soft)" }}
+            >
+              <strong style={{ color: result.correct ? "var(--ok)" : "var(--bad)" }}>{result.correct ? "Acertou!" : "Não foi dessa vez"}</strong>
+              {result.xpGained > 0 && <span className="pill">+{result.xpGained} XP</span>}
+              {result.ratingDelta !== 0 && (
+                <span className="pill">
+                  {result.ratingDelta > 0 ? "+" : ""}
+                  {result.ratingDelta} no rating
+                </span>
+              )}
+              {result.combo >= 3 && <span className="pill">{result.combo} seguidas</span>}
+              {result.placementLeft > 0 && <span className="pill">Nivelamento: faltam {result.placementLeft}</span>}
+              {result.tierUp && <span className="pill">Nova patente: {result.tierName}</span>}
+              {result.levelUp && <span className="pill">Novo nível: {result.levelUp}</span>}
+              {result.dailyFinished && (
+                <span className="pill">
+                  Plantão concluído: {result.dailyFinished.correct}/{result.dailyFinished.total}
+                </span>
+              )}
+            </div>
+          )}
+
+          {prior && (
+            <div className="result-box" role="status" style={{ background: prior.correct ? "var(--ok-soft)" : "var(--bad-soft)" }}>
+              <strong style={{ color: prior.correct ? "var(--ok)" : "var(--bad)" }}>{prior.correct ? "Você acertou esta" : "Você errou esta"}</strong>
+              <span className="pill">Respondida antes</span>
+            </div>
+          )}
+
+          {answered && (
             <>
-              <div
-                ref={resultRef}
-                tabIndex={-1}
-                className="xp-float result-box"
-                role="status"
-                style={{ background: result.correct ? "var(--ok-soft)" : "var(--bad-soft)" }}
-              >
-                <strong style={{ color: result.correct ? "var(--ok)" : "var(--bad)" }}>{result.correct ? "Acertou!" : "Não foi dessa vez"}</strong>
-                {result.xpGained > 0 && <span className="pill">+{result.xpGained} XP</span>}
-                {result.ratingDelta !== 0 && (
-                  <span className="pill">
-                    {result.ratingDelta > 0 ? "+" : ""}
-                    {result.ratingDelta} no rating
-                  </span>
-                )}
-                {result.combo >= 3 && <span className="pill">{result.combo} seguidas</span>}
-                {result.placementLeft > 0 && <span className="pill">Nivelamento: faltam {result.placementLeft}</span>}
-                {result.tierUp && <span className="pill">Nova patente: {result.tierName}</span>}
-                {result.levelUp && <span className="pill">Novo nível: {result.levelUp}</span>}
-                {result.dailyFinished && (
-                  <span className="pill">
-                    Plantão concluído: {result.dailyFinished.correct}/{result.dailyFinished.total}
-                  </span>
-                )}
-              </div>
+              {result && (
+                <div className="mascot-station-dock-mobile">
+                  <MascotStation view={mascot} onRequestHint={mascot.onRequestHint} variant="compact" />
+                </div>
+              )}
 
-              <div className="mascot-station-dock-mobile">
-                <MascotStation view={mascot} onRequestHint={mascot.onRequestHint} variant="compact" />
-              </div>
-
-              <RevealPanel
-                reveal={result.reveal}
-                options={question.options}
-                questionId={question.id}
-                verification={question.verification}
-                selected={result.selected}
-                answerId={result.answerId}
-              />
+              {reveal ? (
+                <RevealPanel
+                  reveal={reveal}
+                  options={question.options}
+                  questionId={question.id}
+                  verification={question.verification}
+                  selected={answeredSelected}
+                  answerId={result?.answerId}
+                  showReport={false}
+                />
+              ) : (
+                <p className="muted" style={{ marginTop: 12 }}>
+                  Carregando comentário…
+                </p>
+              )}
 
               <div className="sticky-action">
                 <button type="button" className="btn btn-primary" style={{ width: "100%" }} onClick={next}>
@@ -503,6 +689,78 @@ export function QuestionRunner({
           )}
         </div>
       </article>
+
+      <section className="card qfoot" aria-label="Navegação e avaliação">
+        <nav className="qmap" aria-label="Mapa das questões">
+          <p className="eyebrow">Mapa das questões</p>
+          <ol className="qmap-grid">
+            {questions.map((q, i) => {
+              const status = statusOf(q);
+              return (
+                <li key={q.id}>
+                  <button
+                    type="button"
+                    className={`qmap-btn is-${status.state} ${status.doubt ? "is-doubt" : ""}`}
+                    aria-current={i === index ? "step" : undefined}
+                    aria-label={`Questão ${i + 1}: ${STATE_LABEL[status.state]}${status.doubt ? ", com dúvida" : ""}`}
+                    onClick={() => goTo(i)}
+                  >
+                    {status.state === "ok" && <Icon name="check" size={11} />}
+                    {status.state === "bad" && <Icon name="x" size={11} />}
+                    <span>{i + 1}</span>
+                  </button>
+                </li>
+              );
+            })}
+          </ol>
+          <p className="qmap-legend" aria-hidden="true">
+            <span className="is-ok">acerto</span>
+            <span className="is-bad">erro</span>
+            <span className="is-doubt">dúvida</span>
+          </p>
+        </nav>
+
+        <div className="qfoot-nav">
+          <button type="button" className="btn btn-ghost btn-sm" disabled={index === 0} onClick={() => goTo(index - 1)}>
+            <Icon name="left" size={16} /> Anterior
+          </button>
+          <button type="button" className="btn btn-ghost btn-sm" disabled={index === questions.length - 1} onClick={() => goTo(index + 1)}>
+            Próxima <Icon name="right" size={16} />
+          </button>
+        </div>
+
+        <div className="qfoot-tools">
+          <div className="qfoot-rate" role="group" aria-label="Avaliar questão">
+            <span className="dim">Avaliar questão:</span>
+            <button type="button" className="q-tool" aria-pressed={myVote === 1} title="Gostei da questão" onClick={() => vote(1)}>
+              <Icon name="up" />
+              <span className="sr-only">Gostei</span>
+            </button>
+            <button type="button" className="q-tool" aria-pressed={myVote === -1} title="Não gostei da questão" onClick={() => vote(-1)}>
+              <Icon name="down" />
+              <span className="sr-only">Não gostei</span>
+            </button>
+          </div>
+          <div className="qfoot-rate">
+            <button type="button" className={`q-tool is-wide ${isMarked ? "is-on" : ""}`} aria-pressed={isMarked} onClick={toggleMark}>
+              <Icon name="bookmark" /> {isMarked ? "Marcada para rever" : "Rever depois"}
+            </button>
+            <button
+              type="button"
+              className="q-tool is-danger"
+              aria-expanded={reportFor === question.id}
+              title="Reportar problema na questão"
+              onClick={() => setReportFor(reportFor === question.id ? null : question.id)}
+            >
+              <Icon name="flag" />
+              <span className="sr-only">Reportar problema</span>
+            </button>
+          </div>
+        </div>
+        {reportFor === question.id && <ReportBox key={question.id} questionId={question.id} initialOpen="report" />}
+      </section>
     </div>
   );
 }
+
+const STATE_LABEL = { ok: "acertou", bad: "errou", open: "não respondida" } as const;

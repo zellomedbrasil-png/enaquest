@@ -72,14 +72,34 @@ test.describe.serial("aluno", () => {
       await page.getByRole("button", { name: "Tenho certeza" }).click();
       await page.getByRole("button", { name: "Responder" }).click();
       await expect(page.getByText("Em 20 segundos")).toBeVisible();
+      // Comentário embaixo da alternativa correta e cartões de aprofundamento.
+      await expect(page.getByText("CORRETA.", { exact: true })).toBeVisible();
+      await page.getByRole("tab", { name: /Dica de ouro/ }).click();
       await expect(page.getByText("Macete de prova")).toBeVisible();
+      await page.getByRole("tab", { name: /Como pensar/ }).click();
+      await expect(page.getByText("Raciocínio clínico")).toBeVisible();
+      // Sem revisão do tema cadastrada, o cartão não aparece.
+      await expect(page.getByRole("tab", { name: /Revisão do tema/ })).toHaveCount(0);
       // Selo "Verificada por IA" fica escondido por enquanto (SHOW_TRUST_NOTICES em RevealPanel).
       if (i === 0) {
         await expect(page.getByText(/\+\d+ XP/).first()).toBeVisible();
         await expect(page.getByText(/Nivelamento: faltam/)).toBeVisible();
       }
+      if (i === 1) {
+        // Volta pelo mapa para a primeira questão e vê o comentário dela de novo.
+        await page.getByRole("button", { name: /^Questão 1: acertou/ }).click();
+        await expect(page.getByText("CORRETA.", { exact: true })).toBeVisible();
+        await page.getByRole("button", { name: /^Questão 2: acertou/ }).click();
+        await expect(page.getByText("Em 20 segundos")).toBeVisible();
+        // Marca para rever e avalia.
+        await page.getByRole("button", { name: "Rever depois" }).click();
+        await expect(page.getByRole("button", { name: "Marcada para rever" })).toHaveAttribute("aria-pressed", "true");
+        await page.getByRole("button", { name: "Gostei", exact: true }).click();
+        await expect(page.getByRole("button", { name: "Gostei", exact: true })).toHaveAttribute("aria-pressed", "true");
+      }
       if (i === questions.length - 1) {
         await expect(page.getByText("Por que você errou?")).toBeVisible();
+        await expect(page.locator(".opt.wrong").getByText("INCORRETA.", { exact: true })).toBeVisible();
         await page.getByRole("button", { name: "Li errado" }).click();
         await expect(page.getByText(/Plantão concluído: 9\/10/)).toBeVisible();
       }

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { z } from "zod";
 import { ExamTables, OptionsList } from "@/components/QuestionView";
 import { RevealPanel } from "@/components/RevealPanel";
+import { optionComments } from "@/lib/ui/comments";
 import { PerformanceBars } from "@/components/RatingChart";
 import { ScoreRing } from "@/components/ui";
 import { getSimuladoResult } from "@/lib/server/simulados";
@@ -121,7 +122,14 @@ export default async function SimuladoResultPage({ params }: { params: Promise<{
                   <div className="sim-review-body">
                     <p className="stem">{item.question.stem}</p>
                     <ExamTables exams={item.question.exams} />
-                    <OptionsList question={item.question} picked={item.selected} locked correctIndex={item.reveal.correctIndex} />
+                    <OptionsList
+                      question={item.question}
+                      picked={item.selected}
+                      locked
+                      correctIndex={item.reveal.correctIndex}
+                      comments={optionComments(item.reveal)}
+                      optionPct={item.reveal.stats.optionPct}
+                    />
                     <RevealPanel reveal={item.reveal} options={item.question.options} questionId={item.question.id} verification={item.question.verification} selected={item.selected} showCommunity={item.selected !== null} />
                   </div>
                 </details>

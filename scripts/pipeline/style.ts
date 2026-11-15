@@ -21,4 +21,11 @@ Conteúdo:
 Comentário:
 - Ensine o raciocínio, não só a resposta. Explique o erro de cada alternativa errada.
 - Português do Brasil, claro e direto, sem markdown.
+
+Material de estudo (key_why, theory, summary):
+- key_why liga os dados do caso à alternativa correta, sem repetir o "quick" palavra por palavra.
+- theory é a revisão do tema para quem nunca estudou: quando suspeitar ou indicar, como conduzir, o que a prova cobra. Use só o que as fontes sustentam.
+- summary é para revisar em 30 segundos: rótulos curtos (Conceito, Indicação, Conduta, Armadilha) e frases diretas.
+- Nada de asteriscos, hífens de lista, cerquilhas ou outra marcação: listas vão nos campos "items" e "sub".
+- Não cite portarias, notas técnicas, indicadores de financiamento nem datas de prova que não estejam nas fontes.
 `;

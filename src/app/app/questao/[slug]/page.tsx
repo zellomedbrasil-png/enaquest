@@ -9,6 +9,7 @@ import { admin } from "@/lib/supabase/admin";
 import { getQuestionPage } from "@/lib/server/study";
 import { isPremium, requireUser } from "@/lib/server/session";
 import { ERROR_REASON_LABEL, LETTERS } from "@/lib/ui/labels";
+import { optionComments } from "@/lib/ui/comments";
 
 export const metadata: Metadata = { title: "Questão" };
 
@@ -69,7 +70,14 @@ export default async function QuestionPage({ params }: { params: Promise<{ slug:
             <QuestionHeader question={page.question} areaName={area?.name} areaColor={area?.color} />
             <p className="stem">{page.question.stem}</p>
             <ExamTables exams={page.question.exams} />
-            <OptionsList question={page.question} picked={answer.selected} locked correctIndex={reveal.correctIndex} />
+            <OptionsList
+              question={page.question}
+              picked={answer.selected}
+              locked
+              correctIndex={reveal.correctIndex}
+              comments={optionComments(reveal)}
+              optionPct={reveal.stats.optionPct}
+            />
           </div>
         </div>
 
