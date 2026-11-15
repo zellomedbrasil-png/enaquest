@@ -80,7 +80,8 @@ test.describe.serial("aluno", () => {
       await expect(page.getByText("Raciocínio clínico")).toBeVisible();
       // Sem revisão do tema cadastrada, o cartão não aparece.
       await expect(page.getByRole("tab", { name: /Revisão do tema/ })).toHaveCount(0);
-      // Selo "Verificada por IA" fica escondido por enquanto (SHOW_TRUST_NOTICES em RevealPanel).
+      await expect(page.getByText("Verificada por IA", { exact: true })).toBeVisible();
+      await expect(page.getByText(/Conteúdo educacional, não substitui/)).toBeVisible();
       if (i === 0) {
         await expect(page.getByText(/\+\d+ XP/).first()).toBeVisible();
         await expect(page.getByText(/Nivelamento: faltam/)).toBeVisible();
@@ -117,7 +118,7 @@ test.describe.serial("aluno", () => {
     await expect(page.getByText("A liga semanal abre depois do nivelamento")).toBeVisible();
     await expect(page.getByText(/Ranking do Plantão de hoje/)).toBeVisible();
 
-    // Discussão da turma fica escondida por enquanto (SHOW_TRUST_NOTICES em RevealPanel).
+    // Discussão da turma fica escondida por enquanto (SHOW_DISCUSSION em RevealPanel).
 
     // Evolução
     await page.goto("/app/evolucao");

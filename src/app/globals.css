@@ -2647,3 +2647,10 @@ html[data-text="large"] #conteudo {
 @media (prefers-reduced-motion: reduce) {
   .study-card, .opt-comment summary::before, .q-tool { transition: none; }
 }
+
+/* Selo de verificação no fim do comentário */
+.trust-seal { margin-top: 8px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px; }
+.trust-seal .pill { flex: none; }
+.pill.seal-medico_revisado { color: var(--ok); background: var(--ok-soft); }
+.pill.seal-lote_amostrado { color: var(--sky); background: var(--info-soft); }
+.pill.seal-ia_verificada { color: var(--ink); background: var(--card-2); border: 1px solid var(--line); }
