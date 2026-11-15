@@ -40,8 +40,8 @@ test.describe.serial("acessibilidade", () => {
     await scan(page, "conta");
     await page.goto("/app/mascote");
     await scan(page, "mascote");
-    await page.getByRole("button", { name: /^Pijama cirúrgico verde/ }).click();
-    await scan(page, "mascote provando");
+    await page.getByRole("button", { name: /Dra. Helena.*Mestre da revisão/ }).click();
+    await scan(page, "mascote selecionado");
     await page.goto("/app/como-funciona");
     await scan(page, "como funciona");
     await page.goto("/guia-de-estilo");

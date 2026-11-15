@@ -6,7 +6,7 @@
 node_modules
 .next
 .vercel
-Mascote
+/Mascote/
 design
 docs
 content

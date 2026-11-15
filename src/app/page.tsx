@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { AccessLabel } from "./AccessLabel";
 import { MarketingHeader } from "./MarketingHeader";
 import { ReelPlayer } from "./ReelPlayer";
 import Link from "next/link";
@@ -44,7 +45,7 @@ export default async function LandingPage() {
             <p className={s.label}>Preparação para ENAMED e ENARE</p>
             <h1>Treine como é a prova.<br /><em>Um plantão por dia.</em></h1>
             <p className={s.lead}>Dez questões para resolver hoje. Comentários para entender cada alternativa. E uma turma inteira no mesmo plantão.</p>
-            <div className={s.actions}><Link className={s.primary} href={start}>{user ? "Ir para meu plantão" : "Começar grátis"} <span aria-hidden="true">→</span></Link><ReelPlayer /></div>
+            <div className={s.actions}><Link className={s.primary} href={start}><AccessLabel>{user ? "Ir para meu plantão" : "Começar grátis"}</AccessLabel> <span aria-hidden="true">→</span></Link><ReelPlayer /></div>
             <p className={s.note}>Plantão do Dia gratuito · Sem cartão de crédito</p>
           </div>
         </section>

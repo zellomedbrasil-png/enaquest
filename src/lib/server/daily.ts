@@ -1,4 +1,5 @@
 import "server-only";
+import { cache } from "react";
 import { admin } from "@/lib/supabase/admin";
 import { getPublicQuestions, type PublicQuestion } from "./questions";
 import { pickDaily } from "./selection";
@@ -6,7 +7,7 @@ import { pickDaily } from "./selection";
 export const DAILY_SIZE = 10;
 
 /** As mesmas questões para todos, sorteadas uma vez por dia. */
-export async function getDailyIds(day: string): Promise<string[]> {
+export const getDailyIds = cache(async (day: string): Promise<string[]> => {
   const db = admin();
   const { data: existing } = await db.from("daily_challenges").select("question_ids").eq("day", day).maybeSingle();
   if (existing) return existing.question_ids;
@@ -20,7 +21,7 @@ export async function getDailyIds(day: string): Promise<string[]> {
   // Outra requisição pode ter sorteado ao mesmo tempo: vale o que ficou gravado.
   const { data: saved } = await db.from("daily_challenges").select("question_ids").eq("day", day).single();
   return saved.question_ids;
-}
+});
 
 export type DailyState = {
   day: string;
@@ -30,14 +31,11 @@ export type DailyState = {
 };
 
 export async function getDailyState(userId: string, day: string): Promise<DailyState> {
-  const ids = await getDailyIds(day);
-  const questions = await getPublicQuestions(ids);
-  const { data } = await admin()
-    .from("answers")
-    .select("question_id, selected, is_correct")
-    .eq("user_id", userId)
-    .eq("mode", "daily")
-    .eq("context", day);
+  const [questions, { data }] = await Promise.all([
+    getDailyIds(day).then(ids => getPublicQuestions(ids)),
+    admin().from("answers").select("question_id, selected, is_correct")
+      .eq("user_id", userId).eq("mode", "daily").eq("context", day),
+  ]);
   const answered: DailyState["answered"] = {};
   for (const row of data ?? []) answered[row.question_id] = { selected: row.selected, correct: row.is_correct };
   return { day, questions, answered, done: questions.length > 0 && Object.keys(answered).length >= questions.length };

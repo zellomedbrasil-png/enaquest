@@ -121,7 +121,9 @@
   .cards { gap: 10px; } .cards article { padding: 17px; }
 }
 @media (max-width: 650px) {
-  .navbar { min-height: 64px; } .navbar nav { display: none; }
+  .navbar { min-height: 64px; flex-wrap: wrap; gap: 8px; padding-block: 12px 0; }
+  .navbar nav { order: 1; width: 100%; justify-content: space-between; gap: 4px; border-top: 1px solid #30303e; font-size: 13px; }
+  .navbar nav a { display: inline-flex; align-items: center; min-height: 44px; }
   .hero, .cards { grid-template-columns: 1fr; }
   .hero { padding-block: 40px; gap: 32px; }
   .hero h1 { max-width: 480px; }

@@ -114,7 +114,6 @@ export function MascotPicker({ initial, stats }: { initial: MascotView; stats: P
                   type="button"
                   className={`mascot-card-pick${selected ? " is-selected" : ""}`}
                   style={{ "--accent-mascot": mascot.accent } as CSSProperties}
-                  aria-label={`Escolher ${mascot.name}`}
                   aria-pressed={selected}
                   disabled={pending}
                   onMouseEnter={() => setPreview(mascot.id)}

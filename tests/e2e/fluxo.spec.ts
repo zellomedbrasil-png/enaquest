@@ -13,6 +13,20 @@ test.describe("visitante", () => {
     await expect(page.getByText(/não aceitamos cartão de débito/)).toBeVisible();
   });
 
+  test("navega entre as seções no celular e abre o app após entrar", async ({ page }) => {
+    await page.goto("/");
+    for (const [name, hash] of [["Recursos", "#recursos"], ["Método", "#metodo"], ["Dúvidas", "#duvidas"]]) {
+      await page.getByRole("navigation", { name: "Navegação principal" }).getByRole("link", { name }).click();
+      await expect(page.locator(hash)).toBeInViewport();
+    }
+    await page.getByRole("link", { name: "Entrar no app" }).click();
+    await expect(page.getByRole("button", { name: "Entrar", exact: true })).toBeVisible();
+    await signUp(page);
+    await page.goto("/");
+    await page.getByRole("link", { name: "Abrir o app" }).click();
+    await expect(page.getByRole("heading", { name: "Sua jornada de hoje" })).toBeVisible();
+  });
+
   test("não entra na área logada", async ({ page }) => {
     for (const path of ["/app", "/app/treino", "/admin", "/assinar"]) {
       await page.goto(path);
@@ -215,14 +229,15 @@ test.describe.serial("aluno", () => {
   test("mascote: escolhe um dos oito companheiros e mantém a escolha", async ({ page }) => {
     const { id } = await signUp(page);
     await page.goto("/app/mascote");
-    await expect(page.getByRole("button", { name: /^Escolher / })).toHaveCount(8);
-    await page.getByRole("button", { name: "Escolher Dra. Helena", exact: true }).click();
+    await expect(page.getByRole("list", { name: "Mascotes disponíveis" }).getByRole("button")).toHaveCount(8);
+    await page.getByRole("button", { name: /Dra. Helena.*Mestre da revisão/ }).click();
     await expect(page.getByRole("heading", { name: "Dra. Helena", exact: true })).toBeVisible();
-    await expect(page.getByRole("button", { name: "Escolher Dra. Helena", exact: true })).toHaveAttribute("aria-pressed", "true");
+    await expect(page.getByRole("button", { name: /Dra. Helena.*Mestre da revisão/ })).toHaveAttribute("aria-pressed", "true");
     await page.reload();
     await expect(page.getByRole("heading", { name: "Dra. Helena", exact: true })).toBeVisible();
     await page.goto("/app");
-    await expect(page.getByRole("button", { name: "Conversar com Dra. Helena", exact: true })).toBeVisible();
+    await page.getByRole("link", { name: "Mascote", exact: true }).click();
+    await expect(page.getByRole("button", { name: /Dra. Helena.*Mestre da revisão/ })).toHaveAttribute("aria-pressed", "true");
     const { data: totals } = await db.from("rating_state").select("xp_total, xp_spent").eq("user_id", id).single();
     expect(totals).toEqual({ xp_total: 0, xp_spent: 0 });
   });
