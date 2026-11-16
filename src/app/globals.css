@@ -2789,3 +2789,16 @@ a.study-focus:hover { border-color: var(--accent); }
 .q-figure a { display: block; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: #fff; }
 .q-figure img { display: block; width: 100%; height: auto; max-height: 420px; object-fit: contain; }
 .q-figure figcaption { margin-top: 4px; font-size: 13px; color: var(--mute); }
+
+/* Lista de provas oficiais */
+.official-list { display: grid; gap: 12px; }
+@media (min-width: 900px) { .official-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.official-card { display: grid; gap: 14px; align-content: start; }
+.official-head { display: flex; justify-content: space-between; align-items: start; gap: 12px; }
+.official-head h2 { font-size: 22px; letter-spacing: -.02em; }
+.official-board { font: 700 11px/1.5 ui-monospace, Consolas, monospace; letter-spacing: .12em; text-transform: uppercase; color: var(--mute); }
+.official-key-final { color: var(--ok); background: var(--ok-soft); border-color: transparent; }
+.official-key-pre { color: var(--gold); background: var(--pearl-soft); border-color: transparent; }
+.official-progress { display: grid; gap: 6px; font-size: 14px; }
+.official-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.official-msg { color: var(--bad); font-size: 14px; }

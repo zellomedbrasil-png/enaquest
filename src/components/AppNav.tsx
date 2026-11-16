@@ -12,6 +12,7 @@ const ICON = {
   revisao: "M4 12a8 8 0 0 1 14-5.3L20 9M20 4v5h-5M20 12a8 8 0 0 1-14 5.3L4 15m0 5v-5h5",
   treino: "M4 19V9m5 10V5m6 14v-7m5 7V8",
   simulados: "M12 7v5l3 2M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z",
+  provas: "M6 3h8l5 5v13H6V3Zm8 0v5h5M9.500 14.500l2 2 4-4",
   ligas: "M7 4h10v5a5 5 0 0 1-10 0V4Zm5 10v4m-4 3h8M7 6H4a3 3 0 0 0 3 3m10-3h3a3 3 0 0 1-3 3",
   evolucao: "M3 17l6-6 4 4 8-9",
   mascote: "M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18ZM8.500 14.500a4.500 4.500 0 0 0 7 0M9 10h.01M15 10h.01",
@@ -19,10 +20,10 @@ const ICON = {
   conta: "M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM4 21a8 8 0 0 1 16 0",
 };
 
-// Celular: cinco destinos na barra inferior. "Estudar" reúne Treino, Revisão e Simulados.
+// Celular: cinco destinos na barra inferior. "Estudar" reúne Treino, Revisão, Simulados e Provas oficiais.
 const MOBILE: Item[] = [
   { href: "/app", label: "Hoje", match: [], exact: true, icon: ICON.hoje },
-  { href: "/app/estudar", label: "Estudar", match: ["/app/estudar", "/app/treino", "/app/revisao", "/app/simulados", "/app/questao", "/app/plantao"], icon: ICON.estudar },
+  { href: "/app/estudar", label: "Estudar", match: ["/app/estudar", "/app/treino", "/app/revisao", "/app/simulados", "/app/provas", "/app/questao", "/app/plantao"], icon: ICON.estudar },
   { href: "/app/ligas", label: "Ligas", match: ["/app/ligas"], icon: ICON.ligas },
   { href: "/app/evolucao", label: "Evolução", match: ["/app/evolucao"], icon: ICON.evolucao },
   { href: "/app/mascote", label: "Mascote", match: ["/app/mascote"], icon: ICON.mascote },
@@ -43,6 +44,7 @@ const GROUPS: { label: string; items: Item[] }[] = [
       { href: "/app/revisao", label: "Revisão", match: ["/app/revisao", "/app/questao"], icon: ICON.revisao },
       { href: "/app/treino", label: "Treino", match: ["/app/treino"], icon: ICON.treino },
       { href: "/app/simulados", label: "Simulados", match: ["/app/simulados"], icon: ICON.simulados },
+      { href: "/app/provas", label: "Provas oficiais", match: ["/app/provas"], icon: ICON.provas },
     ],
   },
   {

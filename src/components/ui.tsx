@@ -17,6 +17,7 @@ export const TOOL_ICON = {
   revisao: "M4 12a8 8 0 0 1 14-5.3L20 9M20 4v5h-5M20 12a8 8 0 0 1-14 5.3L4 15m0 5v-5h5",
   treino: "M4 19V9m5 10V5m6 14v-7m5 7V8",
   simulados: "M12 7v5l3 2M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z",
+  provas: "M6 3h8l5 5v13H6V3Zm8 0v5h5M9.500 14.500l2 2 4-4",
   evolucao: "M3 17l6-6 4 4 8-9",
   ligas: "M7 4h10v5a5 5 0 0 1-10 0V4Zm5 10v4m-4 3h8M7 6H4a3 3 0 0 0 3 3m10-3h3a3 3 0 0 1-3 3",
 } as const;

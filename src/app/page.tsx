@@ -46,7 +46,7 @@ export default async function LandingPage() {
             <h1>Treine como é a prova.<br /><em>Um plantão por dia.</em></h1>
             <p className={s.lead}>Dez questões para resolver hoje. Comentários para entender cada alternativa. E uma turma inteira no mesmo plantão.</p>
             <div className={s.actions}><Link className={s.primary} href={start}><AccessLabel>{user ? "Ir para meu plantão" : "Começar grátis"}</AccessLabel> <span aria-hidden="true">→</span></Link><ReelPlayer /></div>
-            <p className={s.note}>Plantão do Dia gratuito · Sem cartão de crédito</p>
+            <p className={s.note}>Plantão do Dia gratuito · Sem cartão de crédito · <Link href="/ferramentas/teste-de-nivel">Faça o teste de nível grátis</Link></p>
           </div>
         </section>
         <section id="recursos" className={s.section}><p className={s.label}>A plataforma</p><h2>O que você encontra no plantão</h2>

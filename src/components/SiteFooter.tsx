@@ -11,6 +11,7 @@ export function SiteFooter() {
         <p style={{ marginTop: 8, display: "flex", gap: 16, flexWrap: "wrap" }}>
           <Link href="/termos">Termos de uso</Link>
           <Link href="/privacidade">Privacidade</Link>
+          <Link href="/ferramentas">Ferramentas grátis</Link>
           <Link href="/planos">Planos</Link>
         </p>
       </div>

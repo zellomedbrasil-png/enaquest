@@ -20,6 +20,7 @@ import {
   type TrainingFilter,
 } from "@/lib/server/study";
 import { finishSimulado, saveSimuladoProgress } from "@/lib/server/simulados";
+import { startOfficialRound } from "@/lib/server/official";
 import * as community from "@/lib/server/community";
 import * as leagues from "@/lib/server/leagues";
 import * as editorial from "@/lib/server/editorial";
@@ -173,6 +174,13 @@ export async function startTrainingAction(input: { areaId: string | null; filter
   return run(async () => {
     const user = await requireUser();
     return startTraining(user.id, input);
+  });
+}
+
+export async function startOfficialRoundAction(examId: string, size: number) {
+  return run(async () => {
+    const user = await requireUser();
+    return startOfficialRound(user.id, z.string().min(1).max(80).parse(examId), z.number().int().min(5).max(100).parse(size));
   });
 }
 

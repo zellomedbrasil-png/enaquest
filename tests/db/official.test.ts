@@ -5,6 +5,7 @@ import { submitAnswer } from "@/lib/server/answers";
 import { getPublicQuestions } from "@/lib/server/questions";
 import { getDailyIds } from "@/lib/server/daily";
 import { startTraining } from "@/lib/server/study";
+import { FREE_OFFICIAL_QUESTIONS, listOfficialExams, startOfficialRound } from "@/lib/server/official";
 
 vi.mock("next/navigation", () => ({ redirect: vi.fn() }));
 vi.mock("next/headers", () => ({ cookies: vi.fn() }));
@@ -66,5 +67,27 @@ describe("provas oficiais", () => {
     const [q] = await createQuestions(1, "clinica", { official_exam_id: exam, official_number: 9, annulled: true });
     const user = await createUser();
     await expect(submitAnswer(user.id, { questionId: q.id, mode: "training", context: randomUUID(), selected: 0 })).rejects.toThrow(/anulada/);
+  });
+
+  it("grátis resolve só a amostra; assinante continua de onde parou, na ordem do caderno", async () => {
+    const exam = await createExam();
+    const qs = [];
+    for (let n = 1; n <= FREE_OFFICIAL_QUESTIONS + 3; n++) {
+      const [q] = await createQuestions(1, "clinica", { license: "liberado", official_exam_id: exam, official_number: n });
+      qs.push(q);
+    }
+    const free = await createUser();
+    const sample = await startOfficialRound(free.id, exam, 100);
+    expect(sample.sampleOnly).toBe(true);
+    expect(sample.questions.map((q) => q.id)).toEqual(qs.slice(0, FREE_OFFICIAL_QUESTIONS).map((q) => q.id));
+
+    const paid = await createUser();
+    await makePremium(paid.id);
+    await submitAnswer(paid.id, { questionId: qs[0].id, mode: "training", context: randomUUID(), selected: qs[0].correct });
+    const round = await startOfficialRound(paid.id, exam, 5);
+    expect(round.questions.map((q) => q.official?.number)).toEqual([2, 3, 4, 5, 6]);
+
+    const listed = (await listOfficialExams(paid.id)).find((e) => e.id === exam);
+    expect(listed).toMatchObject({ total: FREE_OFFICIAL_QUESTIONS + 3, answered: 1, correct: 1 });
   });
 });

@@ -46,11 +46,20 @@ export default async function StudyPage() {
         {!premium && <StatusPill tone="pend">assinatura</StatusPill>}
       </Link>
 
+      <Link href="/app/provas" className="choice">
+        <ToolIcon name="provas" />
+        <div>
+          <h2>Provas oficiais</h2>
+          <p>Resolva o ENAMED e o ENARE na ordem do caderno, com o gabarito da banca e o comentário de cada alternativa.</p>
+        </div>
+        {!premium && <StatusPill tone="ok">amostra grátis</StatusPill>}
+      </Link>
+
       </div>
 
       {!premium && (
         <p className="muted" style={{ fontSize: 14.5 }}>
-          Revisão, Treino e Simulados fazem parte da assinatura.{" "}
+          Revisão, Treino, Simulados e as provas oficiais completas fazem parte da assinatura.{" "}
           <Link href="/planos">Ver o que está incluso</Link>.
         </p>
       )}
