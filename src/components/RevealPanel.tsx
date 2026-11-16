@@ -11,7 +11,7 @@ import {
 } from "@/app/actions";
 import type { CommentView, ReportKind } from "@/lib/server/community";
 import type { Reveal } from "@/lib/server/questions";
-import { formatDate, REPORT_LABEL, SEALS } from "@/lib/ui/labels";
+import { formatDate, OFFICIAL_SEALS, REPORT_LABEL, SEALS } from "@/lib/ui/labels";
 import { StudyPanel } from "./StudyPanel";
 
 export function ReportBox({ questionId, initialOpen = null }: { questionId: string; initialOpen?: "report" | "appeal" | null }) {
@@ -199,6 +199,7 @@ export function RevealPanel({
   options,
   questionId,
   verification,
+  official = null,
   selected,
   showCommunity = true,
   showReport = true,
@@ -207,12 +208,14 @@ export function RevealPanel({
   options: string[];
   questionId: string;
   verification: string;
+  /** Questão de prova oficial: o selo fala do comentário, não da autoria da questão. */
+  official?: { name: string; number: number; keyStatus: string } | null;
   selected: number | null;
   showCommunity?: boolean;
   /** O runner tem o próprio botão de reportar no rodapé. */
   showReport?: boolean;
 }) {
-  const seal = SEALS[verification];
+  const seal = (official ? OFFICIAL_SEALS : SEALS)[verification];
   const wrong = selected !== null && selected !== reveal.correctIndex;
   return (
     <div style={{ marginTop: 6 }}>
@@ -247,6 +250,7 @@ export function RevealPanel({
         {SHOW_TRUST_NOTICES && seal && (
           <p className="trust-seal">
             <span className={`pill seal-${verification}`}>{seal.label}</span> {seal.detail}
+            {official?.keyStatus === "preliminar" && " O gabarito ainda é o preliminar e pode mudar após os recursos."}
           </p>
         )}
         {SHOW_TRUST_NOTICES && (

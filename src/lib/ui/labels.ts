@@ -2,6 +2,22 @@
 
 export const LETTERS = ["A", "B", "C", "D", "E"];
 
+/** Em questão de prova oficial, a questão é da banca; o selo fala só do comentário. */
+export const OFFICIAL_SEALS: Record<string, { label: string; detail: string }> = {
+  ia_verificada: {
+    label: "Comentário verificado por IA",
+    detail: "Questão da prova oficial, com o gabarito da banca. O comentário foi escrito e checado por modelos de IA, com fontes; nenhum médico o leu individualmente.",
+  },
+  lote_amostrado: {
+    label: "Comentário aprovado por amostragem",
+    detail: "Questão da prova oficial, com o gabarito da banca. Um médico revisou uma amostra dos comentários desta prova, sem erro crítico.",
+  },
+  medico_revisado: {
+    label: "Comentário revisado por médico",
+    detail: "Questão da prova oficial, com o gabarito da banca. Um médico leu e aprovou este comentário.",
+  },
+};
+
 export const SEALS: Record<string, { label: string; detail: string }> = {
   ia_verificada: {
     label: "Verificada por IA",

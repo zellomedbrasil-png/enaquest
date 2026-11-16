@@ -53,10 +53,11 @@ export async function submitAnswer(userId: string, input: AnswerInput): Promise<
 
   const { data: question } = await db
     .from("questions")
-    .select("id, status, rating, options")
+    .select("id, status, rating, options, annulled")
     .eq("id", input.questionId)
     .single();
   if (!question || question.status !== "published") throw new AppError("not_found", "Questão indisponível.");
+  if (question.annulled) throw new AppError("invalid", "Questão anulada pela banca: fica só para consulta.");
   if (!Number.isInteger(input.selected) || input.selected < 0 || input.selected >= question.options.length) {
     throw new AppError("invalid", "Alternativa inválida.");
   }

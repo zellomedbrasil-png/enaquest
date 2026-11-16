@@ -310,7 +310,7 @@ export function QuestionRunner({
     advance();
   };
 
-  // Atalhos: A a D escolhem, Enter confirma ou avança.
+  // Atalhos: A a E escolhem, Enter confirma ou avança.
   useEffect(() => {
     const handler = (event: KeyboardEvent) => {
       const target = event.target as HTMLElement;
@@ -319,7 +319,7 @@ export function QuestionRunner({
       // Ctrl+A, Ctrl+C, Cmd+D e afins são do navegador, não escolhas de alternativa.
       if (event.ctrlKey || event.metaKey || event.altKey) return;
       if (!answered) {
-        const position = "abcd".indexOf(event.key.toLowerCase());
+        const position = "abcde".indexOf(event.key.toLowerCase());
         if (position >= 0 && position < question.options.length) pickOption(position);
         if (event.key === "Enter" && picked !== null && !pending) submit();
       } else if (event.key === "Enter" && target.tagName !== "BUTTON" && target.tagName !== "A") {
@@ -571,7 +571,7 @@ export function QuestionRunner({
               highlighting={highlighting}
               onHighlight={(range) => highlights.toggle(question.id, range)}
             />
-            <ExamTables exams={question.exams} />
+            <ExamTables exams={question.exams} images={question.images} />
             {answered && options}
           </div>
           <div className="mascot-station-dock">
@@ -604,7 +604,7 @@ export function QuestionRunner({
                   ))}
                 </div>
               </div>
-              <p className="dim kbd-help">Atalhos: as teclas A a D escolhem a alternativa e Enter confirma.</p>
+              <p className="dim kbd-help">Atalhos: as teclas de letra (A, B, C...) escolhem a alternativa e Enter confirma.</p>
               <div className="sticky-action">
                 {picked === null && <p className="dim hint">Escolha uma alternativa para responder.</p>}
                 <button type="button" className="btn btn-primary" style={{ width: "100%" }} disabled={picked === null || pending} onClick={submit}>
@@ -671,6 +671,7 @@ export function QuestionRunner({
                   options={question.options}
                   questionId={question.id}
                   verification={question.verification}
+                  official={question.official}
                   selected={answeredSelected}
                   showReport={false}
                 />

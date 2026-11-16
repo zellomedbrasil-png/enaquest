@@ -134,3 +134,59 @@ describe("material de estudo extra", () => {
     expect(codesWith({ theory: { ...extras.theory, intro: "- Primeiro ponto da revisão do tema, escrito como lista." } })).toContain("markdown");
   });
 });
+
+describe("prova oficial", () => {
+  // Texto fictício: o lint só olha a estrutura, não reproduz prova real.
+  const official: LotQuestion = {
+    ...good,
+    stem: "Enunciado fictício no formato da banca, sem ponto de interrogação no fim",
+    options: ["Primeira", "Segunda", "Terceira", "Quarta", "Todas as anteriores"],
+    distractors: [...good.distractors, { index: 4, why: "Comentário da quinta alternativa da banca." }],
+    slug: "enamed-2025-c1-q1",
+    area_id: "clinica",
+    competency_id: "decisao",
+    theme: "Tema",
+    scenario: "UBS",
+    difficulty: "medio",
+    risk_level: "normal",
+    expires_on: "2027-12-31",
+    official: { number: 1, annulled: false },
+  };
+  const lot = (questions: LotQuestion[]): Lot => ({
+    id: "enamed-2025-c1",
+    sources: [{ id: "ms-tb", title: "Manual", publisher: "MS", year: 2024, url: "https://example.org", checked_on: "2026-11-16" }],
+    official_exam: {
+      id: "enamed-2025-c1",
+      track_id: "enamed",
+      board: "Inep",
+      name: "ENAMED 2025",
+      year: 2025,
+      key_status: "definitivo",
+      origin: "oficial_inep",
+      license: "pendente",
+    },
+    questions,
+  });
+  const fatalCodes = (l: Lot) => lintLot(l).report.flatMap((r) => r.issues.filter((i) => i.fatal).map((i) => i.code));
+
+  it("aceita o texto da banca como veio, com 5 alternativas", () => {
+    expect(fatalCodes(lot([official]))).toEqual([]);
+  });
+  it("continua exigindo comentário e fonte", () => {
+    expect(fatalCodes(lot([{ ...official, claims: [] }]))).toContain("no_claims");
+    expect(fatalCodes(lot([{ ...official, distractors: good.distractors }]))).toContain("distractor_missing");
+  });
+  it("exige o número da questão e não aceita número repetido", () => {
+    expect(fatalCodes(lot([{ ...official, official: undefined }]))).toContain("official_missing");
+    expect(fatalCodes(lot([official, { ...official, slug: "outra" }]))).toContain("official_number_repeated");
+  });
+  it("anulada precisa do motivo e dispensa o comentário por alternativa", () => {
+    const annulled = { ...official, distractors: [], official: { number: 1, annulled: true } };
+    expect(fatalCodes(lot([annulled]))).toEqual(["annulled_no_note"]);
+    expect(fatalCodes(lot([{ ...annulled, official: { number: 1, annulled: true, annulled_note: "Duas alternativas corretas." } }]))).toEqual([]);
+  });
+  it("lote autoral não aceita número oficial", () => {
+    const authored: Lot = { ...lot([official]), official_exam: undefined };
+    expect(fatalCodes(authored)).toContain("official_without_exam");
+  });
+});

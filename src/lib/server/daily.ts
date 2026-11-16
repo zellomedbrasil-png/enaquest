@@ -1,7 +1,7 @@
 import "server-only";
 import { cache } from "react";
 import { admin } from "@/lib/supabase/admin";
-import { getPublicQuestions, type PublicQuestion } from "./questions";
+import { getPublicQuestions, PLAYABLE_LICENSES, type PublicQuestion } from "./questions";
 import { pickDaily } from "./selection";
 
 export const DAILY_SIZE = 10;
@@ -12,7 +12,7 @@ export const getDailyIds = cache(async (day: string): Promise<string[]> => {
   const { data: existing } = await db.from("daily_challenges").select("question_ids").eq("day", day).maybeSingle();
   if (existing) return existing.question_ids;
 
-  const { data: pool } = await db.from("questions").select("id, area_id").eq("status", "published").eq("license", "proprio");
+  const { data: pool } = await db.from("questions").select("id, area_id").eq("status", "published").in("license", PLAYABLE_LICENSES).eq("annulled", false).is("outdated_note", null);
   if (!pool?.length) return [];
   const { data: areas } = await db.from("matrix_areas").select("id, exam_share");
   const ids = pickDaily(pool, areas ?? [], day, DAILY_SIZE);

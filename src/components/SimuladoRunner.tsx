@@ -113,13 +113,13 @@ export function SimuladoRunner({ attempt, areas }: { attempt: AttemptState; area
     window.scrollTo({ top: 0 });
   };
 
-  // Atalhos: A a D marcam, setas mudam de questão.
+  // Atalhos: A a E marcam, setas mudam de questão.
   useEffect(() => {
     const handler = (event: KeyboardEvent) => {
       const target = event.target as HTMLElement;
       if (confirming || ["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName)) return;
       if (event.ctrlKey || event.metaKey || event.altKey) return;
-      const position = "abcd".indexOf(event.key.toLowerCase());
+      const position = "abcde".indexOf(event.key.toLowerCase());
       if (position >= 0 && position < question.options.length) pick(position);
       if (event.key === "ArrowRight") go(index + 1);
       if (event.key === "ArrowLeft") go(index - 1);
@@ -197,7 +197,7 @@ export function SimuladoRunner({ attempt, areas }: { attempt: AttemptState; area
           </div>
           <QuestionHeader question={question} areaName={area?.name} areaColor={area?.color} />
           <p className="stem">{question.stem}</p>
-          <ExamTables exams={question.exams} />
+          <ExamTables exams={question.exams} images={question.images} />
           <OptionsList
             question={question}
             picked={answers[question.id] ?? null}
@@ -221,7 +221,7 @@ export function SimuladoRunner({ attempt, areas }: { attempt: AttemptState; area
               Próxima →
             </button>
           </div>
-          <p className="dim kbd-help">Atalhos: A a D marcam a alternativa; as setas mudam de questão.</p>
+          <p className="dim kbd-help">Atalhos: tecle a letra para marcar a alternativa; as setas mudam de questão.</p>
           {showGrid && <div className="sim-sheet-mobile">{answerSheet}</div>}
         </article>
 

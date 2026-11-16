@@ -121,7 +121,7 @@ export default async function SimuladoResultPage({ params }: { params: Promise<{
                   </summary>
                   <div className="sim-review-body">
                     <p className="stem">{item.question.stem}</p>
-                    <ExamTables exams={item.question.exams} />
+                    <ExamTables exams={item.question.exams} images={item.question.images} />
                     <OptionsList
                       question={item.question}
                       picked={item.selected}
@@ -130,7 +130,7 @@ export default async function SimuladoResultPage({ params }: { params: Promise<{
                       comments={optionComments(item.reveal)}
                       optionPct={item.reveal.stats.optionPct}
                     />
-                    <RevealPanel reveal={item.reveal} options={item.question.options} questionId={item.question.id} verification={item.question.verification} selected={item.selected} showCommunity={item.selected !== null} />
+                    <RevealPanel reveal={item.reveal} options={item.question.options} questionId={item.question.id} verification={item.question.verification} official={item.question.official} selected={item.selected} showCommunity={item.selected !== null} />
                   </div>
                 </details>
               </li>

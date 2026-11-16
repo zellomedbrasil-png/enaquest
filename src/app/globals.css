@@ -2780,3 +2780,12 @@ a.study-focus:hover { border-color: var(--accent); }
 .hw-glossary dt { font-weight: 800; font-family: var(--font-display), sans-serif; }
 .hw-glossary dd { margin-top: 3px; color: var(--mute); font-size: 14.5px; }
 .hw-plans .hw-plan { justify-self: start; }
+
+/* ---------- Provas oficiais ---------- */
+.q-official { color: var(--accent-ink); background: var(--lime); border-color: transparent; font-weight: 800; }
+.q-outdated { flex-basis: 100%; margin: 4px 0 0; padding: 10px 12px; border: 1px solid color-mix(in srgb, var(--gold) 45%, var(--line)); border-radius: var(--radius); background: var(--pearl-soft); font-size: 14px; color: var(--ink); }
+.q-figures { display: grid; gap: 10px; margin: 10px 0 4px; }
+.q-figure { margin: 0; }
+.q-figure a { display: block; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: #fff; }
+.q-figure img { display: block; width: 100%; height: auto; max-height: 420px; object-fit: contain; }
+.q-figure figcaption { margin-top: 4px; font-size: 13px; color: var(--mute); }

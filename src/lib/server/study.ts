@@ -4,7 +4,7 @@ import { todayBR } from "@/lib/game/streak";
 import { addDays, buildAgenda, type AgendaDay } from "@/lib/study/agenda";
 import { scheduleCard } from "@/lib/study/srs";
 import { AppError, enforceRateLimit, isPremium } from "./session";
-import { getPublicQuestions, getReveal, type PublicQuestion, type Reveal } from "./questions";
+import { getPublicQuestions, getReveal, PLAYABLE_LICENSES, type PublicQuestion, type Reveal } from "./questions";
 import { pickBalanced, seededShuffle } from "./selection";
 import { randomUUID } from "node:crypto";
 
@@ -42,7 +42,13 @@ export async function startTraining(
   const size = Math.min(Math.max(options.size, 5), 30);
   const db = admin();
 
-  let query = db.from("questions").select("id, area_id").eq("status", "published");
+  let query = db
+    .from("questions")
+    .select("id, area_id")
+    .eq("status", "published")
+    .in("license", PLAYABLE_LICENSES)
+    .eq("annulled", false)
+    .is("outdated_note", null);
   if (options.areaId) query = query.eq("area_id", options.areaId);
   const { data: pool } = await query;
 

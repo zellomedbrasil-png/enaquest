@@ -63,8 +63,46 @@ export type StudyExtras = z.infer<typeof StudyExtrasSchema>;
 /** O que o modelo escreve em lotes novos: questão completa com o material de estudo. */
 export const AuthorDraftSchema = DraftSchema.extend(StudyExtrasSchema.shape);
 
+/** Figura do enunciado: caminho no bucket question-media ou URL completa. */
+export const QuestionImageSchema = z.object({
+  src: z.string().min(1),
+  alt: z.string().min(10).describe("Descrição da figura para leitor de tela, sem entregar o diagnóstico."),
+  caption: z.string().optional(),
+});
+
+/**
+ * Questão de prova oficial. O enunciado e as alternativas são os da banca, sem reescrita.
+ * Em questão anulada, correct_index guarda o gabarito preliminar (só para registro).
+ */
+export const OfficialRefSchema = z.object({
+  number: z.number().int().positive(),
+  annulled: z.boolean().default(false),
+  annulled_note: z.string().optional(),
+  outdated_note: z.string().optional(),
+});
+
+/** Prova oficial de onde vêm as questões de um lote. */
+export const OfficialExamSchema = z.object({
+  id: z.string().regex(/^[a-z0-9-]+$/),
+  track_id: z.string().default("enamed"),
+  board: z.string(),
+  name: z.string(),
+  year: z.number().int().min(2000).max(2100),
+  booklet: z.string().optional(),
+  applied_on: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
+  key_status: z.enum(["preliminar", "definitivo"]),
+  origin: z.enum(["oficial_inep", "oficial_ebserh"]),
+  /** Só "liberado" entra nas rodadas. "pendente" importa, mas não aparece para o aluno. */
+  license: z.enum(["pendente", "liberado", "bloqueado"]),
+  booklet_url: z.url().optional(),
+  key_url: z.url().optional(),
+});
+export type OfficialExam = z.infer<typeof OfficialExamSchema>;
+
 /** Questão pronta para entrar em um lote. Os extras são opcionais para os lotes antigos continuarem válidos. */
 export const LotQuestionSchema = DraftSchema.extend(StudyExtrasSchema.partial().shape).extend({
+  images: z.array(QuestionImageSchema).optional(),
+  official: OfficialRefSchema.optional(),
   slug: z.string().regex(/^[a-z0-9-]+$/),
   area_id: z.enum(AREA_IDS),
   competency_id: z.enum(COMPETENCY_IDS),
@@ -89,6 +127,7 @@ export type Source = z.infer<typeof SourceSchema>;
 export const LotSchema = z.object({
   id: z.string(),
   notes: z.string().optional(),
+  official_exam: OfficialExamSchema.optional(),
   sources: z.array(SourceSchema),
   questions: z.array(LotQuestionSchema).min(1),
 });

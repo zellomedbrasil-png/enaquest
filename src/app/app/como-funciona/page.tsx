@@ -33,7 +33,7 @@ const CYCLE: Cycle[] = [
 ];
 
 const QUESTION_STEPS: { title: string; text: string }[] = [
-  { title: "Leia e escolha", text: "Toque numa alternativa ou use as teclas A a D. Use o ✕ para riscar as que você descartou." },
+  { title: "Leia e escolha", text: "Toque numa alternativa ou use a tecla da letra. Use o ✕ para riscar as que você descartou." },
   { title: "Diga sua confiança", text: "Certeza, dúvida ou chute. É opcional, e é o que decide o que volta na sua Revisão." },
   { title: "Responda", text: "Toque em Responder ou aperte Enter. A correção aparece na hora." },
   { title: "Aprenda com o comentário", text: "Cada alternativa mostra por que está certa ou errada, e quatro cartões aprofundam o tema." },

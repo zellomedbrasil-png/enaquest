@@ -69,7 +69,7 @@ export default async function QuestionPage({ params }: { params: Promise<{ slug:
           <div>
             <QuestionHeader question={page.question} areaName={area?.name} areaColor={area?.color} />
             <p className="stem">{page.question.stem}</p>
-            <ExamTables exams={page.question.exams} />
+            <ExamTables exams={page.question.exams} images={page.question.images} />
             <OptionsList
               question={page.question}
               picked={answer.selected}
@@ -93,6 +93,7 @@ export default async function QuestionPage({ params }: { params: Promise<{ slug:
             options={page.question.options}
             questionId={page.question.id}
             verification={page.question.verification}
+            official={page.question.official}
             selected={answer.selected}
           />
         </div>

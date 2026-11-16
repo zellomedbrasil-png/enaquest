@@ -56,6 +56,24 @@ async function main() {
     return;
   }
 
+  const exam = lot.official_exam;
+  if (exam) {
+    await check(
+      db.from("official_exams").upsert({
+        id: exam.id,
+        track_id: exam.track_id,
+        board: exam.board,
+        name: exam.name,
+        year: exam.year,
+        booklet: exam.booklet ?? null,
+        applied_on: exam.applied_on ?? null,
+        key_status: exam.key_status,
+        booklet_url: exam.booklet_url ?? null,
+        key_url: exam.key_url ?? null,
+      }),
+    );
+  }
+
   await check(db.from("sources").upsert(lot.sources));
   await check(db.from("review_lots").upsert({ id: lot.id, notes: lot.notes ?? null, status: "pending_review" }));
 
@@ -66,7 +84,7 @@ async function main() {
         .upsert(
           {
             slug: q.slug,
-            track_id: "enamed",
+            track_id: exam?.track_id ?? "enamed",
             area_id: q.area_id,
             competency_id: q.competency_id,
             theme: q.theme,
@@ -75,11 +93,17 @@ async function main() {
             rating: DIFFICULTY_RATING[q.difficulty],
             stem: q.stem,
             exams: q.exams,
+            images: q.images ?? null,
             options: q.options,
             status: "in_review",
             verification: "ia_verificada",
-            origin: "original_ia",
-            license: "proprio",
+            origin: exam?.origin ?? "original_ia",
+            license: exam?.license ?? "proprio",
+            official_exam_id: exam?.id ?? null,
+            official_number: q.official?.number ?? null,
+            annulled: q.official?.annulled ?? false,
+            annulled_note: q.official?.annulled_note ?? null,
+            outdated_note: q.official?.outdated_note ?? null,
             risk_level: q.risk_level,
             lot_id: lot.id,
             expires_on: q.expires_on,
@@ -90,7 +114,8 @@ async function main() {
         .single(),
     );
     const id = (data as { id: string }).id;
-    await check(db.from("question_keys").upsert({ question_id: id, correct_index: q.correct_index }));
+    // Anulada: sem gabarito válido. O preliminar fica só no JSON do lote, para registro.
+    await check(db.from("question_keys").upsert({ question_id: id, correct_index: q.official?.annulled ? null : q.correct_index }));
     await check(
       db.from("explanations").upsert({
         question_id: id,
@@ -109,7 +134,11 @@ async function main() {
     const sources = new Map(q.claims.map((c) => [c.source_id, c.locator]));
     await check(db.from("question_sources").insert([...sources].map(([source_id, locator]) => ({ question_id: id, source_id, locator }))));
   }
-  console.log(`Lote ${lot.id}: ${lot.questions.length} questões importadas como rascunho. Gabarito por letra: ${report.keys.counts.join(", ")}.`);
+  const annulled = lot.questions.filter((q) => q.official?.annulled).length;
+  console.log(
+    `Lote ${lot.id}: ${lot.questions.length} questões importadas como rascunho. Gabarito por letra: ${report.keys.counts.join(", ")}.` +
+      (exam ? ` Prova: ${exam.name}${exam.booklet ? ` (${exam.booklet})` : ""}, gabarito ${exam.key_status}, licença ${exam.license}, ${annulled} anulada(s).` : ""),
+  );
 }
 
 main().catch((error) => {

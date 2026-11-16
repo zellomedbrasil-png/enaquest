@@ -1,14 +1,34 @@
 "use client";
 
 import { useRef, useState } from "react";
-import type { ExamTable, PublicQuestion } from "@/lib/server/questions";
+import type { ExamTable, PublicQuestion, QuestionImage } from "@/lib/server/questions";
 import { segments, toggleRange, type Range } from "@/lib/ui/highlight";
 import { LETTERS } from "@/lib/ui/labels";
 
-export function ExamTables({ exams }: { exams: ExamTable[] | null }) {
-  if (!exams?.length) return null;
+/** Figuras do enunciado (ECG, exame de imagem, foto). Toque abre a figura em tamanho real. */
+export function QuestionImages({ images }: { images: QuestionImage[] | null }) {
+  if (!images?.length) return null;
+  return (
+    <div className="q-figures">
+      {images.map((image) => (
+        <figure key={image.src} className="q-figure">
+          <a href={image.src} target="_blank" rel="noreferrer" aria-label={`Abrir figura em tamanho real: ${image.alt}`}>
+            {/* Figura vem do bucket público do Supabase; sem otimização para não depender de remotePatterns por ambiente. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={image.src} alt={image.alt} loading="lazy" />
+          </a>
+          {image.caption && <figcaption>{image.caption}</figcaption>}
+        </figure>
+      ))}
+    </div>
+  );
+}
+
+export function ExamTables({ exams, images = null }: { exams: ExamTable[] | null; images?: QuestionImage[] | null }) {
+  if (!exams?.length) return <QuestionImages images={images} />;
   return (
     <div style={{ marginTop: 8 }}>
+      <QuestionImages images={images} />
       {exams.map((table) => (
         <div key={table.title} style={{ overflowX: "auto" }}>
           <div className="eyebrow" style={{ marginTop: 8 }}>
@@ -41,6 +61,11 @@ export function ExamTables({ exams }: { exams: ExamTable[] | null }) {
 export function QuestionHeader({ question, areaName, areaColor }: { question: PublicQuestion; areaName?: string; areaColor?: string }) {
   return (
     <div className="q-tags">
+      {question.official && (
+        <span className="pill q-official" title={`${question.official.board}${question.official.booklet ? ` · ${question.official.booklet}` : ""} · gabarito ${question.official.keyStatus}`}>
+          {question.official.name} · Q{question.official.number}
+        </span>
+      )}
       {areaName && (
         <span className="pill">
           <i className="area-dot" style={{ background: areaColor }} /> {areaName}
@@ -48,6 +73,11 @@ export function QuestionHeader({ question, areaName, areaColor }: { question: Pu
       )}
       <span className="pill">{question.scenario}</span>
       <span className="pill">{question.difficultyLabel}</span>
+      {question.outdatedNote && (
+        <p className="q-outdated" role="note">
+          <strong>Questão desatualizada.</strong> {question.outdatedNote}
+        </p>
+      )}
     </div>
   );
 }

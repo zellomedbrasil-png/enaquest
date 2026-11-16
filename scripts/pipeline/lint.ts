@@ -14,13 +14,27 @@ function words(text: string) {
   return text.trim().split(/\s+/).filter(Boolean).length;
 }
 
-export function lintDraft(draft: Draft & Partial<StudyExtras>, options: { expectedOptions?: number } = {}): LintIssue[] {
-  const expected = options.expectedOptions ?? 4;
+/**
+ * Questão oficial: o texto é o da banca, então as regras de estilo da escrita autoral não valem.
+ * Continuam valendo a estrutura (alternativas, gabarito), o comentário e as fontes.
+ */
+export type OfficialLint = { annulled: boolean };
+
+export function lintDraft(
+  draft: Draft & Partial<StudyExtras>,
+  options: { expectedOptions?: number; official?: OfficialLint } = {},
+): LintIssue[] {
+  const official = options.official;
   const issues: LintIssue[] = [];
   const fatal = (code: string, message: string) => issues.push({ code, message, fatal: true });
   const warn = (code: string, message: string) => issues.push({ code, message, fatal: false });
 
-  if (draft.options.length !== expected) fatal("options_count", `Precisa de ${expected} alternativas; veio ${draft.options.length}.`);
+  if (official) {
+    if (draft.options.length < 4 || draft.options.length > 5) fatal("options_count", `Prova oficial tem 4 ou 5 alternativas; veio ${draft.options.length}.`);
+  } else {
+    const expected = options.expectedOptions ?? 4;
+    if (draft.options.length !== expected) fatal("options_count", `Precisa de ${expected} alternativas; veio ${draft.options.length}.`);
+  }
   if (!Number.isInteger(draft.correct_index) || draft.correct_index < 0 || draft.correct_index >= draft.options.length) {
     fatal("key_range", "O gabarito aponta para uma alternativa inexistente.");
   }
@@ -28,9 +42,15 @@ export function lintDraft(draft: Draft & Partial<StudyExtras>, options: { expect
   const normalized = draft.options.map((o) => o.trim().toLowerCase());
   if (new Set(normalized).size !== normalized.length) fatal("options_duplicate", "Há alternativas repetidas.");
   for (const option of draft.options) {
-    if (BANNED_OPTION.test(option)) fatal("option_banned", `Alternativa proibida: "${option}".`);
+    if (!official && BANNED_OPTION.test(option)) fatal("option_banned", `Alternativa proibida: "${option}".`);
     if (LETTER_PREFIX.test(option)) fatal("option_letter", `A alternativa não pode começar com letra: "${option}".`);
     if (!option.trim()) fatal("option_empty", "Alternativa vazia.");
+  }
+
+  if (official) {
+    if (!draft.stem.trim()) fatal("stem_empty", "Enunciado vazio.");
+    lintComment(draft, official.annulled, fatal, warn);
+    return issues;
   }
 
   const stemWords = words(draft.stem);
@@ -53,14 +73,28 @@ export function lintDraft(draft: Draft & Partial<StudyExtras>, options: { expect
     warn("absolute_terms", "Termos absolutos só nas alternativas erradas podem virar pista.");
   }
 
-  const wrongIndexes = draft.options.map((_, i) => i).filter((i) => i !== draft.correct_index);
-  const explained = new Set(draft.distractors.map((d) => d.index));
-  for (const index of wrongIndexes) {
-    if (!explained.has(index)) fatal("distractor_missing", `Falta explicar a alternativa ${"ABCD"[index]}.`);
+  lintComment(draft, false, fatal, warn);
+  return issues;
+}
+
+/** Comentário, fontes e material de estudo: valem para questão autoral e oficial. */
+function lintComment(
+  draft: Draft & Partial<StudyExtras>,
+  annulled: boolean,
+  fatal: (code: string, message: string) => void,
+  warn: (code: string, message: string) => void,
+) {
+  // Na anulada não há gabarito válido, então não se cobra explicação por alternativa errada.
+  if (!annulled) {
+    const wrongIndexes = draft.options.map((_, i) => i).filter((i) => i !== draft.correct_index);
+    const explained = new Set(draft.distractors.map((d) => d.index));
+    for (const index of wrongIndexes) {
+      if (!explained.has(index)) fatal("distractor_missing", `Falta explicar a alternativa ${"ABCDE"[index]}.`);
+    }
+    if (explained.has(draft.correct_index)) fatal("distractor_key", "A alternativa correta não pode estar entre as erradas.");
   }
-  if (explained.has(draft.correct_index)) fatal("distractor_key", "A alternativa correta não pode estar entre as erradas.");
   for (const d of draft.distractors) {
-    if (words(d.why) < 5) warn("distractor_thin", `Explicação rasa para a alternativa ${"ABCD"[d.index]}.`);
+    if (words(d.why) < 5) warn("distractor_thin", `Explicação rasa para a alternativa ${"ABCDE"[d.index]}.`);
   }
 
   if (!draft.claims.length) fatal("no_claims", "Sem fonte, a questão não entra.");
@@ -71,8 +105,7 @@ export function lintDraft(draft: Draft & Partial<StudyExtras>, options: { expect
   for (const field of ["quick", "reasoning", "tip", "pearl", "competency_note"] as const) {
     if (words(draft[field]) < 4) fatal("explanation_empty", `Campo "${field}" vazio ou raso.`);
   }
-  issues.push(...lintExtras(draft));
-  return issues;
+  for (const issue of lintExtras(draft)) (issue.fatal ? fatal : warn)(issue.code, issue.message);
 }
 
 /** Material de estudo extra (opcional): formato, tamanho e ausência de marcação. */
@@ -102,8 +135,8 @@ export function lintExtras(extras: Partial<StudyExtras>): LintIssue[] {
 /** Evita que o gabarito caia sempre na mesma letra dentro de um lote. */
 export function keyBalance(lot: Pick<Lot, "questions">): { counts: number[]; balanced: boolean } {
   const counts = [0, 0, 0, 0];
-  for (const q of lot.questions) counts[q.correct_index] += 1;
-  const expected = lot.questions.length / 4;
+  for (const q of lot.questions) counts[q.correct_index] = (counts[q.correct_index] ?? 0) + 1;
+  const expected = lot.questions.length / counts.length;
   return { counts, balanced: counts.every((c) => c >= expected * 0.5 && c <= expected * 1.6) };
 }
 
@@ -143,8 +176,22 @@ export function findDuplicates(items: { slug: string; stem: string }[], threshol
 
 export function lintLot(lot: Lot) {
   const known = new Set(lot.sources.map((s) => s.id));
+  const isOfficial = Boolean(lot.official_exam);
+  const numbers = lot.questions.map((q) => q.official?.number);
   const report = lot.questions.map((question) => {
-    const issues = lintDraft(question);
+    const issues = lintDraft(question, isOfficial ? { official: { annulled: question.official?.annulled ?? false } } : {});
+    if (isOfficial && !question.official) {
+      issues.push({ code: "official_missing", message: "Lote de prova oficial: falta o número da questão no caderno.", fatal: true });
+    }
+    if (!isOfficial && question.official) {
+      issues.push({ code: "official_without_exam", message: "Questão com número oficial em lote sem official_exam.", fatal: true });
+    }
+    if (question.official && numbers.indexOf(question.official.number) !== numbers.lastIndexOf(question.official.number)) {
+      issues.push({ code: "official_number_repeated", message: `Número ${question.official.number} repetido no caderno.`, fatal: true });
+    }
+    if (question.official?.annulled && !question.official.annulled_note) {
+      issues.push({ code: "annulled_no_note", message: "Questão anulada precisa explicar o motivo da anulação.", fatal: true });
+    }
     for (const claim of question.claims) {
       if (!known.has(claim.source_id)) {
         issues.push({ code: "unknown_source", message: `Fonte não cadastrada: ${claim.source_id}.`, fatal: true });
