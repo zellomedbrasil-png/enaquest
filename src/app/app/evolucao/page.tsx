@@ -9,7 +9,7 @@ import { MIN_AREA_RESPONSES } from "@/lib/study/proficiency";
 import { admin } from "@/lib/supabase/admin";
 import { getEvolution, lifetimeStats } from "@/lib/server/progress";
 import { isPremium, requireUser } from "@/lib/server/session";
-import { CONFIDENCE_LABEL, ERROR_REASON_LABEL } from "@/lib/ui/labels";
+import { CONFIDENCE_LABEL } from "@/lib/ui/labels";
 
 export const metadata: Metadata = { title: "Evolução" };
 
@@ -74,7 +74,6 @@ export default async function EvolutionPage() {
     .sort((a, b) => Number(b.priority) - Number(a.priority));
 
   const accuracy = stats.answered ? Math.round((stats.correct / stats.answered) * 100) : null;
-  const maxReason = Math.max(1, ...evolution.errorReasons.map((item) => item.count));
 
   return (
     <div style={{ display: "grid", gap: 16 }}>
@@ -204,31 +203,6 @@ export default async function EvolutionPage() {
         </section>
 
         <div className="stack">
-          <section className="card" aria-labelledby="por-que-erra">
-            <h2 id="por-que-erra" className="section-title">
-              Por que você erra
-            </h2>
-            {evolution.errorReasons.length === 0 ? (
-              <p className="muted" style={{ fontSize: 14.5 }}>
-                Marque o motivo ao errar uma questão e os padrões aparecem aqui.
-              </p>
-            ) : (
-              <ul className="metric-bars">
-                {evolution.errorReasons.map((item) => (
-                  <li key={item.reason}>
-                    <div className="metric-row">
-                      <span>{ERROR_REASON_LABEL[item.reason]}</span>
-                      <strong>{item.count}</strong>
-                    </div>
-                    <div className="bar hard" aria-hidden>
-                      <i style={{ width: `${(item.count / maxReason) * 100}%` }} />
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </section>
-
           <section className="card" aria-labelledby="confianca">
             <h2 id="confianca" className="section-title">
               Sua confiança é confiável?

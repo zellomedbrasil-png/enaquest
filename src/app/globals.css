@@ -2094,47 +2094,55 @@ html[data-text="large"] #conteudo {
 .pill-priority { margin-left: 8px; color: var(--gold); background: var(--pearl-soft); font-size: 11px; font-weight: 700; }
 .train-link { display: inline-block; margin-top: 6px; font-size: 13px; font-weight: 600; }
 
-/* Topo: painel de bordo */
-.hud-level { flex: 1 1 auto; min-width: 0; max-width: 340px; display: grid; gap: 3px; }
-.hud-level-top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; font-size: 13px; }
-.hud-level-top strong { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.hud-xp { color: var(--mute); font-variant-numeric: tabular-nums; white-space: nowrap; }
-.hud-level-next { display: none; margin: 0; font-size: 11.5px; color: var(--dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.hud-chips { margin-left: auto; display: flex; align-items: center; gap: 8px; }
-.hud-chip { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 0 12px 0 8px; border: 1px solid var(--line); border-radius: 99px; background: var(--card-2); color: var(--ink); font-size: 13px; font-weight: 600; text-decoration: none; white-space: nowrap; transition: border-color .2s, background .2s; }
-.hud-chip:hover { border-color: var(--mute); }
-.hud-plantao { border-color: color-mix(in srgb, var(--lime) 55%, var(--line)); }
-.hud-ring { position: relative; display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: conic-gradient(var(--lime) var(--p, 0deg), var(--track) 0); font-size: 12px; font-weight: 800; color: var(--accent-ink); }
-.hud-ring::after { content: ""; position: absolute; inset: 4px; border-radius: 50%; background: var(--card-2); }
-.hud-plantao.is-done { border-color: color-mix(in srgb, var(--ok) 55%, var(--line)); color: var(--ok); }
-.hud-plantao.is-done .hud-ring { background: var(--ok); }
-.hud-plantao.is-done .hud-ring::after { display: none; }
-.hud-plantao.is-done .hud-ring { color: #10121d; }
-.hud-reviews { padding-left: 12px; }
-.hud-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--coral); box-shadow: 0 0 0 3px color-mix(in srgb, var(--coral) 25%, transparent); }
-.account-label { flex-direction: column; line-height: 1.15; }
+/* Cabeçalho do estudante: ação do dia, progresso e perfil. */
+.study-focus {
+  display: flex; align-items: center; gap: 12px; flex: 1 1 auto; min-width: 0;
+  min-height: 54px; padding: 8px 14px 8px 10px; border: 1px solid color-mix(in srgb, var(--accent) 32%, var(--line));
+  border-radius: 12px; background: linear-gradient(105deg, var(--tip-soft), var(--card)); text-decoration: none;
+}
+a.study-focus:hover { border-color: var(--accent); }
+.study-focus-icon { display: grid; place-items: center; flex: none; width: 34px; height: 34px; border-radius: 9px; background: var(--accent-fill); color: var(--accent-ink); }
+.study-focus-icon .ico, .study-review .ico { width: 20px; height: 20px; display: inline-flex; }
+.study-focus-copy { display: grid; gap: 2px; min-width: 0; }
+.study-focus-copy small { color: var(--lime-ink); font: 700 10px/1.2 var(--font-body),sans-serif; letter-spacing: .065em; text-transform: uppercase; }
+.focus-count { display: none; }
+.study-focus-copy strong { font: 700 16px/1.2 var(--font-display),sans-serif; }
+.daily-segments { display: flex; gap: 2px; height: 3px; width: 100%; max-width: 150px; margin-top: 2px; }
+.daily-segments i { flex: 1; background: var(--line); border-radius: 1px; }
+.daily-segments .filled { background: var(--lime-ink); }
+.study-focus-detail { margin-left: auto; font-size: 13px; color: var(--mute); }
+.study-focus-arrow { margin-left: auto; color: var(--lime-ink); font-size: 20px; }
+.study-focus-detail + .study-focus-arrow { margin-left: 0; }
+.study-metrics { display: flex; align-items: center; gap: 18px; padding-inline: 8px 16px; border-right: 1px solid var(--line); }
+.study-level { display: grid; align-content: center; min-height: 44px; gap: 5px; text-decoration: none; }
+.study-level > span:nth-child(2) { display: flex; align-items: baseline; gap: 9px; }
+.study-level small, .study-streak small { color: var(--mute); font-size: 11px; }
+.study-level strong,.study-streak strong { font-size: 13px; }
+.study-level-track { height: 4px; border-radius: 9px; background: var(--line); overflow: hidden; }
+.study-level-track i { display: block; height: 100%; background: var(--grad-progress); }
+.study-level:hover strong { text-decoration: underline; }
+.study-streak, .study-review { display: flex; align-items: center; gap: 6px; }
+.study-streak > span:not(.shield-dots) { display: grid; line-height: 1.2; }
+.study-review { min-height: 44px; color: var(--violet); text-decoration: none; font-weight: 700; }
+.account-label { flex-direction: column; line-height: 1.2; }
 .account-label strong { font-size: 13px; color: var(--ink); }
-.account-label small { font-size: 11px; color: var(--dim); }
-@media (min-width: 900px) {
-  .hud-level-next { display: block; }
-  .account-label { display: flex; }
+.account-label small { font-size: 11px; color: var(--mute); }
+@media (min-width: 900px) { .account-label { display: flex; } }
+@media (max-width: 1199px) {
+  .focus-count { display: inline; }
+  .study-streak .shield-dots, .mascot-badge-text, .study-focus-detail { display: none; }
+  .study-focus-detail + .study-focus-arrow { margin-left: auto; }
+  .study-metrics { gap: 9px; padding-inline: 0 8px; }
 }
-@media (max-width: 1279px) { .mascot-badge-text span { display: none; } }
-.mascot-badge-text strong, .mascot-badge-text span { white-space: nowrap; }
-@media (max-width: 899px) {
-  .hud-chips { gap: 6px; }
-  .hud-reviews span, .hud-plantao > span:last-child { display: none; }
-  .hud-chip { padding: 0 8px; }
+@media (max-width: 760px) {
+  .topbar-in { gap: 8px; padding-block: 6px; }
+  .topbar-in .topbar-logo,.topbar-in .mascot-badge,.study-streak,.study-review,.study-level strong { display: none; }
+  .study-focus { gap: 8px; min-height: 48px; padding: 5px 8px; }
+  .study-focus-icon { width: 28px; height: 28px; }
+  .study-focus-copy strong { font-size: 14px; }
+  .study-metrics { border: 0; padding: 0; }
+  .study-level small { color: var(--ink); font-weight: 700; white-space: nowrap; }
 }
-@media (max-width: 639px) {
-  .hud-level-top .hud-xp { display: none; }
-  .mascot-badge-text { display: none; }
-}
-@media (max-width: 639px) {
-  .mascot-badge, .hud-reviews { display: none; }
-  .topbar-in { gap: 10px; }
-}
-
 /* Aba Mascote: palco, ficha de plantão e elenco */
 .mascot-lab { --accent-mascot: var(--lime); display: grid; gap: 20px; align-items: start; }
 @media (min-width: 1100px) { .mascot-lab { grid-template-columns: 400px minmax(0, 1fr); gap: 24px; } .mascot-stage { position: sticky; top: 84px; } }
@@ -2651,6 +2659,7 @@ html[data-text="large"] #conteudo {
 .pill.seal-medico_revisado { color: var(--ok); background: var(--ok-soft); }
 .pill.seal-lote_amostrado { color: var(--sky); background: var(--info-soft); }
 .pill.seal-ia_verificada { color: var(--ink); background: var(--card-2); border: 1px solid var(--line); }
+
 /* ---------- Como funciona ---------- */
 .hw { display: grid; gap: 30px; max-width: 1040px; }
 .hw-kicker { display: block; margin-bottom: 4px; font: 700 11px/1.5 ui-monospace, Consolas, monospace; letter-spacing: .13em; text-transform: uppercase; color: inherit; opacity: .72; }

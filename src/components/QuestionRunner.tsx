@@ -191,6 +191,7 @@ export function QuestionRunner({
 
     window.dispatchEvent(
       new CustomEvent<ProgressEventDetail>(PROGRESS_EVENT, { detail: {
+          reviewAnswered: mode === "review",
           xpTotal: data.xpTotal,
           streak: data.streak,
           shields: data.shields,
