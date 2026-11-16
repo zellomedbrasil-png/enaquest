@@ -1,0 +1,87 @@
+{
+ "area_id": "clinica",
+ "competency_id": "urgencia",
+ "theme": "Cetoacidose diabética",
+ "scenario": "UPA",
+ "difficulty": "facil",
+ "quick": "Diabético tipo 1 sem insulina, com glicemia de 472, pH de 7,2, bicarbonato de 10 e cetonas: cetoacidose diabética. O primeiro passo é solução fisiológica. Alternativa C.",
+ "reasoning": "Primeiro passo: reconhecer o quadro. Diabetes tipo 1 sem insulina por 3 dias, com dor abdominal, vômitos, hálito cetótico, taquipneia, glicemia alta, pH de 7,2 e bicarbonato baixo, é cetoacidose diabética. Segundo passo: definir a prioridade. Em todos os pacientes em cetoacidose a desidratação é grave, então a primeira medida é reposição de volume com solução cristaloide isotônica, como a fisiológica a 0,9%. Terceiro passo: lembrar o potássio. O potássio é de 3,0, abaixo de 3,3, o que exige repor potássio antes de iniciar insulina, para evitar hipocalemia grave e arritmia. Quarto passo: descartar as outras. Pancreatite pode causar dor, mas não explica a acidose com cetose. Estado hiperosmolar não tem acidose importante. Insuficiência renal aguda é consequência da desidratação, e o bicarbonato só se usa com pH menor que 6,9.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Pancreatite não explica glicemia alta com acidose e cetose; a dor abdominal é manifestação da própria cetoacidose."
+  },
+  {
+   "index": 1,
+   "why": "O estado hiperosmolar ocorre sem acidose importante nem cetose, e iniciar insulina antes da hidratação e da correção do potássio é inadequado."
+  },
+  {
+   "index": 3,
+   "why": "A insuficiência renal é consequência da desidratação, e o bicarbonato de sódio só é considerado com pH abaixo de 6,9."
+  }
+ ],
+ "tip": "Cetoacidose: hidratação primeiro, depois potássio e só então insulina.",
+ "pearl": "Com potássio abaixo de 3,3 mEq/L, não inicie insulina antes de repor o potássio.",
+ "competency_note": "Conduzir a fase inicial da cetoacidose diabética.",
+ "claims": [
+  {
+   "claim": "No tratamento da cetoacidose diabética, a reposição de fluidos com solução salina isotônica é a primeira medida, e a insulina só é iniciada se o potássio estiver acima de 3,5 mEq/L.",
+   "source_id": "ada-crises-2024",
+   "locator": "Tratamento da cetoacidose diabética"
+  },
+  {
+   "claim": "O bicarbonato só é considerado quando o pH está abaixo de 6,9.",
+   "source_id": "ada-crises-2024",
+   "locator": "Tratamento da cetoacidose diabética"
+  }
+ ],
+ "key_why": "A cetoacidose exige hidratação imediata com solução fisiológica, e o potássio baixo pede reposição antes da insulina.",
+ "theory": {
+  "title": "Cetoacidose diabética",
+  "intro": "Complicação aguda do diabetes por falta de insulina, que leva a hiperglicemia, cetose e acidose metabólica.",
+  "sections": [
+   {
+    "heading": "Diagnóstico",
+    "items": [
+     "Glicemia alta, geralmente maior que 250 mg/dL",
+     "pH abaixo de 7,3 e bicarbonato abaixo de 18 mEq/L",
+     "Cetonas no sangue ou na urina"
+    ]
+   },
+   {
+    "heading": "Tratamento",
+    "items": [
+     "Fluidos isotônicos para repor volume",
+     "Repor potássio e iniciar insulina só com potássio adequado",
+     "Procurar fatores desencadeantes, como infecção ou falta de insulina",
+     "Bicarbonato apenas com pH abaixo de 6,9"
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "title": "Cetoacidose diabética",
+  "points": [
+   {
+    "label": "Quadro",
+    "text": "Hiperglicemia, acidose, cetose, desidratação."
+   },
+   {
+    "label": "Primeiro passo",
+    "text": "Solução fisiológica 0,9%."
+   },
+   {
+    "label": "Potássio",
+    "text": "Repor antes da insulina se estiver baixo."
+   },
+   {
+    "label": "Bicarbonato",
+    "text": "Só com pH abaixo de 6,9."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

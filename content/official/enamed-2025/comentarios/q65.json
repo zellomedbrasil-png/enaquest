@@ -1,0 +1,78 @@
+{
+ "area_id": "clinica",
+ "competency_id": "propedeutica",
+ "theme": "Trombofilia hereditária",
+ "scenario": "UBS",
+ "difficulty": "medio",
+ "quick": "Trombose venosa com história familiar em pai e irmã sugere trombofilia hereditária. A alteração compatível é a presença de fator V de Leiden. Alternativa A.",
+ "reasoning": "Primeiro passo: reconhecer a suspeita. Mulher jovem com trombose venosa profunda, sem causa aparente, e dois familiares de primeiro grau com trombose, sugere trombofilia hereditária. Segundo passo: lembrar as principais causas. As mais frequentes são a mutação do fator V de Leiden, a mutação do gene da protrombina, e as deficiências de proteína C, de proteína S e de antitrombina. Terceiro passo: analisar as alternativas. O fator V de Leiden é a trombofilia hereditária mais comum, e a pesquisa da mutação é genética e confirmatória. Proteína S e antitrombina causam trombose quando estão reduzidas, e não aumentadas. A redução do fator de von Willebrand causa tendência a sangramento, e não a trombose.",
+ "distractors": [
+  {
+   "index": 1,
+   "why": "A trombofilia por proteína S ocorre com níveis reduzidos, e não aumentados; níveis aumentados não causam trombose."
+  },
+  {
+   "index": 2,
+   "why": "A deficiência de antitrombina III, com níveis reduzidos, é que causa trombofilia; níveis aumentados não têm esse efeito."
+  },
+  {
+   "index": 3,
+   "why": "A redução do fator de von Willebrand causa doença hemorrágica, e não trombose."
+  }
+ ],
+ "tip": "Trombose com história familiar: pense em fator V de Leiden, que é a causa hereditária mais comum.",
+ "pearl": "Dosar proteína S, C e antitrombina durante a trombose aguda ou anticoagulação pode dar resultado falso; colete com cuidado.",
+ "competency_note": "Reconhecer trombofilias hereditárias e interpretar seus exames.",
+ "claims": [
+  {
+   "claim": "As trombofilias hereditárias mais comuns são o fator V de Leiden e a mutação do gene da protrombina, e as deficiências de proteína C, proteína S e antitrombina são causas menos frequentes e dependem de níveis reduzidos.",
+   "source_id": "pm-38733983",
+   "locator": "Resumo"
+  }
+ ],
+ "key_why": "O fator V de Leiden é a trombofilia hereditária mais comum, e a história familiar aponta para a causa genética.",
+ "theory": {
+  "title": "Trombofilias hereditárias",
+  "intro": "São alterações genéticas que aumentam o risco de trombose venosa. Suspeita-se na trombose jovem, recorrente ou com história familiar.",
+  "sections": [
+   {
+    "heading": "Principais",
+    "items": [
+     "Fator V de Leiden: mais comum",
+     "Mutação do gene da protrombina",
+     "Deficiência de proteína C, proteína S ou antitrombina"
+    ]
+   },
+   {
+    "heading": "Quando investigar",
+    "body": "Trombose antes dos 50 anos sem causa aparente, trombose em local incomum, recorrência ou forte história familiar."
+   }
+  ],
+  "alert": "Anticoagulantes e a trombose aguda alteram os níveis de proteínas C e S e de antitrombina."
+ },
+ "summary": {
+  "title": "Trombofilia hereditária",
+  "points": [
+   {
+    "label": "Mais comum",
+    "text": "Fator V de Leiden."
+   },
+   {
+    "label": "Outras",
+    "text": "Protrombina e deficiência de proteínas C, S e antitrombina."
+   },
+   {
+    "label": "Atenção",
+    "text": "Deficiências têm níveis reduzidos, não aumentados."
+   },
+   {
+    "label": "Quando",
+    "text": "Trombose jovem, recorrente ou com história familiar."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

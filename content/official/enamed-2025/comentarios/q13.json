@@ -1,0 +1,84 @@
+{
+ "area_id": "coletiva",
+ "competency_id": "sus",
+ "theme": "Intoxicação aguda por agrotóxicos",
+ "scenario": "UBS",
+ "difficulty": "medio",
+ "quick": "Na suspeita de intoxicação por agrotóxico, a UBS trata os sintomas, pede exames, notifica no Sinan, dá atestado e solicita matriciamento à vigilância em saúde do trabalhador. Alternativa C.",
+ "reasoning": "Primeiro passo: reconhecer o evento. Trabalhadora rural com sintomas após pulverização, e colega com queixas parecidas, indica intoxicação aguda relacionada ao trabalho. Segundo passo: lembrar que a atenção primária é porta de entrada e responsável pelo cuidado. Ela atende o quadro clínico, solicita os exames, afasta a pessoa do trabalho com atestado e acompanha. Terceiro passo: cumprir o dever de notificar. A intoxicação exógena e os agravos relacionados ao trabalho são de notificação compulsória, e a ficha vai para o Sinan. Quarto passo: acionar a rede. A vigilância em saúde do trabalhador apoia a investigação do local e dos outros expostos, e o matriciamento com o centro de referência qualifica a equipe. Quinto passo: afastar os erros das outras alternativas. Denúncia ao Ministério Público não substitui a notificação e não cabe ao médico. Confirmar nexo causal por exame antes de notificar atrasa a ação. A emissão da CAT é obrigação de quem atende o trabalhador, sem exclusividade da medicina do trabalho.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Encaminhar e denunciar ao Ministério Público do Trabalho pula etapas: o caso é tratado e notificado na própria UBS, e a denúncia não é conduta clínica."
+  },
+  {
+   "index": 1,
+   "why": "A notificação do caso suspeito não espera a confirmação do nexo causal por exames; esperar atrasa a vigilância e protege o agente."
+  },
+  {
+   "index": 3,
+   "why": "A comunicação de acidente de trabalho pode ser emitida pelo médico que atende o trabalhador, não é exclusividade da medicina do trabalho."
+  }
+ ],
+ "tip": "Suspeita de agravo relacionado ao trabalho: trate, notifique no Sinan e acione a vigilância em saúde do trabalhador.",
+ "pearl": "Não é preciso confirmar o nexo para notificar. A notificação é por suspeita.",
+ "competency_note": "Conduzir caso de agravo relacionado ao trabalho na atenção primária, com notificação e rede.",
+ "claims": [
+  {
+   "claim": "A intoxicação exógena é de notificação compulsória e deve ser notificada no Sinan, assim como os agravos relacionados ao trabalho.",
+   "source_id": "ms-gvs-2022",
+   "locator": "Lista nacional de notificação compulsória"
+  },
+  {
+   "claim": "A atenção primária é a ordenadora do cuidado e responsável por coordenar a atenção em rede.",
+   "source_id": "pnab-2017",
+   "locator": "Atribuições da atenção básica"
+  }
+ ],
+ "key_why": "A UBS deve tratar, investigar, notificar no Sinan e acionar a vigilância em saúde do trabalhador, sem esperar confirmação do nexo nem transferir a responsabilidade.",
+ "theory": {
+  "title": "Agravos relacionados ao trabalho na atenção primária",
+  "intro": "A atenção primária cuida do trabalhador adoecido e faz a vigilância do que acontece no território, incluindo intoxicação por agrotóxicos.",
+  "sections": [
+   {
+    "heading": "O que fazer",
+    "items": [
+     "Atender o quadro clínico e solicitar exames conforme o agente",
+     "Notificar a suspeita no Sinan, sem esperar confirmação",
+     "Conceder atestado e orientar sobre afastamento",
+     "Emitir a comunicação de acidente de trabalho quando for vínculo formal"
+    ]
+   },
+   {
+    "heading": "Rede de apoio",
+    "body": "A vigilância em saúde do trabalhador investiga o local de trabalho e os outros expostos. O centro de referência em saúde do trabalhador oferece matriciamento."
+   }
+  ],
+  "alert": "Em trabalhador rural informal, a notificação no Sinan é ainda mais importante, pois a CAT pode não se aplicar."
+ },
+ "summary": {
+  "title": "Intoxicação por agrotóxico",
+  "points": [
+   {
+    "label": "Atender",
+    "text": "Tratar sintomas e pedir exames conforme o agente."
+   },
+   {
+    "label": "Notificar",
+    "text": "Sinan, por suspeita e sem esperar nexo."
+   },
+   {
+    "label": "Afastar",
+    "text": "Atestado médico."
+   },
+   {
+    "label": "Rede",
+    "text": "Matriciamento com a vigilância em saúde do trabalhador."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

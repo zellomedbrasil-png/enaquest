@@ -1,0 +1,83 @@
+{
+ "area_id": "go",
+ "competency_id": "terapeutica",
+ "theme": "Contracepção no lúpus com trombose",
+ "scenario": "Ambulatório",
+ "difficulty": "dificil",
+ "quick": "Lúpus com trombose recente e menorragia: estrogênio é contraindicado, e o DIU de cobre pode piorar o sangramento. O DIU de levonorgestrel é a melhor opção: alternativa B.",
+ "reasoning": "Primeiro passo: avaliar os riscos. A paciente tem lúpus e antecedente recente de trombose, o que sugere síndrome antifosfolípide. Isso contraindica métodos com estrogênio, como a pílula combinada contínua e o injetável mensal combinado. Segundo passo: considerar o sangramento. Ciclos de 8 a 10 dias com intenso sangramento e cólica indicam menorragia, e o DIU de cobre aumenta o fluxo menstrual. Terceiro passo: escolher. O DIU de levonorgestrel é eficaz, reduz o sangramento e não tem os riscos do estrogênio. É a escolha que atende contracepção e tratamento da menorragia. Quarto passo: descartar as outras. Pílula combinada e injetável combinado têm estrogênio e elevam o risco de trombose. DIU de cobre agrava a menorragia.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "O DIU de cobre pode aumentar o fluxo menstrual e as cólicas, o que piora a menorragia."
+  },
+  {
+   "index": 2,
+   "why": "O injetável mensal combinado tem estrogênio, contraindicado por lúpus com trombose recente."
+  },
+  {
+   "index": 3,
+   "why": "A pílula combinada contínua tem estrogênio e eleva o risco de trombose em paciente com lúpus e trombose recente."
+  }
+ ],
+ "tip": "Lúpus com trombose: nada de estrogênio; o DIU de levonorgestrel ajuda a contracepção e o sangramento.",
+ "pearl": "DIU de cobre aumenta o sangramento menstrual; prefira o de levonorgestrel em quem tem menorragia.",
+ "competency_note": "Aplicar critérios de elegibilidade para contracepção em doença sistêmica.",
+ "claims": [
+  {
+   "claim": "Métodos contraceptivos combinados com estrogênio são contraindicados em mulheres com trombose venosa recente e em lúpus com anticorpos antifosfolípides positivos ou desconhecidos.",
+   "source_id": "cdc-mec-2024",
+   "locator": "Critérios de elegibilidade: tromboembolismo e lúpus"
+  },
+  {
+   "claim": "O DIU de levonorgestrel reduz o sangramento menstrual, e o de cobre pode aumentá-lo.",
+   "source_id": "cdc-mec-2024",
+   "locator": "DIU de levonorgestrel e de cobre"
+  }
+ ],
+ "key_why": "O DIU de levonorgestrel evita estrogênio e trata a menorragia, ao contrário das outras opções.",
+ "theory": {
+  "title": "Contracepção e doenças sistêmicas",
+  "intro": "Os critérios de elegibilidade classificam cada método de 1 a 4 conforme a condição da paciente. A categoria 4 é contraindicação absoluta.",
+  "sections": [
+   {
+    "heading": "Estrogênio",
+    "body": "Contraindicado em tromboembolismo recente ou atual, em lúpus com anticorpos antifosfolípides positivos ou desconhecidos e em enxaqueca com aura."
+   },
+   {
+    "heading": "Métodos de escolha",
+    "items": [
+     "DIU de levonorgestrel: reduz sangramento e tem boa eficácia",
+     "Implante e métodos só de progestágeno, avaliando risco individual",
+     "DIU de cobre: bom em geral, mas aumenta o fluxo"
+    ]
+   }
+  ],
+  "alert": "Em lúpus, confirme o risco trombótico e a atividade da doença antes de prescrever."
+ },
+ "summary": {
+  "title": "Lúpus com trombose e contracepção",
+  "points": [
+   {
+    "label": "Evitar",
+    "text": "Estrogênio: pílula combinada, anel, adesivo e injetável mensal."
+   },
+   {
+    "label": "Menorragia",
+    "text": "DIU de cobre piora; DIU de levonorgestrel reduz."
+   },
+   {
+    "label": "Melhor opção",
+    "text": "DIU de levonorgestrel."
+   },
+   {
+    "label": "Critérios",
+    "text": "Escala de 1 a 4; categoria 4 contraindica."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": "Conferir a categoria do DIU de levonorgestrel em lúpus com anticorpos antifosfolípides positivos na edição vigente do critério."
+}

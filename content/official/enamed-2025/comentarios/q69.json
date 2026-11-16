@@ -1,0 +1,80 @@
+{
+ "area_id": "mental",
+ "competency_id": "hipotese",
+ "theme": "Critérios de dependência de substância",
+ "scenario": "UBS",
+ "difficulty": "medio",
+ "quick": "Para avaliar o padrão de uso problemático segundo o DSM-5, investiga-se o tempo gasto para obter a substância ou se recuperar dos seus efeitos. Alternativa C.",
+ "reasoning": "Primeiro passo: lembrar a estrutura do DSM-5. O transtorno por uso de substância é avaliado por 11 critérios, agrupados em baixo controle, prejuízo social, uso arriscado e critérios farmacológicos. Segundo passo: identificar o critério na alternativa. Gastar muito tempo em atividades necessárias para obter a substância, usá-la ou se recuperar dos efeitos é um dos critérios de baixo controle. Os outros incluem tomar em quantidade ou por mais tempo que o planejado, desejo persistente de reduzir o uso sem sucesso e fissura. Terceiro passo: descartar as outras. A tolerância cruzada entre substâncias e a aceitação da abstinência pela equipe não são critérios diagnósticos. O tipo de substância e se é lícita ou ilícita também não definem o padrão de dependência.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Tolerância cruzada com outras substâncias não é critério do DSM-5; o critério de tolerância é para a própria substância."
+  },
+  {
+   "index": 1,
+   "why": "A aceitação da proposta de abstinência não é critério diagnóstico, mas é útil para o planejamento do cuidado."
+  },
+  {
+   "index": 3,
+   "why": "A classe da substância e se é lícita ou ilícita não definem a presença de transtorno por uso; o que conta é o padrão de uso e o prejuízo."
+  }
+ ],
+ "tip": "No DSM-5, o diagnóstico vem da contagem de critérios; tempo gasto para obter ou se recuperar da substância é um deles.",
+ "pearl": "Álcool e outras substâncias lícitas causam dependência pelos mesmos critérios das ilícitas.",
+ "competency_note": "Reconhecer os critérios do DSM-5 para transtorno por uso de substância.",
+ "claims": [
+  {
+   "claim": "O DSM-5 define o transtorno por uso de substância por 11 critérios, incluindo uso por mais tempo que o planejado, desejo de reduzir sem sucesso, muito tempo gasto para obter, usar ou se recuperar da substância, fissura, tolerância e abstinência.",
+   "source_id": "pm-26039070",
+   "locator": "Descrição dos critérios"
+  }
+ ],
+ "key_why": "O tempo gasto para obter a substância ou se recuperar dos efeitos é um dos critérios do DSM-5.",
+ "theory": {
+  "title": "Transtorno por uso de álcool e outras substâncias",
+  "intro": "O DSM-5 unificou abuso e dependência em um único transtorno, graduado pelo número de critérios presentes.",
+  "sections": [
+   {
+    "heading": "Critérios",
+    "items": [
+     "Uso em maior quantidade ou por mais tempo que o planejado",
+     "Desejo persistente ou esforço fracassado de reduzir",
+     "Muito tempo gasto para obter, usar ou se recuperar",
+     "Fissura",
+     "Prejuízo em papéis sociais, ocupacionais e familiares",
+     "Tolerância e abstinência"
+    ]
+   },
+   {
+    "heading": "Gravidade",
+    "body": "Dois a três critérios: leve. Quatro a cinco: moderado. Seis ou mais: grave."
+   }
+  ]
+ },
+ "summary": {
+  "title": "Uso de substâncias no DSM-5",
+  "points": [
+   {
+    "label": "Número",
+    "text": "11 critérios."
+   },
+   {
+    "label": "Gravidade",
+    "text": "2 a 3 leve, 4 a 5 moderado, 6 ou mais grave."
+   },
+   {
+    "label": "Baixo controle",
+    "text": "Tempo gasto, desejo de reduzir e fissura."
+   },
+   {
+    "label": "Não é critério",
+    "text": "Classe lícita ou ilícita da substância."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": "Conferir a lista de critérios no manual DSM-5-TR."
+}

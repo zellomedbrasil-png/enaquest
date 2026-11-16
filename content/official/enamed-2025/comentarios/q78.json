@@ -1,0 +1,86 @@
+{
+ "area_id": "mfc",
+ "competency_id": "etica",
+ "theme": "Cuidado ao homem trans na atenção primária",
+ "scenario": "UBS",
+ "difficulty": "facil",
+ "quick": "A identidade trans não é transtorno mental. O cuidado é acolher, acompanhar na UBS e orientar sobre saúde geral, sem exigir avaliação psiquiátrica prévia. Alternativa D.",
+ "reasoning": "Primeiro passo: lembrar o princípio. A identidade de gênero não é doença, e a Política Nacional de Saúde Integral de lésbicas, gays, bissexuais, travestis e transexuais garante acesso sem discriminação na atenção básica. Segundo passo: avaliar a demanda. O paciente não tem sofrimento intenso, nem sintomas depressivos, ansiosos ou psicóticos, e quer informações sobre os próximos passos e cuidados de saúde. Terceiro passo: escolher a conduta. A atenção primária acolhe, esclarece, acompanha de forma contínua e orienta sobre o cuidado geral, incluindo prevenção de infecções, vacinas, rastreamentos e saúde mental. Quarto passo: descartar as outras. Exigir avaliação psiquiátrica antes do acompanhamento cria barreira e patologiza. Iniciar hormônio sem avaliação e seguimento adequados não é a primeira medida. Encaminhar e dizer que a UBS não pode acompanhar quebra o vínculo e contraria a política.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Exigir avaliação psiquiátrica antes do acompanhamento patologiza a identidade trans e cria barreira de acesso."
+  },
+  {
+   "index": 1,
+   "why": "Iniciar hormônio de imediato, sem esclarecimento, avaliação e seguimento, não é a primeira conduta; o paciente ainda está tomando decisões e pede informação."
+  },
+  {
+   "index": 2,
+   "why": "Dizer que o seguimento só pode ser feito por especialista quebra o vínculo; a atenção primária acompanha e encaminha apenas quando necessário."
+  }
+ ],
+ "tip": "Pessoa trans na UBS: acolher, acompanhar e orientar, sem patologizar nem criar barreiras.",
+ "pearl": "A atenção primária é porta de entrada e coordenadora do cuidado também para a população LGBT.",
+ "competency_note": "Acolher a pessoa trans sem patologizar e organizar o cuidado na atenção primária.",
+ "claims": [
+  {
+   "claim": "A Política Nacional de Saúde Integral LGBT garante atenção à saúde sem discriminação e inclui o cuidado de pessoas trans em todos os níveis do SUS.",
+   "source_id": "portaria-lgbt-2011",
+   "locator": "Diretrizes e objetivos"
+  },
+  {
+   "claim": "A atenção básica é porta de entrada do SUS, com vínculo, integralidade e coordenação do cuidado.",
+   "source_id": "pnab-2017",
+   "locator": "Princípios e diretrizes"
+  }
+ ],
+ "key_why": "A identidade trans não é transtorno mental, então a UBS acolhe e acompanha o paciente com cuidados gerais de saúde.",
+ "theory": {
+  "title": "Cuidado à população trans no SUS",
+  "intro": "A Política Nacional de Saúde Integral LGBT orienta o acesso sem discriminação e o cuidado integral.",
+  "sections": [
+   {
+    "heading": "Princípios",
+    "items": [
+     "A identidade de gênero não é patologia",
+     "Acolhimento com respeito ao nome social",
+     "Cuidado integral, com prevenção, vacinas e rastreamentos"
+    ]
+   },
+   {
+    "heading": "Na prática",
+    "items": [
+     "Escutar a demanda e informar sobre os caminhos disponíveis",
+     "Acompanhar na UBS e encaminhar a serviços especializados quando necessário",
+     "Avaliar a saúde mental, sem presumir que haja transtorno"
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "title": "Saúde da pessoa trans",
+  "points": [
+   {
+    "label": "Princípio",
+    "text": "Identidade trans não é transtorno mental."
+   },
+   {
+    "label": "Cuidado",
+    "text": "Acolher, acompanhar e orientar na UBS."
+   },
+   {
+    "label": "Evitar",
+    "text": "Exigir avaliação psiquiátrica ou negar seguimento."
+   },
+   {
+    "label": "Rede",
+    "text": "Encaminhar ao serviço especializado quando houver demanda."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

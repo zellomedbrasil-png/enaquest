@@ -1,0 +1,85 @@
+{
+ "area_id": "coletiva",
+ "competency_id": "etica",
+ "theme": "Preenchimento da declaração de óbito",
+ "scenario": "UBS",
+ "difficulty": "medio",
+ "quick": "Paciente acompanhado pela médica com causa de morte conhecida: ela mesma preenche a declaração de óbito, com a causa direta na linha a e a causa básica no fim da sequência. Alternativa B.",
+ "reasoning": "Primeiro passo: definir quem preenche. A declaração de óbito deve ser fornecida pelo médico assistente que acompanhava o paciente e conhece a causa. O Instituto Médico Legal atua em mortes violentas e suspeitas, e o serviço de verificação de óbitos, em mortes naturais sem assistência ou de causa desconhecida. Segundo passo: montar a sequência. A Parte I lista, em ordem, a causa direta na linha a, a causa intermediária na b e a causa básica na última linha, em sequência causal. Aqui, a causa direta é a insuficiência respiratória aguda, causada por pneumonia, que decorre da síndrome gripal. Terceiro passo: preencher a Parte II com condições que contribuíram, sem fazer parte da sequência: o acidente vascular encefálico e a hipertensão arterial. Quarto passo: descartar as outras. Colocar hipertensão e AVE na Parte I mistura causas que não fazem parte da sequência.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "O Instituto Médico Legal não preenche a declaração em morte natural de paciente com médico assistente, e hipertensão e AVE não fazem parte da sequência causal desta morte."
+  },
+  {
+   "index": 2,
+   "why": "O SAMU não preenche a declaração neste caso, e a sequência está invertida, com a causa básica aparecendo antes da direta."
+  },
+  {
+   "index": 3,
+   "why": "O serviço de verificação de óbitos é para mortes sem causa conhecida; aqui há médico assistente, e as doenças crônicas ficam na Parte II."
+  }
+ ],
+ "tip": "Parte I: sequência causal, da causa direta à básica. Parte II: condições que contribuíram, fora da sequência.",
+ "pearl": "A causa básica é a que iniciou a cadeia que levou à morte, e é nela que se baseiam as estatísticas de mortalidade.",
+ "competency_note": "Preencher corretamente a declaração de óbito.",
+ "claims": [
+  {
+   "claim": "A declaração de óbito deve ser fornecida pelo médico que prestou assistência ao paciente, e nos casos de morte natural sem assistência, pelo serviço de verificação de óbitos.",
+   "source_id": "cfm-1779-2005",
+   "locator": "Art. 1"
+  },
+  {
+   "claim": "No atestado de óbito, a Parte I contém a sequência de causas, da direta à básica, e a Parte II as condições que contribuíram para a morte sem fazer parte da cadeia.",
+   "source_id": "pm-30252271",
+   "locator": "Estrutura da declaração"
+  }
+ ],
+ "key_why": "A médica assistente preenche, com a sequência causal na Parte I e as condições contribuintes na Parte II.",
+ "theory": {
+  "title": "Declaração de óbito",
+  "intro": "É o documento que registra a causa da morte e alimenta as estatísticas de saúde. O preenchimento correto é dever do médico.",
+  "sections": [
+   {
+    "heading": "Quem preenche",
+    "items": [
+     "Médico assistente, quando conhece a causa",
+     "Serviço de verificação de óbitos, em morte natural sem causa definida",
+     "Instituto Médico Legal, em morte violenta ou suspeita"
+    ]
+   },
+   {
+    "heading": "Como preencher",
+    "items": [
+     "Parte I: causa direta, intermediárias e causa básica",
+     "Parte II: condições que contribuíram sem fazer parte da cadeia"
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "title": "Declaração de óbito",
+  "points": [
+   {
+    "label": "Médico assistente",
+    "text": "Preenche quando conhece a causa."
+   },
+   {
+    "label": "IML",
+    "text": "Morte violenta ou suspeita."
+   },
+   {
+    "label": "Parte I",
+    "text": "Sequência causal, da direta à básica."
+   },
+   {
+    "label": "Parte II",
+    "text": "Condições contribuintes."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": "Conferir a ordem das linhas da Parte I na alternativa B."
+}

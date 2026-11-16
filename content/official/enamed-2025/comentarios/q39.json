@@ -1,0 +1,80 @@
+{
+ "area_id": "go",
+ "competency_id": "decisao",
+ "theme": "Gestação de 41 semanas",
+ "scenario": "UBS",
+ "difficulty": "medio",
+ "quick": "Aos 41 semanas, com bem-estar fetal normal, solicita-se vigilância fetal frequente e planeja-se a indução até 41 semanas e 6 dias. Alternativa D.",
+ "reasoning": "Primeiro passo: situar a idade gestacional. Com 41 semanas completas, a gestação é considerada tardia e entra em vigilância mais próxima, pois o risco de morte fetal e de complicações aumenta com o tempo. Segundo passo: avaliar o bem-estar fetal. A paciente está assintomática, com movimentos fetais e perfil biofísico normal. Terceiro passo: aplicar a conduta. As diretrizes recomendam vigilância do bem-estar fetal, com perfil biofísico e cardiotocografia a cada 2 a 3 dias, e planejar a indução do parto antes que ela chegue às 42 semanas. Quarto passo: descartar as outras. Aguardar até depois de 42 semanas, como na alternativa A, aumenta o risco. Doppler e amnioscopia não são os exames de escolha para essa vigilância.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Aguardar mais de 42 semanas expõe a gestante a risco maior de morte fetal; a indução deve ser planejada até 41 semanas e 6 dias."
+  },
+  {
+   "index": 1,
+   "why": "A dopplervelocimetria é indicada para restrição de crescimento fetal, e não como vigilância da gestação prolongada com crescimento normal."
+  },
+  {
+   "index": 2,
+   "why": "Amnioscopia não é recomendada como método de avaliação do bem-estar fetal na gestação prolongada."
+  }
+ ],
+ "tip": "A partir de 41 semanas: perfil biofísico e cardiotocografia a cada 2 a 3 dias e indução até 41 semanas e 6 dias.",
+ "pearl": "O risco de morte fetal sobe a cada semana depois de 41 semanas; não espere 42 semanas sem vigilância.",
+ "competency_note": "Conduzir gestação em 41 semanas com vigilância e planejamento da indução.",
+ "claims": [
+  {
+   "claim": "Em gestações com 41 semanas, recomenda-se oferecer a indução do parto e iniciar a vigilância fetal, com planejamento do parto antes de 42 semanas.",
+   "source_id": "pm-25050770",
+   "locator": "Recomendações"
+  }
+ ],
+ "key_why": "A vigilância a cada 2 a 3 dias e a indução planejada até 41 semanas e 6 dias reduzem o risco de complicações da gestação prolongada.",
+ "theory": {
+  "title": "Gestação prolongada",
+  "intro": "Considera-se termo tardio a gestação de 41 semanas a 41 semanas e 6 dias, e pós-termo a de 42 semanas ou mais.",
+  "sections": [
+   {
+    "heading": "Riscos",
+    "items": [
+     "Aumento de morte fetal, macrossomia e mecônio",
+     "Mais chance de cesárea"
+    ]
+   },
+   {
+    "heading": "Conduta",
+    "items": [
+     "Confirmar a idade gestacional pela ultrassonografia precoce",
+     "Vigilância com perfil biofísico e cardiotocografia a cada 2 a 3 dias a partir de 41 semanas",
+     "Planejar a indução entre 41 semanas e 42 semanas, conforme a avaliação do colo"
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "title": "Gestação de 41 semanas",
+  "points": [
+   {
+    "label": "Definição",
+    "text": "Termo tardio: 41 semanas a 41 semanas e 6 dias."
+   },
+   {
+    "label": "Vigilância",
+    "text": "Perfil biofísico e cardiotocografia a cada 2 a 3 dias."
+   },
+   {
+    "label": "Parto",
+    "text": "Planejar indução até 41 semanas e 6 dias."
+   },
+   {
+    "label": "Evitar",
+    "text": "Esperar 42 semanas sem vigilância."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

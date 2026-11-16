@@ -1,0 +1,114 @@
+{
+ "area_id": "cirurgia",
+ "competency_id": "urgencia",
+ "theme": "Hematoma epidural agudo pós-trauma",
+ "scenario": "Pronto-socorro",
+ "difficulty": "facil",
+ "quick": "Alternativa C. Intervalo lúcido, piora súbita com midríase esquerda e TC com coleção biconvexa à esquerda definem hematoma epidural com herniação; a conduta é craniotomia de emergência para drenagem.",
+ "reasoning": "Primeiro passo, o mecanismo: colisão com caminhão, trauma de alta energia. Segundo, a evolução: o paciente estava consciente, apenas com amnésia, sem déficit, e minutos depois rebaixa o nível de consciência e desenvolve midríase à esquerda. Essa sequência de consciência preservada seguida de deterioração é o intervalo lúcido, clássico do hematoma epidural, cujo sangramento arterial expande rápido. Terceiro, a anisocoria com pupila esquerda dilatada indica herniação uncal comprimindo o III nervo do mesmo lado do hematoma. Quarto, a imagem: na TC, o lado direito da tela corresponde ao lado esquerdo do paciente; ali há coleção hiperdensa biconvexa, em formato de lente, junto à tábua óssea, com edema de partes moles e apagamento das estruturas da linha média. O formato em lente, e não em crescente, separa epidural de subdural. Quinto, a conduta: paciente intubado por rebaixamento, com anisocoria e efeito de massa, tem indicação de evacuação cirúrgica o mais rápido possível. Logo, hematoma epidural com cirurgia de emergência.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "O subdural agudo aparece como crescente que cruza suturas, não como lente. Além disso, mesmo um subdural com herniação seria cirúrgico; hidantalizar e aguardar não trata efeito de massa nem hipertensão intracraniana."
+  },
+  {
+   "index": 1,
+   "why": "Contusão é lesão intraparenquimatosa heterogênea, não coleção extra-axial biconvexa colada ao osso. A imagem e o intervalo lúcido apontam para epidural; a conduta cirúrgica citada até é coerente, mas o diagnóstico está errado."
+  },
+  {
+   "index": 3,
+   "why": "Hematoma intraparenquimatoso fica dentro do tecido cerebral, e a coleção mostrada é extra-axial. Aguardar melhora com fenitoína em paciente com herniação em curso é conduta potencialmente fatal."
+  }
+ ],
+ "tip": "Lente e lucidez: epidural, arterial, cirurgia já. Crescente e idoso ou etilista: subdural, venoso. Pupila dilatada costuma estar do lado do hematoma.",
+ "pearl": "Na TC axial a imagem está espelhada: o lado direito da tela é o lado esquerdo do paciente. A midríase esquerda casa com o hematoma visto à direita da imagem; não confunda lateralidade.",
+ "competency_note": "Reconhecer hematoma epidural pela clínica de intervalo lúcido e pela imagem em lente, identificar herniação uncal e indicar descompressão cirúrgica de emergência.",
+ "claims": [
+  {
+   "claim": "Hematoma epidural acima de 30 mL deve ser evacuado cirurgicamente independentemente do Glasgow.",
+   "source_id": "btf-edh-2006",
+   "locator": "Recommendations, Indications for surgery"
+  },
+  {
+   "claim": "Paciente com hematoma epidural agudo em coma (Glasgow abaixo de 9) e anisocoria deve ser submetido a evacuação cirúrgica o mais rápido possível.",
+   "source_id": "btf-edh-2006",
+   "locator": "Recommendations, Timing"
+  },
+  {
+   "claim": "Hematoma epidural com menos de 30 mL, menos de 15 mm de espessura e desvio de linha média menor que 5 mm em paciente com Glasgow acima de 8 sem déficit focal pode ser manejado de forma conservadora com TC seriada e observação em centro neurocirúrgico.",
+   "source_id": "btf-edh-2006",
+   "locator": "Recommendations, Indications for surgery"
+  },
+  {
+   "claim": "No TCE grave com Glasgow igual ou menor que 8 está indicada via aérea definitiva.",
+   "source_id": "ms-samu-2016",
+   "locator": "Protocolo de trauma cranioencefálico"
+  }
+ ],
+ "key_why": "Jovem com TCE em alta energia, consciente no início (intervalo lúcido), que piora em minutos com rebaixamento e midríase à esquerda. A TC mostra coleção hiperdensa biconvexa (em lente) à esquerda do paciente, com desvio da linha média. Isso é hematoma epidural com herniação uncal, e o tratamento é a drenagem cirúrgica de emergência.",
+ "theory": {
+  "title": "Hematoma epidural agudo no TCE",
+  "intro": "O hematoma epidural é o acúmulo de sangue entre a tábua interna do crânio e a dura-máter. Em geral vem de lesão da artéria meníngea média associada a fratura do osso temporal. Como o sangramento é arterial, a expansão é rápida e pode levar à herniação cerebral em minutos a horas.",
+  "sections": [
+   {
+    "heading": "Quando suspeitar",
+    "items": [
+     "TCE com perda breve de consciência ou amnésia, seguido de intervalo lúcido e piora neurológica rápida",
+     "Anisocoria com midríase ipsilateral ao hematoma, por compressão do III par na herniação uncal",
+     "Hemiparesia contralateral, rebaixamento do Glasgow, bradicardia e hipertensão (sinais tardios)"
+    ]
+   },
+   {
+    "heading": "Como diferenciar na TC sem contraste",
+    "items": [
+     "Epidural: imagem hiperdensa biconvexa, em lente, que não cruza suturas cranianas",
+     "Subdural agudo: imagem em crescente, que cruza suturas e acompanha a convexidade; origem nas veias ponte",
+     "Contusão: áreas hiperdensas heterogêneas dentro do parênquima, com edema ao redor, frequentemente frontotemporais",
+     "Hematoma intraparenquimatoso: coleção arredondada dentro do tecido cerebral"
+    ]
+   },
+   {
+    "heading": "Conduta",
+    "body": "Proteger via aérea (IOT se Glasgow igual ou menor que 8), manter oxigenação e pressão arterial, e acionar a neurocirurgia. Hematoma epidural acima de 30 mL deve ser drenado independentemente do Glasgow. Paciente em coma (Glasgow abaixo de 9) com anisocoria deve ser operado o mais rápido possível. O tratamento conservador fica restrito a hematomas pequenos (menos de 30 mL, menos de 15 mm de espessura, desvio de linha média menor que 5 mm) em paciente com Glasgow acima de 8 e sem déficit focal."
+   }
+  ],
+  "alert": "Anticonvulsivante não trata hipertensão intracraniana. Midríase unilateral após TCE indica herniação em curso, e a conduta é descompressão cirúrgica imediata."
+ },
+ "summary": {
+  "title": "Hematoma epidural em 30 segundos",
+  "points": [
+   {
+    "label": "Origem",
+    "text": "Artéria meníngea média, geralmente com fratura temporal."
+   },
+   {
+    "label": "Clínica",
+    "text": "Intervalo lúcido seguido de piora rápida.",
+    "sub": [
+     "Midríase ipsilateral",
+     "Hemiparesia contralateral"
+    ]
+   },
+   {
+    "label": "Imagem",
+    "text": "Lente biconvexa hiperdensa que não cruza suturas."
+   },
+   {
+    "label": "Diferencial",
+    "text": "Subdural: crescente que cruza suturas, origem venosa."
+   },
+   {
+    "label": "Cirurgia",
+    "text": "Volume acima de 30 mL ou Glasgow abaixo de 9 com anisocoria: drenagem de emergência."
+   },
+   {
+    "label": "Via aérea",
+    "text": "Glasgow igual ou menor que 8: intubação orotraqueal."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": "Tomografia computadorizada de crânio sem contraste, corte axial, mostrando coleção hiperdensa extra-axial junto à tábua óssea no lado direito da imagem, com aumento de partes moles do couro cabeludo do mesmo lado e desvio das estruturas da linha média.",
+ "key_concern": null,
+ "review_note": null
+}

@@ -1,0 +1,82 @@
+{
+ "area_id": "mental",
+ "competency_id": "decisao",
+ "theme": "Luto agudo na atenção primária",
+ "scenario": "UBS",
+ "difficulty": "facil",
+ "quick": "Sofrimento intenso 3 dias após a morte do filho é luto agudo esperado, não transtorno. Acolher, acompanhar na UBS e oferecer apoio da equipe: alternativa D.",
+ "reasoning": "Primeiro passo: situar o tempo. A morte do filho foi há apenas 3 dias, e o choro, a insônia e a falta de apetite são respostas esperadas ao luto agudo. Segundo passo: avaliar o risco. A paciente nega pensamentos de morte, não tem transtorno mental prévio e já melhorou com o acolhimento, o que mostra boa capacidade de resposta. Terceiro passo: escolher a resposta mais proporcional. O luto normal não se medicaliza. O cuidado é de apoio emocional, escuta, orientação e acompanhamento ao longo do tempo na atenção primária. Quarto passo: descartar as outras. Antidepressivo não é indicado nesse momento. CAPS e psiquiatria são para transtorno grave. Terapia psicanalítica breve não é necessária.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Antidepressivo não está indicado no luto agudo sem critérios de depressão, e o sofrimento atual é uma resposta esperada à perda."
+  },
+  {
+   "index": 1,
+   "why": "Seguimento intensivo no CAPS é para transtorno mental grave; o luto agudo é acompanhado na UBS."
+  },
+  {
+   "index": 2,
+   "why": "Psicoterapia especializada não é necessária de início; o apoio pela equipe de atenção primária atende a necessidade."
+  }
+ ],
+ "tip": "Luto agudo é resposta normal: acolha, escute, acompanhe e reavalie se persistir ou piorar.",
+ "pearl": "Sofrimento intenso nos primeiros dias não é depressão; só é considerado transtorno quando há risco ou prejuízo importante e prolongado.",
+ "competency_note": "Diferenciar luto normal de transtorno mental e escolher o cuidado adequado.",
+ "claims": [
+  {
+   "claim": "O sofrimento psíquico na atenção primária é acolhido pela equipe com escuta e apoio, e nem todo sofrimento exige medicação ou encaminhamento ao serviço especializado.",
+   "source_id": "ms-mental-2013",
+   "locator": "Acolhimento e cuidado em saúde mental na atenção básica"
+  }
+ ],
+ "key_why": "O luto agudo é esperado, e a paciente sem risco é acolhida e acompanhada pela equipe da UBS.",
+ "theory": {
+  "title": "Luto na atenção primária",
+  "intro": "O luto é a resposta natural à perda. Pode ser intenso, mas costuma diminuir com o tempo e com apoio.",
+  "sections": [
+   {
+    "heading": "O que fazer",
+    "items": [
+     "Acolher e permitir a expressão do sofrimento",
+     "Avaliar risco de suicídio",
+     "Orientar sobre sono e alimentação, sem medicar de rotina",
+     "Marcar retorno e envolver a rede de apoio"
+    ]
+   },
+   {
+    "heading": "Quando encaminhar",
+    "items": [
+     "Risco de suicídio",
+     "Sintomas depressivos graves ou psicose",
+     "Sofrimento intenso persistente por meses, com prejuízo importante"
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "title": "Luto agudo",
+  "points": [
+   {
+    "label": "Resposta",
+    "text": "Esperada, sem diagnóstico psiquiátrico nos primeiros dias."
+   },
+   {
+    "label": "Cuidado",
+    "text": "Escuta, apoio e acompanhamento na UBS."
+   },
+   {
+    "label": "Evitar",
+    "text": "Medicalizar o luto agudo."
+   },
+   {
+    "label": "Encaminhar",
+    "text": "Risco de suicídio, depressão grave ou luto persistente com prejuízo."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

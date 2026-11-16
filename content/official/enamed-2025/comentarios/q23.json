@@ -1,0 +1,83 @@
+{
+ "area_id": "coletiva",
+ "competency_id": "etica",
+ "theme": "Notificação ao Conselho Tutelar",
+ "scenario": "UBS",
+ "difficulty": "medio",
+ "quick": "Adolescente com equimoses em vários estágios de evolução, que evita falar sobre os fatos, tem suspeita de violência física: notifica-se o Conselho Tutelar. Alternativa B.",
+ "reasoning": "Primeiro passo: reconhecer o sinal. Equimoses na face, nas pernas e nas coxas em estágios de evolução diferentes mostram lesões repetidas ao longo do tempo, e o fato de a adolescente evitar falar sobre isso reforça a suspeita de violência. Segundo passo: lembrar da lei. O Estatuto da Criança e do Adolescente obriga os profissionais de saúde a comunicar ao Conselho Tutelar a suspeita ou confirmação de maus-tratos, sem esperar prova. Terceiro passo: ler as outras situações como doenças. Febre, petéquias e rigidez de nuca em Manuel sugerem meningococcemia, uma emergência clínica. Dengue grave, em Felipe, é doença de notificação ao sistema de saúde. Equimoses, sudorese noturna, febre e linfonodomegalia em Edilene sugerem doença hematológica ou infecciosa. Em nenhuma delas há sinal de violência.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Febre, vômitos, petéquias e rigidez de nuca sugerem meningococcemia, emergência clínica; o acolhimento familiar por si só não é violência."
+  },
+  {
+   "index": 2,
+   "why": "Febre, dor retro-orbitária, sangramento gengival e petéquias sugerem dengue, que se notifica à vigilância epidemiológica, não ao Conselho Tutelar."
+  },
+  {
+   "index": 3,
+   "why": "Equimoses, sudorese noturna, febre e linfonodomegalia generalizada sugerem doença hematológica ou infecciosa, sem sinal de violência."
+  }
+ ],
+ "tip": "Lesões em fases diferentes de evolução e criança que evita falar sobre elas: suspeite de violência e notifique.",
+ "pearl": "Suspeita basta para notificar; o profissional não precisa de prova nem confirmar a autoria.",
+ "competency_note": "Identificar situação em que há dever legal de comunicar suspeita de violência a adolescente.",
+ "claims": [
+  {
+   "claim": "É dever de profissionais de saúde comunicar ao Conselho Tutelar casos suspeitos ou confirmados de maus-tratos contra criança ou adolescente.",
+   "source_id": "eca-1990",
+   "locator": "Artigo 13"
+  }
+ ],
+ "key_why": "Equimoses em múltiplos estágios em adolescente que evita falar do assunto indicam suspeita de violência física, que se comunica ao Conselho Tutelar.",
+ "theory": {
+  "title": "Violência contra crianças e adolescentes",
+  "intro": "Profissionais de saúde têm dever legal de comunicar a suspeita de violência, mesmo sem confirmação.",
+  "sections": [
+   {
+    "heading": "Sinais de alerta",
+    "items": [
+     "Lesões em locais incomuns e em diferentes estágios de cicatrização",
+     "Relato incompatível com a lesão",
+     "Criança retraída, que evita falar sobre as lesões",
+     "Demora em procurar atendimento"
+    ]
+   },
+   {
+    "heading": "Conduta",
+    "items": [
+     "Acolher e tratar as lesões",
+     "Notificar no sistema de vigilância de violências",
+     "Comunicar ao Conselho Tutelar",
+     "Acionar a rede de proteção"
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "title": "Suspeita de violência",
+  "points": [
+   {
+    "label": "Sinal",
+    "text": "Equimoses em vários estágios, criança que evita falar."
+   },
+   {
+    "label": "Dever",
+    "text": "Comunicar ao Conselho Tutelar, sem esperar confirmação."
+   },
+   {
+    "label": "Também",
+    "text": "Notificar a violência no sistema de saúde."
+   },
+   {
+    "label": "Cuidado",
+    "text": "Doenças clínicas podem simular lesões e devem ser consideradas."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

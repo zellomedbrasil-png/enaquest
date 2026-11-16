@@ -1,0 +1,80 @@
+{
+ "area_id": "cirurgia",
+ "competency_id": "hipotese",
+ "theme": "Lesão do nervo laríngeo recorrente",
+ "scenario": "Ambulatório",
+ "difficulty": "facil",
+ "quick": "Rouquidão que persiste por 60 dias depois de tireoidectomia total: lesão do nervo laríngeo recorrente. Alternativa A.",
+ "reasoning": "Primeiro passo: lembrar a anatomia. O nervo laríngeo recorrente passa atrás da tireoide, próximo ao ligamento de Berry e da artéria tireóidea inferior, e inerva os músculos intrínsecos da laringe, exceto o cricotireóideo. Segundo passo: ligar ao quadro. A rouquidão é o sintoma principal da lesão do nervo, por paralisia da prega vocal. Terceiro passo: considerar a duração. Rouquidão que não melhora em 60 dias sugere lesão permanente, e não apenas edema ou neuropraxia. Quarto passo: descartar as outras. O glossofaríngeo e o hipoglosso não são vizinhos da loja tireoidiana. O nervo vago é mais lateral, e a lesão do laríngeo superior causa perda da voz aguda e fadiga vocal, sem a rouquidão persistente típica.",
+ "distractors": [
+  {
+   "index": 1,
+   "why": "O nervo glossofaríngeo está na base do crânio e na faringe, longe da loja tireoidiana."
+  },
+  {
+   "index": 2,
+   "why": "O nervo hipoglosso inerva a língua e não se relaciona à voz nem à tireoide."
+  },
+  {
+   "index": 3,
+   "why": "O nervo vago é lateral, na bainha carotídea, e raramente é lesado na tireoidectomia; o ramo laríngeo recorrente é o que passa junto à glândula."
+  }
+ ],
+ "tip": "Rouquidão depois de tireoidectomia: nervo laríngeo recorrente.",
+ "pearl": "Lesão bilateral do laríngeo recorrente pode causar obstrução de via aérea.",
+ "competency_note": "Conhecer as complicações da tireoidectomia e a anatomia envolvida.",
+ "claims": [
+  {
+   "claim": "A lesão do nervo laríngeo recorrente é complicação conhecida da tireoidectomia e causa paralisia de prega vocal com rouquidão.",
+   "source_id": "pm-31531726",
+   "locator": "Resumo"
+  }
+ ],
+ "key_why": "A rouquidão persistente depois da tireoidectomia é causada por lesão do nervo laríngeo recorrente.",
+ "theory": {
+  "title": "Complicações da tireoidectomia",
+  "intro": "A cirurgia da tireoide expõe estruturas vizinhas, entre elas o nervo laríngeo recorrente e as paratireoides.",
+  "sections": [
+   {
+    "heading": "Nervos",
+    "items": [
+     "Laríngeo recorrente: rouquidão por paralisia da prega vocal",
+     "Laríngeo superior: perda de voz aguda e fadiga vocal"
+    ]
+   },
+   {
+    "heading": "Outras complicações",
+    "items": [
+     "Hipoparatireoidismo com hipocalcemia",
+     "Hematoma cervical",
+     "Hipotireoidismo pós-operatório"
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "title": "Tireoidectomia e voz",
+  "points": [
+   {
+    "label": "Rouquidão",
+    "text": "Lesão do laríngeo recorrente."
+   },
+   {
+    "label": "Voz aguda",
+    "text": "Lesão do laríngeo superior."
+   },
+   {
+    "label": "Cálcio",
+    "text": "Hipoparatireoidismo."
+   },
+   {
+    "label": "Bilateral",
+    "text": "Risco de obstrução de via aérea."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

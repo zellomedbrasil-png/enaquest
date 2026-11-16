@@ -1,0 +1,83 @@
+{
+ "area_id": "pediatria",
+ "competency_id": "urgencia",
+ "theme": "Cetoacidose diabética na criança",
+ "scenario": "UPA",
+ "difficulty": "medio",
+ "quick": "Menina com cetoacidose (pH 7,15, bicarbonato 13, glicemia 410): além da fluidoterapia, o próximo passo é reposição de potássio. Alternativa A.",
+ "reasoning": "Primeiro passo: reconhecer a cetoacidose. Glicemia de 410, pH de 7,15, bicarbonato de 13, cetonúria, náuseas, dor abdominal e hálito cetônico em menina de 11 anos. Segundo passo: lembrar a sequência. Primeiro a reposição de volume. Depois, o potássio, pois o potássio total do corpo está muito baixo, embora o sérico possa estar normal ou alto, e a insulina o faz cair. Terceiro passo: aplicar. A reposição de potássio entra no soro assim que a diurese está presente e o potássio sérico é conhecido, antes ou junto da insulina. Quarto passo: descartar as outras. Corrigir a glicemia de forma imediata e rápida é perigoso, pois queda brusca da osmolaridade causa edema cerebral. O bicarbonato não é indicado de rotina. Manitol é para edema cerebral, que não está presente.",
+ "distractors": [
+  {
+   "index": 1,
+   "why": "Corrigir a glicemia depressa pode causar queda rápida da osmolaridade e edema cerebral; a insulina entra em dose contínua depois da hidratação e do potássio."
+  },
+  {
+   "index": 2,
+   "why": "O bicarbonato não é usado de rotina na cetoacidose da criança, pois não melhora o desfecho e pode agravar a hipocalemia."
+  },
+  {
+   "index": 3,
+   "why": "O manitol trata edema cerebral, complicação que não está presente."
+  }
+ ],
+ "tip": "Cetoacidose na criança: hidratação cuidadosa, potássio no soro e insulina em infusão contínua; evite bicarbonato.",
+ "pearl": "O potássio sérico pode estar normal apesar de depleção total; ele cai quando a insulina entra, por isso se repõe cedo.",
+ "competency_note": "Conduzir o tratamento da cetoacidose em criança, com prevenção do edema cerebral.",
+ "claims": [
+  {
+   "claim": "No tratamento da cetoacidose em crianças, repõe-se potássio no soro logo que a diurese é confirmada, inicia-se insulina em infusão contínua depois de 1 a 2 horas de hidratação e evita-se bicarbonato.",
+   "source_id": "ispad-cad-2022",
+   "locator": "Tratamento da cetoacidose diabética"
+  }
+ ],
+ "key_why": "O potássio total está depletado e cai com a insulina; por isso a reposição entra logo após a hidratação inicial.",
+ "theory": {
+  "title": "Cetoacidose diabética na criança",
+  "intro": "É uma emergência por falta de insulina. A criança é mais sujeita a edema cerebral, por isso a correção é gradual.",
+  "sections": [
+   {
+    "heading": "Passos",
+    "items": [
+     "Reposição de volume com fluido isotônico",
+     "Potássio no soro quando há diurese e potássio dosado",
+     "Insulina em infusão contínua, depois de 1 a 2 horas de hidratação",
+     "Monitorizar glicemia, eletrólitos e estado neurológico"
+    ]
+   },
+   {
+    "heading": "Evitar",
+    "items": [
+     "Bicarbonato de rotina",
+     "Queda rápida da glicemia",
+     "Excesso de líquidos"
+    ]
+   }
+  ],
+  "alert": "Dor de cabeça, vômito e rebaixamento durante o tratamento podem indicar edema cerebral."
+ },
+ "summary": {
+  "title": "CAD pediátrica",
+  "points": [
+   {
+    "label": "Ordem",
+    "text": "Volume, potássio e depois insulina."
+   },
+   {
+    "label": "Potássio",
+    "text": "Repor cedo; cai com a insulina."
+   },
+   {
+    "label": "Evitar",
+    "text": "Bicarbonato e correção rápida da glicemia."
+   },
+   {
+    "label": "Risco",
+    "text": "Edema cerebral."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

@@ -1,0 +1,87 @@
+{
+ "area_id": "mental",
+ "competency_id": "urgencia",
+ "theme": "Risco de suicídio com plano",
+ "scenario": "UPA",
+ "difficulty": "medio",
+ "quick": "Depressão grave com ideação e plano suicida, tentativa de ingestão de medicamentos e rede de apoio ausente: risco alto. Internação em enfermaria de saúde mental em hospital geral. Alternativa D.",
+ "reasoning": "Primeiro passo: reconhecer a gravidade. O jovem tem tristeza profunda, anedonia, insônia, perda de apetite, isolamento e desesperança, além de ideação suicida com método definido e acesso a medicamentos, e foi encontrado trancado com cartelas ao lado. Isso configura risco alto de suicídio. Segundo passo: avaliar os fatores de proteção. Ele mora longe da família, abandonou a psicoterapia e tem pouca rede de apoio, o que reduz a proteção. Terceiro passo: escolher o nível de cuidado. Com risco iminente, a conduta é manter o paciente em ambiente protegido, com internação em enfermaria de saúde mental em hospital geral. Quarto passo: descartar as outras. Acompanhamento ambulatorial na UBS, psicoterapia na atenção primária e avaliação no CAPS são insuficientes quando o risco é iminente.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Acompanhamento em UBS é insuficiente diante de ideação com plano, acesso a meios e ausência de rede de apoio."
+  },
+  {
+   "index": 1,
+   "why": "Psicoterapia com equipe multiprofissional é parte do tratamento, mas não protege contra um risco iminente de suicídio."
+  },
+  {
+   "index": 2,
+   "why": "O CAPS I faz acompanhamento ambulatorial, que não basta quando o risco é alto e imediato."
+  }
+ ],
+ "tip": "Ideação com plano, acesso ao método e pouca rede de apoio: risco alto, proteja e interne.",
+ "pearl": "Perguntar sobre suicídio não induz o comportamento; é a forma de avaliar o risco.",
+ "competency_note": "Avaliar o risco de suicídio e escolher o nível de cuidado.",
+ "claims": [
+  {
+   "claim": "O cuidado em saúde mental deve ocorrer em serviços substitutivos, e a internação é indicada quando os recursos extra-hospitalares são insuficientes, como em risco iminente.",
+   "source_id": "lei-10216-2001",
+   "locator": "Art. 4"
+  },
+  {
+   "claim": "Em situações de crise com risco de suicídio, avalia-se a presença de plano, de meios e de apoio, e o risco alto exige proteção imediata.",
+   "source_id": "ms-mental-2013",
+   "locator": "Manejo das situações de crise"
+  }
+ ],
+ "key_why": "Ideação com plano, método ao alcance e pouca rede de apoio caracterizam risco iminente, que pede internação protegida.",
+ "theory": {
+  "title": "Risco de suicídio",
+  "intro": "A avaliação do risco define o nível de cuidado, do acompanhamento ambulatorial à internação.",
+  "sections": [
+   {
+    "heading": "Fatores de risco",
+    "items": [
+     "Ideação com plano e acesso a meios",
+     "Tentativa prévia ou ato preparatório",
+     "Depressão grave, desesperança e isolamento",
+     "Pouca rede de apoio"
+    ]
+   },
+   {
+    "heading": "Conduta",
+    "items": [
+     "Risco alto ou iminente: manter em ambiente protegido e internar",
+     "Risco moderado: seguimento próximo e plano de segurança",
+     "Restringir acesso a meios letais"
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "title": "Suicídio na emergência",
+  "points": [
+   {
+    "label": "Alto risco",
+    "text": "Plano, meio acessível e pouca rede de apoio."
+   },
+   {
+    "label": "Conduta",
+    "text": "Ambiente protegido e internação."
+   },
+   {
+    "label": "Perguntar",
+    "text": "Indagar sobre suicídio não induz o ato."
+   },
+   {
+    "label": "Depois",
+    "text": "Seguimento em rede de saúde mental."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

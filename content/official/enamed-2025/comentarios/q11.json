@@ -1,0 +1,136 @@
+{
+ "area_id": "go",
+ "competency_id": "propedeutica",
+ "theme": "Seguimento da sífilis na gestação",
+ "scenario": "UBS",
+ "difficulty": "medio",
+ "quick": "Questão anulada. A afirmação mais próxima do correto é a queda de duas diluições do VDRL, mas a redação imprecisa, sem prazo, e o esquema incompleto (dose única em sífilis de duração ignorada) tornaram a questão ambígua.",
+ "reasoning": "Gestante no segundo trimestre, com teste rápido treponêmico reagente e sem tratamento prévio. Sem lesões e sem data de infecção conhecida, classifica-se como sífilis latente de duração ignorada. O esquema correto é penicilina benzatina 2,4 milhões UI IM por semana, por três semanas. A dose aplicada no dia foi correta como primeira dose, mas sozinha é insuficiente. O seguimento deve ser feito com VDRL titulado, colhido no início e repetido mensalmente. A cura se avalia pela queda de duas diluições dentro do prazo previsto. A alternativa A é falsa: o esquema foi incompleto, e tratamento algum garante ausência de dano fetal já instalado. A alternativa B é falsa porque cicatriz sorológica não se define só por um título baixo. A alternativa D é falsa porque o FTA-Abs permanece reagente por toda a vida. A alternativa C corresponde ao conceito de resposta terapêutica, porém fala em 'duas titulações' em vez de diluições, omite o prazo e se refere a um tratamento incompleto. Essa ambiguidade provavelmente motivou a anulação.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Incorreta. A paciente recebeu apenas uma dose, quando a sífilis de duração ignorada exige três. Além disso, no segundo trimestre o feto pode já estar infectado, e o tratamento materno, mesmo adequado, não garante ausência de sequelas."
+  },
+  {
+   "index": 1,
+   "why": "Incorreta. Cicatriz sorológica não se define por um ponto de corte isolado do título. Exige tratamento adequado documentado, queda prévia da titulação e ausência de reexposição. Uma gestante não tratada com VDRL de 1:4 deve ser tratada."
+  },
+  {
+   "index": 2,
+   "why": "É a alternativa mais próxima do correto: a queda de duas diluições do VDRL é o critério de resposta. Porém fala em 'duas titulações', não define prazo (6 meses na recente, 12 na tardia) e se aplica a um esquema incompleto. Isso a tornou contestável e contribuiu para a anulação."
+  },
+  {
+   "index": 3,
+   "why": "Incorreta. O FTA-Abs é treponêmico e permanece reagente por toda a vida na maioria dos tratados. Indica contato prévio, não doença ativa. Atividade e cura se avaliam pelo VDRL."
+  }
+ ],
+ "tip": "Treponêmico diagnostica e fica para sempre. Não treponêmico (VDRL) segue a cura: queda de duas diluições. Gestante sem história prévia recebe três doses de benzatina.",
+ "pearl": "Erro clássico: considerar tratada a gestante assintomática que recebeu dose única. Sem data de infecção conhecida, a sífilis é de duração ignorada e exige 7,2 milhões UI. Sem isso, o recém-nascido é tratado como exposto a tratamento inadequado.",
+ "competency_note": "Avaliar a interpretação dos testes treponêmicos e não treponêmicos, o critério de resposta ao tratamento e o esquema correto na gestante.",
+ "claims": [
+  {
+   "claim": "Sífilis latente tardia ou de duração ignorada deve ser tratada com penicilina benzatina 2,4 milhões UI IM semanal por 3 semanas (total 7,2 milhões UI).",
+   "source_id": "ms-ist-2015",
+   "locator": "Capítulo de sífilis adquirida, tratamento"
+  },
+  {
+   "claim": "Sífilis recente é tratada com penicilina benzatina 2,4 milhões UI IM em dose única.",
+   "source_id": "ms-ist-2015",
+   "locator": "Capítulo de sífilis adquirida, tratamento"
+  },
+  {
+   "claim": "Gestante com teste rápido reagente deve iniciar o tratamento no mesmo dia, com coleta de teste não treponêmico para seguimento.",
+   "source_id": "ms-ist-2015",
+   "locator": "Capítulo de sífilis na gestação"
+  },
+  {
+   "claim": "Testes treponêmicos permanecem reagentes por toda a vida na maioria das pessoas e não servem para monitorar resposta ao tratamento.",
+   "source_id": "ms-ist-2015",
+   "locator": "Capítulo de sífilis, diagnóstico laboratorial"
+  },
+  {
+   "claim": "Resposta adequada: queda de duas diluições do teste não treponêmico em até 6 meses na sífilis recente e em até 12 meses na tardia. Elevação de duas diluições indica reinfecção ou reativação.",
+   "source_id": "ms-ist-2015",
+   "locator": "Capítulo de sífilis, monitoramento pós-tratamento"
+  },
+  {
+   "claim": "Na gestante, o teste não treponêmico é repetido mensalmente até o parto.",
+   "source_id": "ms-ist-2015",
+   "locator": "Capítulo de sífilis na gestação, seguimento"
+  },
+  {
+   "claim": "Tratamento materno adequado exige esquema completo para a fase clínica, iniciado até 30 dias antes do parto.",
+   "source_id": "ms-gvs-2022",
+   "locator": "Capítulo de sífilis adquirida, em gestante e congênita"
+  }
+ ],
+ "theory": {
+  "title": "Sífilis na gestação: tratamento e seguimento sorológico",
+  "intro": "A sífilis na gestação é rastreada com teste rápido na primeira consulta, no terceiro trimestre e no parto. O tratamento precoce com penicilina benzatina previne a sífilis congênita. O seguimento usa o teste não treponêmico (VDRL), porque ele é quantitativo e cai com a cura.",
+  "sections": [
+   {
+    "heading": "Quando tratar e com que esquema",
+    "body": "Na gestante, o teste rápido reagente justifica a primeira dose de penicilina benzatina no mesmo dia, sem esperar o VDRL. O esquema depende da fase clínica.",
+    "items": [
+     "Sífilis recente (primária, secundária ou latente com menos de 1 ano): penicilina benzatina 2,4 milhões UI IM, dose única.",
+     "Sífilis latente tardia ou de duração ignorada: 2,4 milhões UI IM por semana, por 3 semanas (total de 7,2 milhões UI).",
+     "Gestante sem diagnóstico ou tratamento prévio e assintomática: considerar duração ignorada e usar três doses.",
+     "Coletar VDRL com titulação no dia da primeira dose, para servir de base ao seguimento."
+    ]
+   },
+   {
+    "heading": "Testes treponêmicos e não treponêmicos",
+    "items": [
+     "Treponêmicos (teste rápido, FTA-Abs, TPHA, ELISA): confirmam contato com o treponema e permanecem reagentes por toda a vida na maioria das pessoas. Não servem para avaliar atividade nem cura.",
+     "Não treponêmicos (VDRL, RPR): são quantitativos, sobem na infecção ativa e caem com o tratamento. São o exame de seguimento.",
+     "Na gestante, o VDRL é repetido mensalmente até o parto."
+    ]
+   },
+   {
+    "heading": "Resposta ao tratamento e cicatriz sorológica",
+    "items": [
+     "Resposta adequada: queda de duas diluições (por exemplo, de 1:32 para 1:8) em até 6 meses na sífilis recente e em até 12 meses na tardia.",
+     "Elevação de duas diluições indica reinfecção ou reativação e exige retratamento e nova investigação.",
+     "Cicatriz sorológica: VDRL que persiste reagente em título baixo após tratamento adequado e documentado, com queda prévia, sem nova exposição. Não se define apenas pelo valor do título."
+    ]
+   }
+  ],
+  "alert": "Tratamento materno adequado exige esquema completo para a fase, iniciado até 30 dias antes do parto. Mesmo assim, não garante ausência de infecção fetal já estabelecida."
+ },
+ "summary": {
+  "title": "Sífilis na gestante: revisão rápida",
+  "points": [
+   {
+    "label": "Diagnóstico",
+    "text": "Teste rápido reagente na gestante: tratar no mesmo dia e colher VDRL com titulação."
+   },
+   {
+    "label": "Esquema",
+    "text": "Sem história prévia e assintomática equivale a duração ignorada: penicilina benzatina 2,4 milhões UI semanal por 3 semanas."
+   },
+   {
+    "label": "Seguimento",
+    "text": "VDRL mensal na gestação. O treponêmico não serve para controle de cura."
+   },
+   {
+    "label": "Cura",
+    "text": "Queda de duas diluições em até 6 meses (recente) ou 12 meses (tardia).",
+    "sub": [
+     "Subida de duas diluições sugere reinfecção: retratar."
+    ]
+   },
+   {
+    "label": "Cicatriz",
+    "text": "Título baixo persistente só após tratamento adequado documentado, com queda prévia e sem reexposição."
+   },
+   {
+    "label": "Feto",
+    "text": "Tratamento adequado reduz muito a transmissão, mas não garante ausência de sequelas."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": "autor questiona o gabarito: A banca anulou a questão. A alternativa C traduz o critério de resposta (queda de duas diluições do VDRL), mas usa 'duas titulações', não informa o prazo e se refere a uma paciente que recebeu apenas uma das três doses indicadas para sífilis de duração ignorada. Essas imprecisões impedem apontar uma alternativa inequivocamente correta."
+}

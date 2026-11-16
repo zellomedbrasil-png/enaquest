@@ -1,0 +1,77 @@
+{
+ "area_id": "mental",
+ "competency_id": "urgencia",
+ "theme": "Intoxicação por benzodiazepínico",
+ "scenario": "UPA",
+ "difficulty": "medio",
+ "quick": "Ingestão de grande dose de clonazepam, com coma e ventilação mecânica: o antídoto é o flumazenil. Alternativa B.",
+ "reasoning": "Primeiro passo: reconhecer o toxíndrome. Sonolência, fala alterada, hipotensão e coma depois de ingerir 30 comprimidos de clonazepam indicam intoxicação por benzodiazepínico. Segundo passo: lembrar o antagonista. O flumazenil antagoniza o receptor de benzodiazepínico e reverte a sedação. Terceiro passo: descartar as outras opções. N-acetilcisteína é o antídoto do paracetamol. Naloxona reverte opioides. Atropina trata bradicardia e intoxicação por organofosforados. Quarto passo: reconhecer o cuidado. O flumazenil é usado com cautela, pois pode precipitar convulsões em dependentes ou em ingestão mista com pró-convulsivantes. Em ingestão isolada, sem contraindicação, é o antídoto. A conduta de suporte, com via aérea e ventilação, é a base do tratamento.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "A N-acetilcisteína é antídoto do paracetamol, e não de benzodiazepínico."
+  },
+  {
+   "index": 2,
+   "why": "A naloxona reverte opioides, e não benzodiazepínicos."
+  },
+  {
+   "index": 3,
+   "why": "A atropina trata bradicardia e intoxicação por organofosforados, e não a sedação por benzodiazepínico."
+  }
+ ],
+ "tip": "Benzodiazepínico: flumazenil, com cautela por risco de convulsão; o suporte ventilatório é o mais importante.",
+ "pearl": "O flumazenil dura menos que muitos benzodiazepínicos, então o paciente pode voltar a ficar sedado depois da reversão.",
+ "competency_note": "Conhecer o antídoto da intoxicação por benzodiazepínico e seus riscos.",
+ "claims": [
+  {
+   "claim": "O flumazenil é antagonista do receptor de benzodiazepínico e pode reverter a sedação, mas tem risco de convulsão, sobretudo em dependentes e em ingestões mistas.",
+   "source_id": "pm-9306053",
+   "locator": "Resumo"
+  }
+ ],
+ "key_why": "O flumazenil é o antagonista específico dos benzodiazepínicos.",
+ "theory": {
+  "title": "Intoxicação por benzodiazepínico",
+  "intro": "Os benzodiazepínicos causam sedação, hipotensão e depressão respiratória, sobretudo em associação com álcool e opioides.",
+  "sections": [
+   {
+    "heading": "Conduta",
+    "items": [
+     "Via aérea, ventilação e suporte hemodinâmico",
+     "Carvão ativado em ingestão recente, se a via aérea estiver protegida",
+     "Flumazenil em casos selecionados, com cautela"
+    ]
+   },
+   {
+    "heading": "Cuidados com o flumazenil",
+    "body": "Evitar em dependentes de benzodiazepínicos, em ingestão com antidepressivos tricíclicos e em quem tem epilepsia, pelo risco de convulsão."
+   }
+  ]
+ },
+ "summary": {
+  "title": "Benzodiazepínico em overdose",
+  "points": [
+   {
+    "label": "Quadro",
+    "text": "Sonolência, hipotensão e coma."
+   },
+   {
+    "label": "Antídoto",
+    "text": "Flumazenil, com cautela."
+   },
+   {
+    "label": "Base",
+    "text": "Suporte de via aérea e ventilação."
+   },
+   {
+    "label": "Risco",
+    "text": "Convulsão em dependentes."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": "O uso rotineiro do flumazenil é controverso; conferir a orientação toxicológica vigente."
+}

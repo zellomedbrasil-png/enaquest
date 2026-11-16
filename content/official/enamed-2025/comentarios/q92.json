@@ -1,0 +1,82 @@
+{
+ "area_id": "pediatria",
+ "competency_id": "terapeutica",
+ "theme": "Exacerbação grave de asma na criança pequena",
+ "scenario": "Pronto-socorro",
+ "difficulty": "medio",
+ "quick": "Lactente asmática com piora da dispneia apesar de salbutamol, sonolenta e com retração: exacerbação grave. Além da internação, prescreve-se corticoide sistêmico, como a metilprednisolona endovenosa. Alternativa A.",
+ "reasoning": "Primeiro passo: avaliar a gravidade. Criança com mais de 4 dias de tosse e dispneia, que piorou mesmo com salbutamol frequente, está sonolenta, taquidispneica, com choro entrecortado, retração de musculatura acessória e saturação de 94%. Esses sinais indicam exacerbação grave com risco de falência respiratória. Segundo passo: lembrar o tratamento. A base é oxigênio se houver hipoxemia, beta-agonista inalado repetido, brometo de ipratrópio nos casos graves e corticoide sistêmico precoce. Em criança sonolenta e com vômito possível, a via endovenosa é preferida. Terceiro passo: descartar as outras. Ventilação não invasiva com sedação é perigosa em criança sonolenta e não é a primeira etapa. Salbutamol endovenoso e sulfato de magnésio contínuo são reservados a casos refratários, em unidade de terapia intensiva.",
+ "distractors": [
+  {
+   "index": 1,
+   "why": "Ventilação não invasiva com sedação é arriscada em criança já sonolenta e não é o primeiro passo; o corticoide e o broncodilatador inalado vêm antes."
+  },
+  {
+   "index": 2,
+   "why": "O salbutamol endovenoso em infusão contínua é reservado para casos refratários na terapia intensiva, depois das medidas iniciais."
+  },
+  {
+   "index": 3,
+   "why": "O sulfato de magnésio é usado em exacerbação grave refratária ao tratamento inicial, e não em infusão contínua como primeira medida."
+  }
+ ],
+ "tip": "Exacerbação grave de asma: oxigênio, beta-agonista inalado repetido, corticoide sistêmico precoce e internação.",
+ "pearl": "Sonolência e silêncio respiratório em criança com asma são sinais de fadiga e de falência respiratória iminente.",
+ "competency_note": "Tratar exacerbação grave de asma na criança pequena.",
+ "claims": [
+  {
+   "claim": "O tratamento da exacerbação grave de asma em crianças inclui oxigênio, broncodilatador inalado repetido, corticoide sistêmico precoce e, nos casos refratários, sulfato de magnésio ou outras medidas.",
+   "source_id": "pm-27116362",
+   "locator": "Manejo da exacerbação"
+  }
+ ],
+ "key_why": "O corticoide sistêmico precoce faz parte do tratamento da exacerbação grave, e a via endovenosa é preferida em criança sonolenta.",
+ "theory": {
+  "title": "Exacerbação de asma na criança",
+  "intro": "É o agravamento agudo dos sintomas e exige avaliação rápida da gravidade e tratamento escalonado.",
+  "sections": [
+   {
+    "heading": "Sinais de gravidade",
+    "items": [
+     "Sonolência, agitação ou confusão",
+     "Retração intensa, dificuldade para falar",
+     "Saturação baixa, silêncio respiratório"
+    ]
+   },
+   {
+    "heading": "Tratamento",
+    "items": [
+     "Oxigênio se saturação baixa",
+     "Beta-agonista inalado repetido, com brometo de ipratrópio nos casos graves",
+     "Corticoide sistêmico precoce",
+     "Sulfato de magnésio e outras medidas nos casos refratários"
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "title": "Asma grave na criança",
+  "points": [
+   {
+    "label": "Gravidade",
+    "text": "Sonolência, retração e dificuldade respiratória."
+   },
+   {
+    "label": "Base",
+    "text": "Oxigênio, broncodilatador inalado e corticoide."
+   },
+   {
+    "label": "Refratário",
+    "text": "Magnésio e terapia intensiva."
+   },
+   {
+    "label": "Cuidado",
+    "text": "Evitar sedação."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

@@ -1,0 +1,78 @@
+{
+ "area_id": "coletiva",
+ "competency_id": "hipotese",
+ "theme": "Úlcera genital: cancro mole",
+ "scenario": "UBS",
+ "difficulty": "medio",
+ "quick": "Úlcera genital dolorosa, de base mole, com linfonodomegalia inguinal supurada: cancro mole. O esfregaço mostra bacilos Gram-negativos em cadeia, e o tratamento é azitromicina 1 g em dose única. Alternativa D.",
+ "reasoning": "Primeiro passo: caracterizar a úlcera. Úlcera dolorosa, rasa, de base mole e bordas elevadas, com linfonodomegalia inguinal inflamatória e profissional do sexo como exposição, define cancro mole, causado por Haemophilus ducreyi. A sífilis tem úlcera indolor e de base dura. Segundo passo: lembrar o diagnóstico. O diagnóstico é clínico, e a bacterioscopia do fundo da úlcera mostra bacilos Gram-negativos agrupados em cadeias, o aspecto em cardume de peixes. Terceiro passo: tratar. O tratamento é azitromicina 1 g em dose única, ou ceftriaxona em dose única. Quarto passo: descartar as outras. A doxiciclina por 7 dias e a sorologia para clamídia correspondem ao linfogranuloma venéreo. O VDRL reagente e a penicilina são para sífilis. A biópsia com bacilos álcool-ácido resistentes é tuberculose cutânea.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "A sorologia para Chlamydia e a doxiciclina tratam linfogranuloma venéreo, que causa úlcera pequena e indolor, com bubão."
+  },
+  {
+   "index": 1,
+   "why": "Biópsia com bacilos álcool-ácido resistentes e esquema para tuberculose não se aplicam; a úlcera aguda e dolorosa é cancro mole."
+  },
+  {
+   "index": 2,
+   "why": "O VDRL reagente e a penicilina benzatina são para sífilis, cuja úlcera é indolor e de base endurecida."
+  }
+ ],
+ "tip": "Úlcera genital dolorosa de base mole: cancro mole; bacterioscopia mostra Gram-negativos em cadeia e trata-se com azitromicina 1 g.",
+ "pearl": "Úlcera dolorosa e mole é cancro mole; úlcera indolor e dura é sífilis. Em geral, investigue as duas e o HIV.",
+ "competency_note": "Diferenciar úlceras genitais e indicar o tratamento do cancro mole.",
+ "claims": [
+  {
+   "claim": "O cancro mole causa úlcera genital dolorosa com linfonodomegalia inguinal, e o tratamento recomendado é azitromicina 1 g em dose única ou ceftriaxona.",
+   "source_id": "ms-ist-2015",
+   "locator": "Cancro mole"
+  }
+ ],
+ "key_why": "A úlcera dolorosa de base mole com linfonodo inguinal define cancro mole, tratado com azitromicina em dose única.",
+ "theory": {
+  "title": "Úlceras genitais",
+  "intro": "As principais causas de úlcera genital são sífilis, herpes, cancro mole e linfogranuloma venéreo.",
+  "sections": [
+   {
+    "heading": "Como diferenciar",
+    "items": [
+     "Sífilis: úlcera indolor, de base dura",
+     "Herpes: vesículas agrupadas e dolorosas",
+     "Cancro mole: úlcera dolorosa, de base mole, com bubão",
+     "Linfogranuloma: úlcera pequena e transitória, com bubão volumoso"
+    ]
+   },
+   {
+    "heading": "Tratamento do cancro mole",
+    "body": "Azitromicina 1 g em dose única, ou ceftriaxona intramuscular em dose única. Testar HIV e sífilis."
+   }
+  ]
+ },
+ "summary": {
+  "title": "Cancro mole",
+  "points": [
+   {
+    "label": "Agente",
+    "text": "Haemophilus ducreyi."
+   },
+   {
+    "label": "Quadro",
+    "text": "Úlcera dolorosa de base mole e linfonodo inguinal."
+   },
+   {
+    "label": "Exame",
+    "text": "Bacterioscopia: Gram-negativos em cadeia."
+   },
+   {
+    "label": "Tratamento",
+    "text": "Azitromicina 1 g em dose única."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": "Fotografia em preto e branco do pênis, com uma lesão ulcerada de bordas elevadas logo abaixo da glande, superfície irregular e esbranquiçada.",
+ "key_concern": null,
+ "review_note": null
+}

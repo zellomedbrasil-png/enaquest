@@ -1,0 +1,83 @@
+{
+ "area_id": "mfc",
+ "competency_id": "sus",
+ "theme": "Vacinação do idoso acamado e abordagem familiar",
+ "scenario": "Domicílio",
+ "difficulty": "medio",
+ "quick": "A alternativa A reúne as vacinas do idoso no SUS e propõe nova visita para dialogar com a família, evitando denúncia ou imposição. Alternativa A.",
+ "reasoning": "Primeiro passo: lembrar as vacinas do idoso no calendário nacional. Pneumocócica 23-valente, com dose única e reforço depois de 5 anos para idosos acamados ou em instituições; dupla adulto a cada 10 anos; influenza e covid-19 anuais; hepatite B em 3 doses. Segundo passo: lembrar as vacinas que não fazem parte do calendário para idosos no SUS. A vacina contra herpes-zóster e a pneumocócica 10-valente não são ofertadas de rotina para essa faixa etária. Terceiro passo: avaliar a abordagem. A recusa da família é por medo de efeitos adversos. A conduta adequada é dialogar, esclarecer riscos e benefícios, envolver mais membros da família e buscar acordo, mantendo o vínculo. Denunciar ao Conselho do Idoso na primeira recusa quebra a relação, e um termo de responsabilidade não substitui o diálogo. Quarto passo: descartar a alternativa D, que respeita a recusa sem orientação.",
+ "distractors": [
+  {
+   "index": 1,
+   "why": "A lista inclui herpes-zóster, que não faz parte do calendário do SUS para idosos, e a denúncia imediata ao conselho antes do diálogo rompe o vínculo."
+  },
+  {
+   "index": 2,
+   "why": "Cita a pneumocócica 10-valente, que não é ofertada ao idoso, e propõe termo de responsabilidade, sem diálogo."
+  },
+  {
+   "index": 3,
+   "why": "Inclui vacinas não ofertadas ao idoso, e a atitude de aceitar a recusa sem esclarecer abandona a promoção da saúde."
+  }
+ ],
+ "tip": "Recusa vacinal por medo: escute, esclareça, envolva a família e volte; denúncia e imposição ficam para casos extremos.",
+ "pearl": "A recusa muitas vezes vem de desinformação, e o diálogo com a família costuma resolver.",
+ "competency_note": "Conduzir recusa vacinal em idoso com diálogo e vínculo.",
+ "claims": [
+  {
+   "claim": "O Calendário Nacional de Vacinação do idoso inclui pneumocócica 23-valente, dT, influenza, covid-19 e hepatite B, conforme a situação do indivíduo.",
+   "source_id": "ms-vacinacao-gov",
+   "locator": "Calendário do idoso"
+  }
+ ],
+ "key_why": "A alternativa A lista as vacinas do idoso no SUS e adota o diálogo com a família como abordagem.",
+ "theory": {
+  "title": "Vacinação do idoso no SUS",
+  "intro": "A vacinação reduz internações e mortes por infecções respiratórias e complicações em idosos, sobretudo em acamados e institucionalizados.",
+  "sections": [
+   {
+    "heading": "Vacinas",
+    "items": [
+     "Influenza e covid-19: anuais",
+     "Pneumocócica 23-valente: uma dose e reforço em 5 anos para idosos acamados ou institucionalizados",
+     "Dupla adulto (dT): reforço a cada 10 anos",
+     "Hepatite B: três doses, se não vacinado"
+    ]
+   },
+   {
+    "heading": "Abordagem à recusa",
+    "items": [
+     "Escutar o motivo da recusa",
+     "Esclarecer riscos e benefícios",
+     "Envolver outros membros da família",
+     "Combinar novo contato e manter o vínculo"
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "title": "Vacinas do idoso",
+  "points": [
+   {
+    "label": "Anuais",
+    "text": "Influenza e covid-19."
+   },
+   {
+    "label": "Pneumocócica",
+    "text": "23-valente, com reforço em 5 anos em grupos específicos."
+   },
+   {
+    "label": "Outras",
+    "text": "dT a cada 10 anos e hepatite B em 3 doses."
+   },
+   {
+    "label": "Recusa",
+    "text": "Dialogar e envolver a família antes de qualquer denúncia."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": "Conferir no calendário vigente o público-alvo da pneumocócica 23-valente e de herpes-zóster."
+}

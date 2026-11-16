@@ -1,0 +1,77 @@
+{
+ "area_id": "mental",
+ "competency_id": "hipotese",
+ "theme": "Obsessão: definição semiológica",
+ "scenario": "CAPS",
+ "difficulty": "facil",
+ "quick": "Pensamentos recorrentes, indesejados e intrusivos, que ele reconhece como sem fundamento e que causam angústia: obsessão. Alternativa B.",
+ "reasoning": "Primeiro passo: definir o sintoma. Obsessão é um pensamento, impulso ou imagem recorrente e persistente, vivido como intrusivo e indesejado, que causa angústia. Segundo passo: avaliar a crítica. O paciente sabe que não há fundamento nas ideias e sofre com elas, o que mostra juízo crítico preservado. Terceiro passo: diferenciar. No delírio, a convicção é inabalável e a pessoa não reconhece que a ideia é falsa. Hipertimia é elevação do humor. Compulsão é o comportamento repetitivo realizado para aliviar a angústia da obsessão, o que não é descrito. Quarto passo: concluir. O quadro descreve obsessões, com duração de mais de 6 meses e prejuízo, compatível com transtorno obsessivo-compulsivo.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "No delírio, a pessoa tem convicção da ideia e não a reconhece como falsa; aqui há crítica preservada e sofrimento."
+  },
+  {
+   "index": 2,
+   "why": "Hipertimia é elevação do humor, sem relação com pensamentos intrusivos indesejados."
+  },
+  {
+   "index": 3,
+   "why": "Compulsão é o comportamento repetitivo para aliviar a angústia; o caso descreve apenas pensamentos intrusivos."
+  }
+ ],
+ "tip": "Pensamento intrusivo que a pessoa reconhece como absurdo e quer afastar: obsessão.",
+ "pearl": "Obsessão tem crítica preservada; delírio não.",
+ "competency_note": "Diferenciar obsessão, compulsão e delírio.",
+ "claims": [
+  {
+   "claim": "As obsessões são pensamentos, impulsos ou imagens recorrentes e intrusivos, vividos como indesejados e causadores de angústia, e a pessoa em geral reconhece que não têm fundamento.",
+   "source_id": "pm-36740346",
+   "locator": "Características clínicas"
+  }
+ ],
+ "key_why": "Pensamentos intrusivos e indesejados, com crítica preservada e sofrimento, definem obsessão.",
+ "theory": {
+  "title": "Transtorno obsessivo-compulsivo",
+  "intro": "Caracteriza-se por obsessões e, com frequência, compulsões, que consomem tempo e causam prejuízo.",
+  "sections": [
+   {
+    "heading": "Definições",
+    "items": [
+     "Obsessão: pensamento ou imagem intrusiva e indesejada, que causa angústia",
+     "Compulsão: comportamento ou ato mental repetitivo para aliviar a angústia",
+     "Insight: a pessoa costuma reconhecer que as ideias são excessivas"
+    ]
+   },
+   {
+    "heading": "Tratamento",
+    "body": "Terapia cognitivo-comportamental com exposição e prevenção de resposta e antidepressivos inibidores da recaptação de serotonina."
+   }
+  ]
+ },
+ "summary": {
+  "title": "Obsessões e compulsões",
+  "points": [
+   {
+    "label": "Obsessão",
+    "text": "Pensamento intrusivo e indesejado."
+   },
+   {
+    "label": "Compulsão",
+    "text": "Ato repetitivo para aliviar a angústia."
+   },
+   {
+    "label": "Crítica",
+    "text": "Preservada, ao contrário do delírio."
+   },
+   {
+    "label": "Tratamento",
+    "text": "TCC e inibidor de recaptação de serotonina."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

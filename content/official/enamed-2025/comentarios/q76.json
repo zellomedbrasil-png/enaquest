@@ -1,0 +1,86 @@
+{
+ "area_id": "coletiva",
+ "competency_id": "decisao",
+ "theme": "Exposição ao HIV e sífilis em parceira",
+ "scenario": "UBS",
+ "difficulty": "dificil",
+ "quick": "Questão anulada. O quadro exige testagem, profilaxia pós-exposição ao HIV dentro de 72 horas e tratamento de sífilis se houver teste reagente; a alternativa A é a mais próxima disso.",
+ "reasoning": "Primeiro passo: situar o risco. O parceiro teve úlcera genital tratada com penicilina benzatina, o que sugere sífilis, e tem teste rápido de HIV reagente. A última relação foi há 2 dias, sem preservativo, então a paciente tem exposição de risco para HIV e sífilis. Segundo passo: lembrar a conduta. Faz-se teste rápido de HIV, sífilis e hepatites B e C. Se o teste de HIV for não reagente, inicia-se a profilaxia pós-exposição em até 72 horas, com tenofovir, lamivudina e dolutegravir por 28 dias. Se o teste de sífilis for reagente, trata-se com penicilina benzatina. Terceiro passo: entender a anulação. A alternativa A, que parece a mais próxima, prescreve a profilaxia sem condicioná-la ao teste de HIV não reagente e junta testes e tratamentos em uma frase, o que a deixou ambígua. As outras alternativas tratam infecção urinária, sífilis com doxiciclina e PrEP em vez de PEP, ou coletam citologia, e não correspondem à exposição.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "É a alternativa mais próxima da conduta correta, com testagem, penicilina se sífilis reagente e profilaxia por 28 dias, mas não condiciona a PEP ao teste de HIV não reagente, o que motivou a anulação."
+  },
+  {
+   "index": 1,
+   "why": "Trata infecção urinária e não aborda a exposição ao HIV; a vinda do parceiro para repetir o teste não substitui a profilaxia."
+  },
+  {
+   "index": 2,
+   "why": "Doxiciclina por 21 dias e PrEP não são a conduta para exposição há 2 dias; a profilaxia pós-exposição vem primeiro, com esquema padronizado."
+  },
+  {
+   "index": 3,
+   "why": "Urocultura e colpocitologia não respondem à exposição de risco, que exige testagem para HIV e sífilis e profilaxia."
+  }
+ ],
+ "tip": "Exposição há menos de 72 horas: teste rápido, PEP por 28 dias se HIV não reagente e tratamento de sífilis se reagente.",
+ "pearl": "PEP só se indica depois de excluir infecção por HIV; se o teste for reagente, a conduta é encaminhar para tratamento.",
+ "competency_note": "Conduzir exposição sexual de risco ao HIV e à sífilis.",
+ "claims": [
+  {
+   "claim": "A profilaxia pós-exposição ao HIV deve ser iniciada em até 72 horas, depois de teste de HIV não reagente, e mantida por 28 dias.",
+   "source_id": "pm-41326046",
+   "locator": "Recomendações sobre PEP"
+  },
+  {
+   "claim": "A sífilis é tratada com penicilina benzatina, e o SUS oferece teste rápido para HIV, sífilis e hepatites B e C.",
+   "source_id": "ms-sifilis-gov",
+   "locator": "Diagnóstico e tratamento"
+  }
+ ],
+ "theory": {
+  "title": "Exposição sexual de risco",
+  "intro": "A atenção primária deve conduzir a exposição sexual com testagem para várias infecções e profilaxia pós-exposição ao HIV.",
+  "sections": [
+   {
+    "heading": "Passos",
+    "items": [
+     "Teste rápido de HIV, sífilis e hepatites B e C",
+     "PEP em até 72 horas, se o HIV for não reagente",
+     "Penicilina benzatina se o teste de sífilis for reagente",
+     "Seguimento com testes de controle e vacinas"
+    ]
+   },
+   {
+    "heading": "Parceiro com HIV",
+    "body": "A exposição a parceiro com HIV e sem carga viral indetectável é de alto risco. O parceiro também deve estar em acompanhamento e tratamento."
+   }
+  ]
+ },
+ "summary": {
+  "title": "Exposição sexual ao HIV",
+  "points": [
+   {
+    "label": "Testar",
+    "text": "HIV, sífilis e hepatites B e C."
+   },
+   {
+    "label": "PEP",
+    "text": "Até 72 horas, depois de HIV não reagente, por 28 dias."
+   },
+   {
+    "label": "Sífilis",
+    "text": "Penicilina benzatina se reagente."
+   },
+   {
+    "label": "Parceiro",
+    "text": "Acompanhar e tratar também."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": "Anulada. Conferir o esquema de PEP vigente e a ordem testagem e profilaxia na alternativa A."
+}

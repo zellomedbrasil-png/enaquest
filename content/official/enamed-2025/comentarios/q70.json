@@ -1,0 +1,87 @@
+{
+ "area_id": "coletiva",
+ "competency_id": "sus",
+ "theme": "Surto de escabiose em unidade prisional",
+ "scenario": "Unidade prisional",
+ "difficulty": "medio",
+ "quick": "Surto de prurido e lesões em cela superlotada: tratamento coletivo simultâneo, notificação do surto à vigilância e medidas estruturais e educativas. Alternativa B.",
+ "reasoning": "Primeiro passo: reconhecer o quadro. Prurido intenso e lesões em várias pessoas, em ambiente com o dobro da lotação, indicam surto de escabiose. Segundo passo: lembrar que a escabiose se espalha por contato próximo e fômites, e que em instituições o tratamento deve ser simultâneo e coletivo, incluindo contatos mesmo sem sintomas. Tratar só os casos leva à reinfestação. Terceiro passo: notificar. Surtos são de notificação compulsória e exigem avisar a vigilância em saúde. Quarto passo: agir no ambiente. Reorganizar fluxos com a administração prisional, higienizar roupas de cama e planejar medidas estruturais, como reduzir a superlotação, e educativas. Quinto passo: descartar as outras. Isolar e tratar individualmente não controla um surto institucional. Restringir a medicação aos casos confirmados deixa os contatos como fonte de reinfestação. Reunir-se apenas para discutir transferências e folhetos não trata o surto.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Tratar apenas os casos sintomáticos e isolá-los deixa os contatos como fonte de reinfestação; em surto institucional o tratamento é coletivo."
+  },
+  {
+   "index": 2,
+   "why": "Restringir a medicação aos casos confirmados mantém contatos infestados e permite a reinfestação."
+  },
+  {
+   "index": 3,
+   "why": "Discutir transferências e distribuir folhetos não trata os doentes nem controla a transmissão."
+  }
+ ],
+ "tip": "Surto de escabiose em instituição: tratamento coletivo simultâneo, notificação e medidas ambientais.",
+ "pearl": "A escabiose só é controlada quando todos os contatos são tratados ao mesmo tempo.",
+ "competency_note": "Conduzir um surto de doença de pele em ambiente coletivo.",
+ "claims": [
+  {
+   "claim": "Em surtos institucionais de escabiose, recomenda-se tratar simultaneamente todos os casos e contatos, além de medidas ambientais.",
+   "source_id": "eu-escabiose-2017",
+   "locator": "Surtos e tratamento de contatos"
+  },
+  {
+   "claim": "Surtos de doenças são de notificação compulsória e exigem comunicação à vigilância em saúde.",
+   "source_id": "ms-gvs-2022",
+   "locator": "Notificação de surtos"
+  }
+ ],
+ "key_why": "O controle do surto exige tratamento coletivo simultâneo, notificação à vigilância e ações com a administração prisional.",
+ "theory": {
+  "title": "Escabiose em ambientes coletivos",
+  "intro": "A escabiose é causada por um ácaro e se transmite por contato próximo e fômites. Em presídios, asilos e escolas pode haver surtos.",
+  "sections": [
+   {
+    "heading": "Quadro",
+    "items": [
+     "Prurido intenso, pior à noite",
+     "Lesões em pregas, mãos e região genital",
+     "Vários casos no mesmo ambiente"
+    ]
+   },
+   {
+    "heading": "Surto institucional",
+    "items": [
+     "Tratar todos os casos e contatos ao mesmo tempo",
+     "Notificar à vigilância em saúde",
+     "Lavar e secar roupas e roupa de cama em calor",
+     "Reduzir superlotação e educar a população"
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "title": "Escabiose em surto",
+  "points": [
+   {
+    "label": "Tratamento",
+    "text": "Coletivo e simultâneo, inclusive contatos."
+   },
+   {
+    "label": "Vigilância",
+    "text": "Notificar o surto."
+   },
+   {
+    "label": "Ambiente",
+    "text": "Roupas e ventilação; reduzir superlotação."
+   },
+   {
+    "label": "Erro comum",
+    "text": "Tratar só os casos."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

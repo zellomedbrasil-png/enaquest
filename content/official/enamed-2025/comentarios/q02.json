@@ -1,0 +1,93 @@
+{
+ "area_id": "pediatria",
+ "competency_id": "hipotese",
+ "theme": "Acidose tubular renal proximal (Fanconi) no lactente",
+ "scenario": "Pronto-socorro",
+ "difficulty": "dificil",
+ "quick": "Vômitos, poliúria, fraqueza, retardo de crescimento e raquitismo resistente à vitamina D sugerem tubulopatia proximal (Fanconi). A acidose é metabólica com cloro alto: alternativa B.",
+ "reasoning": "Primeiro passo: reconhecer a síndrome. Lactente com poliúria, vômitos, desidratação grave, déficit de crescimento e raquitismo que não responde à vitamina D tem perda renal de bicarbonato, fosfato, potássio e água. Isso aponta para tubulopatia proximal, como a síndrome de Fanconi. Segundo passo: definir o distúrbio ácido-básico. A perda de bicarbonato com ânion gap normal gera acidose metabólica hiperclorêmica, pois o cloro sobe para compensar. Terceiro passo: descartar as alternativas respiratórias. Alcalose respiratória não se explica por perda renal de bicarbonato. Quarto passo: olhar o potássio. Na tubulopatia proximal e na acidose tubular distal tipo 1, o potássio costuma estar baixo, não alto. A hipercalemia aparece na acidose tubular tipo 4, que não cursa com raquitismo. A banca excluiu a questão do cálculo por desajuste estatístico, mas o raciocínio fisiopatológico aponta para a alternativa B.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Alcalose respiratória hipoclorêmica é um distúrbio respiratório e não explica perda renal de bicarbonato nem raquitismo."
+  },
+  {
+   "index": 1,
+   "why": "É a melhor resposta: a perda de bicarbonato pelos túbulos renais produz acidose metabólica com cloro elevado e ânion gap normal."
+  },
+  {
+   "index": 2,
+   "why": "Alcalose respiratória não ocorre por defeito tubular; hipocalemia sozinha não define o distúrbio ácido-básico deste caso."
+  },
+  {
+   "index": 3,
+   "why": "Acidose metabólica com hipercalemia é a acidose tubular tipo 4, associada a hipoaldosteronismo, sem raquitismo nem perda de fosfato."
+  }
+ ],
+ "tip": "Raquitismo resistente à vitamina D mais acidose e poliúria: pense em tubulopatia proximal.",
+ "pearl": "Na acidose tubular proximal e na distal tipo 1 o potássio costuma ser baixo; só a tipo 4 cursa com potássio alto.",
+ "competency_note": "Relacionar achados clínicos de tubulopatia à acidose metabólica hiperclorêmica.",
+ "claims": [
+  {
+   "claim": "Na acidose tubular renal proximal da criança há perda de bicarbonato, acidose metabólica hiperclorêmica com ânion gap normal e alterações de crescimento e ósseas.",
+   "source_id": "pm-30139461",
+   "locator": "Resumo e seção sobre apresentação clínica"
+  }
+ ],
+ "key_why": "A associação de poliúria, desidratação, déficit de crescimento e raquitismo resistente à vitamina D indica tubulopatia proximal, que perde bicarbonato e causa acidose metabólica hiperclorêmica.",
+ "theory": {
+  "title": "Acidose tubular renal na criança",
+  "intro": "As acidoses tubulares renais são defeitos dos túbulos que impedem a eliminação de ácido ou a reabsorção de bicarbonato. Em crianças, aparecem com atraso de crescimento, vômitos, poliúria e alterações ósseas.",
+  "sections": [
+   {
+    "heading": "Como reconhecer",
+    "items": [
+     "Acidose metabólica com ânion gap normal e cloro alto",
+     "Déficit de crescimento, vômitos e desidratação",
+     "Raquitismo ou osteopenia que não responde à vitamina D, na forma proximal"
+    ]
+   },
+   {
+    "heading": "Tipos principais",
+    "items": [
+     "Proximal (tipo 2): perde bicarbonato; pode ser isolada ou fazer parte da síndrome de Fanconi, com perda de fosfato, glicose e aminoácidos",
+     "Distal (tipo 1): não excreta ácido; potássio baixo, nefrocalcinose e raquitismo",
+     "Tipo 4: hipoaldosteronismo ou resistência à aldosterona, com potássio alto"
+    ]
+   },
+   {
+    "heading": "Conduta geral",
+    "body": "Repor álcalis, corrigir potássio e fosfato conforme o tipo e investigar a causa de base. O acompanhamento é feito com nefrologia pediátrica."
+   }
+  ],
+  "alert": "Acidose tubular com potássio alto sugere tipo 4, não tubulopatia proximal."
+ },
+ "summary": {
+  "title": "Acidose tubular renal em lactente",
+  "points": [
+   {
+    "label": "Quadro",
+    "text": "Poliúria, vômitos, desidratação, retardo de crescimento e raquitismo resistente à vitamina D."
+   },
+   {
+    "label": "Distúrbio",
+    "text": "Acidose metabólica hiperclorêmica, com ânion gap normal.",
+    "sub": [
+     "Perda renal de bicarbonato"
+    ]
+   },
+   {
+    "label": "Potássio",
+    "text": "Baixo na proximal e na distal tipo 1; alto na tipo 4."
+   },
+   {
+    "label": "Armadilha",
+    "text": "Distúrbio respiratório não explica perda renal de bicarbonato."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": "Questão excluída do cálculo pelo Inep. Alternativa B é a mais coerente, mas conferir a classificação do tipo de acidose tubular."
+}

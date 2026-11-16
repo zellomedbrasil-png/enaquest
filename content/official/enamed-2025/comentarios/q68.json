@@ -1,0 +1,77 @@
+{
+ "area_id": "go",
+ "competency_id": "decisao",
+ "theme": "Citologia com ASC-H",
+ "scenario": "UBS",
+ "difficulty": "facil",
+ "quick": "Citologia com atipias de significado indeterminado, não podendo afastar lesão de alto grau (ASC-H): encaminhar à colposcopia. Alternativa B.",
+ "reasoning": "Primeiro passo: interpretar o laudo. ASC-H significa células escamosas atípicas, em que não se pode excluir lesão intraepitelial de alto grau. Segundo passo: lembrar a conduta. Citologias com ASC-H, lesão de alto grau, carcinoma ou células glandulares atípicas são encaminhadas diretamente à colposcopia, com biópsia se houver lesão. Terceiro passo: descartar as outras. Conização e cirurgia de alta frequência são tratamentos de lesão confirmada, e não conduta inicial diante de um resultado citológico. Repetir a citologia em 6 meses é a conduta para ASC-US ou lesão de baixo grau, em mulheres de 25 anos ou mais.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "A conização é tratamento de lesão confirmada por biópsia, e não conduta inicial diante de um laudo citológico."
+  },
+  {
+   "index": 2,
+   "why": "A cirurgia de alta frequência também é tratamento, e só se indica depois de colposcopia e confirmação histológica."
+  },
+  {
+   "index": 3,
+   "why": "Repetir a citologia em 6 meses é a conduta para ASC-US ou lesão de baixo grau, e não para ASC-H."
+  }
+ ],
+ "tip": "ASC-H, lesão de alto grau ou células glandulares atípicas: colposcopia direta.",
+ "pearl": "O fato de a paciente negar tabagismo e infecções não muda a conduta; o resultado citológico é que define.",
+ "competency_note": "Conduzir resultados alterados de citologia do colo do útero.",
+ "claims": [
+  {
+   "claim": "As diretrizes brasileiras de rastreamento do câncer do colo do útero indicam colposcopia para mulheres com citologia ASC-H, lesão de alto grau ou células glandulares atípicas.",
+   "source_id": "inca-colo-gov",
+   "locator": "Condutas diante de resultados alterados"
+  }
+ ],
+ "key_why": "ASC-H não exclui lesão de alto grau, então a mulher é encaminhada à colposcopia.",
+ "theory": {
+  "title": "Citologia alterada no rastreamento do colo do útero",
+  "intro": "O laudo citológico define se a mulher volta ao rastreamento, repete o exame ou segue para a colposcopia.",
+  "sections": [
+   {
+    "heading": "Condutas",
+    "items": [
+     "ASC-US ou lesão de baixo grau: repetir a citologia em 6 meses, em mulheres de 25 anos ou mais",
+     "ASC-H, lesão de alto grau, carcinoma ou células glandulares atípicas: colposcopia",
+     "Colposcopia com biópsia define o tratamento"
+    ]
+   },
+   {
+    "heading": "Tratamento",
+    "body": "Lesões de alto grau confirmadas são tratadas por excisão, como a cirurgia de alta frequência ou a conização."
+   }
+  ]
+ },
+ "summary": {
+  "title": "Citologia alterada",
+  "points": [
+   {
+    "label": "ASC-H",
+    "text": "Não exclui alto grau: colposcopia."
+   },
+   {
+    "label": "Baixo grau",
+    "text": "Repetir citologia em 6 meses."
+   },
+   {
+    "label": "Tratamento",
+    "text": "Só depois da confirmação por biópsia."
+   },
+   {
+    "label": "Rastreamento",
+    "text": "Citologia dos 25 aos 64 anos."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

@@ -1,0 +1,116 @@
+{
+ "area_id": "clinica",
+ "competency_id": "hipotese",
+ "theme": "Esporotricose linfocutânea por arranhadura de gato",
+ "scenario": "UBS",
+ "difficulty": "facil",
+ "quick": "Esporotricose linfocutânea: arranhadura de gato, úlcera com nódulos em cadeia linfática e corpos asteroides na biópsia. O tratamento de escolha é o itraconazol oral por meses (alternativa C).",
+ "reasoning": "1) Epidemiologia: jovem de zona urbana arranhado por gato de rua, a via clássica da esporotricose zoonótica no Brasil. 2) Tempo: lesão surge cerca de 1 mês depois, compatível com micose subcutânea de evolução subaguda, e não com infecção bacteriana aguda. 3) Morfologia: úlcera crostosa na mão com nódulos próximos em trajeto linear (padrão esporotricoide), como mostra a figura. 4) Histologia: dermatite granulomatosa com corpos asteroides e material eosinofílico ao redor das leveduras (fenômeno de Splendore-Hoeppli), achado típico do Sporothrix. 5) Tratamento: na forma linfocutânea, o itraconazol oral é a primeira escolha, mantido por alguns meses até após a cura clínica. Os 120 dias da alternativa C correspondem a cerca de 4 meses, dentro do esquema usual.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Furunculose é infecção estafilocócica aguda do folículo piloso: nódulo doloroso com pus, que evolui em dias. Não explica a evolução de 1 mês, os nódulos em trajeto linfático nem o granuloma com corpos asteroides."
+  },
+  {
+   "index": 1,
+   "why": "Herpes-zóster cursa com vesículas agrupadas sobre base eritematosa, dor em distribuição de dermátomo e sem relação com arranhadura. A histologia mostraria efeito citopático viral, não granuloma com corpos asteroides."
+  },
+  {
+   "index": 3,
+   "why": "Paracoccidioidomicose acomete principalmente trabalhadores rurais, com lesões de mucosa oral e pulmonares. Na histologia aparecem leveduras com brotamentos múltiplos em roda de leme. Mesmo nessa doença, a anfotericina B fica para as formas graves."
+  }
+ ],
+ "tip": "Gato mais lesão ulcerada na mão mais nódulos subindo pelo braço é igual a esporotricose, tratada com itraconazol por meses.",
+ "pearl": "Corpos asteroides não são exclusivos da esporotricose, e a cultura é o padrão-ouro. Não confunda os critérios de anfotericina B: na esporotricose ela é reservada às formas disseminadas, graves ou em gestantes, nunca à forma linfocutânea comum.",
+ "competency_note": "Reconhecer a esporotricose zoonótica pela epidemiologia, pela clínica linfocutânea e pela histologia, e indicar o antifúngico de primeira linha.",
+ "claims": [
+  {
+   "claim": "A transmissão da esporotricose humana ocorre por arranhadura ou mordedura de gatos infectados ou por trauma com material vegetal contaminado.",
+   "source_id": "ms-esporotricose-gov",
+   "locator": "Seção Transmissão"
+  },
+  {
+   "claim": "O itraconazol é o medicamento de escolha para as formas cutânea e linfocutânea, e o tratamento é prolongado, por meses.",
+   "source_id": "ms-esporotricose-gov",
+   "locator": "Seção Tratamento"
+  },
+  {
+   "claim": "A anfotericina B é reservada às formas graves ou disseminadas.",
+   "source_id": "ms-esporotricose-gov",
+   "locator": "Seção Tratamento"
+  },
+  {
+   "claim": "A cultura do material da lesão é o exame padrão-ouro para o diagnóstico.",
+   "source_id": "ms-esporotricose-gov",
+   "locator": "Seção Diagnóstico"
+  }
+ ],
+ "key_why": "Arranhadura de gato seguida, após cerca de 1 mês, de úlcera crostosa na mão com nódulos em trajeto linear sugere esporotricose linfocutânea. Dermatite granulomatosa com corpos asteroides (fenômeno de Splendore-Hoeppli) confirma o quadro. O itraconazol é a primeira escolha, mantido por meses; 120 dias está dentro do esquema habitual.",
+ "theory": {
+  "title": "Esporotricose",
+  "intro": "A esporotricose é uma micose subcutânea causada por fungos do complexo Sporothrix. No Brasil, sobretudo em áreas urbanas, a transmissão zoonótica por arranhadura ou mordedura de gatos infectados (S. brasiliensis) tornou-se a principal forma de contágio. A forma mais comum é a linfocutânea.",
+  "sections": [
+   {
+    "heading": "Quando suspeitar",
+    "items": [
+     "Contato com gato doente, arranhadura ou mordedura, ou trauma com plantas, espinhos ou madeira",
+     "Pápula ou nódulo no local da inoculação que ulcera, em geral em membros",
+     "Nódulos secundários seguindo o trajeto linfático (padrão esporotricoide ascendente)",
+     "Evolução subaguda, de semanas, pouco dolorosa e sem febre importante"
+    ]
+   },
+   {
+    "heading": "Como confirmar",
+    "body": "A cultura do material da lesão é o padrão-ouro. Na histopatologia aparece dermatite granulomatosa supurativa; os corpos asteroides, que são leveduras cercadas por material eosinofílico do fenômeno de Splendore-Hoeppli, são sugestivos, mas não exclusivos."
+   },
+   {
+    "heading": "Tratamento",
+    "items": [
+     "Itraconazol oral é a primeira escolha nas formas cutânea e linfocutânea",
+     "Manter por meses, em geral de 3 a 6, até algumas semanas após a cura clínica",
+     "Alternativas: terbinafina ou iodeto de potássio",
+     "Anfotericina B fica para formas disseminadas, graves ou em imunossuprimidos",
+     "Investigar e tratar o gato e orientar o manejo do animal"
+    ]
+   }
+  ],
+  "alert": "Gestantes não devem usar itraconazol nem iodeto. Nelas se usa termoterapia local nas formas leves ou anfotericina B nas graves."
+ },
+ "summary": {
+  "title": "Esporotricose em 30 segundos",
+  "points": [
+   {
+    "label": "Agente",
+    "text": "Sporothrix spp.; no Brasil urbano, transmissão por gatos (S. brasiliensis)"
+   },
+   {
+    "label": "Clínica",
+    "text": "Úlcera no local da inoculação com nódulos em trajeto linfático (forma linfocutânea)"
+   },
+   {
+    "label": "Histologia",
+    "text": "Granuloma supurativo e corpos asteroides (Splendore-Hoeppli)"
+   },
+   {
+    "label": "Diagnóstico",
+    "text": "Cultura do material da lesão é o padrão-ouro"
+   },
+   {
+    "label": "Conduta",
+    "text": "Itraconazol oral por meses, até após a cura clínica",
+    "sub": [
+     "Alternativas: terbinafina, iodeto de potássio",
+     "Anfotericina B nas formas graves ou disseminadas"
+    ]
+   },
+   {
+    "label": "Gato",
+    "text": "Animal doente deve ser avaliado e tratado; orientar o manejo do animal"
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": "Fotografia de pele com uma úlcera central recoberta por crostas acastanhadas, de bordas violáceas, com pequenas pápulas ao redor e nódulos eritematosos dispostos em sequência linear acima da lesão.",
+ "key_concern": null,
+ "review_note": null
+}

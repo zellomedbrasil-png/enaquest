@@ -1,0 +1,82 @@
+{
+ "area_id": "cirurgia",
+ "competency_id": "propedeutica",
+ "theme": "Colestase por coledocolitíase",
+ "scenario": "Enfermaria",
+ "difficulty": "medio",
+ "quick": "Icterícia, colúria e acolia com vias biliares dilatadas e imagens móveis, sem febre e com leucograma normal: síndrome colestática sem colangite. O exame seguinte é a ressonância das vias biliares. Alternativa C.",
+ "reasoning": "Primeiro passo: classificar a síndrome. Icterícia, colúria e acolia com fosfatase alcalina, gama-GT e bilirrubina direta elevadas e vias biliares dilatadas formam síndrome colestática. Segundo passo: avaliar a colangite. A tríade de Charcot tem febre, icterícia e dor em hipocôndrio direito. Aqui a temperatura é de 37,4 graus, o leucograma é normal, sem bastonetes elevados, e a dor é pouco importante; não há critérios de colangite. Terceiro passo: interpretar a imagem. Imagens móveis e arredondadas nas vias biliares dilatadas indicam cálculos, ou coledocolitíase. Quarto passo: escolher o exame. A colangiorressonância confirma a coledocolitíase sem invasão e orienta a CPRE terapêutica. A CPRE é reservada para a remoção quando o diagnóstico está confirmado. A tomografia é menos sensível para cálculos.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Não há colangite, pois a paciente não tem febre alta, leucocitose ou dor intensa; a tomografia também é menos sensível que a ressonância para cálculos no colédoco."
+  },
+  {
+   "index": 1,
+   "why": "O diagnóstico de colangite não está presente, e a colangiopancreatografia retrógrada é invasiva, reservada para tratar depois de confirmado o cálculo."
+  },
+  {
+   "index": 3,
+   "why": "A colangiorressonância é a escolha como exame, mas a colangiopancreatografia retrógrada só se faz depois, para retirar o cálculo, e não na investigação, com risco de pancreatite."
+  }
+ ],
+ "tip": "Colestase com cálculos nas vias biliares e sem sinais de infecção: colangiorressonância e depois CPRE terapêutica.",
+ "pearl": "A CPRE é cada vez mais terapêutica e menos diagnóstica, pelo risco de pancreatite.",
+ "competency_note": "Diferenciar colestase de colangite e escolher o exame de imagem.",
+ "claims": [
+  {
+   "claim": "O diagnóstico de colangite aguda se baseia em sinais de inflamação sistêmica, colestase e achados de imagem, como febre, leucocitose e dilatação biliar.",
+   "source_id": "tg18-colangite",
+   "locator": "Critérios diagnósticos"
+  }
+ ],
+ "key_why": "Sem inflamação sistêmica não há colangite, e a colangiorressonância confirma a coledocolitíase antes da CPRE.",
+ "theory": {
+  "title": "Coledocolitíase e colangite",
+  "intro": "Cálculos no colédoco causam icterícia obstrutiva e podem se infectar, causando colangite.",
+  "sections": [
+   {
+    "heading": "Colestase sem colangite",
+    "items": [
+     "Icterícia, colúria e acolia",
+     "Sem febre, sem leucocitose, sem sinais de sepse",
+     "Ultrassonografia com dilatação biliar e cálculos"
+    ]
+   },
+   {
+    "heading": "Exames e conduta",
+    "items": [
+     "Colangiorressonância para confirmar",
+     "CPRE para retirar o cálculo",
+     "Colecistectomia depois"
+    ]
+   }
+  ],
+  "alert": "Colangite com sepse exige antibiótico e drenagem biliar urgente."
+ },
+ "summary": {
+  "title": "Colestase por cálculo",
+  "points": [
+   {
+    "label": "Colangite",
+    "text": "Febre, icterícia, dor e inflamação sistêmica."
+   },
+   {
+    "label": "Sem colangite",
+    "text": "Colestase com sinais vitais e leucograma normais."
+   },
+   {
+    "label": "Exame",
+    "text": "Colangiorressonância."
+   },
+   {
+    "label": "Tratamento",
+    "text": "CPRE para retirar o cálculo."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

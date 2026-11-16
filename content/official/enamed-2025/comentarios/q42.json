@@ -1,0 +1,84 @@
+{
+ "area_id": "pediatria",
+ "competency_id": "urgencia",
+ "theme": "Choque séptico neonatal por onfalite",
+ "scenario": "UPA",
+ "difficulty": "medio",
+ "quick": "Recém-nascido de 14 dias, cianótico, hipoativo, com má perfusão e onfalite: choque séptico, que é distributivo. Suporte ventilatório, fluidos, antibiótico e vasoativos: alternativa D.",
+ "reasoning": "Primeiro passo: reconhecer o foco. Parto domiciliar sem pré-natal e hiperemia com edema ao redor do coto umbilical indicam onfalite, porta de entrada para infecção grave. Segundo passo: reconhecer a falência circulatória. Letargia, cianose, pulsos finos, perfusão lenta, taquicardia e desconforto respiratório indicam choque. Terceiro passo: classificar. Choque que se origina de infecção, com vasodilatação e má distribuição do fluxo, é distributivo, no caso séptico. Quarto passo: tratar. Garante-se a via aérea e a ventilação, obtém-se acesso venoso e faz-se reposição rápida de cristaloide isotônico, administra-se antibiótico de amplo espectro o mais cedo possível e, se o choque persistir, usam-se vasoativos. Quinto passo: afastar as outras. Choque cardiogênico por cardiopatia dependente do canal ocorre nos primeiros dias de vida e não cursa com onfalite. Choque neurogênico não se aplica. Choque obstrutivo por pneumotórax não explica a onfalite.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Choque cardiogênico por cardiopatia ductal aparece nos primeiros dias de vida, e o excesso de volume é evitado; aqui há foco infeccioso com onfalite."
+  },
+  {
+   "index": 1,
+   "why": "Choque neurogênico decorre de lesão medular ou do sistema nervoso e não explica a onfalite e o quadro séptico."
+  },
+  {
+   "index": 2,
+   "why": "Choque obstrutivo por pneumotórax hipertensivo não explica a onfalite, e a descompressão torácica não é a conduta inicial."
+  }
+ ],
+ "tip": "Recém-nascido com foco infeccioso e sinais de choque: antibiótico precoce e fluidos, sem esperar cultura.",
+ "pearl": "Onfalite com eritema se estendendo para a parede abdominal é sinal de gravidade e indica internação e antibiótico venoso.",
+ "competency_note": "Reconhecer e tratar choque séptico no recém-nascido.",
+ "claims": [
+  {
+   "claim": "No choque séptico pediátrico, recomenda-se administrar antibiótico de amplo espectro o mais rápido possível, com reposição de fluidos e uso de vasoativos se não houver resposta.",
+   "source_id": "ssc-ped-2020",
+   "locator": "Recomendações de ressuscitação e antimicrobianos"
+  }
+ ],
+ "key_why": "Foco infeccioso com sinais de má perfusão define choque séptico distributivo, tratado com suporte ventilatório, fluidos, antibiótico e vasoativos.",
+ "theory": {
+  "title": "Choque séptico neonatal",
+  "intro": "A sepse neonatal tardia pode surgir em casa, depois da alta, e a onfalite é uma porta de entrada.",
+  "sections": [
+   {
+    "heading": "Sinais",
+    "items": [
+     "Hipoatividade, recusa alimentar, cianose",
+     "Taquicardia, pulsos finos e perfusão lenta",
+     "Desconforto respiratório",
+     "Foco infeccioso, como onfalite"
+    ]
+   },
+   {
+    "heading": "Conduta",
+    "items": [
+     "Suporte ventilatório e oxigênio",
+     "Acesso venoso e fluidos cristaloides isotônicos em bolus",
+     "Antibiótico de amplo espectro o mais cedo possível",
+     "Vasoativos se o choque persistir"
+    ]
+   }
+  ],
+  "alert": "Em neonato, não espere cultura para iniciar antibiótico."
+ },
+ "summary": {
+  "title": "Choque séptico neonatal",
+  "points": [
+   {
+    "label": "Quadro",
+    "text": "Letargia, cianose, má perfusão, foco como onfalite."
+   },
+   {
+    "label": "Tipo",
+    "text": "Distributivo, de origem infecciosa."
+   },
+   {
+    "label": "Tratar",
+    "text": "Ventilação, fluidos, antibiótico precoce e vasoativos."
+   },
+   {
+    "label": "Diferencial",
+    "text": "Cardiopatia ductal aparece nos primeiros dias, sem foco infeccioso."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

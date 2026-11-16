@@ -1,0 +1,82 @@
+{
+ "area_id": "cirurgia",
+ "competency_id": "hipotese",
+ "theme": "Fissura anal",
+ "scenario": "UBS",
+ "difficulty": "facil",
+ "quick": "Dor e ardor anal com sangramento vivo em pequena quantidade ao evacuar fezes endurecidas, sem tumoração: fissura anal. Alternativa D.",
+ "reasoning": "Primeiro passo: reconhecer o quadro clássico. Dor intensa durante e depois da evacuação, ardor e sangramento vermelho vivo em pequena quantidade, em paciente com constipação crônica e fezes endurecidas. Segundo passo: avaliar a ausência de tumoração perianal. Não há abaulamento, o que afasta abscesso e doença hemorroidária volumosa. Terceiro passo: lembrar a associação. A doença de Crohn favorece fissuras, abscessos e fístulas perianais, mas o quadro sem abaulamento nem secreção aponta para fissura. Quarto passo: descartar as outras. Abscesso perianal tem abaulamento doloroso e febre. Fístula tem orifício com saída de secreção. Cisto pilonidal ocorre na região sacrococcígea, e não no ânus.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "O abscesso perianal causa dor contínua com abaulamento, calor e às vezes febre; o paciente nega tumoração."
+  },
+  {
+   "index": 1,
+   "why": "A fístula perianal cursa com orifício e saída de secreção, e não com dor ao evacuar e sangramento em pouca quantidade."
+  },
+  {
+   "index": 2,
+   "why": "O cisto pilonidal se localiza na região sacrococcígea, na fenda interglútea, e não no canal anal."
+  }
+ ],
+ "tip": "Dor ao evacuar com sangue vivo e fezes endurecidas, sem tumoração: fissura anal.",
+ "pearl": "Em fissura crônica e atípica, lateral ou múltipla, pense em Crohn, HIV, sífilis e tuberculose.",
+ "competency_note": "Reconhecer fissura anal e diferenciá-la de outras doenças perianais.",
+ "claims": [
+  {
+   "claim": "A fissura anal causa dor durante e após a evacuação e sangramento vermelho vivo, e o tratamento inicial é conservador, com fibras, hidratação e medidas locais.",
+   "source_id": "pm-27926552",
+   "locator": "Diagnóstico e tratamento"
+  }
+ ],
+ "key_why": "Dor, ardor e sangramento vivo ao evacuar fezes endurecidas, sem tumoração, definem fissura anal.",
+ "theory": {
+  "title": "Fissura anal",
+  "intro": "Laceração do canal anal, associada a constipação e fezes endurecidas, que causa dor e sangramento.",
+  "sections": [
+   {
+    "heading": "Quadro",
+    "items": [
+     "Dor ao evacuar, que pode durar horas",
+     "Sangue vivo em pequena quantidade no papel",
+     "Sem tumoração perianal"
+    ]
+   },
+   {
+    "heading": "Tratamento",
+    "items": [
+     "Fibras, água e correção da constipação",
+     "Banhos de assento e anestésico tópico",
+     "Pomada de nifedipino ou diltiazem em fissura crônica",
+     "Cirurgia em casos refratários"
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "title": "Fissura anal",
+  "points": [
+   {
+    "label": "Quadro",
+    "text": "Dor ao evacuar e sangue vivo, sem tumoração."
+   },
+   {
+    "label": "Causa",
+    "text": "Constipação e fezes endurecidas."
+   },
+   {
+    "label": "Tratamento",
+    "text": "Fibras, banhos de assento e pomada."
+   },
+   {
+    "label": "Atípica",
+    "text": "Pense em Crohn, HIV e infecções."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

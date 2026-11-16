@@ -1,0 +1,77 @@
+{
+ "area_id": "go",
+ "competency_id": "terapeutica",
+ "theme": "Contracepção antes da cirurgia bariátrica",
+ "scenario": "Ambulatório",
+ "difficulty": "medio",
+ "quick": "Obesidade grau 3 com ciclos irregulares e cirurgia bariátrica próxima: o sistema intrauterino de levonorgestrel dá contracepção eficaz e protege o endométrio. Alternativa A.",
+ "reasoning": "Primeiro passo: avaliar a paciente. IMC de 41,5 e ciclos entre 20 e 65 dias indicam ciclos anovulatórios, comuns na obesidade e na síndrome dos ovários policísticos. A anovulação crônica expõe o endométrio ao estrogênio sem oposição, com risco de hiperplasia. Segundo passo: pensar na cirurgia. Após bariátricas disabsortivas, a absorção de contraceptivos orais fica incerta, e a gravidez deve ser evitada por 12 a 18 meses, no período de perda de peso rápida. Terceiro passo: escolher o método. O endoceptivo, ou sistema intrauterino de levonorgestrel, não depende de absorção, tem alta eficácia, protege o endométrio e deve ser colocado antes da operação. Quarto passo: descartar as outras. Obesidade, por si só, não contraindica métodos hormonais. O preservativo isolado tem menor eficácia. O adesivo tem menor eficácia em mulheres acima de 90 kg.",
+ "distractors": [
+  {
+   "index": 1,
+   "why": "Obesidade e risco de tromboembolismo não contraindicam todos os métodos hormonais; os de progestágeno isolado e o DIU são seguros."
+  },
+  {
+   "index": 2,
+   "why": "A anovulação crônica é motivo para proteger o endométrio, e não para contar apenas com preservativo, de menor eficácia."
+  },
+  {
+   "index": 3,
+   "why": "O adesivo tem eficácia reduzida em mulheres acima de 90 kg, e contém estrogênio, que não é o ideal aqui."
+  }
+ ],
+ "tip": "Antes da bariátrica, prefira método que não dependa de absorção: o DIU de levonorgestrel.",
+ "pearl": "A gestação nos primeiros 12 a 18 meses depois da cirurgia bariátrica traz riscos nutricionais para mãe e feto.",
+ "competency_note": "Escolher contracepção para mulher com obesidade e cirurgia bariátrica programada.",
+ "claims": [
+  {
+   "claim": "Os critérios de elegibilidade consideram o DIU de levonorgestrel opção segura em mulheres com obesidade e em pós-operatório de cirurgia bariátrica, e os contraceptivos orais podem ter absorção reduzida após procedimentos disabsortivos.",
+   "source_id": "cdc-mec-2024",
+   "locator": "Obesidade e cirurgia bariátrica"
+  }
+ ],
+ "key_why": "O sistema intrauterino de levonorgestrel não depende de absorção e protege o endométrio da paciente com anovulação.",
+ "theory": {
+  "title": "Contracepção na obesidade e na cirurgia bariátrica",
+  "intro": "A obesidade não é contraindicação aos métodos contraceptivos, mas a eficácia e a segurança variam conforme o método.",
+  "sections": [
+   {
+    "heading": "Escolha",
+    "items": [
+     "DIU de levonorgestrel: eficaz e protege o endométrio",
+     "Implante e injetável de progestágeno: opções seguras",
+     "Pílula e adesivo: eficácia pode ser menor; absorção incerta após bariátrica disabsortiva"
+    ]
+   },
+   {
+    "heading": "Bariátrica",
+    "body": "Evitar gravidez por 12 a 18 meses. Se o método for oral, considerar a via de absorção."
+   }
+  ]
+ },
+ "summary": {
+  "title": "Contracepção e bariátrica",
+  "points": [
+   {
+    "label": "Melhor opção",
+    "text": "DIU de levonorgestrel."
+   },
+   {
+    "label": "Cirurgia",
+    "text": "Evitar gravidez por 12 a 18 meses."
+   },
+   {
+    "label": "Orais",
+    "text": "Absorção incerta em procedimentos disabsortivos."
+   },
+   {
+    "label": "Anovulação",
+    "text": "Proteger o endométrio."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

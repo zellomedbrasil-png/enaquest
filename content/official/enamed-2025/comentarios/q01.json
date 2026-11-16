@@ -1,0 +1,115 @@
+{
+ "area_id": "clinica",
+ "competency_id": "terapeutica",
+ "theme": "Insuficiência cardíaca com FE reduzida",
+ "scenario": "Ambulatório",
+ "difficulty": "facil",
+ "quick": "Espironolactona. A paciente tem ICFEr sintomática (FE 38%, BNP elevado, congestão) já em uso de IECA; o antagonista mineralocorticoide é a única opção listada que reduz mortalidade.",
+ "reasoning": "Primeiro, reconheça a síndrome: hipertensa com tratamento irregular, dispneia progressiva, B3, crépitos em bases e BNP elevado indicam insuficiência cardíaca. O ecocardiograma mostra hipertrofia concêntrica (cardiopatia hipertensiva) e FEVE de 38%, o que define IC com fração de ejeção reduzida. Segundo, entenda o que a banca pede: um fármaco que melhore a PA e, principalmente, a sobrevida. Na ICFEr, os medicamentos com benefício em mortalidade são IECA/BRA ou sacubitril-valsartana, betabloqueadores específicos, antagonistas mineralocorticoides e, mais recentemente, inibidores de SGLT2. Hidralazina com nitrato tem benefício em subgrupos específicos. Terceiro, compare com as alternativas: o IECA já está em uso, e entre espironolactona, clortalidona, hidralazina e clonidina, apenas a espironolactona tem efeito comprovado em sobrevida, além de reduzir a PA. Na prática, um betabloqueador também seria indicado, mas não aparece entre as opções.",
+ "distractors": [
+  {
+   "index": 1,
+   "why": "Clortalidona é diurético tiazídico útil na HAS e pode ajudar na congestão, mas diuréticos na IC aliviam sintomas sem reduzir mortalidade."
+  },
+  {
+   "index": 2,
+   "why": "Hidralazina só tem benefício em sobrevida quando associada a nitrato, em pacientes negros sintomáticos apesar da terapia otimizada ou intolerantes a IECA/BRA. Isolada e em paciente já com IECA, não é a escolha."
+  },
+  {
+   "index": 3,
+   "why": "Clonidina é simpaticolítico central sem benefício prognóstico na IC; não faz parte do tratamento da ICFEr e pode causar rebote hipertensivo na suspensão."
+  }
+ ],
+ "tip": "Na ICFEr, pergunte: esse remédio mexe no sistema renina-angiotensina-aldosterona, no simpático por betabloqueio ou é iSGLT2? Se não, provavelmente só trata sintoma.",
+ "pearl": "Diurético melhora congestão, mas não sobrevida. Espironolactona é chamada de diurético, mas seu benefício vem do bloqueio da aldosterona, não da diurese. Cuidado com hipercalemia ao associar com IECA.",
+ "competency_note": "Avaliar se o candidato reconhece ICFEr em hipertensa e distingue fármacos que modificam prognóstico daqueles que apenas controlam PA ou sintomas.",
+ "claims": [
+  {
+   "claim": "FEVE abaixo de 40% define insuficiência cardíaca com fração de ejeção reduzida.",
+   "source_id": "sbc-ic-2018",
+   "locator": "Classificação da IC segundo a fração de ejeção"
+  },
+  {
+   "claim": "IECA, betabloqueadores e antagonistas mineralocorticoides reduzem mortalidade na ICFEr sintomática.",
+   "source_id": "sbc-ic-2018",
+   "locator": "Tratamento farmacológico da IC crônica com fração de ejeção reduzida"
+  },
+  {
+   "claim": "Espironolactona é recomendada em ICFEr sintomática associada a IECA e betabloqueador, com monitorização de potássio e função renal.",
+   "source_id": "sbc-ic-2018",
+   "locator": "Antagonistas dos receptores mineralocorticoides"
+  },
+  {
+   "claim": "Hidralazina com nitrato é indicada em pacientes autodeclarados negros sintomáticos apesar de terapia otimizada ou com intolerância a IECA/BRA.",
+   "source_id": "sbc-ic-2018",
+   "locator": "Hidralazina e nitrato"
+  },
+  {
+   "claim": "Diuréticos são usados para alívio da congestão, sem demonstração de redução de mortalidade.",
+   "source_id": "sbc-ic-2018",
+   "locator": "Diuréticos na IC crônica"
+  }
+ ],
+ "key_why": "A paciente tem insuficiência cardíaca sintomática (dispneia, B3, crépitos, BNP elevado) com fração de ejeção reduzida (38%) em hipertensa. Já usa IECA, e entre as opções o único fármaco que reduz mortalidade na IC com fração de ejeção reduzida é o antagonista mineralocorticoide espironolactona, que também ajuda no controle pressórico.",
+ "theory": {
+  "title": "Tratamento que modifica prognóstico na IC com fração de ejeção reduzida",
+  "intro": "A insuficiência cardíaca com fração de ejeção reduzida (ICFEr) é uma complicação frequente da hipertensão mal controlada. O tratamento separa fármacos que só aliviam sintomas daqueles que reduzem mortalidade e internações.",
+  "sections": [
+   {
+    "heading": "Quando suspeitar",
+    "body": "Dispneia aos esforços, fadiga, B3, crépitos pulmonares e BNP elevado sugerem IC. O ecocardiograma classifica o quadro pela fração de ejeção do ventrículo esquerdo; valores abaixo de 40% definem ICFEr."
+   },
+   {
+    "heading": "Pilares que reduzem mortalidade",
+    "items": [
+     "IECA ou BRA (ou sacubitril-valsartana em substituição)",
+     "Betabloqueador com evidência: carvedilol, bisoprolol ou succinato de metoprolol",
+     "Antagonista mineralocorticoide: espironolactona",
+     "Inibidor de SGLT2 (dapagliflozina ou empagliflozina), incorporado nas atualizações mais recentes",
+     "Hidralazina com nitrato: pacientes negros com sintomas persistentes ou intolerância a IECA/BRA"
+    ]
+   },
+   {
+    "heading": "Fármacos que não mudam sobrevida",
+    "body": "Diuréticos de alça e tiazídicos aliviam congestão, mas não reduzem mortalidade. Simpaticolíticos centrais, como clonidina, não têm benefício na IC."
+   },
+   {
+    "heading": "Cuidados com a espironolactona",
+    "body": "Monitorar potássio e função renal, sobretudo quando associada a IECA. Evitar se houver hipercalemia ou disfunção renal importante."
+   }
+  ],
+  "alert": "Na ICFEr, a hipertensão deve ser tratada preferencialmente com os fármacos que também melhoram o prognóstico da IC."
+ },
+ "summary": {
+  "title": "IC com FE reduzida em hipertensa",
+  "points": [
+   {
+    "label": "Diagnóstico",
+    "text": "Sintomas congestivos, B3, BNP elevado e FEVE abaixo de 40% indicam ICFEr."
+   },
+   {
+    "label": "Reduzem mortalidade",
+    "text": "IECA/BRA/sacubitril-valsartana, betabloqueador, espironolactona, iSGLT2.",
+    "sub": [
+     "Hidralazina com nitrato em negros ou intolerantes a IECA/BRA"
+    ]
+   },
+   {
+    "label": "Só sintomas",
+    "text": "Diuréticos de alça e tiazídicos aliviam congestão, sem ganho de sobrevida."
+   },
+   {
+    "label": "Sem benefício",
+    "text": "Clonidina e hidralazina isolada não melhoram prognóstico."
+   },
+   {
+    "label": "Monitorar",
+    "text": "Potássio e creatinina ao associar espironolactona com IECA."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

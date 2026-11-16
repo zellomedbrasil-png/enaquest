@@ -1,0 +1,82 @@
+{
+ "area_id": "go",
+ "competency_id": "terapeutica",
+ "theme": "Diabetes gestacional no puerpério",
+ "scenario": "Sala de parto",
+ "difficulty": "facil",
+ "quick": "Após o parto, a placenta deixa de produzir hormônios que antagonizam a insulina. Em diabetes gestacional, suspende-se a insulina e reavalia-se a glicemia: alternativa A.",
+ "reasoning": "Primeiro passo: lembrar a fisiopatologia. O diabetes gestacional ocorre porque os hormônios placentários, como o lactogênio, aumentam a resistência à insulina. Segundo passo: aplicar ao puerpério. Com a saída da placenta, a resistência à insulina cai rapidamente e a necessidade de insulina desaparece, com risco de hipoglicemia se a dose for mantida. Terceiro passo: agir. Suspende-se a insulina logo após o parto, monitora-se a glicemia nas primeiras 24 a 48 horas e reavalia-se a paciente com teste de tolerância à glicose depois de 6 a 12 semanas. Quarto passo: descartar as outras. Hipoglicemiante oral não é necessário e metformina ou outros fármacos entram só se o diabetes persistir. Manter insulina em dose total ou em fração arrisca hipoglicemia.",
+ "distractors": [
+  {
+   "index": 1,
+   "why": "Hipoglicemiante oral não é necessário: o diabetes gestacional costuma se resolver com a saída da placenta."
+  },
+  {
+   "index": 2,
+   "why": "Manter insulina NPH em um terço da dose ainda expõe a mãe, que amamenta, a hipoglicemia, sem indicação."
+  },
+  {
+   "index": 3,
+   "why": "Manter a dose do pré-natal pode provocar hipoglicemia grave, pois a necessidade de insulina cai muito depois do parto."
+  }
+ ],
+ "tip": "Diabetes gestacional: suspenda a insulina depois do parto e reavalie com TOTG em 6 a 12 semanas.",
+ "pearl": "Quem teve diabetes gestacional tem risco alto de diabetes tipo 2 no futuro, por isso o seguimento não termina no parto.",
+ "competency_note": "Conduzir o puerpério de diabetes gestacional, evitando hipoglicemia.",
+ "claims": [
+  {
+   "claim": "No diabetes mellitus gestacional, a insulina é suspensa após o parto e a paciente é reavaliada com teste de tolerância à glicose pelo menos 6 semanas depois.",
+   "source_id": "ms-gar-2022",
+   "locator": "Diabetes mellitus gestacional, pós-parto"
+  }
+ ],
+ "key_why": "A resistência à insulina por hormônios placentários cessa com o parto, então a insulina é suspensa e a glicemia é reavaliada depois.",
+ "theory": {
+  "title": "Diabetes gestacional no pós-parto",
+  "intro": "O diabetes gestacional costuma se resolver após o parto, mas deixa um risco elevado de diabetes tipo 2.",
+  "sections": [
+   {
+    "heading": "Logo após o parto",
+    "items": [
+     "Suspender a insulina",
+     "Medir a glicemia nas primeiras 24 a 48 horas",
+     "Estimular amamentação"
+    ]
+   },
+   {
+    "heading": "Seguimento",
+    "items": [
+     "Teste de tolerância à glicose entre 6 e 12 semanas",
+     "Orientar dieta e atividade física",
+     "Rastrear diabetes periodicamente"
+    ]
+   }
+  ],
+  "alert": "Manter insulina após o parto pode causar hipoglicemia grave."
+ },
+ "summary": {
+  "title": "DMG no puerpério",
+  "points": [
+   {
+    "label": "Conduta",
+    "text": "Suspender a insulina após o parto."
+   },
+   {
+    "label": "Por quê",
+    "text": "Cessa a ação dos hormônios placentários que causam resistência."
+   },
+   {
+    "label": "Seguimento",
+    "text": "TOTG em 6 a 12 semanas."
+   },
+   {
+    "label": "Risco",
+    "text": "Maior chance de diabetes tipo 2 no futuro."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

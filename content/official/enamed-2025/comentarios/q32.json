@@ -1,0 +1,86 @@
+{
+ "area_id": "go",
+ "competency_id": "terapeutica",
+ "theme": "Hipertensão crônica e prevenção de pré-eclâmpsia",
+ "scenario": "UBS",
+ "difficulty": "medio",
+ "quick": "Gestante com hipertensão crônica e pré-eclâmpsia prévia: trocar o enalapril por alfametildopa e iniciar ácido acetilsalicílico e carbonato de cálcio. Alternativa D.",
+ "reasoning": "Primeiro passo: lembrar que inibidores da enzima conversora e bloqueadores de angiotensina são contraindicados na gestação, por teratogenicidade. A paciente usa enalapril e precisa trocar. Segundo passo: escolher um anti-hipertensivo seguro. A alfametildopa é a primeira escolha na gestação; nifedipino e labetalol também podem ser usados. Terceiro passo: prevenir a pré-eclâmpsia. A paciente tem fatores de risco, como hipertensão crônica e pré-eclâmpsia anterior, e por isso recebe ácido acetilsalicílico em dose baixa, iniciado antes de 16 semanas, e cálcio. Quarto passo: descartar as outras. Captopril, losartana e furosemida não são adequados para tratar hipertensão na gestação. Varfarina é teratogênica e não tem indicação. Enoxaparina também não está indicada sem trombofilia ou trombose.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Captopril é inibidor da enzima conversora, contraindicado na gestação, e varfarina é teratogênica e não tem indicação."
+  },
+  {
+   "index": 1,
+   "why": "Furosemida não é anti-hipertensivo de escolha na gestação, e varfarina é teratogênica e não tem indicação."
+  },
+  {
+   "index": 2,
+   "why": "Losartana é bloqueador de angiotensina, contraindicado na gestação, e a enoxaparina não tem indicação sem trombofilia."
+  }
+ ],
+ "tip": "Gestante hipertensa: troque IECA e BRA por alfametildopa e adicione AAS e cálcio se houver risco de pré-eclâmpsia.",
+ "pearl": "O AAS para prevenir pré-eclâmpsia deve começar antes de 16 semanas; com 15 semanas ainda está no prazo.",
+ "competency_note": "Ajustar o tratamento anti-hipertensivo e a prevenção de pré-eclâmpsia na gestação.",
+ "claims": [
+  {
+   "claim": "Os inibidores da enzima conversora e os bloqueadores do receptor de angiotensina são contraindicados na gestação, e a alfametildopa é opção de primeira linha.",
+   "source_id": "ms-gar-2022",
+   "locator": "Síndromes hipertensivas na gestação"
+  },
+  {
+   "claim": "Em gestantes de risco para pré-eclâmpsia, indica-se ácido acetilsalicílico em baixa dose e suplementação de cálcio.",
+   "source_id": "ms-gar-2022",
+   "locator": "Prevenção da pré-eclâmpsia"
+  }
+ ],
+ "key_why": "A alfametildopa substitui o enalapril contraindicado, e o AAS com cálcio previne a pré-eclâmpsia em quem já teve o quadro.",
+ "theory": {
+  "title": "Hipertensão crônica na gestação",
+  "intro": "A hipertensão crônica aumenta o risco de pré-eclâmpsia, descolamento de placenta e restrição de crescimento fetal.",
+  "sections": [
+   {
+    "heading": "Anti-hipertensivos",
+    "items": [
+     "Seguros: alfametildopa, nifedipino e labetalol",
+     "Contraindicados: IECA e BRA, por risco de dano fetal"
+    ]
+   },
+   {
+    "heading": "Prevenção da pré-eclâmpsia",
+    "items": [
+     "Ácido acetilsalicílico em baixa dose, iniciado antes de 16 semanas",
+     "Carbonato de cálcio para quem tem baixa ingestão ou risco",
+     "Pré-natal de alto risco"
+    ]
+   }
+  ],
+  "alert": "Sempre revise anti-hipertensivos em mulher que engravida."
+ },
+ "summary": {
+  "title": "Hipertensa na gestação",
+  "points": [
+   {
+    "label": "Trocar",
+    "text": "IECA e BRA por alfametildopa, nifedipino ou labetalol."
+   },
+   {
+    "label": "Prevenir",
+    "text": "AAS em baixa dose antes de 16 semanas e cálcio."
+   },
+   {
+    "label": "Risco",
+    "text": "Hipertensão crônica e pré-eclâmpsia prévia."
+   },
+   {
+    "label": "Seguimento",
+    "text": "Pré-natal de alto risco."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

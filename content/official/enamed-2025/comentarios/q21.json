@@ -1,0 +1,83 @@
+{
+ "area_id": "mental",
+ "competency_id": "urgencia",
+ "theme": "Anorexia nervosa com instabilidade clínica",
+ "scenario": "UBS",
+ "difficulty": "medio",
+ "quick": "IMC de 14,7, bradicardia, hipotensão, síncope e ECG alterado são critérios de gravidade clínica: internar em enfermaria de clínica médica para estabilização. Alternativa A.",
+ "reasoning": "Primeiro passo: reconhecer o quadro. Perda de cerca de 30 kg em 10 meses, amenorreia, recusa em comer por medo de engordar e IMC de 14,7 indicam anorexia nervosa grave. Segundo passo: avaliar a estabilidade clínica. Bradicardia de 55, pressão de 80 x 60, síncope e alteração de ST e T no ECG mostram risco de arritmia e morte súbita por desnutrição. Terceiro passo: decidir o local. Quando há instabilidade clínica, a prioridade é a internação em leito clínico, para realimentação cuidadosa e monitorização de eletrólitos, com o risco da síndrome de realimentação. Depois da estabilização, segue-se o tratamento psiquiátrico. Quarto passo: descartar as outras. Continuar investigando amenorreia na UBS ignora a gravidade. CAPS e internação psiquiátrica são adequados após a estabilização.",
+ "distractors": [
+  {
+   "index": 1,
+   "why": "A internação em saúde mental fica para depois. Com instabilidade cardiovascular e desnutrição grave, o risco imediato é clínico."
+  },
+  {
+   "index": 2,
+   "why": "Continuar investigação de amenorreia na UBS ignora que a causa é a anorexia e que há risco de vida imediato."
+  },
+  {
+   "index": 3,
+   "why": "CAPS faz acompanhamento ambulatorial, que não basta para uma paciente com síncope, bradicardia, hipotensão e alterações no ECG."
+  }
+ ],
+ "tip": "Anorexia com síncope, bradicardia, hipotensão ou ECG alterado: estabilizar em leito clínico primeiro.",
+ "pearl": "A realimentação em desnutrido grave pode causar a síndrome de realimentação, com hipofosfatemia e arritmia; inicie de forma lenta e monitorada.",
+ "competency_note": "Identificar instabilidade clínica em transtorno alimentar e escolher o local de cuidado.",
+ "claims": [
+  {
+   "claim": "Em transtornos alimentares restritivos, bradicardia, hipotensão, síncope, alterações do ECG e desnutrição grave são critérios de internação para estabilização clínica.",
+   "source_id": "pm-36058805",
+   "locator": "Critérios de internação"
+  }
+ ],
+ "key_why": "Bradicardia, hipotensão, síncope e ECG alterado em anorexia grave exigem internação clínica para estabilização antes do tratamento psiquiátrico.",
+ "theory": {
+  "title": "Anorexia nervosa e critérios de internação",
+  "intro": "Na anorexia nervosa, a desnutrição pode causar instabilidade cardiovascular e metabólica. A gravidade clínica define o local de tratamento.",
+  "sections": [
+   {
+    "heading": "Sinais de instabilidade",
+    "items": [
+     "Bradicardia, hipotensão e síncope",
+     "Alterações do ECG, como alteração de ST e T ou QT longo",
+     "Distúrbios hidroeletrolíticos e desidratação",
+     "IMC muito baixo e perda de peso rápida"
+    ]
+   },
+   {
+    "heading": "Conduta",
+    "items": [
+     "Internar em leito clínico para estabilização",
+     "Realimentação lenta, com controle de fósforo, potássio e magnésio",
+     "Depois, tratamento psiquiátrico e psicoterapia em rede"
+    ]
+   }
+  ],
+  "alert": "A síndrome de realimentação pode ser fatal; comece a nutrição com cuidado e monitorização."
+ },
+ "summary": {
+  "title": "Anorexia nervosa grave",
+  "points": [
+   {
+    "label": "Quadro",
+    "text": "Perda de peso importante, amenorreia, IMC muito baixo, medo de engordar."
+   },
+   {
+    "label": "Gravidade",
+    "text": "Síncope, bradicardia, hipotensão e ECG alterado."
+   },
+   {
+    "label": "Conduta",
+    "text": "Internação clínica para estabilizar."
+   },
+   {
+    "label": "Depois",
+    "text": "Seguimento psiquiátrico e psicoterapia."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

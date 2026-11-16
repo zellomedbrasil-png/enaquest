@@ -1,0 +1,89 @@
+{
+ "area_id": "mfc",
+ "competency_id": "decisao",
+ "theme": "Hipertensão leve em idosa muito idosa",
+ "scenario": "UBS",
+ "difficulty": "medio",
+ "quick": "Idosa de 82 anos, assintomática, com pressão em torno de 146 x 86 mmHg: conduta expectante, sem medicamento, e monitorar a pressão na unidade. Alternativa D.",
+ "reasoning": "Primeiro passo: confirmar o diagnóstico. Há três medidas em ocasiões diferentes, todas com sistólica entre 144 e 148 mmHg, o que configura hipertensão sistólica de grau 1. Segundo passo: avaliar o risco e o benefício do tratamento. Em idosos com 80 anos ou mais, a diretriz brasileira recomenda iniciar medicamento apenas quando a pressão sistólica chega a 160 mmHg ou mais, e mesmo assim de forma cuidadosa, para evitar hipotensão, quedas e síncope. Terceiro passo: aplicar à paciente. Ela não tem sintomas nem outras doenças e está com sistólica abaixo de 160, então a conduta é acompanhar, com medidas não medicamentosas e nova aferição na unidade. Quarto passo: descartar o excesso. Encaminhar ao cardiologista, pedir holter e ecocardiograma não são necessários para essa situação, e iniciar losartana expõe a idosa a hipotensão sem benefício comprovado nesse nível pressórico.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Não há indicação de cardiologista: hipertensão leve em idosa sem lesão de órgão-alvo ou complicações é manejada na atenção primária."
+  },
+  {
+   "index": 1,
+   "why": "Holter de 24 horas e ecocardiograma não fazem parte da avaliação inicial de hipertensão grau 1 sem sintomas."
+  },
+  {
+   "index": 2,
+   "why": "Iniciar anti-hipertensivo em maior de 80 anos com sistólica abaixo de 160 mmHg aumenta o risco de hipotensão e quedas, sem benefício comprovado."
+  }
+ ],
+ "tip": "Em maiores de 80 anos, o limiar de tratamento medicamentoso é mais alto: sistólica a partir de 160 mmHg.",
+ "pearl": "Tratar a pressão do idoso muito idoso como a do adulto jovem causa hipotensão e quedas.",
+ "competency_note": "Individualizar o tratamento da hipertensão no idoso, pesando risco e benefício.",
+ "claims": [
+  {
+   "claim": "A hipertensão é diagnosticada com medidas repetidas em consultas diferentes, e o tratamento medicamentoso no idoso muito idoso deve ser individualizado, com limiar de pressão mais alto.",
+   "source_id": "sbc-has-2020",
+   "locator": "Seção sobre idosos"
+  },
+  {
+   "claim": "No cuidado ao idoso hipertenso, a decisão de tratar leva em conta fragilidade, risco de queda e hipotensão postural.",
+   "source_id": "ms-has-2014",
+   "locator": "Hipertensão no idoso"
+  }
+ ],
+ "key_why": "Sistólica de 144 a 148 mmHg aos 82 anos, sem sintomas, não atinge o limiar de tratamento medicamentoso, então se acompanha com monitoramento.",
+ "theory": {
+  "title": "Hipertensão no idoso",
+  "intro": "A hipertensão é muito comum no idoso, mas o tratamento deve pesar o risco de hipotensão, quedas e fragilidade.",
+  "sections": [
+   {
+    "heading": "Diagnóstico",
+    "items": [
+     "Medidas repetidas em consultas diferentes",
+     "Hipertensão sistólica isolada é frequente no idoso"
+    ]
+   },
+   {
+    "heading": "Quando tratar com medicamento",
+    "items": [
+     "Idosos de 65 a 79 anos: tratar quando a pressão passa dos limites e há risco",
+     "Idosos com 80 anos ou mais: iniciar com sistólica a partir de 160 mmHg, com cautela"
+    ]
+   },
+   {
+    "heading": "Medidas gerais",
+    "body": "Redução de sal, atividade física e controle do peso entram em qualquer caso."
+   }
+  ],
+  "alert": "Em idoso, aferir a pressão em pé e sentado para detectar hipotensão postural."
+ },
+ "summary": {
+  "title": "Hipertensão em idosa de 82 anos",
+  "points": [
+   {
+    "label": "Diagnóstico",
+    "text": "Três medidas elevadas leves caracterizam hipertensão sistólica grau 1."
+   },
+   {
+    "label": "Tratar",
+    "text": "Em maior de 80 anos, só com sistólica a partir de 160 mmHg."
+   },
+   {
+    "label": "Conduta",
+    "text": "Medidas não medicamentosas e monitoramento na unidade."
+   },
+   {
+    "label": "Cuidado",
+    "text": "Hipotensão e quedas são os riscos do tratamento excessivo."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": "Conferir na diretriz o limiar de tratamento para idosos com 80 anos ou mais."
+}

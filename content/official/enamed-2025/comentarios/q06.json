@@ -1,0 +1,100 @@
+{
+ "area_id": "coletiva",
+ "competency_id": "sus",
+ "theme": "Níveis de atenção e de prevenção",
+ "scenario": "Ambulatório",
+ "difficulty": "medio",
+ "quick": "B. O cardiologista, acessado por encaminhamento da APS, atua no nível secundário de atenção; antiagregação após infarto para evitar novo evento em doença já instalada é prevenção secundária.",
+ "reasoning": "Primeiro, separe as duas perguntas. Onde o paciente será atendido: ele sai da atenção primária (médico de família) e vai ao cardiologista em consulta ambulatorial especializada, que corresponde ao nível secundário de atenção. Não é terciário porque não se trata de internação ou procedimento de alta complexidade, e não é primário porque quem atende é o especialista. Segundo, qual prevenção: o paciente já tem cardiopatia isquêmica e teve infarto; não cabe prevenção primária. A orientação pedida é sobre antiagregação alternativa, dada a úlcera péptica e a alergia aos tienopiridínicos, para impedir recorrência e progressão da doença. No modelo de Leavell e Clark, intervir na doença já estabelecida para limitar dano e evitar progressão é prevenção secundária, e a cardiologia chama justamente de prevenção secundária o tratamento após evento coronariano. Prevenção terciária ficaria reservada à reabilitação de sequelas. Logo, secundário; secundário.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "O nível primário é o do médico de família que encaminhou; o cardiologista é atenção especializada (secundária)."
+  },
+  {
+   "index": 2,
+   "why": "Consulta ambulatorial com especialista não é alta complexidade hospitalar, e a conduta preventiva busca evitar novo evento, não reabilitar sequelas, o que caracterizaria prevenção terciária."
+  },
+  {
+   "index": 3,
+   "why": "Não existe nível quaternário de atenção; quaternária é um tipo de prevenção, voltada a evitar iatrogenia e excesso de intervenção."
+  }
+ ],
+ "tip": "Duas perguntas, duas réguas: lugar do atendimento (primário, secundário, terciário) e fase da doença (primária a quaternária). Especialista ambulatorial = secundário.",
+ "pearl": "Há divergência conceitual: alguns autores chamam de terciária a prevenção de complicações em doença crônica estabelecida. A banca seguiu o uso cardiológico: tratar após infarto para evitar recorrência é prevenção secundária; terciária é reabilitação.",
+ "competency_note": "Avaliou a distinção entre níveis de atenção da rede SUS e níveis de prevenção da história natural da doença, incluindo o conceito de prevenção quaternária.",
+ "claims": [
+  {
+   "claim": "A atenção primária é porta de entrada preferencial e coordenadora do cuidado na Rede de Atenção à Saúde, que se organiza com atenção especializada nos demais pontos.",
+   "source_id": "pnab-2017",
+   "locator": "Anexo, Capítulo I, Art. 2º"
+  },
+  {
+   "claim": "Níveis de prevenção: primária (antes da doença), secundária (detecção e intervenção na doença já presente), terciária (redução de sequelas e reabilitação) e quaternária (evitar iatrogenia e intervenções desnecessárias).",
+   "source_id": "ms-rastreamento-2010",
+   "locator": "Capítulo 1, conceitos de prevenção"
+  }
+ ],
+ "key_why": "O médico de família, na atenção primária, encaminha o paciente ao cardiologista, que atende em ambulatório especializado, ou seja, no nível secundário. O paciente já teve infarto e a orientação buscada (antiagregação alternativa) visa evitar recorrência e progressão da doença já instalada. Pelo conceito adotado pela banca, isso é prevenção secundária.",
+ "theory": {
+  "title": "Níveis de atenção e níveis de prevenção",
+  "intro": "Níveis de atenção dizem onde o cuidado acontece, conforme a densidade tecnológica do serviço. Níveis de prevenção dizem em que fase da história natural da doença se intervém. São classificações independentes e a prova costuma misturá-las.",
+  "sections": [
+   {
+    "heading": "Níveis de atenção à saúde",
+    "items": [
+     "Primário: atenção primária à saúde (UBS, equipe de Saúde da Família), porta de entrada preferencial e coordenadora do cuidado.",
+     "Secundário: atenção especializada ambulatorial e serviços de média complexidade (consultas com especialistas, exames especializados).",
+     "Terciário: alta complexidade hospitalar (cirurgia cardíaca, UTI, procedimentos de alto custo)."
+    ]
+   },
+   {
+    "heading": "Níveis de prevenção (Leavell e Clark, ampliado por Jamoulle)",
+    "items": [
+     "Primária: antes da doença; promoção da saúde e proteção específica (vacina, controle de fatores de risco em quem não adoeceu).",
+     "Secundária: doença já presente; diagnóstico precoce, tratamento oportuno e limitação do dano, evitando progressão e recorrência.",
+     "Terciária: reabilitação e redução de sequelas e incapacidades.",
+     "Quaternária: evitar iatrogenia e medicalização excessiva; é tipo de prevenção, não nível de atenção."
+    ]
+   },
+   {
+    "heading": "Aplicando ao caso",
+    "body": "Paciente com infarto prévio atendido pelo cardiologista: nível secundário de atenção. Usar antiagregante para evitar novo evento coronariano em quem já tem a doença é chamado, em cardiologia e pela banca, de prevenção secundária. Reabilitação cardíaca para recuperar capacidade funcional seria o exemplo típico de prevenção terciária."
+   }
+  ],
+  "alert": "Não existe nível quaternário de atenção. Prevenção quaternária é conceito, e não local de atendimento."
+ },
+ "summary": {
+  "title": "Revisão rápida: atenção x prevenção",
+  "points": [
+   {
+    "label": "Conceito",
+    "text": "Nível de atenção é o lugar do cuidado; nível de prevenção é a fase da doença em que se age."
+   },
+   {
+    "label": "Atenção",
+    "text": "Primário = APS; secundário = especialista ambulatorial; terciário = hospital de alta complexidade."
+   },
+   {
+    "label": "Prevenção",
+    "text": "Primária antes da doença; secundária com doença instalada; terciária reabilita; quaternária evita iatrogenia."
+   },
+   {
+    "label": "Caso",
+    "text": "Cardiologista após encaminhamento da APS = nível secundário."
+   },
+   {
+    "label": "Conduta",
+    "text": "Antiagregação pós-infarto para evitar novo evento = prevenção secundária na visão da banca e da cardiologia."
+   },
+   {
+    "label": "Armadilha",
+    "text": "Quaternário não é nível de atenção."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": "outra alternativa defensável: C"
+}

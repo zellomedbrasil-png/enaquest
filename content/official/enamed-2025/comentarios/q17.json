@@ -1,0 +1,92 @@
+{
+ "area_id": "cirurgia",
+ "competency_id": "urgencia",
+ "theme": "Pneumotórax hipertensivo no pré-hospitalar",
+ "scenario": "Pré-hospitalar",
+ "difficulty": "facil",
+ "quick": "Trauma com hipotensão, hipóxia, desvio da traqueia, jugulares ingurgitadas e murmúrio vesicular abolido à esquerda é pneumotórax hipertensivo. A conduta imediata é toracocentese de alívio: alternativa D.",
+ "reasoning": "Primeiro passo: reconhecer a síndrome. Colisão sem cinto, hipotensão, saturação de 60%, taquipneia, desvio da traqueia para a direita, jugulares ingurgitadas e murmúrio vesicular muito diminuído à esquerda formam o quadro de pneumotórax hipertensivo à esquerda. Segundo passo: lembrar que o diagnóstico é clínico e que o tratamento não pode esperar exame de imagem. Terceiro passo: aplicar o atendimento inicial. A prioridade é descomprimir o tórax com agulha no quinto espaço intercostal, na linha axilar anterior, ou no segundo espaço na linha hemiclavicular, e depois drenar. Quarto passo: descartar as outras alternativas. Reposição volêmica não corrige a obstrução ao retorno venoso. Cricotireoidostomia é via aérea cirúrgica, sem relação com o quadro. Pericardiocentese trata tamponamento, que também tem jugulares ingurgitadas e hipotensão, mas cursa com murmúrio vesicular simétrico e desvio de traqueia ausente.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Reposição volêmica não resolve a compressão mecânica do coração e dos grandes vasos; o paciente piora sem a descompressão."
+  },
+  {
+   "index": 1,
+   "why": "Cricotireoidostomia é via aérea cirúrgica, para obstrução de via aérea alta, sem relação com este quadro."
+  },
+  {
+   "index": 2,
+   "why": "A pericardiocentese trata tamponamento cardíaco, que tem bulhas abafadas e jugulares ingurgitadas, mas não desvia a traqueia nem abole o murmúrio vesicular."
+  }
+ ],
+ "tip": "Desvio de traqueia, jugular ingurgitada e murmúrio abolido em trauma: descomprima antes de pedir exame.",
+ "pearl": "O pneumotórax hipertensivo é diagnóstico clínico; esperar radiografia pode ser fatal.",
+ "competency_note": "Reconhecer e tratar pneumotórax hipertensivo no atendimento inicial ao trauma.",
+ "claims": [
+  {
+   "claim": "O pneumotórax hipertensivo é um diagnóstico clínico e exige descompressão imediata do tórax, sem aguardar exames de imagem.",
+   "source_id": "ms-samu-2016",
+   "locator": "Protocolo de trauma torácico"
+  },
+  {
+   "claim": "O manejo do pneumotórax traumático inclui descompressão com agulha seguida de drenagem torácica.",
+   "source_id": "pm-34470716",
+   "locator": "Resumo"
+  }
+ ],
+ "key_why": "O quadro de hipotensão, hipóxia, desvio de traqueia e murmúrio abolido define pneumotórax hipertensivo, que se trata com descompressão torácica imediata.",
+ "theory": {
+  "title": "Pneumotórax hipertensivo",
+  "intro": "Acúmulo de ar sob pressão no espaço pleural que desloca o mediastino e impede o retorno venoso. É emergência clínica no trauma.",
+  "sections": [
+   {
+    "heading": "Como reconhecer",
+    "items": [
+     "Dispneia intensa, hipotensão e hipóxia",
+     "Desvio de traqueia para o lado oposto",
+     "Jugulares ingurgitadas e murmúrio vesicular abolido ou muito reduzido",
+     "Hipertimpanismo à percussão"
+    ]
+   },
+   {
+    "heading": "Conduta",
+    "items": [
+     "Descompressão com agulha no quinto espaço intercostal, linha axilar anterior, ou no segundo espaço, linha hemiclavicular",
+     "Em seguida, drenagem torácica",
+     "Oxigênio e monitorização"
+    ]
+   },
+   {
+    "heading": "Diferencial",
+    "body": "No tamponamento cardíaco há jugulares ingurgitadas e hipotensão, mas o murmúrio vesicular é simétrico e a traqueia não se desvia."
+   }
+  ],
+  "alert": "Não espere radiografia para tratar um paciente com suspeita clínica de pneumotórax hipertensivo."
+ },
+ "summary": {
+  "title": "Pneumotórax hipertensivo",
+  "points": [
+   {
+    "label": "Quadro",
+    "text": "Hipotensão, hipóxia, desvio de traqueia, jugular ingurgitada, murmúrio abolido."
+   },
+   {
+    "label": "Diagnóstico",
+    "text": "Clínico; não esperar imagem."
+   },
+   {
+    "label": "Conduta",
+    "text": "Descompressão com agulha e depois drenagem."
+   },
+   {
+    "label": "Diferencial",
+    "text": "Tamponamento: traqueia na linha média e murmúrio simétrico."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

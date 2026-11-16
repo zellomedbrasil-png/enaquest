@@ -1,0 +1,95 @@
+{
+ "area_id": "coletiva",
+ "competency_id": "etica",
+ "theme": "Internação psiquiátrica involuntária",
+ "scenario": "Ambulatório",
+ "difficulty": "medio",
+ "quick": "A internação involuntária é feita sem consentimento da pessoa, a pedido de terceiro, e exige laudo de médico registrado no CRM do estado. Alternativa B.",
+ "reasoning": "Primeiro passo: lembrar os três tipos previstos na Lei 10.216. A voluntária ocorre com o consentimento do usuário. A involuntária ocorre sem o consentimento dele e a pedido de terceiro. A compulsória é determinada pela Justiça. Segundo passo: aplicar a exigência formal. Toda internação psiquiátrica só pode ocorrer mediante laudo médico circunstanciado que caracterize os motivos, emitido por médico devidamente registrado no Conselho Regional de Medicina do estado onde fica o estabelecimento. Terceiro passo: lembrar a fiscalização. A internação involuntária deve ser comunicada ao Ministério Público estadual em até 72 horas. Quarto passo: lembrar o término. Ele ocorre por solicitação escrita do familiar ou responsável legal, ou por decisão do médico responsável. Com isso, A erra ao atribuir a determinação à Justiça, que é a internação compulsória. C erra no prazo e no órgão. D erra ao atribuir o término ao Ministério Público municipal.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "A determinação pela Justiça caracteriza a internação compulsória, não a involuntária, que ocorre a pedido de terceiro sem consentimento do paciente."
+  },
+  {
+   "index": 2,
+   "why": "A comunicação é feita ao Ministério Público estadual, em até 72 horas, e não ao Ministério Público Federal em 15 dias."
+  },
+  {
+   "index": 3,
+   "why": "O término ocorre por pedido escrito do familiar ou responsável ou por decisão do médico responsável, não por solicitação do Ministério Público municipal."
+  }
+ ],
+ "tip": "Involuntária: sem consentimento, a pedido de terceiro, com laudo do médico do CRM do estado e comunicação ao MP estadual em 72 horas.",
+ "pearl": "Leis municipais não podem contrariar a lei federal; a internação involuntária segue a Lei 10.216.",
+ "competency_note": "Conhecer os tipos de internação psiquiátrica e seus requisitos legais.",
+ "claims": [
+  {
+   "claim": "A internação psiquiátrica depende de laudo médico circunstanciado emitido por médico registrado no CRM do estado do estabelecimento.",
+   "source_id": "lei-10216-2001",
+   "locator": "Art. 6"
+  },
+  {
+   "claim": "A internação involuntária é a que ocorre sem consentimento do usuário e a pedido de terceiro, devendo ser comunicada ao Ministério Público estadual em 72 horas.",
+   "source_id": "lei-10216-2001",
+   "locator": "Art. 6, parágrafo único, e art. 8"
+  },
+  {
+   "claim": "A internação compulsória é a determinada pela Justiça.",
+   "source_id": "lei-10216-2001",
+   "locator": "Art. 6, parágrafo único, III"
+  }
+ ],
+ "key_why": "A lei exige laudo circunstanciado de médico registrado no CRM do estado, o que torna correta a alternativa B.",
+ "theory": {
+  "title": "Internação psiquiátrica na Lei 10.216",
+  "intro": "A lei da reforma psiquiátrica prevê três modalidades de internação e define quem autoriza, quem fiscaliza e como ela termina.",
+  "sections": [
+   {
+    "heading": "Modalidades",
+    "items": [
+     "Voluntária: com o consentimento do usuário",
+     "Involuntária: sem consentimento, a pedido de terceiro",
+     "Compulsória: determinada pela Justiça"
+    ]
+   },
+   {
+    "heading": "Requisitos",
+    "items": [
+     "Laudo médico circunstanciado, de médico registrado no CRM do estado do serviço",
+     "Indicação apenas quando os recursos extra-hospitalares são insuficientes",
+     "Comunicação da involuntária ao Ministério Público estadual em até 72 horas"
+    ]
+   },
+   {
+    "heading": "Término",
+    "body": "Por solicitação escrita do familiar ou do responsável legal, ou por decisão do especialista responsável pelo tratamento."
+   }
+  ]
+ },
+ "summary": {
+  "title": "Internação psiquiátrica",
+  "points": [
+   {
+    "label": "Tipos",
+    "text": "Voluntária, involuntária e compulsória."
+   },
+   {
+    "label": "Autorização",
+    "text": "Laudo de médico registrado no CRM do estado."
+   },
+   {
+    "label": "Fiscalização",
+    "text": "Involuntária comunicada ao MP estadual em 72 horas."
+   },
+   {
+    "label": "Término",
+    "text": "Pedido do familiar ou decisão do médico responsável."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": "Conferir artigo e prazos da lei no texto oficial."
+}

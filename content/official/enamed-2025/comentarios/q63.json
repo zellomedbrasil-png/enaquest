@@ -1,0 +1,80 @@
+{
+ "area_id": "coletiva",
+ "competency_id": "decisao",
+ "theme": "Desenho de estudo para avaliar intervenção coletiva",
+ "scenario": "UBS",
+ "difficulty": "medio",
+ "quick": "Para avaliar o impacto de um projeto de intervenção coletiva em um território, sem sorteio dos participantes, usa-se ensaio clínico não randomizado. Alternativa B.",
+ "reasoning": "Primeiro passo: identificar o objetivo. A equipe quer medir o efeito de uma intervenção, um projeto de orientação nutricional e atividade física, sobre desfechos dos pacientes. Isso é um estudo de intervenção, e não de observação. Segundo passo: avaliar a viabilidade. A intervenção é coletiva, aplicada ao território inteiro, e não é possível sortear indivíduos. Terceiro passo: escolher. O desenho adequado é o ensaio clínico não randomizado, também chamado estudo quase experimental, em que o pesquisador aplica a intervenção sem aleatorização. Quarto passo: descartar. Caso-controle e coorte são estudos observacionais, em que o pesquisador não aplica a intervenção. O ensaio randomizado exige sorteio, que aqui não é viável.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "O caso-controle aninhado é observacional e compara quem tem o desfecho com quem não tem, sem aplicar intervenção."
+  },
+  {
+   "index": 2,
+   "why": "A coorte retrospectiva é observacional e não avalia o efeito de uma intervenção planejada pela equipe."
+  },
+  {
+   "index": 3,
+   "why": "O ensaio clínico randomizado exige sorteio dos participantes, o que não é viável em uma intervenção aplicada a toda a população do território."
+  }
+ ],
+ "tip": "Intervenção aplicada a um grupo, sem sorteio: ensaio clínico não randomizado (quase experimental).",
+ "pearl": "Estudos observacionais não medem o efeito de uma intervenção que o pesquisador aplica.",
+ "competency_note": "Escolher o desenho de pesquisa conforme o objetivo e a viabilidade.",
+ "claims": [
+  {
+   "claim": "Estudos não randomizados avaliam intervenções de saúde pública quando a randomização não é viável, e devem ser relatados com a diretriz TREND.",
+   "source_id": "pm-14998794",
+   "locator": "Resumo"
+  }
+ ],
+ "key_why": "Intervenção coletiva sem sorteio de indivíduos configura ensaio clínico não randomizado.",
+ "theory": {
+  "title": "Desenhos de estudo",
+  "intro": "O desenho se escolhe pela pergunta de pesquisa e pelo que é possível fazer na prática.",
+  "sections": [
+   {
+    "heading": "Estudos de intervenção",
+    "items": [
+     "Ensaio clínico randomizado: sorteio dos participantes",
+     "Ensaio não randomizado, ou quase experimental: intervenção sem sorteio"
+    ]
+   },
+   {
+    "heading": "Estudos observacionais",
+    "items": [
+     "Coorte: acompanha expostos e não expostos",
+     "Caso-controle: compara quem tem o desfecho com quem não tem",
+     "Transversal: mede exposição e desfecho no mesmo momento"
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "title": "Desenho de pesquisa",
+  "points": [
+   {
+    "label": "Intervenção",
+    "text": "Pesquisador aplica a ação."
+   },
+   {
+    "label": "Randomizado",
+    "text": "Com sorteio."
+   },
+   {
+    "label": "Não randomizado",
+    "text": "Sem sorteio; comum em ações coletivas."
+   },
+   {
+    "label": "Observacional",
+    "text": "Coorte, caso-controle e transversal."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

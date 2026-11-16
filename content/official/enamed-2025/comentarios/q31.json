@@ -1,0 +1,85 @@
+{
+ "area_id": "cirurgia",
+ "competency_id": "propedeutica",
+ "theme": "Icterícia obstrutiva e massa palpável",
+ "scenario": "Enfermaria",
+ "difficulty": "medio",
+ "quick": "Idosa com perda de peso, dor irradiada para o dorso, icterícia com prurido e massa cística indolor no hipocôndrio direito: neoplasia periampular. O exame é tomografia de vias biliares e pâncreas: alternativa B.",
+ "reasoning": "Primeiro passo: reconhecer a síndrome. Icterícia progressiva com prurido, colúria, emagrecimento e dor irradiada para o dorso indicam obstrução biliar maligna. Segundo passo: interpretar o achado do exame. Vesícula palpável, indolor e distendida em paciente ictérico é o sinal de Courvoisier-Terrier, que sugere neoplasia da cabeça do pâncreas ou periampular, e não cálculo. Terceiro passo: escolher o exame. A tomografia computadorizada com protocolo para pâncreas avalia o tumor, a invasão vascular, as metástases e as vias biliares, e orienta a ressecabilidade. Quarto passo: descartar as outras. Ultrassonografia para colecistite calculosa não explica o quadro. A colangiorressonância avalia coledocolitíase, hipótese menos provável com massa indolor e perda de peso. Biópsia percutânea de massa potencialmente ressecável não é feita de rotina, pelo risco de disseminação.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Colecistite calculosa cursa com dor aguda e sinal de Murphy; icterícia progressiva com massa indolor aponta para neoplasia."
+  },
+  {
+   "index": 2,
+   "why": "A colangiorressonância avalia coledocolitíase, hipótese menos provável diante de massa indolor, emagrecimento e icterícia progressiva."
+  },
+  {
+   "index": 3,
+   "why": "Biópsia percutânea de massa potencialmente ressecável não é conduta inicial, pelo risco de disseminação; antes se faz o estadiamento por imagem."
+  }
+ ],
+ "tip": "Icterícia indolor progressiva com vesícula palpável: pense em câncer de cabeça de pâncreas e peça tomografia.",
+ "pearl": "Courvoisier-Terrier sugere neoplasia, e não cálculo, como causa da obstrução biliar.",
+ "competency_note": "Investigar icterícia obstrutiva com suspeita de neoplasia.",
+ "claims": [
+  {
+   "claim": "O câncer de pâncreas é investigado e estadiado com tomografia computadorizada com protocolo pancreático, e a biópsia é indicada quando o tumor não é ressecável ou antes de tratamento neoadjuvante.",
+   "source_id": "pm-37678671",
+   "locator": "Diagnóstico e estadiamento"
+  }
+ ],
+ "key_why": "O quadro clássico de neoplasia periampular pede tomografia de vias biliares e pâncreas para diagnóstico e estadiamento.",
+ "theory": {
+  "title": "Neoplasia periampular e icterícia obstrutiva",
+  "intro": "Tumores da cabeça do pâncreas e da região da ampola causam obstrução biliar progressiva, com icterícia e perda de peso.",
+  "sections": [
+   {
+    "heading": "Sinais",
+    "items": [
+     "Icterícia progressiva com prurido, colúria e acolia",
+     "Emagrecimento e dor irradiada para o dorso",
+     "Vesícula palpável e indolor, sinal de Courvoisier-Terrier"
+    ]
+   },
+   {
+    "heading": "Investigação",
+    "items": [
+     "Tomografia computadorizada de abdome com protocolo para pâncreas",
+     "Colangiorressonância ou ecoendoscopia em casos selecionados",
+     "CA 19-9 como apoio, não como diagnóstico"
+    ]
+   },
+   {
+    "heading": "Cuidado",
+    "body": "Evite biópsia percutânea de tumor ressecável. Encaminhe a um centro com equipe cirúrgica experiente."
+   }
+  ]
+ },
+ "summary": {
+  "title": "Icterícia obstrutiva e tumor",
+  "points": [
+   {
+    "label": "Quadro",
+    "text": "Icterícia, prurido, perda de peso, dor no dorso."
+   },
+   {
+    "label": "Sinal",
+    "text": "Vesícula palpável indolor: Courvoisier-Terrier."
+   },
+   {
+    "label": "Exame",
+    "text": "Tomografia de abdome com protocolo pancreático."
+   },
+   {
+    "label": "Evitar",
+    "text": "Biópsia percutânea de tumor ressecável."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

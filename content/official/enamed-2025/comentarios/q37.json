@@ -1,0 +1,87 @@
+{
+ "area_id": "pediatria",
+ "competency_id": "terapeutica",
+ "theme": "Febre reumática",
+ "scenario": "Pronto-socorro",
+ "difficulty": "medio",
+ "quick": "Artrite migratória, cardite com sopro e dor de garganta prévia: febre reumática. O agente é Streptococcus pyogenes e o tratamento é penicilina G benzatina. Alternativa D.",
+ "reasoning": "Primeiro passo: reconhecer o quadro. Menino de 10 anos com artrite migratória que passou do joelho ao tornozelo e ao cotovelo, febre, taquicardia e sopro sistólico, três semanas depois de dor de garganta. Isso preenche critérios de Jones: poliartrite migratória e cardite, após infecção estreptocócica. Segundo passo: nomear o agente. A febre reumática é uma complicação não supurativa da infecção de orofaringe por Streptococcus pyogenes, o estreptococo beta-hemolítico do grupo A. Terceiro passo: escolher o tratamento. Erradica-se o estreptococo com penicilina G benzatina e inicia-se a profilaxia secundária com o mesmo fármaco. Quarto passo: descartar as alternativas. Borrelia causa doença de Lyme, rara no Brasil. Staphylococcus causa artrite séptica, que é monoarticular e sem migração. Treponema causa sífilis.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Borrelia burgdorferi causa doença de Lyme, rara no Brasil, sem relação com a infecção de garganta prévia e a artrite migratória."
+  },
+  {
+   "index": 1,
+   "why": "Staphylococcus aureus causa artrite séptica, que costuma ser monoarticular e sem migração, e não se associa a dor de garganta e cardite."
+  },
+  {
+   "index": 2,
+   "why": "Treponema pallidum causa sífilis; apesar de usar a mesma penicilina, o agente não corresponde ao quadro."
+  }
+ ],
+ "tip": "Artrite migratória mais cardite após dor de garganta: febre reumática; erradique o estreptococo e faça profilaxia com penicilina benzatina.",
+ "pearl": "A febre reumática é uma complicação tardia da infecção por estreptococo, 2 a 4 semanas depois; não se trata de infecção ativa na articulação.",
+ "competency_note": "Reconhecer febre reumática pelos critérios de Jones e indicar o tratamento.",
+ "claims": [
+  {
+   "claim": "Os critérios de Jones para febre reumática incluem poliartrite migratória e cardite, após evidência de infecção prévia por estreptococo do grupo A.",
+   "source_id": "aha-jones-2015",
+   "locator": "Critérios maiores e menores"
+  },
+  {
+   "claim": "O tratamento da febre reumática inclui erradicação do estreptococo com penicilina e profilaxia secundária com penicilina G benzatina.",
+   "source_id": "pm-20976376",
+   "locator": "Tratamento e profilaxia"
+  }
+ ],
+ "key_why": "Artrite migratória, cardite e faringite prévia caracterizam febre reumática, causada por Streptococcus pyogenes e tratada com penicilina benzatina.",
+ "theory": {
+  "title": "Febre reumática",
+  "intro": "Doença inflamatória que aparece de 2 a 4 semanas depois de faringite por estreptococo do grupo A em indivíduos suscetíveis.",
+  "sections": [
+   {
+    "heading": "Critérios de Jones",
+    "items": [
+     "Maiores: cardite, poliartrite migratória, coreia, eritema marginado, nódulos subcutâneos",
+     "Menores: febre, artralgia, reagentes de fase aguda, intervalo PR aumentado",
+     "Necessário comprovar infecção prévia por estreptococo"
+    ]
+   },
+   {
+    "heading": "Tratamento",
+    "items": [
+     "Penicilina G benzatina para erradicar o estreptococo",
+     "Anti-inflamatório conforme a manifestação",
+     "Profilaxia secundária prolongada com penicilina benzatina"
+    ]
+   }
+  ],
+  "alert": "Cardite é a manifestação mais grave e define a duração da profilaxia."
+ },
+ "summary": {
+  "title": "Febre reumática",
+  "points": [
+   {
+    "label": "Quadro",
+    "text": "Poliartrite migratória e cardite após faringite."
+   },
+   {
+    "label": "Agente",
+    "text": "Streptococcus pyogenes."
+   },
+   {
+    "label": "Tratamento",
+    "text": "Penicilina G benzatina."
+   },
+   {
+    "label": "Prevenção",
+    "text": "Profilaxia secundária com penicilina benzatina."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

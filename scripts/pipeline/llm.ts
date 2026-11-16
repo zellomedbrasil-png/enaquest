@@ -13,8 +13,18 @@ function textOf(response: Anthropic.Message): string {
   return response.content.flatMap((block) => (block.type === "text" ? [block.text] : [])).join("");
 }
 
+/** Figura enviada junto com o texto (questão de prova com ECG, foto, exame de imagem). */
+export type PromptImage = { mediaType: "image/png" | "image/jpeg"; base64: string };
+
 /** Chamada com saída estruturada. Recusa do modelo vira descarte, não erro fatal. */
-export async function structured<T>(model: string, schema: z.ZodType<T>, system: string, prompt: string, effort: "medium" | "high"): Promise<T | null> {
+export async function structured<T>(
+  model: string,
+  schema: z.ZodType<T>,
+  system: string,
+  prompt: string,
+  effort: "medium" | "high",
+  images: PromptImage[] = [],
+): Promise<T | null> {
   client ??= new Anthropic();
   // Com fallback ativado: se os filtros de segurança recusarem um tema médico sensível,
   // a API tenta outro modelo. A checagem independente continua valendo para o resultado.
@@ -25,7 +35,17 @@ export async function structured<T>(model: string, schema: z.ZodType<T>, system:
     betas: ["server-side-fallback-2026-07-01"],
     fallbacks: "default",
     output_config: { effort, format: zodOutputFormat(schema as never) },
-    messages: [{ role: "user", content: prompt }],
+    messages: [
+      {
+        role: "user",
+        content: images.length
+          ? [
+              ...images.map((image) => ({ type: "image", source: { type: "base64", media_type: image.mediaType, data: image.base64 } })),
+              { type: "text", text: prompt },
+            ]
+          : prompt,
+      },
+    ],
   } as never);
   const response = (await stream.finalMessage()) as unknown as Anthropic.Message;
   if (response.stop_reason === "refusal" || response.stop_reason === "max_tokens") return null;

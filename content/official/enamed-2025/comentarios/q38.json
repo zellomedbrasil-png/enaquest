@@ -1,0 +1,84 @@
+{
+ "area_id": "cirurgia",
+ "competency_id": "hipotese",
+ "theme": "Pancreatite crônica alcoólica",
+ "scenario": "Pronto-socorro",
+ "difficulty": "dificil",
+ "quick": "Alcoolista com dor epigástrica em faixa, pós-prandial, recorrente, com amilase e lipase normais: pancreatite crônica. Alternativa D.",
+ "reasoning": "Primeiro passo: caracterizar a dor. Dor epigástrica que irradia para as costas, piora depois de comer e se repete há um ano, com náuseas e vômitos, em homem que bebe grande quantidade de destilado há 33 anos, sugere doença pancreática. Segundo passo: interpretar os exames. Amilase e lipase estão normais. Na pancreatite aguda, a lipase costuma passar de três vezes o limite superior; na pancreatite crônica avançada, o parênquima fibrótico produz menos enzimas e elas ficam normais ou baixas durante as crises. Terceiro passo: afastar as outras hipóteses. Colangite e colecistite têm febre, icterícia ou sinais de Murphy, e as enzimas hepáticas e a bilirrubina aqui estão normais. Doença ulcerosa péptica também causa dor epigástrica, mas a irradiação para as costas em faixa, o álcool prolongado e o padrão pós-prandial recorrente favorecem pancreatite crônica. Quarto passo: confirmar. O diagnóstico é feito por imagem, com tomografia ou ressonância, que mostram calcificações e dilatação do ducto.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Colangite cursa com febre, dor no hipocôndrio direito e icterícia; aqui o paciente não tem febre e a bilirrubina e a fosfatase alcalina estão normais."
+  },
+  {
+   "index": 1,
+   "why": "Colecistite aguda cursa com dor no hipocôndrio direito, febre e sinal de Murphy, que o paciente não tem."
+  },
+  {
+   "index": 2,
+   "why": "Doença ulcerosa péptica é possível, mas a irradiação em faixa para as costas, o alcoolismo prolongado e os episódios pós-prandiais recorrentes favorecem pancreatite crônica."
+  }
+ ],
+ "tip": "Dor em faixa para as costas em alcoolista com amilase e lipase normais: pancreatite crônica.",
+ "pearl": "Na pancreatite crônica avançada a lipase pode ser normal, mesmo durante a dor.",
+ "competency_note": "Reconhecer pancreatite crônica quando as enzimas pancreáticas estão normais.",
+ "claims": [
+  {
+   "claim": "A pancreatite crônica causa dor abdominal recorrente, relacionada ao álcool, e as enzimas pancreáticas podem estar normais; o diagnóstico é feito por imagem.",
+   "source_id": "acg-pancreatite-cronica-2020",
+   "locator": "Diagnóstico"
+  }
+ ],
+ "key_why": "Dor em faixa pós-prandial recorrente em alcoolista com enzimas normais é típica de pancreatite crônica avançada.",
+ "theory": {
+  "title": "Pancreatite crônica",
+  "intro": "Inflamação persistente do pâncreas, que leva à fibrose e à perda da função. A causa mais comum no adulto é o álcool.",
+  "sections": [
+   {
+    "heading": "Quadro",
+    "items": [
+     "Dor epigástrica que irradia para as costas, recorrente, muitas vezes após as refeições",
+     "Perda de peso, esteatorreia e diabetes nas fases avançadas",
+     "Amilase e lipase podem estar normais"
+    ]
+   },
+   {
+    "heading": "Diagnóstico",
+    "items": [
+     "Tomografia ou ressonância mostram calcificações, atrofia e dilatação do ducto",
+     "Ecoendoscopia em casos duvidosos"
+    ]
+   },
+   {
+    "heading": "Tratamento",
+    "body": "Parar o álcool e o cigarro, controlar a dor, repor enzimas pancreáticas e tratar o diabetes. Cirurgia ou endoscopia para complicações."
+   }
+  ]
+ },
+ "summary": {
+  "title": "Pancreatite crônica",
+  "points": [
+   {
+    "label": "Causa",
+    "text": "Álcool é a principal no adulto."
+   },
+   {
+    "label": "Quadro",
+    "text": "Dor em faixa, pós-prandial, recorrente."
+   },
+   {
+    "label": "Enzimas",
+    "text": "Amilase e lipase podem ser normais."
+   },
+   {
+    "label": "Diagnóstico",
+    "text": "Imagem: calcificações e dilatação do ducto."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

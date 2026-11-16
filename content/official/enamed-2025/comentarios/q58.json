@@ -1,0 +1,91 @@
+{
+ "area_id": "clinica",
+ "competency_id": "hipotese",
+ "theme": "Tireoidite subaguda",
+ "scenario": "Enfermaria",
+ "difficulty": "medio",
+ "quick": "Dor cervical anterior irradiada, febre, tireoide dolorosa, VHS e PCR elevadas após quadro viral: tireoidite subaguda. A captação de iodo está reduzida e trata-se com betabloqueador e anti-inflamatório. Alternativa A.",
+ "reasoning": "Primeiro passo: reconhecer a síndrome. Dor na região cervical anterior irradiada para a mandíbula e as orelhas, febre, mal-estar e tireoide dolorosa, firme e assimétrica, duas semanas depois de infecção viral, formam o quadro da tireoidite subaguda de De Quervain. Segundo passo: interpretar a tireotoxicose. As palpitações, o tremor e a taquicardia ocorrem pela liberação de hormônio pela glândula inflamada, e não por produção aumentada. Terceiro passo: ligar ao exame. Como a síntese está suprimida, a captação de iodo radioativo é baixa, com VHS e PCR elevadas. Quarto passo: escolher o tratamento. Alívio da dor com anti-inflamatório não esteroide, ou prednisona se for grave, e betabloqueador para os sintomas adrenérgicos. Não se usam antitireoidianos nem iodo radioativo, pois a produção não está aumentada. Quinto passo: descartar as outras. Nódulo quente é o adenoma tóxico. Doença de Graves tem TRAb e captação aumentada. A alternativa D combina oseltamivir e metimazol, que não têm indicação.",
+ "distractors": [
+  {
+   "index": 1,
+   "why": "Nódulo quente na cintilografia e tireoidectomia correspondem ao adenoma tóxico; a tireoide aqui é dolorosa, difusa e inflamada."
+  },
+  {
+   "index": 2,
+   "why": "TRAb elevado e ablação com iodo radioativo correspondem à doença de Graves, que não é dolorosa e tem captação aumentada."
+  },
+  {
+   "index": 3,
+   "why": "Metimazol não é indicado na tireoidite subaguda, pois o hormônio não está sendo produzido em excesso, e oseltamivir não trata a causa."
+  }
+ ],
+ "tip": "Tireoide dolorosa, VHS alta e captação baixa: tireoidite subaguda; trate com AINE e betabloqueador.",
+ "pearl": "Na tireoidite subaguda, antitireoidiano e iodo radioativo não funcionam, porque a glândula não produz hormônio em excesso.",
+ "competency_note": "Diferenciar causas de tireotoxicose e indicar o tratamento.",
+ "claims": [
+  {
+   "claim": "A tireoidite subaguda causa dor cervical, febre e tireotoxicose transitória com VHS elevada e baixa captação de iodo radioativo, e se trata com anti-inflamatório e betabloqueador.",
+   "source_id": "pm-34226265",
+   "locator": "Resumo"
+  },
+  {
+   "claim": "Em tireotoxicose com captação baixa, não há indicação de antitireoidiano nem de iodo radioativo.",
+   "source_id": "ata-hipertireoidismo-2016",
+   "locator": "Tireotoxicose sem hipertireoidismo"
+  }
+ ],
+ "key_why": "A tireoidite subaguda cursa com captação reduzida e se trata com betabloqueador para os sintomas e anti-inflamatório para a dor.",
+ "theory": {
+  "title": "Tireoidite subaguda",
+  "intro": "Inflamação autolimitada da tireoide, geralmente depois de infecção viral, com fase de tireotoxicose, depois hipotireoidismo e recuperação.",
+  "sections": [
+   {
+    "heading": "Quadro",
+    "items": [
+     "Dor cervical anterior irradiada para mandíbula e orelhas",
+     "Febre e mal-estar",
+     "Tireoide dolorosa, firme e assimétrica",
+     "VHS e PCR altas"
+    ]
+   },
+   {
+    "heading": "Exames",
+    "body": "TSH baixo com T4 livre alto na fase inicial e captação de iodo muito baixa."
+   },
+   {
+    "heading": "Tratamento",
+    "items": [
+     "Anti-inflamatório não esteroide; corticoide em dor intensa",
+     "Betabloqueador para palpitações e tremor",
+     "Sem antitireoidiano nem iodo radioativo"
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "title": "Tireoidite subaguda",
+  "points": [
+   {
+    "label": "Quadro",
+    "text": "Tireoide dolorosa após infecção viral."
+   },
+   {
+    "label": "Exames",
+    "text": "VHS alta e captação de iodo baixa."
+   },
+   {
+    "label": "Tratar",
+    "text": "AINE e betabloqueador."
+   },
+   {
+    "label": "Evitar",
+    "text": "Metimazol e iodo radioativo."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

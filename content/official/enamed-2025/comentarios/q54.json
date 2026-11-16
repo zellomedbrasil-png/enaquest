@@ -1,0 +1,79 @@
+{
+ "area_id": "go",
+ "competency_id": "terapeutica",
+ "theme": "Enxaqueca com aura e contracepção combinada",
+ "scenario": "Ambulatório",
+ "difficulty": "facil",
+ "quick": "Enxaqueca com aura contraindica contraceptivo combinado pelo risco de acidente vascular cerebral. Alternativa C.",
+ "reasoning": "Primeiro passo: identificar a condição de risco. A adolescente tem enxaqueca com aura, que por si já aumenta o risco de AVC isquêmico. Segundo passo: lembrar o efeito do estrogênio. O etinilestradiol aumenta o risco de trombose arterial e venoso. Em mulheres com enxaqueca com aura, a associação eleva ainda mais o risco de AVC, e por isso é categoria 4, contraindicação absoluta. Terceiro passo: descartar as outras. Os antecedentes familiares de câncer de mama em avó, de hipertensão na mãe e de diabetes na irmã não contraindicam o método. A paciente não tem hipertensão nem diabetes. Quarto passo: oferecer alternativas, como métodos só de progestágeno ou DIU.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Câncer de mama em familiar de segundo grau não contraindica contraceptivo combinado; só o câncer de mama atual ou história pessoal contraindica."
+  },
+  {
+   "index": 1,
+   "why": "Diabetes na irmã não contraindica o método; a contraindicação ocorre por diabetes com complicações vasculares na própria paciente."
+  },
+  {
+   "index": 3,
+   "why": "Hipertensão na mãe não contraindica; a contraindicação decorre de hipertensão da própria paciente, especialmente se mal controlada."
+  }
+ ],
+ "tip": "Enxaqueca com aura: nada de estrogênio, pelo risco de AVC.",
+ "pearl": "Enxaqueca sem aura não contraindica contraceptivo combinado; só a com aura.",
+ "competency_note": "Reconhecer contraindicações ao contraceptivo combinado.",
+ "claims": [
+  {
+   "claim": "A enxaqueca com aura é contraindicação absoluta (categoria 4) ao uso de contraceptivos combinados.",
+   "source_id": "cdc-mec-2024",
+   "locator": "Enxaqueca com aura"
+  }
+ ],
+ "key_why": "A enxaqueca com aura associada ao estrogênio eleva o risco de acidente vascular cerebral, e por isso contraindica o método.",
+ "theory": {
+  "title": "Contraindicações ao contraceptivo combinado",
+  "intro": "O estrogênio aumenta o risco de eventos trombóticos. Algumas condições tornam o método inseguro.",
+  "sections": [
+   {
+    "heading": "Categoria 4",
+    "items": [
+     "Enxaqueca com aura",
+     "Trombose venosa ou arterial atual ou prévia",
+     "Hipertensão grave ou mal controlada",
+     "Câncer de mama atual",
+     "Lactação até 6 semanas, tabagismo acima de 35 anos"
+    ]
+   },
+   {
+    "heading": "Alternativas",
+    "body": "Métodos só de progestágeno, implante, DIU de levonorgestrel e DIU de cobre."
+   }
+  ]
+ },
+ "summary": {
+  "title": "Contracepção combinada",
+  "points": [
+   {
+    "label": "Contraindica",
+    "text": "Enxaqueca com aura, trombose, hipertensão grave."
+   },
+   {
+    "label": "Por quê",
+    "text": "Estrogênio aumenta risco de trombose e AVC."
+   },
+   {
+    "label": "Não contraindica",
+    "text": "História familiar de câncer de mama, hipertensão ou diabetes."
+   },
+   {
+    "label": "Alternativa",
+    "text": "Progestágeno isolado ou DIU."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

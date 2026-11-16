@@ -1,0 +1,82 @@
+{
+ "area_id": "clinica",
+ "competency_id": "hipotese",
+ "theme": "Arterite temporal",
+ "scenario": "Ambulatório",
+ "difficulty": "medio",
+ "quick": "Mulher de 55 anos com cefaleia temporal, dor no couro cabeludo, amaurose fugaz, diplopia, artralgias e perda de peso: arterite temporal. Pede-se a velocidade de hemossedimentação. Alternativa D.",
+ "reasoning": "Primeiro passo: reconhecer o padrão. Cefaleia persistente nova depois dos 50 anos, dor no couro cabeludo, alterações visuais, cansaço, artralgias e perda de peso são típicos da arterite de células gigantes. Segundo passo: reconhecer que é cefaleia secundária. Os sintomas visuais e a idade acima de 50 anos são sinais de alarme. Terceiro passo: pedir o exame. A velocidade de hemossedimentação e a proteína C reativa estão elevadas em quase todos os casos e sustentam o diagnóstico, que se confirma com a biópsia ou o ultrassom da artéria temporal. O tratamento com glicocorticoide é iniciado de imediato, para evitar cegueira. Quarto passo: descartar as outras. Cefaleia tensional ou migrânea são primárias e não explicam os sintomas visuais e sistêmicos. Hemorragia subaracnoidea causa cefaleia súbita e intensa, e o exame inicial é a tomografia, não o líquor.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Cefaleia tensional é primária e não causa alterações visuais, dor no couro cabeludo e perda de peso; dizer que nenhum exame é necessário é arriscado."
+  },
+  {
+   "index": 1,
+   "why": "A hemorragia subaracnoidea causa cefaleia súbita e muito intensa; aqui a cefaleia é persistente e há sinais sistêmicos."
+  },
+  {
+   "index": 2,
+   "why": "A migrânea é cefaleia primária, com fotofobia, fonofobia e náuseas, o que a paciente nega; a tomografia não é o exame que ajuda a confirmar a arterite."
+  }
+ ],
+ "tip": "Cefaleia nova depois dos 50 anos com dor no couro cabeludo e sintomas visuais: VHS, PCR e corticoide imediato.",
+ "pearl": "A arterite temporal pode causar cegueira irreversível; não espere a biópsia para iniciar o corticoide.",
+ "competency_note": "Reconhecer cefaleia secundária por vasculite em idosos.",
+ "claims": [
+  {
+   "claim": "A arterite de células gigantes cursa com cefaleia, sintomas visuais e elevação de provas inflamatórias, e o tratamento com glicocorticoide deve ser iniciado imediatamente para evitar perda visual.",
+   "source_id": "eular-vasculite-2018",
+   "locator": "Recomendações sobre arterite de células gigantes"
+  }
+ ],
+ "key_why": "O quadro típico em mulher acima de 50 anos pede dosagem de VHS e PCR, com corticoide imediato.",
+ "theory": {
+  "title": "Arterite de células gigantes",
+  "intro": "Vasculite de grandes e médios vasos que afeta pessoas acima de 50 anos, em especial mulheres.",
+  "sections": [
+   {
+    "heading": "Quadro",
+    "items": [
+     "Cefaleia temporal nova",
+     "Dor no couro cabeludo e claudicação da mandíbula",
+     "Alterações visuais: amaurose fugaz, diplopia",
+     "Febre, perda de peso, artralgias"
+    ]
+   },
+   {
+    "heading": "Diagnóstico e tratamento",
+    "items": [
+     "VHS e PCR elevadas",
+     "Biópsia ou ultrassom da artéria temporal",
+     "Corticoide imediato, antes da confirmação"
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "title": "Arterite temporal",
+  "points": [
+   {
+    "label": "Quem",
+    "text": "Maior de 50 anos, geralmente mulher."
+   },
+   {
+    "label": "Exame",
+    "text": "VHS e PCR; confirmação por biópsia."
+   },
+   {
+    "label": "Tratar",
+    "text": "Corticoide imediato."
+   },
+   {
+    "label": "Risco",
+    "text": "Cegueira irreversível."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

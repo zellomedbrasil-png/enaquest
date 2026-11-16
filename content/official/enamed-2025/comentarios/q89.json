@@ -1,0 +1,82 @@
+{
+ "area_id": "go",
+ "competency_id": "urgencia",
+ "theme": "Descolamento prematuro de placenta",
+ "scenario": "Pronto-socorro",
+ "difficulty": "medio",
+ "quick": "Sangramento intenso, hipertonia uterina, bradicardia fetal e uso de cocaína: descolamento prematuro de placenta. A conduta é cesárea e a complicação possível é o útero de Couvelaire. Alternativa A.",
+ "reasoning": "Primeiro passo: reconhecer a síndrome. Sangramento vaginal intenso com hipertonia uterina e dor, em usuária de cocaína, com pressão no limite e sofrimento fetal grave (batimentos de 90 por minuto), caracteriza descolamento prematuro de placenta, cuja causa clássica é a hipertensão e o uso de cocaína. Segundo passo: definir a conduta. O colo é grosso e impérvio, sem trabalho de parto, e o feto está em sofrimento grave, então a resolução é por cesárea de urgência, com reposição volêmica e preparo para hemorragia e coagulopatia. Terceiro passo: lembrar as complicações. O sangue infiltra o miométrio e causa o útero de Couvelaire, além de coagulação intravascular disseminada e choque. Quarto passo: descartar as outras. A rotura de vasa prévia causa sangramento indolor, com sofrimento fetal, e a amniotomia é a causa do sangramento. Trabalho de parto tem contrações rítmicas. Na pré-eclâmpsia não há sangramento.",
+ "distractors": [
+  {
+   "index": 1,
+   "why": "A rotura de vasa prévia causa sangramento indolor, após a rotura das membranas, e a amniotomia é contraindicada; aqui há hipertonia e dor."
+  },
+  {
+   "index": 2,
+   "why": "No trabalho de parto, as contrações são rítmicas, com relaxamento entre elas; a hipertonia persistente com sangramento intenso indica descolamento."
+  },
+  {
+   "index": 3,
+   "why": "A pré-eclâmpsia não causa sangramento vaginal intenso, e a rotura uterina não é a complicação típica deste quadro."
+  }
+ ],
+ "tip": "Sangramento com dor e hipertonia uterina, sobretudo com cocaína ou hipertensão: descolamento de placenta.",
+ "pearl": "No descolamento de placenta o sangramento externo pode subestimar a perda; avalie o choque e a coagulação.",
+ "competency_note": "Reconhecer e conduzir o descolamento prematuro de placenta.",
+ "claims": [
+  {
+   "claim": "O descolamento prematuro de placenta cursa com sangramento, dor e hipertonia uterina, sofrimento fetal e risco de coagulopatia; a resolução rápida do parto, em geral por cesárea, é indicada com feto vivo em sofrimento.",
+   "source_id": "ms-gar-2022",
+   "locator": "Síndromes hemorrágicas da segunda metade da gestação"
+  }
+ ],
+ "key_why": "Sangramento com hipertonia e sofrimento fetal grave exige cesárea de urgência no descolamento, com risco de útero de Couvelaire.",
+ "theory": {
+  "title": "Descolamento prematuro de placenta",
+  "intro": "Separação da placenta antes do nascimento do feto, uma das causas mais graves de sangramento na segunda metade da gestação.",
+  "sections": [
+   {
+    "heading": "Fatores de risco",
+    "items": [
+     "Hipertensão e pré-eclâmpsia",
+     "Uso de cocaína e tabagismo",
+     "Trauma abdominal",
+     "Descolamento anterior"
+    ]
+   },
+   {
+    "heading": "Conduta",
+    "items": [
+     "Estabilização materna: acessos, volume e hemoderivados",
+     "Cesárea de urgência quando há sofrimento fetal grave e parto vaginal não é imediato",
+     "Vigiar coagulopatia e hemorragia pós-parto"
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "title": "Descolamento de placenta",
+  "points": [
+   {
+    "label": "Quadro",
+    "text": "Sangramento, dor e hipertonia uterina."
+   },
+   {
+    "label": "Risco",
+    "text": "Hipertensão e cocaína."
+   },
+   {
+    "label": "Conduta",
+    "text": "Cesárea de urgência se há sofrimento fetal."
+   },
+   {
+    "label": "Complicações",
+    "text": "Útero de Couvelaire e coagulopatia."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

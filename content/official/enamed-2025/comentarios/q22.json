@@ -1,0 +1,86 @@
+{
+ "area_id": "clinica",
+ "competency_id": "terapeutica",
+ "theme": "Doença de Parkinson: tratamento inicial",
+ "scenario": "Ambulatório",
+ "difficulty": "facil",
+ "quick": "Bradicinesia, tremor de repouso, rigidez em roda dentada e marcha em pequenos passos em idosa: doença de Parkinson. O tratamento inicial é levodopa com carbidopa: alternativa A.",
+ "reasoning": "Primeiro passo: reconhecer o parkinsonismo. A paciente tem lentidão progressiva dos movimentos, tremor de repouso assimétrico, rigidez em roda dentada, fácies em máscara e marcha em pequenos passos. Segundo passo: afastar outras causas. Não há alteração de memória, e a ressonância mostra apenas atrofia compatível com a idade, então não há lesão estrutural que explique o quadro. O diagnóstico é doença de Parkinson. Terceiro passo: escolher o tratamento. Em pacientes acima dos 65 anos, ou com sintomas incapacitantes, a levodopa associada ao inibidor da dopa-descarboxilase, a carbidopa, é o tratamento inicial mais eficaz. Quarto passo: eliminar as outras alternativas. Donepezila e memantina tratam demência. Propranolol e amantadina são usados em tremor essencial e discinesias, não como tratamento inicial de Parkinson. Atorvastatina e baclofeno não têm papel na doença.",
+ "distractors": [
+  {
+   "index": 1,
+   "why": "Donepezila e memantina tratam demência de Alzheimer; a paciente não tem alteração cognitiva."
+  },
+  {
+   "index": 2,
+   "why": "Propranolol é usado em tremor essencial e a amantadina é opção para discinesias; nenhuma é tratamento inicial do Parkinson."
+  },
+  {
+   "index": 3,
+   "why": "Atorvastatina trata dislipidemia e baclofeno trata espasticidade; nenhum atua na doença de Parkinson."
+  }
+ ],
+ "tip": "Parkinson em idoso: levodopa com carbidopa é o fármaco mais eficaz.",
+ "pearl": "Tremor de repouso, que melhora ao movimento, sugere Parkinson; o tremor essencial piora com a ação.",
+ "competency_note": "Reconhecer parkinsonismo e escolher o tratamento inicial.",
+ "claims": [
+  {
+   "claim": "A doença de Parkinson cursa com bradicinesia, tremor de repouso, rigidez e instabilidade postural, e a levodopa associada à carbidopa é o tratamento sintomático mais eficaz.",
+   "source_id": "lancet-parkinson-2021",
+   "locator": "Quadro clínico e tratamento"
+  }
+ ],
+ "key_why": "O quadro clássico de parkinsonismo em idosa sem demência tem como tratamento inicial a levodopa com carbidopa.",
+ "theory": {
+  "title": "Doença de Parkinson",
+  "intro": "Doença neurodegenerativa por perda de neurônios dopaminérgicos da substância negra. É diagnosticada pelo quadro clínico.",
+  "sections": [
+   {
+    "heading": "Sinais cardinais",
+    "items": [
+     "Bradicinesia, obrigatória para o diagnóstico",
+     "Tremor de repouso assimétrico",
+     "Rigidez em roda dentada",
+     "Instabilidade postural e marcha em pequenos passos"
+    ]
+   },
+   {
+    "heading": "Tratamento",
+    "items": [
+     "Levodopa com carbidopa: mais eficaz, indicada no idoso",
+     "Agonistas dopaminérgicos podem ser usados em pacientes mais jovens",
+     "Inibidores da MAO-B e da COMT como adjuvantes"
+    ]
+   },
+   {
+    "heading": "Imagem",
+    "body": "A ressonância é normal ou mostra atrofia leve; serve para afastar outras causas, e não para confirmar o diagnóstico."
+   }
+  ]
+ },
+ "summary": {
+  "title": "Doença de Parkinson",
+  "points": [
+   {
+    "label": "Diagnóstico",
+    "text": "Clínico: bradicinesia mais tremor de repouso ou rigidez."
+   },
+   {
+    "label": "Tratamento",
+    "text": "Levodopa com carbidopa no idoso."
+   },
+   {
+    "label": "Exames",
+    "text": "Ressonância serve para afastar outras causas."
+   },
+   {
+    "label": "Diferencial",
+    "text": "Tremor essencial piora com a ação, não no repouso."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

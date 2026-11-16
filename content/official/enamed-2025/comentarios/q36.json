@@ -1,0 +1,91 @@
+{
+ "area_id": "clinica",
+ "competency_id": "terapeutica",
+ "theme": "Quedas e polifarmácia em idosa",
+ "scenario": "Ambulatório",
+ "difficulty": "medio",
+ "quick": "Quedas com hipotensão ortostática em idosa com vários anti-hipertensivos e outros fármacos: revisar a polifarmácia. Alternativa C.",
+ "reasoning": "Primeiro passo: reconhecer a hipotensão postural. A pressão de 138 x 92 deitada cai para 110 x 70 sentada, uma queda sistólica de 28 mmHg, o que é hipotensão ortostática. Segundo passo: procurar a causa. A paciente usa losartana, hidroclorotiazida e atenolol, que baixam a pressão, além de escitalopram e donepezila, que aumentam o risco de queda, e gliclazida, que causa hipoglicemia. As quedas ocorrem à noite, ao levantar para ir ao banheiro. Terceiro passo: agir sobre o fator modificável. O plano adequado é rever a lista de medicamentos e reduzir ou suspender os que induzem hipotensão e outros riscos, com metas pressóricas menos rígidas. Quarto passo: descartar as alternativas. Catarata e disautonomia são possíveis, mas não explicam melhor o quadro e não são o primeiro passo. Fludrocortisona eleva a pressão, mas adiciona risco quando a causa pode ser tratada retirando fármacos.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Catarata pode contribuir para quedas, mas aqui há causa mais provável e tratável: a hipotensão ortostática por fármacos."
+  },
+  {
+   "index": 1,
+   "why": "Disautonomia é diagnóstico de exclusão; antes de investigá-la, é preciso rever os fármacos que explicam a queda de pressão."
+  },
+  {
+   "index": 3,
+   "why": "Adicionar fludrocortisona sem rever a polifarmácia trata o sintoma e acrescenta risco, como hipertensão deitada, edema e hipocalemia."
+  }
+ ],
+ "tip": "Queda em idoso: meça a pressão deitado e sentado e revise os remédios antes de investigar outras causas.",
+ "pearl": "Cada fármaco que causa hipotensão ou sedação a mais aumenta o risco de queda em idoso.",
+ "competency_note": "Reduzir polifarmácia como medida de prevenção de quedas em idosos.",
+ "claims": [
+  {
+   "claim": "Medicamentos anti-hipertensivos, diuréticos, psicotrópicos e hipoglicemiantes são fatores de risco para quedas em idosos, e a revisão da lista de fármacos é medida de prevenção.",
+   "source_id": "ags-beers-2023",
+   "locator": "Medicamentos potencialmente inadequados em idosos"
+  },
+  {
+   "claim": "Quedas em idosos têm múltiplas causas, e a avaliação deve incluir medicamentos e pressão postural.",
+   "source_id": "ms-idoso-2006",
+   "locator": "Quedas no idoso"
+  }
+ ],
+ "key_why": "A queda de pressão ao sentar, associada a vários fármacos que reduzem a pressão ou sedam, indica que o primeiro passo é rever a polifarmácia.",
+ "theory": {
+  "title": "Quedas em idosos",
+  "intro": "Quedas são frequentes e causam fraturas, medo e perda de autonomia. Na maioria dos casos há mais de uma causa.",
+  "sections": [
+   {
+    "heading": "Avaliação",
+    "items": [
+     "Pressão deitada e em pé ou sentada",
+     "Revisão de todos os fármacos",
+     "Visão, audição, marcha e força",
+     "Hipoglicemia e ambiente da casa"
+    ]
+   },
+   {
+    "heading": "Fármacos de risco",
+    "items": [
+     "Anti-hipertensivos e diuréticos",
+     "Psicotrópicos, como antidepressivos e benzodiazepínicos",
+     "Hipoglicemiantes como sulfonilureias"
+    ]
+   },
+   {
+    "heading": "Conduta",
+    "body": "Reduzir ou suspender fármacos de risco, ajustar metas e orientar atividade física e segurança do ambiente."
+   }
+  ]
+ },
+ "summary": {
+  "title": "Quedas e polifarmácia",
+  "points": [
+   {
+    "label": "Sinal",
+    "text": "Queda de pressão ao mudar de posição: hipotensão ortostática."
+   },
+   {
+    "label": "Causa",
+    "text": "Anti-hipertensivos, diuréticos, psicotrópicos, sulfonilureia."
+   },
+   {
+    "label": "Conduta",
+    "text": "Revisar e reduzir medicamentos."
+   },
+   {
+    "label": "Também",
+    "text": "Exercício, visão e segurança domiciliar."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

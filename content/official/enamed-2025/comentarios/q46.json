@@ -1,0 +1,81 @@
+{
+ "area_id": "clinica",
+ "competency_id": "hipotese",
+ "theme": "Espondilite anquilosante",
+ "scenario": "Ambulatório",
+ "difficulty": "medio",
+ "quick": "Dor lombar inflamatória crônica, rigidez matinal maior que 30 minutos, melhora com movimento, sacroilíacas e HLA-B27 positivo: espondilite anquilosante. Alternativa C.",
+ "reasoning": "Primeiro passo: caracterizar a dor lombar. Início insidioso antes dos 40 anos, mais de 3 meses, pior pela manhã, rigidez matinal longa e melhora com o movimento são características de dor inflamatória. Segundo passo: reconhecer o comprometimento axial. Dor nas articulações sacroilíacas e fadiga indicam espondiloartrite axial. Terceiro passo: interpretar os exames. HLA-B27 positivo é associado à espondilite anquilosante, enquanto fator reumatoide e anti-CCP são negativos, o que afasta artrite reumatoide. O ANA em título baixo, 1:80, é inespecífico e não faz lúpus, que teria anti-DNA e outras características. Quarto passo: descartar as outras. Artrite reativa tem artrite periférica e história de infecção. Artrite psoriática tem psoríase.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "A artrite reativa surge após infecção intestinal ou genitourinária, com artrite periférica assimétrica, sem o padrão axial inflamatório crônico descrito."
+  },
+  {
+   "index": 1,
+   "why": "A artrite psoriática exige psoríase ou história familiar, com acometimento das mãos e dos pés, sem o padrão axial isolado deste caso."
+  },
+  {
+   "index": 3,
+   "why": "O lúpus tem anti-DNA e outros anticorpos, e o ANA 1:80 é inespecífico, comum em pessoas saudáveis."
+  }
+ ],
+ "tip": "Dor lombar que piora no repouso e melhora com movimento, em jovem, com HLA-B27: espondilite anquilosante.",
+ "pearl": "ANA em título baixo é achado inespecífico e não fecha diagnóstico de lúpus.",
+ "competency_note": "Reconhecer espondiloartrite axial e interpretar autoanticorpos.",
+ "claims": [
+  {
+   "claim": "Os critérios de classificação de espondiloartrite axial incluem dor lombar crônica com início antes dos 45 anos, sacroiliíte e HLA-B27.",
+   "source_id": "asas-2009",
+   "locator": "Critérios de classificação"
+  }
+ ],
+ "key_why": "Dor lombar inflamatória, rigidez matinal e HLA-B27 positivo com fator reumatoide e anti-CCP negativos indicam espondilite anquilosante.",
+ "theory": {
+  "title": "Espondiloartrite axial",
+  "intro": "Grupo de doenças que acomete a coluna e as sacroilíacas, em geral em adultos jovens. A espondilite anquilosante é a forma clássica.",
+  "sections": [
+   {
+    "heading": "Dor lombar inflamatória",
+    "items": [
+     "Início insidioso antes dos 40 anos",
+     "Rigidez matinal longa",
+     "Piora com o repouso e melhora com o movimento"
+    ]
+   },
+   {
+    "heading": "Exames",
+    "items": [
+     "HLA-B27 positivo em grande parte dos casos",
+     "Ressonância das sacroilíacas mostra sacroiliíte precoce",
+     "Fator reumatoide e anti-CCP negativos"
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "title": "Espondilite anquilosante",
+  "points": [
+   {
+    "label": "Quadro",
+    "text": "Dor lombar inflamatória em adulto jovem."
+   },
+   {
+    "label": "Exames",
+    "text": "HLA-B27 positivo; fator reumatoide e anti-CCP negativos."
+   },
+   {
+    "label": "Imagem",
+    "text": "Sacroiliíte."
+   },
+   {
+    "label": "Armadilha",
+    "text": "ANA em título baixo é inespecífico."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

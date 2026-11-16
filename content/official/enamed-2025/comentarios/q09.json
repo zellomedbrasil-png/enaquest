@@ -1,0 +1,95 @@
+{
+ "area_id": "pediatria",
+ "competency_id": "hipotese",
+ "theme": "Sepse em criança em quimioterapia",
+ "scenario": "Enfermaria",
+ "difficulty": "dificil",
+ "quick": "Criança em quimioterapia, com infecção pulmonar, taquicardia, taquipneia, lactato alto e acidose, mas perfusão boa e pressão normal: o quadro é de sepse, sem choque. A banca anulou a questão.",
+ "reasoning": "Primeiro passo: reconhecer a infecção. Febre alta, tosse, dispneia, crepitações e leucocitose com desvio à esquerda indicam pneumonia. Segundo passo: procurar sinais de resposta sistêmica e de disfunção. Taquicardia, taquipneia e febre fecham critérios de síndrome da resposta inflamatória sistêmica, e o lactato aumentado com acidose metabólica mostra hipoperfusão tecidual. Terceiro passo: definir a gravidade. A criança tem boa perfusão periférica, pressão arterial adequada para a idade e diurese preservada de 2 mL/kg/h, então não há choque. Também não há mais de um órgão claramente falido. Isso leva a sepse. Quarto passo: entender por que a questão foi anulada. Os critérios pediátricos mudaram. As definições clássicas se apoiam em SIRS, enquanto os critérios Phoenix de 2024 exigem disfunção de órgão por escore e não usam SIRS. Dependendo do critério usado, as alternativas A e D ficam defensáveis. Na prática, o ponto é iniciar antibiótico precocemente e tratar como paciente com infecção grave e imunossuprimido.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Sepse descreve o quadro com infecção e disfunção sistêmica, como o lactato elevado. É a leitura mais provável, mas a definição depende do critério adotado, o que gerou a anulação."
+  },
+  {
+   "index": 1,
+   "why": "Choque séptico exige falência circulatória, com hipotensão, má perfusão ou necessidade de vasoativo. Aqui a perfusão é boa, a pressão é normal e a diurese está preservada."
+  },
+  {
+   "index": 2,
+   "why": "Disfunção de múltiplos órgãos exige comprometimento de mais de um sistema. Há sinais de alteração metabólica, mas não de falência de vários órgãos."
+  },
+  {
+   "index": 3,
+   "why": "A síndrome da resposta inflamatória sistêmica está presente pelos sinais vitais, mas isoladamente não descreve a disfunção indicada pelo lactato e pela acidose."
+  }
+ ],
+ "tip": "Sepse é infecção mais disfunção; choque é falência circulatória, com perfusão ruim ou hipotensão para a idade.",
+ "pearl": "Criança com câncer em quimioterapia pode ter infecção grave com poucos sinais; não espere hipotensão para tratar.",
+ "competency_note": "Diferenciar sepse, choque séptico e SIRS pelos dados clínicos e laboratoriais.",
+ "claims": [
+  {
+   "claim": "Os critérios Phoenix de 2024 definem sepse pediátrica como infecção com disfunção de órgão por escore, e choque séptico quando há disfunção cardiovascular.",
+   "source_id": "pm-38245889",
+   "locator": "Resumo"
+  },
+  {
+   "claim": "As diretrizes pediátricas recomendam reconhecimento e tratamento precoces da sepse, incluindo antibiótico na primeira hora em crianças com choque ou disfunção.",
+   "source_id": "ssc-ped-2020",
+   "locator": "Recomendações sobre antimicrobianos"
+  }
+ ],
+ "key_why": "Há infecção pulmonar com sinais sistêmicos e lactato elevado, mas perfusão e pressão preservadas: sepse sem choque.",
+ "theory": {
+  "title": "Sepse e choque séptico em criança",
+  "intro": "Sepse é uma resposta desregulada a uma infecção que causa disfunção de órgãos. Em crianças, as definições mudaram, e a prova pode usar critérios antigos ou novos.",
+  "sections": [
+   {
+    "heading": "Critérios",
+    "items": [
+     "Definição clássica: SIRS mais infecção suspeita ou confirmada",
+     "Critérios Phoenix 2024: infecção com disfunção de órgão em escore que avalia respiração, coração, coagulação e cérebro",
+     "Choque séptico: sepse com disfunção cardiovascular, como hipotensão para a idade, lactato alto ou vasoativo"
+    ]
+   },
+   {
+    "heading": "Conduta inicial",
+    "items": [
+     "Reconhecer cedo e coletar culturas",
+     "Antibiótico de amplo espectro em até uma hora quando há choque ou disfunção",
+     "Reposição volêmica cautelosa e monitorização do lactato"
+    ]
+   },
+   {
+    "heading": "Imunossuprimidos",
+    "body": "Crianças em quimioterapia têm maior risco e podem apresentar poucos sinais. Neutropenia febril exige antibiótico imediato."
+   }
+  ],
+  "alert": "Pressão normal não exclui choque na criança: avalie perfusão, pulsos, enchimento capilar e lactato."
+ },
+ "summary": {
+  "title": "Sepse pediátrica",
+  "points": [
+   {
+    "label": "Sepse",
+    "text": "Infecção com disfunção de órgão; lactato elevado indica hipoperfusão."
+   },
+   {
+    "label": "Choque séptico",
+    "text": "Sepse com falência circulatória: má perfusão, hipotensão para a idade ou vasoativo."
+   },
+   {
+    "label": "Critérios",
+    "text": "Phoenix 2024 substitui o SIRS como base para a definição."
+   },
+   {
+    "label": "Conduta",
+    "text": "Culturas e antibiótico precoce, reposição volêmica cautelosa."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": "Anulada. A resposta depende do critério (SIRS clássico ou Phoenix 2024); conferir o texto de teoria."
+}

@@ -1,0 +1,86 @@
+{
+ "area_id": "mental",
+ "competency_id": "hipotese",
+ "theme": "Transtorno de oposição desafiante",
+ "scenario": "UBS",
+ "difficulty": "medio",
+ "quick": "Criança de 10 anos com irritabilidade só quando contrariada, que discute com adultos, desafia regras e culpa os outros, tem transtorno de oposição desafiante: alternativa B.",
+ "reasoning": "Primeiro passo: caracterizar o padrão. O menino se dá bem com a família, mas fica irritado e agressivo quando é impedido de fazer algo, e se acalma quando consegue o que quer. Também discute com figuras de autoridade, desafia regras e culpa os outros pelos próprios erros. Segundo passo: reconhecer o transtorno. Esse conjunto de humor irritável, comportamento desafiador e vingativo, direcionado a figuras de autoridade, define o transtorno de oposição desafiante. Terceiro passo: comparar com os diferenciais. O transtorno disruptivo da desregulação do humor exige irritabilidade crônica e persistente entre as explosões, quase todos os dias, o que não ocorre aqui, pois ele fica feliz depois. O transtorno bipolar exige episódios distintos com mudança de energia e sono. O TDAH tem desatenção e hiperatividade, que não aparecem no relato.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "O transtorno bipolar tem episódios com alteração de energia, sono e humor expansivo ou deprimido, e não explosões ligadas a contrariedades."
+  },
+  {
+   "index": 2,
+   "why": "No transtorno disruptivo da desregulação do humor a irritabilidade é persistente entre as explosões, quase todos os dias. Aqui o humor volta ao normal."
+  },
+  {
+   "index": 3,
+   "why": "O TDAH se define por desatenção e hiperatividade ou impulsividade em vários ambientes, o que não é o foco do relato."
+  }
+ ],
+ "tip": "Irritabilidade que some quando a criança consegue o que quer, com desafio a figuras de autoridade, aponta para oposição desafiante.",
+ "pearl": "Irritabilidade contínua entre as explosões sugere desregulação do humor, não oposição desafiante.",
+ "competency_note": "Diferenciar transtornos do comportamento e do humor na infância.",
+ "claims": [
+  {
+   "claim": "O transtorno disruptivo da desregulação do humor se caracteriza por irritabilidade persistente entre as explosões e deve ser diferenciado do transtorno de oposição desafiante.",
+   "source_id": "pm-31164249",
+   "locator": "Resumo"
+  }
+ ],
+ "key_why": "O humor volta ao normal quando a criança consegue o que quer, e há desafio a figuras de autoridade e culpa dos outros, o que define a oposição desafiante.",
+ "theory": {
+  "title": "Transtorno de oposição desafiante",
+  "intro": "Padrão de humor irritável, comportamento desafiador e vingativo que dura pelo menos seis meses e prejudica a vida da criança.",
+  "sections": [
+   {
+    "heading": "Como reconhecer",
+    "items": [
+     "Perde a calma e fica zangado com facilidade",
+     "Discute com adultos e desafia regras",
+     "Aborrece de propósito e culpa os outros pelos erros",
+     "Comportamento dirigido a figuras de autoridade"
+    ]
+   },
+   {
+    "heading": "Diferenciais",
+    "items": [
+     "Desregulação do humor: irritabilidade quase diária entre as explosões",
+     "TDAH: desatenção e hiperatividade em vários ambientes",
+     "Bipolar: episódios com mudança de energia e sono"
+    ]
+   },
+   {
+    "heading": "Conduta",
+    "body": "Orientação aos pais com treino de manejo comportamental é a base do tratamento. Medicamento não é primeira escolha."
+   }
+  ]
+ },
+ "summary": {
+  "title": "Oposição desafiante",
+  "points": [
+   {
+    "label": "Quadro",
+    "text": "Humor irritável, desafio a regras e culpa dos outros."
+   },
+   {
+    "label": "Humor",
+    "text": "Volta ao normal quando a criança consegue o que quer."
+   },
+   {
+    "label": "Diferencial",
+    "text": "Desregulação do humor tem irritabilidade persistente."
+   },
+   {
+    "label": "Tratamento",
+    "text": "Treino dos pais; medicamento não é a primeira escolha."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

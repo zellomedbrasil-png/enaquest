@@ -1,0 +1,89 @@
+{
+ "area_id": "mfc",
+ "competency_id": "decisao",
+ "theme": "Lombalgia inespecífica",
+ "scenario": "UBS",
+ "difficulty": "facil",
+ "quick": "Lombalgia mecânica sem sinais de alerta: explicar a natureza benigna, orientar analgesia e atividade física leve e reavaliar em 4 a 6 semanas. Alternativa D.",
+ "reasoning": "Primeiro passo: procurar sinais de alerta. O paciente não tem febre, perda de peso, trauma, incontinência nem fraqueza nos membros inferiores, e o exame neurológico é normal. Isso afasta causas graves, como fratura, infecção, tumor e síndrome da cauda equina. Segundo passo: caracterizar o quadro. Dor insidiosa, que piora com a atividade e melhora com o repouso, em trabalhador braçal, é lombalgia mecânica inespecífica. Terceiro passo: aplicar a conduta baseada em evidência. Explica-se que o quadro é benigno e costuma melhorar, orienta-se analgesia simples e atividade física leve, e reavalia-se em 4 a 6 semanas. Quarto passo: descartar o excesso. Ressonância e encaminhamento a ortopedia não são necessários sem sinais de alerta. Radiografia e corticoide oral não têm benefício, e repouso prolongado atrasa a recuperação.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Ressonância magnética e ortopedia não são indicadas em lombalgia inespecífica sem sinais de alerta."
+  },
+  {
+   "index": 1,
+   "why": "Radiografia não muda a conduta na lombalgia inespecífica, e corticoide oral não tem benefício."
+  },
+  {
+   "index": 2,
+   "why": "Repouso prolongado e atestado de 7 dias atrasam a recuperação; antidepressivo tricíclico não é primeira escolha."
+  }
+ ],
+ "tip": "Lombalgia sem sinais de alerta: tranquilizar, manter atividade, analgesia simples e retorno em semanas.",
+ "pearl": "Pedir imagem sem sinal de alerta aumenta ansiedade e intervenções sem benefício.",
+ "competency_note": "Evitar exames e tratamentos desnecessários em lombalgia inespecífica.",
+ "claims": [
+  {
+   "claim": "A maioria dos casos de lombalgia é inespecífica, e o tratamento inicial inclui educação, manter-se ativo e analgesia simples, evitando imagem sem sinais de alerta.",
+   "source_id": "lancet-lombalgia-2018",
+   "locator": "Seção de manejo"
+  },
+  {
+   "claim": "Para lombalgia aguda e subaguda, recomenda-se tratamento não farmacológico, como calor superficial e manipulação, e medicação simples quando necessário.",
+   "source_id": "pm-28192789",
+   "locator": "Recomendações"
+  }
+ ],
+ "key_why": "Sem sinais de alerta, o quadro é benigno: explicar, analgesia, atividade leve e reavaliação em 4 a 6 semanas.",
+ "theory": {
+  "title": "Lombalgia inespecífica",
+  "intro": "É a causa mais comum de dor lombar e costuma melhorar em semanas, sem exames de imagem.",
+  "sections": [
+   {
+    "heading": "Sinais de alerta",
+    "items": [
+     "Febre ou perda de peso",
+     "Trauma importante",
+     "Déficit neurológico, incontinência ou anestesia em sela",
+     "Idade avançada ou história de câncer"
+    ]
+   },
+   {
+    "heading": "Conduta sem sinais de alerta",
+    "items": [
+     "Explicar a natureza benigna",
+     "Analgesia simples e anti-inflamatório por tempo curto",
+     "Atividade física e retorno ao trabalho",
+     "Reavaliar em 4 a 6 semanas"
+    ]
+   }
+  ],
+  "alert": "Imagem sem sinal de alerta não melhora o desfecho."
+ },
+ "summary": {
+  "title": "Lombalgia inespecífica",
+  "points": [
+   {
+    "label": "Alerta",
+    "text": "Febre, perda de peso, trauma, déficit neurológico."
+   },
+   {
+    "label": "Conduta",
+    "text": "Explicar, analgesia, manter atividade."
+   },
+   {
+    "label": "Retorno",
+    "text": "Reavaliar em 4 a 6 semanas."
+   },
+   {
+    "label": "Evitar",
+    "text": "Imagem, repouso prolongado e corticoide oral."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

@@ -1,0 +1,89 @@
+{
+ "area_id": "coletiva",
+ "competency_id": "decisao",
+ "theme": "Quimioprofilaxia da malária em área endêmica",
+ "scenario": "UBS",
+ "difficulty": "dificil",
+ "quick": "Questão excluída do cálculo. Entre as opções, a doxiciclina é o único fármaco usado como quimioprofilaxia em viajante que vai à área endêmica da Amazônia.",
+ "reasoning": "Primeiro passo: separar tratamento de profilaxia. O artesunato é um derivado da artemisinina usado para tratar malária grave e não para prevenir. Segundo passo: considerar a resistência. A cloroquina não é adequada na região amazônica, onde o Plasmodium falciparum é resistente. Terceiro passo: avaliar a primaquina. Ela pode ser usada como profilaxia em alguns esquemas internacionais, mas exige pesquisa de deficiência de G6PD e não é o esquema habitual no Brasil. Quarto passo: reconhecer a doxiciclina. É a opção de profilaxia mais usada para quem viaja ou trabalha em área de risco, tomada diariamente desde 1 a 2 dias antes até 4 semanas depois, em pessoa sem contraindicação. O Ministério da Saúde destaca que a principal medida de prevenção é a proteção contra o mosquito e o diagnóstico precoce, e a quimioprofilaxia é indicada em situações específicas. A banca excluiu a questão do cálculo, por desajuste estatístico.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "O artesunato é fármaco de tratamento da malária grave, sem uso como profilaxia."
+  },
+  {
+   "index": 1,
+   "why": "A doxiciclina é a opção de quimioprofilaxia mais aceita entre as alternativas para quem vai a área com falciparum resistente à cloroquina, desde que não haja contraindicação."
+  },
+  {
+   "index": 2,
+   "why": "A primaquina pode ser usada como profilaxia em alguns esquemas, mas exige pesquisa de deficiência de G6PD e não é a opção habitual."
+  },
+  {
+   "index": 3,
+   "why": "A cloroquina não é adequada na Amazônia, onde há resistência do Plasmodium falciparum."
+  }
+ ],
+ "tip": "Profilaxia de malária na Amazônia: doxiciclina diária; cloroquina não, por resistência do falciparum.",
+ "pearl": "Artesunato trata malária grave; ele não previne.",
+ "competency_note": "Diferenciar fármacos de tratamento e de profilaxia da malária.",
+ "claims": [
+  {
+   "claim": "A prevenção da malária inclui proteção contra o mosquito, diagnóstico e tratamento precoces e, em situações específicas, quimioprofilaxia.",
+   "source_id": "ms-malaria-gov",
+   "locator": "Prevenção"
+  },
+  {
+   "claim": "Doxiciclina, atovaquona-proguanil e mefloquina são opções de quimioprofilaxia em áreas com Plasmodium falciparum resistente à cloroquina.",
+   "source_id": "pm-22144437",
+   "locator": "Resumo"
+  }
+ ],
+ "theory": {
+  "title": "Malária: prevenção e quimioprofilaxia",
+  "intro": "A malária é transmitida pela picada do Anopheles e é endêmica na Amazônia. A principal estratégia é evitar a picada e tratar rápido.",
+  "sections": [
+   {
+    "heading": "Prevenção",
+    "items": [
+     "Repelente, roupas longas, mosquiteiros e telas",
+     "Diagnóstico e tratamento precoces de casos",
+     "Quimioprofilaxia somente em situações específicas"
+    ]
+   },
+   {
+    "heading": "Quimioprofilaxia",
+    "items": [
+     "Doxiciclina diária, iniciada 1 a 2 dias antes até 4 semanas depois da exposição",
+     "Cloroquina não é adequada onde há falciparum resistente",
+     "Artesunato é tratamento, não profilaxia"
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "title": "Malária: profilaxia",
+  "points": [
+   {
+    "label": "Principal",
+    "text": "Evitar a picada e tratar cedo."
+   },
+   {
+    "label": "Profilaxia",
+    "text": "Doxiciclina diária em área de risco."
+   },
+   {
+    "label": "Cloroquina",
+    "text": "Não serve na Amazônia por resistência."
+   },
+   {
+    "label": "Artesunato",
+    "text": "Tratamento de malária grave."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": "Questão excluída pelo Inep; a doxiciclina é a opção mais coerente, mas a primaquina também é usada em alguns esquemas.",
+ "review_note": "Excluída pelo Inep. Conferir a orientação oficial vigente para quimioprofilaxia de profissionais em área endêmica."
+}

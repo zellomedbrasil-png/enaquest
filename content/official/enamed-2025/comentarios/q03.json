@@ -1,0 +1,97 @@
+{
+ "area_id": "cirurgia",
+ "competency_id": "propedeutica",
+ "theme": "TCE com rebaixamento de consciência",
+ "scenario": "Pronto-socorro",
+ "difficulty": "facil",
+ "quick": "A alternativa correta é a A. Glasgow inicial provavelmente menor que 13, trauma facial e cervical sem imobilização e amnésia do evento indicam TC de crânio, face e coluna cervical, radiografia dos membros e observação hospitalar.",
+ "reasoning": "1) O mecanismo é queda de escada com perda de consciência por tempo desconhecido. O paciente foi transportado sem imobilização cervical e não se sabe sua história clínica, como uso de anticoagulante, álcool ou crise convulsiva. 2) A gravidade se define pelo Glasgow inicial. Ele chegou sem abrir os olhos e sem resposta verbal, o que sugere Glasgow abaixo de 13, ou seja, TCE moderado. A melhora posterior não reclassifica o trauma como leve. 3) A TC de crânio está indicada pelo Glasgow inicial menor que 13, pela amnésia e pela recuperação lenta. 4) Equimose e escoriações orbitopalpebrais indicam TC de face, que pode ser feita na mesma aquisição. 5) Escoriações cervicais posteriores em paciente com consciência alterada impedem a liberação clínica da coluna. Como a cabeça já será tomografada, faz-se a TC cervical. 6) As escoriações nos membros à direita pedem radiografia simples. 7) Ainda há amnésia persistente, a recuperação está em curso, a história é desconhecida e o trauma é múltiplo. Esse conjunto justifica observação hospitalar com reavaliações neurológicas seriadas, e não alta domiciliar.",
+ "distractors": [
+  {
+   "index": 1,
+   "why": "A radiografia de crânio e de coluna cervical tem baixa sensibilidade e não detecta hematomas nem contusões cerebrais. Em TCE com rebaixamento de consciência, a TC é obrigatória."
+  },
+  {
+   "index": 2,
+   "why": "Omite a TC de coluna cervical, mesmo com escoriação cervical e consciência alterada. Além disso, dar alta a um paciente com TCE provavelmente moderado, amnésia persistente e história desconhecida é inseguro."
+  },
+  {
+   "index": 3,
+   "why": "Troca a TC por radiografia de crânio e face, que não avalia lesão intracraniana. Também deixa a coluna cervical sem nenhuma investigação."
+  }
+ ],
+ "tip": "No TCE, a regra é TC, e não radiografia de crânio. Se houver consciência alterada ou trauma cervical, inclua a TC de coluna cervical na mesma aquisição.",
+ "pearl": "Classificar a gravidade pelo Glasgow depois da melhora é um erro. Vale o Glasgow inicial. Um paciente que chega sem abrir os olhos e sem resposta verbal não é TCE leve, mesmo que acorde 30 minutos depois.",
+ "competency_note": "Avaliar se o candidato escolhe os exames de imagem corretos no politrauma com TCE e decide com segurança entre observação e alta.",
+ "claims": [
+  {
+   "claim": "Vítima de trauma com nível de consciência alterado deve ter restrição de movimento da coluna cervical até a avaliação adequada.",
+   "source_id": "ms-samu-2016",
+   "locator": "Protocolos de trauma: TCE e trauma raquimedular"
+  }
+ ],
+ "key_why": "Chegou sem abertura ocular espontânea e sem resposta verbal, o que sugere Glasgow inicial abaixo de 13 (TCE moderado). Houve trauma facial, escoriação cervical posterior, transporte sem imobilização, amnésia do evento e história desconhecida. Isso indica TC de crânio, face e coluna cervical, radiografia dos membros feridos e observação hospitalar com reavaliações seriadas.",
+ "theory": {
+  "title": "TCE: imagem e destino do paciente",
+  "intro": "No traumatismo cranioencefálico, a gravidade é classificada pelo Glasgow da avaliação inicial: leve de 13 a 15, moderado de 9 a 12 e grave de 3 a 8. A tomografia sem contraste é o exame de escolha para lesão intracraniana. A radiografia de crânio não tem mais papel nessa decisão.",
+  "sections": [
+   {
+    "heading": "Quando pedir TC de crânio",
+    "body": "A TC deve ser feita logo, em até 1 hora, quando houver algum destes achados:",
+    "items": [
+     "Glasgow menor que 13 na avaliação inicial no pronto-socorro",
+     "Glasgow menor que 15 duas horas após o trauma",
+     "Suspeita de fratura aberta ou com afundamento, ou sinais de fratura de base de crânio",
+     "Convulsão pós-traumática, déficit focal ou mais de um episódio de vômito"
+    ]
+   },
+   {
+    "heading": "Coluna cervical",
+    "body": "No paciente inconsciente ou com nível de consciência alterado, a coluna cervical não pode ser liberada pelo exame clínico. Também se considera lesionada quando o mecanismo ou os achados sugerem lesão, como as escoriações cervicais posteriores do caso. A TC cervical está indicada quando o Glasgow inicial é menor que 13 ou quando outras regiões já serão tomografadas. Enquanto isso, mantém-se a restrição de movimento da coluna."
+   },
+   {
+    "heading": "Destino do paciente",
+    "body": "Com TC normal, Glasgow 15, sem outros fatores de risco e com acompanhante responsável, a alta com orientações é aceitável. A observação hospitalar se justifica quando há:",
+    "items": [
+     "Glasgow que ainda não voltou a 15 ou recuperação em curso",
+     "Amnésia persistente ou confusão",
+     "História clínica desconhecida, suspeita de intoxicação ou uso de anticoagulante",
+     "Politrauma ou ausência de acompanhante confiável"
+    ]
+   }
+  ],
+  "alert": "Perda de consciência ou amnésia, quando isoladas, não obrigam a internação se a TC for normal e o paciente estiver com Glasgow 15. Neste caso, o que pesa é o conjunto de fatores."
+ },
+ "summary": {
+  "title": "TCE no pronto-socorro em 30 segundos",
+  "points": [
+   {
+    "label": "Classificação",
+    "text": "Usa o Glasgow inicial: leve de 13 a 15, moderado de 9 a 12, grave de 3 a 8."
+   },
+   {
+    "label": "Exame de imagem",
+    "text": "TC de crânio sem contraste. A radiografia de crânio é obsoleta."
+   },
+   {
+    "label": "Coluna cervical",
+    "text": "Paciente com consciência alterada ou trauma cervical não tem a coluna liberada clinicamente; pede-se TC."
+   },
+   {
+    "label": "Face e membros",
+    "text": "Trauma orbital pede TC de face; extremidades feridas pedem radiografia em duas incidências."
+   },
+   {
+    "label": "Observação",
+    "text": "Indicada quando há recuperação incompleta, amnésia, história desconhecida ou politrauma.",
+    "sub": [
+     "A alta exige TC normal, Glasgow 15, ausência de fatores de risco e acompanhante responsável"
+    ]
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

@@ -1,0 +1,82 @@
+{
+ "area_id": "go",
+ "competency_id": "urgencia",
+ "theme": "Terceiro período do parto: dequitação",
+ "scenario": "Sala de parto",
+ "difficulty": "medio",
+ "quick": "Passados 10 minutos sem dequitação, em paciente estável, o manejo ativo inclui tração controlada do cordão, com contratração do útero por mão suprapúbica. Alternativa B.",
+ "reasoning": "Primeiro passo: lembrar o manejo ativo do terceiro período. Ele inclui uterotônico logo após o nascimento, tração controlada do cordão e massagem uterina, e reduz a hemorragia pós-parto. Segundo passo: avaliar o tempo. Dez minutos sem dequitação ainda estão dentro do esperado, e a placenta é considerada retida se não sair em 30 minutos. Terceiro passo: escolher a conduta. Mantém-se o manejo ativo, com tração controlada do cordão enquanto uma mão suprapúbica estabiliza o útero, para evitar inversão uterina. Quarto passo: descartar as outras. Aguardar de forma passiva, sem intervenção, é a conduta expectante, associada a maior perda de sangue. Curagem não é indicada antes de 30 minutos ou sem hemorragia. Uterotônico adicional e massagem não substituem a tração controlada quando já foi dado o uterotônico inicial.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Esperar a expulsão espontânea sem intervenção é a conduta expectante, associada a mais perda de sangue que o manejo ativo."
+  },
+  {
+   "index": 2,
+   "why": "A extração manual da placenta é indicada quando a placenta não sai em cerca de 30 minutos ou se há hemorragia, o que não é o caso."
+  },
+  {
+   "index": 3,
+   "why": "Um segundo uterotônico e massagem não substituem a tração controlada do cordão no manejo ativo."
+  }
+ ],
+ "tip": "Manejo ativo: uterotônico, tração controlada do cordão com contratração e massagem uterina.",
+ "pearl": "A tração do cordão sem estabilizar o útero pode causar inversão uterina.",
+ "competency_note": "Conduzir a dequitação com manejo ativo do terceiro período.",
+ "claims": [
+  {
+   "claim": "O manejo ativo do terceiro período inclui uterotônico, tração controlada do cordão e massagem uterina, e reduz a hemorragia pós-parto.",
+   "source_id": "pm-19941729",
+   "locator": "Recomendações"
+  },
+  {
+   "claim": "A tração controlada do cordão no terceiro período do parto, associada à contratração do útero, reduz a necessidade de extração manual.",
+   "source_id": "pm-25631379",
+   "locator": "Resumo"
+  }
+ ],
+ "key_why": "Aos 10 minutos, mantém-se o manejo ativo com tração controlada do cordão e estabilização do útero.",
+ "theory": {
+  "title": "Manejo ativo do terceiro período",
+  "intro": "O terceiro período vai do nascimento à saída da placenta. O manejo ativo previne a hemorragia pós-parto.",
+  "sections": [
+   {
+    "heading": "Passos",
+    "items": [
+     "Ocitocina logo após o nascimento",
+     "Pinçamento do cordão e tração controlada com contratração do útero",
+     "Massagem uterina depois da saída da placenta"
+    ]
+   },
+   {
+    "heading": "Placenta retida",
+    "body": "Se não houver dequitação em cerca de 30 minutos, ou se houver hemorragia, indica-se a extração manual da placenta em ambiente adequado."
+   }
+  ]
+ },
+ "summary": {
+  "title": "Dequitação",
+  "points": [
+   {
+    "label": "Manejo ativo",
+    "text": "Uterotônico, tração controlada e massagem."
+   },
+   {
+    "label": "Tempo",
+    "text": "Placenta retida se não sair em 30 minutos."
+   },
+   {
+    "label": "Segurança",
+    "text": "Estabilizar o útero para evitar inversão."
+   },
+   {
+    "label": "Evitar",
+    "text": "Conduta expectante sem manejo."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

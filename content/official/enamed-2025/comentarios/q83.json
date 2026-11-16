@@ -1,0 +1,73 @@
+{
+ "area_id": "go",
+ "competency_id": "decisao",
+ "theme": "Lesão intraepitelial de baixo grau na citologia",
+ "scenario": "UBS",
+ "difficulty": "facil",
+ "quick": "Lesão intraepitelial de baixo grau em mulher de 32 anos: repetir a citologia em 6 meses. Alternativa B.",
+ "reasoning": "Primeiro passo: interpretar o laudo. A lesão intraepitelial de baixo grau reflete infecção transitória por HPV, e a maioria regride sozinha. Segundo passo: aplicar a diretriz brasileira. Em mulheres de 25 anos ou mais, com lesão de baixo grau ou ASC-US, repete-se a citologia em 6 meses. Se duas citologias seguidas forem negativas, volta-se ao rastreamento de rotina; se persistir a alteração, indica-se a colposcopia. Terceiro passo: descartar as outras. A colposcopia direta é para ASC-H, lesão de alto grau ou células glandulares. A ultrassonografia transvaginal não avalia o colo no rastreamento. Repetir a citologia de imediato não faz sentido, pois a regressão leva meses.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "A ultrassonografia transvaginal não faz parte da investigação de citologia alterada."
+  },
+  {
+   "index": 2,
+   "why": "A colposcopia imediata é para ASC-H, lesão de alto grau ou células glandulares; no baixo grau, repete-se a citologia em 6 meses."
+  },
+  {
+   "index": 3,
+   "why": "Repetir a citologia de imediato não adianta, porque a regressão da infecção por HPV leva meses."
+  }
+ ],
+ "tip": "Baixo grau ou ASC-US em mulher de 25 anos ou mais: nova citologia em 6 meses.",
+ "pearl": "Em mulheres abaixo de 25 anos, o intervalo de repetição é de 3 anos, por causa da alta taxa de regressão.",
+ "competency_note": "Conduzir lesão de baixo grau na citologia do colo do útero.",
+ "claims": [
+  {
+   "claim": "Mulheres com 25 anos ou mais com citologia de baixo grau ou ASC-US repetem a citologia em 6 meses, e a colposcopia é indicada se a alteração persistir.",
+   "source_id": "inca-colo-gov",
+   "locator": "Condutas diante de resultados alterados"
+  }
+ ],
+ "key_why": "O baixo grau tende a regredir sozinho, então se repete a citologia em 6 meses.",
+ "theory": {
+  "title": "Lesão de baixo grau na citologia",
+  "intro": "Corresponde a alterações pelo HPV com alta chance de regressão espontânea.",
+  "sections": [
+   {
+    "heading": "Conduta",
+    "items": [
+     "Mulheres com 25 anos ou mais: repetir em 6 meses",
+     "Duas citologias negativas: retorno ao rastreamento de rotina",
+     "Alteração persistente: colposcopia"
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "title": "Baixo grau",
+  "points": [
+   {
+    "label": "Conduta",
+    "text": "Repetir citologia em 6 meses."
+   },
+   {
+    "label": "Se persistir",
+    "text": "Colposcopia."
+   },
+   {
+    "label": "Duas negativas",
+    "text": "Rastreamento de rotina."
+   },
+   {
+    "label": "Colposcopia direta",
+    "text": "ASC-H e alto grau."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": "Conferir na diretriz vigente do INCA a conduta para baixo grau em mulheres de 25 anos ou mais."
+}

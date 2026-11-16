@@ -1,0 +1,95 @@
+{
+ "area_id": "coletiva",
+ "competency_id": "decisao",
+ "theme": "Profilaxia do HIV: PEP e PrEP",
+ "scenario": "UBS",
+ "difficulty": "medio",
+ "quick": "Exposição há 2 dias: testar HIV e sífilis, prescrever PEP se o teste for não reagente e programar a PrEP para depois da PEP. Alternativa C.",
+ "reasoning": "Primeiro passo: situar o tempo. A exposição de risco ocorreu há 2 dias, dentro das 72 horas em que a profilaxia pós-exposição pode ser iniciada. Segundo passo: testar antes de medicar. É preciso fazer o teste rápido de HIV para saber se a pessoa já está infectada, pois PEP só vale para quem não tem HIV. O teste de sífilis também entra, por causa da exposição sexual. Terceiro passo: indicar a PEP imediatamente, se o HIV for não reagente. Quarto passo: pensar no futuro. A paciente tem exposição frequente e contínua, então tem indicação de PrEP. Começa-se a PrEP ao fim da PEP, após novo teste de HIV, sem sobreposição. Quinto passo: descartar as outras. Iniciar PrEP agora ignora a exposição recente que exige PEP. Prescrever PEP e PrEP juntas é duplicar fármacos. Esperar o resultado de ISTs para depois deixa a PEP passar do prazo.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Começar a PrEP e deixar a PEP para depois não faz sentido: a exposição de 2 dias exige PEP agora, e a PrEP vem depois."
+  },
+  {
+   "index": 1,
+   "why": "Prescrever PrEP de início imediato ignora a exposição recente, que é indicação de PEP, e a PrEP só começa depois de novo teste ao fim da PEP."
+  },
+  {
+   "index": 3,
+   "why": "Prescrever PEP e PrEP ao mesmo tempo é duplicidade de antirretrovirais; a PrEP começa quando a PEP termina."
+  }
+ ],
+ "tip": "Exposição em até 72 horas: teste, PEP e, depois, PrEP se o risco continuar.",
+ "pearl": "A PEP é para a exposição recente. Quem tem exposição frequente passa para PrEP depois dela, sem usar as duas juntas.",
+ "competency_note": "Indicar PEP e PrEP em sequência para pessoa com exposição recorrente ao HIV.",
+ "claims": [
+  {
+   "claim": "A profilaxia pós-exposição ao HIV deve ser iniciada o mais rápido possível, em até 72 horas da exposição, após teste para excluir infecção.",
+   "source_id": "pm-41326046",
+   "locator": "Recomendações sobre PEP"
+  },
+  {
+   "claim": "A PrEP é indicada a pessoas com risco continuado de exposição, como profissionais do sexo e mulheres trans, e pode ser iniciada ao fim da PEP, com teste de HIV negativo.",
+   "source_id": "pm-41326046",
+   "locator": "Recomendações sobre PrEP"
+  },
+  {
+   "claim": "O SUS oferece testagem rápida, PEP e PrEP como estratégias de prevenção combinada.",
+   "source_id": "ms-hiv-gov",
+   "locator": "Prevenção combinada"
+  }
+ ],
+ "key_why": "A exposição de 2 dias pede teste e PEP, e o risco continuado indica PrEP, que começa quando a PEP termina.",
+ "theory": {
+  "title": "PEP e PrEP para o HIV",
+  "intro": "PEP é o tratamento de curta duração depois de uma exposição de risco. PrEP é a profilaxia diária para quem tem risco continuado.",
+  "sections": [
+   {
+    "heading": "PEP",
+    "items": [
+     "Iniciar em até 72 horas da exposição, o quanto antes",
+     "Teste rápido de HIV antes de iniciar",
+     "Uso por 28 dias, com acompanhamento"
+    ]
+   },
+   {
+    "heading": "PrEP",
+    "items": [
+     "Indicada a pessoas com exposição frequente: profissionais do sexo, mulheres trans, homens que fazem sexo com homens",
+     "Teste de HIV negativo antes de começar",
+     "Pode iniciar ao fim da PEP"
+    ]
+   },
+   {
+    "heading": "Prevenção combinada",
+    "body": "Preservativo, testagem para ISTs, vacinas e tratamento dos parceiros completam a estratégia."
+   }
+  ]
+ },
+ "summary": {
+  "title": "PEP e PrEP",
+  "points": [
+   {
+    "label": "PEP",
+    "text": "Em até 72 horas, depois de teste negativo, por 28 dias."
+   },
+   {
+    "label": "PrEP",
+    "text": "Para risco continuado, depois de teste negativo."
+   },
+   {
+    "label": "Sequência",
+    "text": "PEP primeiro; PrEP quando a PEP termina."
+   },
+   {
+    "label": "Também",
+    "text": "Testar sífilis e oferecer vacinas."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

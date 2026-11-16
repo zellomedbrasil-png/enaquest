@@ -1,0 +1,119 @@
+{
+ "area_id": "clinica",
+ "competency_id": "hipotese",
+ "theme": "Artrite reumatoide: diagnóstico e tratamento",
+ "scenario": "Ambulatório",
+ "difficulty": "facil",
+ "quick": "B. Poliartrite simétrica de pequenas articulações das mãos e punhos há 3 meses, rigidez matinal acima de 2 horas e anemia: artrite reumatoide, com FR positivo esperado e metotrexato como primeira linha.",
+ "reasoning": "Primeiro, caracterize a artrite: crônica (3 meses, mais de 6 semanas), poliarticular (mais de 10 articulações), simétrica e envolvendo pequenas articulações das mãos (IFP, MCF) e punhos, além de cotovelos, joelhos e tornozelos. Segundo, a rigidez matinal de mais de 2 horas indica artrite inflamatória. Terceiro, as mucosas hipocoradas sugerem anemia de doença crônica, comum na AR ativa. Quarto, não há Raynaud, espessamento cutâneo, lesões de pele, serosite ou fraqueza muscular, o que afasta esclerose sistêmica, LES, DMTC e miopatias. Pelos critérios ACR/EULAR 2010, só o envolvimento articular (5 pontos) e a duração (1 ponto) já somam 6. O autoanticorpo clássico é o fator reumatoide, e a primeira linha terapêutica é o metotrexato.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Esclerose sistêmica cursa com Raynaud, espessamento cutâneo e esclerodactilia, ausentes no caso. CK elevada aponta para miopatia inflamatória, não é marcador de esclerose sistêmica. Prednisona não é tratamento de base, e doses altas aumentam o risco de crise renal esclerodérmica."
+  },
+  {
+   "index": 2,
+   "why": "LES poderia causar artrite, mas viria com outras manifestações (cutâneas, serosite, renais, citopenias). O padrão pontilhado fino denso está associado ao anti-DFS70 e fala contra doença autoimune sistêmica, não a favor de LES. Antimalárico isolado não é a primeira linha para AR."
+  },
+  {
+   "index": 3,
+   "why": "DMCT costuma ter Raynaud, mãos edemaciadas (dedos em salsicha) e sobreposição de LES, esclerose e miosite; o padrão clássico é FAN pontilhado grosso por anti-U1RNP. Azatioprina não é primeira linha para essa doença nem para a AR."
+  }
+ ],
+ "tip": "Poliartrite simétrica de mãos e punhos, rigidez acima de 1 hora e mais de 6 semanas: pense AR, peça FR e anti-CCP e comece metotrexato.",
+ "pearl": "FR negativo não exclui AR, e FR positivo não fecha diagnóstico, pois aparece em idosos, hepatites e outras colagenoses. Pontilhado fino denso (anti-DFS70) sugere ausência de doença autoimune sistêmica.",
+ "competency_note": "Reconhecer o padrão clínico da artrite reumatoide, relacioná-lo ao autoanticorpo típico e indicar a DMCD de primeira linha.",
+ "claims": [
+  {
+   "claim": "Classificação de AR pelos critérios ACR/EULAR 2010 exige 6 ou mais pontos em 10, somando articulações (mais de 10 com ao menos uma pequena vale 5), sorologia FR/anti-CCP (até 3), provas de fase aguda (1) e duração de 6 semanas ou mais (1).",
+   "source_id": "acr-eular-ar-2010",
+   "locator": "Tabela 3, critérios de classificação"
+  },
+  {
+   "claim": "Metotrexato é a DMCD sintética de primeira escolha no tratamento inicial da AR; leflunomida ou sulfassalazina são alternativas em caso de contraindicação.",
+   "source_id": "sbr-ar-2017",
+   "locator": "Recomendações para o tratamento inicial com DMCD sintéticas"
+  },
+  {
+   "claim": "Glicocorticoides devem ser usados em dose baixa e por curto período, como ponte, associados às DMCD.",
+   "source_id": "sbr-ar-2017",
+   "locator": "Recomendações sobre uso de glicocorticoides"
+  }
+ ],
+ "key_why": "Mulher jovem com poliartrite simétrica há 3 meses, acometendo pequenas articulações das mãos (IFP, MCF e punhos) e grandes articulações, com rigidez matinal acima de 1 hora e anemia sugestiva de doença crônica: quadro típico de artrite reumatoide. O fator reumatoide é o autoanticorpo esperado, e o metotrexato é o medicamento modificador de doença de primeira linha.",
+ "theory": {
+  "title": "Artrite reumatoide: diagnóstico e tratamento inicial",
+  "intro": "A artrite reumatoide (AR) é uma doença inflamatória crônica e autoimune que agride a membrana sinovial e, sem tratamento, causa erosões e deformidades. É mais comum em mulheres e o tratamento precoce com drogas modificadoras do curso da doença (DMCD) muda o prognóstico.",
+  "sections": [
+   {
+    "heading": "Quando suspeitar",
+    "items": [
+     "Poliartrite simétrica, com envolvimento de mãos (IFP, MCF) e punhos; as interfalangeanas distais costumam ser poupadas",
+     "Rigidez matinal prolongada, em geral acima de 1 hora",
+     "Duração de pelo menos 6 semanas",
+     "Manifestações sistêmicas: fadiga, anemia de doença crônica, nódulos reumatoides"
+    ]
+   },
+   {
+    "heading": "Critérios ACR/EULAR 2010 e laboratório",
+    "body": "A classificação soma pontos em quatro domínios; 6 ou mais pontos em 10 classificam como AR, em paciente com sinovite clínica não explicada por outra doença.",
+    "items": [
+     "Articulações: mais de 10, com ao menos uma pequena, valem 5 pontos",
+     "Sorologia: FR ou anti-CCP em título baixo, 2 pontos; título alto, 3 pontos",
+     "Provas de fase aguda (VHS ou PCR) alteradas: 1 ponto",
+     "Sintomas por 6 semanas ou mais: 1 ponto",
+     "O anti-CCP é mais específico; o FR é o marcador clássico, mas pode ser negativo em parte dos pacientes"
+    ]
+   },
+   {
+    "heading": "Tratamento",
+    "items": [
+     "Metotrexato é a DMCD sintética de primeira linha, iniciada assim que se faz o diagnóstico",
+     "Leflunomida ou sulfassalazina são alternativas se houver contraindicação ao metotrexato",
+     "Glicocorticoide em dose baixa e por curto período, apenas como ponte",
+     "Falha após DMCD sintéticas: associação ou terapia biológica/alvo específica"
+    ]
+   }
+  ],
+  "alert": "Corticoide isolado não é tratamento de base da AR: controla sintomas, mas não impede progressão radiográfica."
+ },
+ "summary": {
+  "title": "AR em 30 segundos",
+  "points": [
+   {
+    "label": "Quadro",
+    "text": "Poliartrite simétrica de mãos e punhos com rigidez matinal acima de 1 hora por 6 semanas ou mais."
+   },
+   {
+    "label": "Critério",
+    "text": "ACR/EULAR 2010: 6 ou mais pontos em 10.",
+    "sub": [
+     "Articulações até 5",
+     "Sorologia até 3",
+     "Fase aguda 1",
+     "Duração 1"
+    ]
+   },
+   {
+    "label": "Laboratório",
+    "text": "FR positivo clássico; anti-CCP mais específico; anemia de doença crônica e VHS/PCR elevados."
+   },
+   {
+    "label": "Conduta",
+    "text": "Metotrexato como primeira linha, iniciado precocemente."
+   },
+   {
+    "label": "Corticoide",
+    "text": "Só em dose baixa e por tempo curto, como ponte até a DMCD agir."
+   },
+   {
+    "label": "Diferencial",
+    "text": "Esclerose sistêmica, LES e DMTC trazem Raynaud, pele e órgãos acometidos; não é o caso."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

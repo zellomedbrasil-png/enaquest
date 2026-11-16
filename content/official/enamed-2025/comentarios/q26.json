@@ -1,0 +1,84 @@
+{
+ "area_id": "clinica",
+ "competency_id": "decisao",
+ "theme": "Dengue com sinais de alarme (grupo C)",
+ "scenario": "UBS",
+ "difficulty": "medio",
+ "quick": "Febre, manchas, dor abdominal e vômitos incoercíveis são sinais de alarme: dengue grupo C. Hidratação parenteral, exames e leito de observação: alternativa C.",
+ "reasoning": "Primeiro passo: classificar o risco. Febre há 3 dias com manchas e dor de moderada intensidade configura dengue. O início de dor abdominal e vômitos incoercíveis no dia da consulta são sinais de alarme. Segundo passo: aplicar a classificação. Na presença de sinais de alarme, sem choque, o paciente é do grupo C, com instabilidade hemodinâmica ausente mas necessidade de vigilância. Terceiro passo: lembrar a conduta. No grupo C, inicia-se hidratação parenteral imediata, solicitam-se hemograma com hematócrito e plaquetas e outros exames, e o paciente fica em leito de observação até estabilizar. O antígeno NS1 ou outro teste confirmatório é útil. Quarto passo: descartar os grupos A e B. O grupo B tem sangramento de pele espontâneo ou condição de risco, sem sinais de alarme. Hidratação oral não basta quando há vômitos incoercíveis.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Grupo B não tem sinais de alarme; com vômitos incoercíveis e dor abdominal, o paciente é do grupo C."
+  },
+  {
+   "index": 1,
+   "why": "O grupo está certo, mas hidratação oral com vômitos incoercíveis não funciona, e acompanhamento ambulatorial não é seguro."
+  },
+  {
+   "index": 3,
+   "why": "Classificar como grupo B subestima o risco: os sinais de alarme definem o grupo C."
+  }
+ ],
+ "tip": "Dor abdominal intensa ou vômitos persistentes na dengue: sinal de alarme, hidratação venosa e observação.",
+ "pearl": "A fase crítica da dengue começa quando a febre cai; o sinal de alarme pode surgir antes disso.",
+ "competency_note": "Classificar a dengue por grupo de risco e definir hidratação e local de cuidado.",
+ "claims": [
+  {
+   "claim": "A presença de sinais de alarme, como dor abdominal intensa e vômitos persistentes, classifica o paciente no grupo C, com hidratação parenteral imediata e observação.",
+   "source_id": "ms-dengue-2024",
+   "locator": "Classificação de risco e conduta no grupo C"
+  }
+ ],
+ "key_why": "Dor abdominal e vômitos incoercíveis são sinais de alarme, o que define o grupo C: hidratação parenteral, exames e observação até estabilizar.",
+ "theory": {
+  "title": "Classificação de risco na dengue",
+  "intro": "A dengue é classificada em grupos A, B, C e D, e cada um tem hidratação e local de cuidado próprios.",
+  "sections": [
+   {
+    "heading": "Grupos",
+    "items": [
+     "A: sem sinais de alarme nem condições de risco, tratamento ambulatorial com hidratação oral",
+     "B: sangramento de pele espontâneo ou risco social ou clínico, exames e observação",
+     "C: sinais de alarme, hidratação parenteral e observação",
+     "D: choque ou sangramento grave, terapia intensiva"
+    ]
+   },
+   {
+    "heading": "Sinais de alarme",
+    "items": [
+     "Dor abdominal intensa e contínua",
+     "Vômitos persistentes",
+     "Acúmulo de líquidos, sangramento de mucosa, letargia, hepatomegalia",
+     "Aumento do hematócrito com queda de plaquetas"
+    ]
+   }
+  ],
+  "alert": "Não use anti-inflamatórios nem ácido acetilsalicílico na dengue."
+ },
+ "summary": {
+  "title": "Dengue grupo C",
+  "points": [
+   {
+    "label": "Critério",
+    "text": "Sinais de alarme sem choque."
+   },
+   {
+    "label": "Hidratação",
+    "text": "Parenteral imediata."
+   },
+   {
+    "label": "Exames",
+    "text": "Hemograma, plaquetas e hematócrito; confirmação por NS1."
+   },
+   {
+    "label": "Local",
+    "text": "Leito de observação até estabilizar."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

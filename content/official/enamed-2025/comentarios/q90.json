@@ -1,0 +1,80 @@
+{
+ "area_id": "coletiva",
+ "competency_id": "sus",
+ "theme": "Profilaxia da raiva após mordedura de gato",
+ "scenario": "UBS",
+ "difficulty": "medio",
+ "quick": "Mordedura grave em mão por gato desconhecido, em área com raiva felina: lavar com água e sabão, vacina em 4 doses nos dias 0, 3, 7 e 14 e imunoglobulina. Alternativa C.",
+ "reasoning": "Primeiro passo: classificar a exposição. Mordedura em dedos da mão é ferimento em área de grande inervação e é considerado grave, por risco de inoculação perto do sistema nervoso. O animal é desconhecido e fugiu, e há raiva confirmada em felinos na cidade, então não pode ser observado. Segundo passo: lembrar a conduta. Lava-se o ferimento com água corrente abundante e sabão, e não se faz sutura imediata. Terceiro passo: indicar a profilaxia. Para ferimento grave com animal que não pode ser observado, administram-se a vacina antirrábica em 4 doses, nos dias 0, 3, 7 e 14, e o soro ou a imunoglobulina humana antirrábica. Quarto passo: descartar as outras. Suturar a lesão e dar penicilina benzatina não é a conduta. Aguardar a busca do animal não protege o paciente. Contraindicar doses por reação adversa é incorreto, pois a profilaxia da raiva não tem contraindicação.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Não se sutura de imediato ferimento por mordedura com risco de raiva, e a penicilina benzatina não faz parte do tratamento."
+  },
+  {
+   "index": 1,
+   "why": "Aguardar a busca ativa do animal atrasa a profilaxia, e o animal desconhecido que fugiu não pode ser observado; a dT isolada não protege contra raiva."
+  },
+  {
+   "index": 3,
+   "why": "A profilaxia pós-exposição da raiva não tem contraindicação, e a reação adversa não impede as doses seguintes; o antisséptico não substitui água e sabão."
+  }
+ ],
+ "tip": "Mordedura grave por animal que fugiu em área de raiva: lavar, vacinar em 4 doses e dar imunoglobulina.",
+ "pearl": "A profilaxia da raiva é feita sem contraindicação, porque a doença é quase sempre fatal.",
+ "competency_note": "Indicar profilaxia da raiva humana após agressão por animal.",
+ "claims": [
+  {
+   "claim": "Nos acidentes graves por animal que não pode ser observado, como o gato, indica-se vacina antirrábica e soro ou imunoglobulina antirrábica, além de lavar o ferimento com água e sabão.",
+   "source_id": "ms-raiva-gov",
+   "locator": "Profilaxia da raiva humana"
+  }
+ ],
+ "key_why": "Mordedura grave por gato desconhecido em área com raiva exige lavagem, vacina em 4 doses e imunoglobulina.",
+ "theory": {
+  "title": "Profilaxia da raiva humana",
+  "intro": "A raiva é quase sempre fatal depois do início dos sintomas, por isso a profilaxia pós-exposição é urgente.",
+  "sections": [
+   {
+    "heading": "Cuidados com a ferida",
+    "items": [
+     "Lavar com água corrente abundante e sabão",
+     "Evitar suturar de imediato"
+    ]
+   },
+   {
+    "heading": "Profilaxia",
+    "items": [
+     "Vacina antirrábica em 4 doses, nos dias 0, 3, 7 e 14",
+     "Soro ou imunoglobulina antirrábica em ferimentos graves",
+     "Observação do animal quando possível"
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "title": "Raiva",
+  "points": [
+   {
+    "label": "Gravidade",
+    "text": "Mordedura em mão, dedos, cabeça e pescoço é grave."
+   },
+   {
+    "label": "Primeiro",
+    "text": "Lavar com água e sabão."
+   },
+   {
+    "label": "Vacina",
+    "text": "4 doses: dias 0, 3, 7 e 14."
+   },
+   {
+    "label": "Soro",
+    "text": "Imunoglobulina em ferimento grave."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": "Conferir esquema vigente do Ministério da Saúde, que pode ter sido atualizado."
+}

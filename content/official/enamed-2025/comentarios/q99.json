@@ -1,0 +1,81 @@
+{
+ "area_id": "go",
+ "competency_id": "decisao",
+ "theme": "Rotura prematura de membranas com 33 semanas",
+ "scenario": "Pronto-atendimento obstétrico",
+ "difficulty": "medio",
+ "quick": "Rotura prematura de membranas com 33 semanas, sem infecção nem sofrimento fetal: internação e monitoramento materno-fetal diário. Alternativa A.",
+ "reasoning": "Primeiro passo: confirmar o diagnóstico. A saída de líquido claro pelo colo ao exame especular, sem contrações, confirma a rotura prematura de membranas antes do termo, com 33 semanas. Segundo passo: avaliar o estado materno e fetal. A paciente tem sinais vitais normais, tônus uterino normal, sem contração e movimentos fetais presentes, com batimentos de 140, o que afasta infecção e sofrimento. Terceiro passo: aplicar a conduta. Entre 24 e 34 semanas, em ausência de infecção, trabalho de parto ou sofrimento fetal, a conduta é expectante: internação, antibiótico para prolongar a latência, corticoide antenatal e monitoramento materno-fetal diário até 34 semanas, quando se avalia o parto. Quarto passo: descartar as outras. Indução imediata é para infecção, sofrimento ou 34 semanas ou mais. A alta com repouso domiciliar é inadequada pelo risco de infecção e cordão prolapsado.",
+ "distractors": [
+  {
+   "index": 1,
+   "why": "A indução imediata do parto não é indicada com 33 semanas sem infecção ou sofrimento; o manejo expectante prolonga a gestação."
+  },
+  {
+   "index": 2,
+   "why": "A alta com monitoramento ambulatorial diário não é segura, pelo risco de infecção, prolapso de cordão e trabalho de parto."
+  },
+  {
+   "index": 3,
+   "why": "Alta com monitoramento semanal é ainda menos segura; a paciente deve permanecer internada e vigiada."
+  }
+ ],
+ "tip": "Rotura prematura com 24 a 34 semanas, sem infecção: internar, dar antibiótico e corticoide e vigiar mãe e feto.",
+ "pearl": "Sinais de corioamnionite, sofrimento fetal ou trabalho de parto mudam a conduta e indicam o parto.",
+ "competency_note": "Conduzir rotura prematura de membranas pré-termo.",
+ "claims": [
+  {
+   "claim": "Na rotura prematura de membranas pré-termo entre 24 e 34 semanas, sem infecção ou sofrimento, recomenda-se manejo expectante com internação, antibiótico, corticoide antenatal e monitoramento materno-fetal.",
+   "source_id": "pm-32080050",
+   "locator": "Rotura pré-termo"
+  }
+ ],
+ "key_why": "Sem infecção nem sofrimento fetal, a rotura com 33 semanas é manejada de forma expectante, internada e com monitoramento diário.",
+ "theory": {
+  "title": "Rotura prematura de membranas",
+  "intro": "É a rotura das membranas antes do início do trabalho de parto. Antes de 37 semanas, é chamada de pré-termo.",
+  "sections": [
+   {
+    "heading": "Diagnóstico",
+    "items": [
+     "Saída de líquido pelo orifício do colo ao exame especular",
+     "Teste de proteínas do líquido amniótico, quando duvidoso"
+    ]
+   },
+   {
+    "heading": "Conduta pré-termo",
+    "items": [
+     "Internação e vigilância materna e fetal",
+     "Antibiótico para prolongar a latência",
+     "Corticoide antenatal para maturação pulmonar",
+     "Parto em 34 semanas ou antes, se infecção ou sofrimento"
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "title": "Rotura pré-termo",
+  "points": [
+   {
+    "label": "Diagnóstico",
+    "text": "Líquido no especular."
+   },
+   {
+    "label": "Conduta",
+    "text": "Internar, antibiótico, corticoide e vigilância."
+   },
+   {
+    "label": "Parto",
+    "text": "34 semanas ou antes se infecção ou sofrimento."
+   },
+   {
+    "label": "Risco",
+    "text": "Corioamnionite e prolapso de cordão."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

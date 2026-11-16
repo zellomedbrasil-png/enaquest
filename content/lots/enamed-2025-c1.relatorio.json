@@ -1,0 +1,451 @@
+{
+  "total": 100,
+  "assembled": 100,
+  "pending": [],
+  "invalid": [],
+  "dropped_sources": [],
+  "priority": {
+    "2": "Questão excluída do cálculo pelo Inep. Alternativa B é a mais coerente, mas conferir a classificação do tipo de acidose tubular.",
+    "6": "outra alternativa defensável: C",
+    "9": "Anulada. A resposta depende do critério (SIRS clássico ou Phoenix 2024); conferir o texto de teoria.",
+    "10": "autor questiona o gabarito: Questão anulada pela banca. Provavelmente a intenção era a hérnia femoral encarcerada (C). Porém o enunciado não informa a localização do abaulamento em relação ao ligamento inguinal, e a hérnia inguinal indireta, a mais comum também em mulheres, permanece possível. Isso gera ambiguidade entre B e C.",
+    "11": "autor questiona o gabarito: A banca anulou a questão. A alternativa C traduz o critério de resposta (queda de duas diluições do VDRL), mas usa 'duas titulações', não informa o prazo e se refere a uma paciente que recebeu apenas uma das três doses indicadas para sífilis de duração ignorada. Essas imprecisões impedem apontar uma alternativa inequivocamente correta.",
+    "19": "Conferir na diretriz o limiar de tratamento para idosos com 80 anos ou mais.",
+    "28": "Conferir artigo e prazos da lei no texto oficial.",
+    "30": "Fonte de apoio de baixa força; conferir recomendação com diretriz de urologia pediátrica.",
+    "33": "Alternativa C cobre baciloscopia positiva com TRM negativo; conferir o fluxograma do manual.",
+    "40": "Questão excluída pelo Inep; a doxiciclina é a opção mais coerente, mas a primaquina também é usada em alguns esquemas. | Excluída pelo Inep. Conferir a orientação oficial vigente para quimioprofilaxia de profissionais em área endêmica.",
+    "43": "Anulada por unidade de medida (mm³). Conferir o limite de tamanho do abscesso na diretriz.",
+    "45": "Conferir no manual o critério de sintomático respiratório em pessoas privadas de liberdade.",
+    "47": "Conferir a idade exata de ACWY e do reforço de febre amarela no calendário vigente.",
+    "49": "Conferir a categoria do DIU de levonorgestrel em lúpus com anticorpos antifosfolípides positivos na edição vigente do critério.",
+    "52": "Confirmar na caderneta ou manual de puericultura a idade de cada reflexo.",
+    "55": "Conferir no calendário vigente o público-alvo da pneumocócica 23-valente e de herpes-zóster.",
+    "62": "Conferir a ordem das linhas da Parte I na alternativa B.",
+    "69": "Conferir a lista de critérios no manual DSM-5-TR.",
+    "76": "Anulada. Conferir o esquema de PEP vigente e a ordem testagem e profilaxia na alternativa A.",
+    "83": "Conferir na diretriz vigente do INCA a conduta para baixo grau em mulheres de 25 anos ou mais.",
+    "85": "O uso rotineiro do flumazenil é controverso; conferir a orientação toxicológica vigente.",
+    "88": "Questão excluída pelo Inep; a alternativa D é a mais coerente com a investigação inicial. | Excluída do cálculo.",
+    "90": "Conferir esquema vigente do Ministério da Saúde, que pode ter sido atualizado.",
+    "94": "O quadro também é compatível com mioma submucoso parido, descrito no exame especular. | Duas hipóteses defensáveis (hiperplasia e leiomioma submucoso); conferir o gabarito.",
+    "95": "Conferir a faixa de dose e o prazo de resposta reticulocitária na orientação da Sociedade Brasileira de Pediatria.",
+    "100": "Anulada. Conferir qual alternativa a banca considerava correta antes da anulação."
+  },
+  "lint": {
+    "report": [
+      {
+        "slug": "enamed-2025-q01",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q02",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q03",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q04",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q05",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q06",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q07",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q08",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q09",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q10",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q11",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q12",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q13",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q14",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q15",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q16",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q17",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q18",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q19",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q20",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q21",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q22",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q23",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q24",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q25",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q26",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q27",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q28",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q29",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q30",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q31",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q32",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q33",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q34",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q35",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q36",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q37",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q38",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q39",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q40",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q41",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q42",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q43",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q44",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q45",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q46",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q47",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q48",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q49",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q50",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q51",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q52",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q53",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q54",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q55",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q56",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q57",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q58",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q59",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q60",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q61",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q62",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q63",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q64",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q65",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q66",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q67",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q68",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q69",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q70",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q71",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q72",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q73",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q74",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q75",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q76",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q77",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q78",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q79",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q80",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q81",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q82",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q83",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q84",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q85",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q86",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q87",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q88",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q89",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q90",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q91",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q92",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q93",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q94",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q95",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q96",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q97",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q98",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q99",
+        "issues": []
+      },
+      {
+        "slug": "enamed-2025-q100",
+        "issues": []
+      }
+    ],
+    "fatalCount": 0,
+    "duplicateSlugs": [],
+    "duplicates": [],
+    "keys": {
+      "counts": [
+        31,
+        24,
+        23,
+        22
+      ],
+      "balanced": true
+    }
+  }
+}

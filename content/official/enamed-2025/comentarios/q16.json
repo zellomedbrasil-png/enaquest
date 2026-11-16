@@ -1,0 +1,82 @@
+{
+ "area_id": "pediatria",
+ "competency_id": "decisao",
+ "theme": "Curvas de crescimento na síndrome de Down",
+ "scenario": "Ambulatório",
+ "difficulty": "facil",
+ "quick": "Crianças com síndrome de Down crescem de forma diferente. O acompanhamento deve usar curvas específicas desde o nascimento: alternativa B.",
+ "reasoning": "Primeiro passo: lembrar que a síndrome de Down tem padrão próprio de crescimento, com menor velocidade e menor estatura final. Segundo passo: reconhecer que as curvas da OMS foram construídas com crianças típicas e, aplicadas à síndrome de Down, fazem a criança parecer sempre abaixo do esperado. Terceiro passo: aplicar a orientação. A supervisão de saúde recomenda curvas específicas para a síndrome de Down, usadas desde o nascimento, com acompanhamento de peso, comprimento e perímetro cefálico. Quarto passo: descartar as outras. Corrigir os valores da OMS não é uma prática padronizada, e trocar de curva aos dois anos não é a orientação.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "As curvas da OMS foram feitas com crianças típicas e não refletem o crescimento esperado na síndrome de Down."
+  },
+  {
+   "index": 2,
+   "why": "Corrigir os valores da curva da OMS não é uma prática padronizada; existem curvas próprias para a síndrome."
+  },
+  {
+   "index": 3,
+   "why": "A mudança de curva aos dois anos não é a orientação: as curvas específicas valem desde o nascimento."
+  }
+ ],
+ "tip": "Síndrome de Down: curva própria desde o nascimento.",
+ "pearl": "Usar a curva da OMS faz o profissional alarmar-se sem necessidade com um crescimento esperado para a síndrome.",
+ "competency_note": "Escolher a curva de crescimento adequada em crianças com condições genéticas.",
+ "claims": [
+  {
+   "claim": "A supervisão de saúde de crianças com síndrome de Down recomenda curvas de crescimento específicas para a síndrome.",
+   "source_id": "aap-down-2022",
+   "locator": "Seção sobre crescimento"
+  },
+  {
+   "claim": "Existem curvas de crescimento próprias para crianças com síndrome de Down, do nascimento à adolescência.",
+   "source_id": "pm-26504127",
+   "locator": "Resumo"
+  }
+ ],
+ "key_why": "O crescimento na síndrome de Down tem padrão próprio, por isso as curvas específicas são usadas desde o nascimento.",
+ "theory": {
+  "title": "Crescimento na síndrome de Down",
+  "intro": "A síndrome de Down cursa com crescimento mais lento e menor estatura final. Comparar com curvas de crianças típicas leva a conclusões erradas.",
+  "sections": [
+   {
+    "heading": "Acompanhamento",
+    "items": [
+     "Curvas específicas de peso, comprimento e perímetro cefálico desde o nascimento",
+     "Consultas de puericultura com acompanhamento do desenvolvimento",
+     "Triagem de cardiopatia, tireoide, audição e visão"
+    ]
+   },
+   {
+    "heading": "Cuidados associados",
+    "body": "Há maior risco de obesidade depois da infância, por isso o ganho de peso deve ser acompanhado de perto."
+   }
+  ]
+ },
+ "summary": {
+  "title": "Crescimento na síndrome de Down",
+  "points": [
+   {
+    "label": "Curva",
+    "text": "Específica para síndrome de Down, desde o nascimento."
+   },
+   {
+    "label": "Motivo",
+    "text": "Crescimento e estatura final diferentes das crianças típicas."
+   },
+   {
+    "label": "Acompanhar",
+    "text": "Peso, comprimento e perímetro cefálico."
+   },
+   {
+    "label": "Atenção",
+    "text": "Risco de obesidade e triagem de cardiopatia e tireoide."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

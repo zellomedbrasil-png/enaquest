@@ -1,0 +1,85 @@
+{
+ "area_id": "cirurgia",
+ "competency_id": "decisao",
+ "theme": "Diverticulite complicada com abscesso",
+ "scenario": "Pronto-socorro",
+ "difficulty": "dificil",
+ "quick": "Questão anulada. O quadro é de diverticulite com abscesso; a conduta de referência é antibiótico e, conforme o tamanho da coleção, drenagem percutânea guiada por tomografia.",
+ "reasoning": "Primeiro passo: reconhecer o quadro. Dor na fossa ilíaca esquerda há 5 dias, febre, massa dolorosa e tomografia com densificação da gordura adjacente ao sigmoide e coleção mostram diverticulite com abscesso, estágio de Hinchey II. Segundo passo: avaliar a gravidade. O paciente tem bom estado geral e está estável, sem sinais de peritonite generalizada. Terceiro passo: aplicar a conduta. Para abscessos pequenos, de até 4 a 5 cm, o tratamento é antibiótico apenas. Para coleções maiores, associa-se a drenagem percutânea guiada por imagem, e a cirurgia de urgência é reservada para peritonite ou falha. Quarto passo: entender a anulação. A tomografia descreve a coleção em mm³, uma unidade de volume, e não em milímetros ou centímetros de diâmetro, o que impede saber se é maior ou menor que o limite de 4 a 5 cm, e por isso a banca anulou. Descartar a laparotomia primária, o tratamento conservador sem critério de tamanho e a drenagem endoscópica, que não é indicada.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "A laparotomia é reservada para peritonite generalizada ou falha do tratamento; em paciente estável com abscesso, tenta-se antes a drenagem percutânea."
+  },
+  {
+   "index": 1,
+   "why": "O tratamento clínico isolado serve para abscessos pequenos, até 4 a 5 cm; o texto não informa o diâmetro, o que gerou a anulação."
+  },
+  {
+   "index": 2,
+   "why": "A colonoscopia não é indicada na fase aguda da diverticulite, pelo risco de perfuração, e não drena a coleção."
+  },
+  {
+   "index": 3,
+   "why": "A drenagem percutânea guiada por tomografia é a conduta para abscesso maior que 4 a 5 cm, mas a unidade da coleção na questão impediu definir o tamanho."
+  }
+ ],
+ "tip": "Diverticulite com abscesso: até 4 a 5 cm, antibiótico; maior, drenagem percutânea. Peritonite pede cirurgia.",
+ "pearl": "Colonoscopia só depois de 6 a 8 semanas do episódio agudo, para afastar neoplasia.",
+ "competency_note": "Escolher entre antibiótico, drenagem e cirurgia na diverticulite complicada.",
+ "claims": [
+  {
+   "claim": "Em diverticulite com abscesso maior que 4 a 5 cm, recomenda-se drenagem percutânea associada a antibiótico; abscessos pequenos podem ser tratados com antibiótico.",
+   "source_id": "pm-32381121",
+   "locator": "Recomendações para abscesso"
+  }
+ ],
+ "theory": {
+  "title": "Diverticulite aguda complicada",
+  "intro": "A diverticulite é a inflamação dos divertículos do cólon, mais comum no sigmoide. Pode formar abscesso, perfuração e fístula.",
+  "sections": [
+   {
+    "heading": "Estadiamento",
+    "items": [
+     "Hinchey I e II: abscesso pericólico ou pélvico",
+     "Hinchey III e IV: peritonite purulenta ou fecal"
+    ]
+   },
+   {
+    "heading": "Conduta",
+    "items": [
+     "Sem complicação: antibiótico ou observação, conforme o caso",
+     "Abscesso pequeno: antibiótico",
+     "Abscesso grande: antibiótico mais drenagem percutânea guiada por tomografia",
+     "Peritonite generalizada: cirurgia de urgência"
+    ]
+   }
+  ],
+  "alert": "Colonoscopia durante a fase aguda aumenta o risco de perfuração."
+ },
+ "summary": {
+  "title": "Diverticulite com abscesso",
+  "points": [
+   {
+    "label": "Imagem",
+    "text": "Tomografia com contraste confirma o abscesso."
+   },
+   {
+    "label": "Pequeno",
+    "text": "Antibiótico."
+   },
+   {
+    "label": "Grande",
+    "text": "Drenagem percutânea e antibiótico."
+   },
+   {
+    "label": "Cirurgia",
+    "text": "Peritonite ou falha clínica."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": "Anulada por unidade de medida (mm³). Conferir o limite de tamanho do abscesso na diretriz."
+}

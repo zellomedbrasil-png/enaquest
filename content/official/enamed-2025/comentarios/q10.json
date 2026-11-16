@@ -1,0 +1,117 @@
+{
+ "area_id": "cirurgia",
+ "competency_id": "hipotese",
+ "theme": "Hérnia da virilha encarcerada",
+ "scenario": "Pronto-socorro",
+ "difficulty": "medio",
+ "quick": "Questão anulada. O caso é de hérnia da virilha encarcerada com suboclusão, mas o enunciado não informa se o abaulamento está acima ou abaixo do ligamento inguinal. Assim, B e C não se distinguem com segurança.",
+ "reasoning": "Primeiro passo: há abaulamento inguinal direito doloroso, não redutível, com 24 horas de evolução. Isso localiza o problema na parede, e não dentro do abdome. Segundo passo: vômitos e redução de flatos indicam alça intestinal presa, ou seja, hérnia encarcerada com quadro obstrutivo. Terceiro passo: não há peritonite, febre nem leucocitose franca (10.300), e a hiperemia é discreta. O estrangulamento não está confirmado, mas não pode ser descartado. A creatinina elevada com ureia normal pode refletir desidratação pelos vômitos ou nefropatia diabética. Esse dado não define o tipo de hérnia, mas pesa na escolha de exame com contraste. Quarto passo: é preciso dizer qual hérnia. A única forma clínica de separar inguinal de femoral é a relação com o ligamento inguinal, e o enunciado só fala em região inguinal. A hérnia inguinal indireta é a hérnia da virilha mais comum também em mulheres. A femoral é mais frequente em mulheres que em homens e se apresenta mais em urgência. Ambas explicam o quadro. Além disso, a alternativa B não precisa citar o encarceramento para ser compatível: uma hérnia indireta pode encarcerar. Isquemia mesentérica e neoplasia de cólon não explicam um abaulamento local não redutível. Sem um dado que desempate B e C, a anulação se justifica.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "A isquemia mesentérica aguda causa dor abdominal difusa e desproporcional ao exame, em geral com acidose e leucocitose. Não produz abaulamento localizado e não redutível na virilha. Um estrangulamento herniário causa isquemia de um segmento de alça, mas isso é complicação da hérnia, não o diagnóstico principal."
+  },
+  {
+   "index": 1,
+   "why": "É compatível com o caso. A hérnia inguinal indireta é a hérnia da virilha mais frequente também em mulheres e pode encarcerar com quadro obstrutivo. O enunciado não informa a posição do abaulamento em relação ao ligamento inguinal, então ela não pode ser excluída. O fato de a alternativa não citar encarceramento não a torna errada."
+  },
+  {
+   "index": 2,
+   "why": "Também é compatível. A hérnia femoral é mais comum em mulheres do que em homens e tem alta taxa de apresentação encarcerada. Porém, sem a informação de que o abaulamento está abaixo do ligamento inguinal, não há como afirmar que ela seja mais provável que a inguinal indireta."
+  },
+  {
+   "index": 3,
+   "why": "A neoplasia de cólon obstrutiva costuma ter evolução mais arrastada, com alteração do hábito intestinal, perda de peso ou anemia (a hemoglobina está normal). Não explica um abaulamento inguinal doloroso e não redutível de 24 horas. O antecedente de câncer de mama antigo e o tabagismo não mudam essa análise."
+  }
+ ],
+ "tip": "Abaulamento na virilha com obstrução intestinal é hérnia encarcerada até prova em contrário. Para dizer qual, localize o ligamento inguinal: acima é inguinal, abaixo é femoral.",
+ "pearl": "Em mulheres, a hérnia femoral é mais frequente que nos homens, mas a inguinal indireta continua a mais comum. Por isso, em cirurgia de hérnia em mulher, o canal femoral deve ser explorado.",
+ "competency_note": "Avaliar se o candidato reconhece hérnia da virilha encarcerada com suboclusão e conhece a anatomia que diferencia hérnia inguinal de femoral.",
+ "claims": [
+  {
+   "claim": "A hérnia femoral é mais frequente em mulheres que em homens e tem maior risco de apresentação de urgência e de complicação. Em mulheres, a hérnia inguinal segue mais comum que a femoral.",
+   "source_id": "herniasurge-2018",
+   "locator": "Epidemiologia e hérnias femorais e em mulheres"
+  },
+  {
+   "claim": "Em mulheres com hérnia da virilha, recomenda-se considerar a possibilidade de hérnia femoral e usar técnica que permita avaliar o orifício femoral.",
+   "source_id": "herniasurge-2018",
+   "locator": "Capítulo de hérnias em mulheres"
+  },
+  {
+   "claim": "Hérnia encarcerada com obstrução ou suspeita de estrangulamento indica cirurgia de urgência, com avaliação da viabilidade intestinal.",
+   "source_id": "wses-hernia-2017",
+   "locator": "Recomendações de diagnóstico e momento da cirurgia"
+  },
+  {
+   "claim": "Ultrassom ou tomografia podem ajudar no diagnóstico quando o exame clínico de uma hérnia da virilha é duvidoso.",
+   "source_id": "herniasurge-2018",
+   "locator": "Capítulo de diagnóstico"
+  }
+ ],
+ "theory": {
+  "title": "Hérnias da virilha encarceradas no idoso",
+  "intro": "Hérnias da virilha incluem as inguinais (indireta e direta), acima do ligamento inguinal, e a femoral, abaixo dele. Quando o conteúdo não volta à cavidade, a hérnia está encarcerada. Se há sofrimento vascular, está estrangulada, uma emergência cirúrgica.",
+  "sections": [
+   {
+    "heading": "Quando suspeitar",
+    "items": [
+     "Abaulamento doloroso e não redutível na virilha, de início recente",
+     "Vômitos, distensão e parada ou redução de flatos sugerem alça intestinal presa, com obstrução",
+     "Hiperemia, dor intensa, febre, leucocitose ou peritonite sugerem estrangulamento"
+    ]
+   },
+   {
+    "heading": "Inguinal ou femoral",
+    "body": "A distinção é anatômica. A hérnia inguinal surge acima do ligamento inguinal e medial à espinha ilíaca. A femoral surge abaixo do ligamento, lateral ao tubérculo púbico. Em mulheres, a indireta segue a mais frequente, mas a femoral é mais comum que nos homens e tem maior risco de apresentação de urgência. Ao exame, as duas podem ser difíceis de separar, sobretudo em pacientes obesos. Ultrassom ou tomografia ajudam quando há dúvida."
+   },
+   {
+    "heading": "Conduta",
+    "items": [
+     "Jejum, hidratação venosa, analgesia e sonda nasogástrica se houver vômitos",
+     "Avaliação cirúrgica imediata",
+     "Encarceramento com obstrução ou suspeita de estrangulamento pede cirurgia de urgência, com inspeção da viabilidade da alça",
+     "Em mulheres, explorar o canal femoral na operação, pela chance de hérnia femoral associada ou não diagnosticada"
+    ]
+   }
+  ],
+  "alert": "Em idosa com obstrução intestinal, procure hérnia na virilha. Uma hérnia femoral pequena pode passar despercebida no exame do abdome."
+ },
+ "summary": {
+  "title": "Hérnia da virilha encarcerada: revisão rápida",
+  "points": [
+   {
+    "label": "Conceito",
+    "text": "Encarcerada é a hérnia não redutível. Estrangulada é a que tem comprometimento vascular."
+   },
+   {
+    "label": "Anatomia",
+    "text": "Ligamento inguinal como referência.",
+    "sub": [
+     "Acima dele: inguinal (indireta ou direta)",
+     "Abaixo dele: femoral"
+    ]
+   },
+   {
+    "label": "Epidemiologia",
+    "text": "Em mulheres, a indireta segue a mais comum. A femoral é mais frequente nelas do que nos homens e se complica mais."
+   },
+   {
+    "label": "Sinais de alarme",
+    "text": "Vômitos, parada de flatos, hiperemia, febre, leucocitose, peritonite."
+   },
+   {
+    "label": "Conduta",
+    "text": "Suporte clínico e cirurgia de urgência, com avaliação da alça e exploração do canal femoral em mulheres."
+   },
+   {
+    "label": "Por que anulada",
+    "text": "Faltou a localização em relação ao ligamento inguinal, o que deixa B e C compatíveis com o caso."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": "autor questiona o gabarito: Questão anulada pela banca. Provavelmente a intenção era a hérnia femoral encarcerada (C). Porém o enunciado não informa a localização do abaulamento em relação ao ligamento inguinal, e a hérnia inguinal indireta, a mais comum também em mulheres, permanece possível. Isso gera ambiguidade entre B e C."
+}

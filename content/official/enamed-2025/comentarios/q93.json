@@ -1,0 +1,77 @@
+{
+ "area_id": "cirurgia",
+ "competency_id": "urgencia",
+ "theme": "Queimadura química ocular",
+ "scenario": "UBS",
+ "difficulty": "facil",
+ "quick": "Alvejante no olho com opacidade corneana e queimadura da pálpebra: lavagem ocular abundante com solução fisiológica e avaliação imediata do oftalmologista. Alternativa C.",
+ "reasoning": "Primeiro passo: reconhecer a emergência. Queimadura química ocular, sobretudo com substância alcalina, como o alvejante, pode causar lesão profunda da córnea e perda visual. A opacidade da córnea e a hiperemia intensa indicam gravidade. Segundo passo: lembrar a medida mais importante. A irrigação imediata, abundante e prolongada com soro fisiológico ou água, no próprio local do acidente, é a conduta que mais influencia o resultado. Terceiro passo: encaminhar. A lesão corneana com opacidade exige avaliação imediata do oftalmologista. Quarto passo: descartar as outras. Analgésico tópico e lubrificante apenas aliviam sintomas e atrasam a irrigação. Água boricada e curativo oclusivo não são recomendados. Colírio de corticoide sem avaliação especializada é perigoso e pode atrasar a cicatrização.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Analgésico tópico e lubrificante aliviam sintomas, mas atrasam a irrigação, que é a medida mais importante."
+  },
+  {
+   "index": 1,
+   "why": "Água boricada e curativo oclusivo não são recomendados na queimadura química; a lavagem abundante com soro ou água é o tratamento."
+  },
+  {
+   "index": 3,
+   "why": "Colírio de corticoide sem avaliação do especialista pode atrasar a cicatrização e favorecer infecção; o corticoide só é usado pelo oftalmologista."
+  }
+ ],
+ "tip": "Queimadura química ocular: lave sem parar por 15 a 30 minutos e encaminhe de imediato.",
+ "pearl": "Álcalis, como alvejante, soda e amônia, penetram mais e causam lesão mais profunda que os ácidos.",
+ "competency_note": "Conduzir queimadura química ocular na atenção primária.",
+ "claims": [
+  {
+   "claim": "O tratamento imediato da queimadura química ocular é a irrigação abundante e prolongada com solução fisiológica ou água, seguida de avaliação oftalmológica urgente.",
+   "source_id": "pm-32982161",
+   "locator": "Tratamento inicial"
+  }
+ ],
+ "key_why": "A irrigação imediata e a avaliação do especialista são as medidas que preservam a visão.",
+ "theory": {
+  "title": "Queimadura química ocular",
+  "intro": "É uma emergência oftalmológica. A gravidade depende do agente, da concentração e do tempo de exposição.",
+  "sections": [
+   {
+    "heading": "Conduta imediata",
+    "items": [
+     "Irrigação abundante com soro fisiológico ou água por 15 a 30 minutos, até pH neutro",
+     "Retirar partículas e abrir as pálpebras",
+     "Analgesia e encaminhamento imediato ao oftalmologista"
+    ]
+   },
+   {
+    "heading": "Gravidade",
+    "body": "Álcalis são mais graves que ácidos. Opacidade corneana e isquemia do limbo indicam pior prognóstico."
+   }
+  ]
+ },
+ "summary": {
+  "title": "Queimadura química ocular",
+  "points": [
+   {
+    "label": "Primeiro",
+    "text": "Irrigação abundante e imediata."
+   },
+   {
+    "label": "Depois",
+    "text": "Avaliação urgente do oftalmologista."
+   },
+   {
+    "label": "Pior",
+    "text": "Álcalis e opacidade da córnea."
+   },
+   {
+    "label": "Evitar",
+    "text": "Curativo oclusivo e corticoide sem especialista."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

@@ -1,0 +1,85 @@
+{
+ "area_id": "clinica",
+ "competency_id": "hipotese",
+ "theme": "Síndrome nefrótica: definição laboratorial",
+ "scenario": "Ambulatório",
+ "difficulty": "medio",
+ "quick": "A síndrome nefrótica se define por proteinúria maciça e hipoalbuminemia. Os dados necessários são proteína urinária de 24 horas de 3,6 g e albumina de 1,8 g/dL: alternativa A.",
+ "reasoning": "Primeiro passo: reconhecer a síndrome. Edema bilateral de membros inferiores, perda de peso, albumina baixa, triglicerídeos elevados e proteinúria alta formam um quadro nefrótico. Segundo passo: separar o que define do que acompanha. Para definir a síndrome nefrótica são necessárias a proteinúria nefrótica, acima de 3,5 g em 24 horas, e a hipoalbuminemia. Edema, dislipidemia e lipidúria são manifestações frequentes, mas não são necessárias para a definição. Terceiro passo: avaliar a hematúria. Hematúria discreta não faz parte da definição, e quando é importante sugere componente nefrítico. Quarto passo: escolher a alternativa. Só a alternativa A reúne os dois critérios definidores.",
+ "distractors": [
+  {
+   "index": 1,
+   "why": "O triglicerídeo elevado é uma consequência da síndrome, mas não é critério necessário para defini-la."
+  },
+  {
+   "index": 2,
+   "why": "Hematúria e triglicerídeos não definem síndrome nefrótica; faltam a proteinúria maciça e a hipoalbuminemia."
+  },
+  {
+   "index": 3,
+   "why": "A hematúria não é critério da síndrome nefrótica e, se intensa, sugere componente nefrítico; falta a proteinúria nefrótica."
+  }
+ ],
+ "tip": "Nefrótica é proteinúria maior que 3,5 g por dia mais albumina baixa. O resto é consequência.",
+ "pearl": "Dislipidemia e edema acompanham a síndrome nefrótica, mas não são necessários para o diagnóstico.",
+ "competency_note": "Reconhecer os critérios laboratoriais que definem a síndrome nefrótica.",
+ "claims": [
+  {
+   "claim": "A síndrome nefrótica é definida por proteinúria nefrótica (cerca de 3,5 g em 24 horas ou mais) e hipoalbuminemia, geralmente com edema e dislipidemia.",
+   "source_id": "kdigo-glomerulo-2021",
+   "locator": "Capítulo sobre síndrome nefrótica"
+  }
+ ],
+ "key_why": "Proteinúria de 3,6 g em 24 horas e albumina de 1,8 g/dL cumprem os dois critérios que definem a síndrome nefrótica.",
+ "theory": {
+  "title": "Síndrome nefrótica",
+  "intro": "A síndrome nefrótica resulta de perda urinária maciça de proteína por lesão da barreira glomerular. Pode ser primária ou secundária a doenças como neoplasias, diabetes e lúpus.",
+  "sections": [
+   {
+    "heading": "Critérios",
+    "items": [
+     "Proteinúria maior que 3,5 g em 24 horas",
+     "Hipoalbuminemia",
+     "Edema, dislipidemia e lipidúria costumam acompanhar"
+    ]
+   },
+   {
+    "heading": "Quando investigar causa secundária",
+    "body": "Em adulto com perda de peso e sintomas gerais, procure neoplasia, diabetes, lúpus e infecções antes de atribuir à causa primária."
+   },
+   {
+    "heading": "Complicações",
+    "items": [
+     "Trombose venosa",
+     "Infecções",
+     "Doença renal crônica"
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "title": "Síndrome nefrótica",
+  "points": [
+   {
+    "label": "Define",
+    "text": "Proteinúria maior que 3,5 g em 24 horas mais hipoalbuminemia."
+   },
+   {
+    "label": "Acompanha",
+    "text": "Edema, dislipidemia e lipidúria."
+   },
+   {
+    "label": "Hematúria",
+    "text": "Importante sugere componente nefrítico."
+   },
+   {
+    "label": "Atenção",
+    "text": "Em adulto, investigar causa secundária."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

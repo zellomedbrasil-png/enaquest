@@ -1,0 +1,86 @@
+{
+ "area_id": "mfc",
+ "competency_id": "terapeutica",
+ "theme": "Intensificação do tratamento do diabetes tipo 2",
+ "scenario": "UBS",
+ "difficulty": "medio",
+ "quick": "Hemoglobina glicada de 9,5% com dois antidiabéticos orais em dose plena: manter os orais e iniciar insulina NPH à noite, ajustando pela glicemia de jejum. Alternativa C.",
+ "reasoning": "Primeiro passo: avaliar o controle. HbA1c de 9,5% com metformina em dose alta e gliclazida há mais de 6 meses mostra falha do tratamento oral. Segundo passo: lembrar que a metformina 850 mg três vezes ao dia e a gliclazida 30 mg já estão próximas da dose máxima, então aumentá-las pouco ajuda. Terceiro passo: escolher a intensificação. Com HbA1c acima de 9% ou sintomas, adiciona-se insulina basal, em geral NPH 10 unidades ao deitar, mantendo os antidiabéticos orais, e ajusta-se de 2 a 3 unidades a cada 2 a 3 dias, pela glicemia de jejum, até atingir a meta. Quarto passo: descartar as outras. Suspender os orais e iniciar duas doses de insulina é um salto desnecessário. Aumentar glicazida e metformina e adiar a insulina mantém o paciente descontrolado. Trocar para glibenclamida não é recomendado, pelo maior risco de hipoglicemia.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Suspender os orais e iniciar insulina em duas doses é intensificação excessiva; mantém-se o tratamento oral e acrescenta-se a insulina basal."
+  },
+  {
+   "index": 1,
+   "why": "Aumentar a gliclazida e a metformina e adiar a insulina mantém o descontrole; as doses já estão altas e o ganho é pequeno."
+  },
+  {
+   "index": 3,
+   "why": "A glibenclamida tem maior risco de hipoglicemia que a gliclazida, e adiar a insulina não é adequado com HbA1c de 9,5%."
+  }
+ ],
+ "tip": "Falha de orais com HbA1c alta: acrescente insulina NPH ao deitar e ajuste pela glicemia de jejum.",
+ "pearl": "Insulinizar não é fracasso; atrasar a insulina em quem precisa piora o controle e as complicações.",
+ "competency_note": "Intensificar o tratamento do diabetes tipo 2 quando a meta não é atingida.",
+ "claims": [
+  {
+   "claim": "Quando a hemoglobina glicada permanece alta com antidiabéticos orais, inicia-se insulina basal, como NPH ao deitar, com ajuste progressivo pela glicemia de jejum.",
+   "source_id": "ms-dm-2013",
+   "locator": "Terapia insulínica no diabetes tipo 2"
+  },
+  {
+   "claim": "A insulina basal é indicada em HbA1c elevada apesar do tratamento oral, e os orais podem ser mantidos.",
+   "source_id": "ada-2024-farmaco",
+   "locator": "Intensificação do tratamento"
+  }
+ ],
+ "key_why": "Com HbA1c de 9,5% apesar de dois orais em dose plena, acrescenta-se insulina NPH à noite e titula-se pela glicemia de jejum.",
+ "theory": {
+  "title": "Insulinização no diabetes tipo 2",
+  "intro": "Quando os antidiabéticos orais não bastam, a insulina basal é a forma mais simples de intensificar o tratamento.",
+  "sections": [
+   {
+    "heading": "Quando indicar",
+    "items": [
+     "HbA1c acima da meta apesar de dois ou três orais",
+     "HbA1c muito alta ou sintomas de hiperglicemia"
+    ]
+   },
+   {
+    "heading": "Como começar",
+    "items": [
+     "Manter metformina e outros orais",
+     "NPH 10 unidades ao deitar",
+     "Aumentar 2 a 3 unidades a cada 2 a 3 dias pela glicemia de jejum"
+    ]
+   }
+  ],
+  "alert": "Orientar o paciente sobre hipoglicemia e automonitorização."
+ },
+ "summary": {
+  "title": "Insulina no DM2",
+  "points": [
+   {
+    "label": "Indicação",
+    "text": "Falha de orais com HbA1c alta."
+   },
+   {
+    "label": "Início",
+    "text": "NPH 10 unidades ao deitar, mantendo os orais."
+   },
+   {
+    "label": "Ajuste",
+    "text": "2 a 3 unidades a cada 2 a 3 dias pela glicemia de jejum."
+   },
+   {
+    "label": "Risco",
+    "text": "Hipoglicemia: orientar o paciente."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

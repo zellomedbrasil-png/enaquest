@@ -1,0 +1,80 @@
+{
+ "area_id": "go",
+ "competency_id": "hipotese",
+ "theme": "Insensibilidade androgênica completa",
+ "scenario": "Ambulatório",
+ "difficulty": "medio",
+ "quick": "Fenótipo feminino, pelos pubianos esparsos, ausência de útero, cariótipo 46,XY e testosterona em nível masculino indicam insensibilidade androgênica completa: alternativa D.",
+ "reasoning": "Primeiro passo: organizar os achados. A adolescente tem amenorreia primária, fenótipo feminino, pelos pubianos e axilares escassos e ausência de útero na ultrassonografia. Segundo passo: interpretar os exames. O cariótipo é 46,XY, e a testosterona está em nível masculino, o que mostra que há testículos funcionantes. Terceiro passo: ligar os dados. Os testículos produzem testosterona e hormônio anti-mülleriano, que faz o útero regredir. Como o receptor de androgênio não funciona, o corpo não responde à testosterona e se desenvolve com fenótipo feminino, com pelos escassos. Quarto passo: comparar com os diferenciais. Disgenesia gonadal tem testosterona baixa e FSH alto. Malformação mülleriana e obstrução do trato genital ocorrem em 46,XX, com testosterona feminina e pelos normais.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Na disgenesia gonadal o FSH é elevado e a testosterona é baixa; aqui o FSH é normal e a testosterona é masculina."
+  },
+  {
+   "index": 1,
+   "why": "A malformação mülleriana ocorre em 46,XX, com testosterona feminina e pelos pubianos normais."
+  },
+  {
+   "index": 2,
+   "why": "A obstrução do trato genital ocorre com útero presente e cariótipo 46,XX; aqui o útero está ausente."
+  }
+ ],
+ "tip": "Amenorreia primária, útero ausente, pelos escassos e 46,XY: pense em insensibilidade androgênica.",
+ "pearl": "Mama presente com pelos pubianos escassos e útero ausente é o clássico da insensibilidade androgênica completa; a testosterona alta não virilizou.",
+ "competency_note": "Reconhecer causas de amenorreia primária com útero ausente.",
+ "claims": [
+  {
+   "claim": "Na síndrome de insensibilidade androgênica completa há cariótipo 46,XY, fenótipo feminino, testosterona em nível masculino, ausência de útero e pelos pubianos e axilares escassos.",
+   "source_id": "pm-33514065",
+   "locator": "Resumo"
+  }
+ ],
+ "key_why": "O cariótipo 46,XY com testosterona masculina e útero ausente em fenótipo feminino mostra que o receptor de androgênio não funciona, o que define a insensibilidade androgênica.",
+ "theory": {
+  "title": "Amenorreia primária com útero ausente",
+  "intro": "Quando a menstruação não ocorre aos 16 anos, é preciso avaliar o útero, o cariótipo e os hormônios. A ausência de útero reduz o diagnóstico a poucas causas.",
+  "sections": [
+   {
+    "heading": "Causas com útero ausente",
+    "items": [
+     "Síndrome de Rokitansky: 46,XX, ovários e pelos normais",
+     "Insensibilidade androgênica completa: 46,XY, testosterona masculina, pelos escassos"
+    ]
+   },
+   {
+    "heading": "Por que 46,XY tem fenótipo feminino",
+    "body": "O receptor de androgênio não funciona, então o corpo não responde à testosterona. O hormônio anti-mülleriano atua e o útero regride."
+   },
+   {
+    "heading": "Conduta",
+    "body": "Acompanhamento multiprofissional, orientação sobre gonadectomia pelo risco de neoplasia e reposição hormonal após a retirada das gônadas."
+   }
+  ]
+ },
+ "summary": {
+  "title": "Insensibilidade androgênica completa",
+  "points": [
+   {
+    "label": "Quadro",
+    "text": "Fenótipo feminino, amenorreia primária, útero ausente, pelos escassos."
+   },
+   {
+    "label": "Exames",
+    "text": "Cariótipo 46,XY e testosterona em nível masculino."
+   },
+   {
+    "label": "Diferencial",
+    "text": "Rokitansky é 46,XX, com pelos normais."
+   },
+   {
+    "label": "Conduta",
+    "text": "Gonadectomia pelo risco de neoplasia e acompanhamento."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

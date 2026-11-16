@@ -1,0 +1,84 @@
+{
+ "area_id": "clinica",
+ "competency_id": "propedeutica",
+ "theme": "Colangite esclerosante primária e retocolite",
+ "scenario": "Ambulatório",
+ "difficulty": "medio",
+ "quick": "Retocolite ulcerativa com fosfatase alcalina e gama-GT muito altas: pense em colangite esclerosante primária. O exame é a colangiorressonância, que mostra estenoses e dilatações alternadas. Alternativa C.",
+ "reasoning": "Primeiro passo: reconhecer o padrão. Elevação marcante de fosfatase alcalina e gama-GT, com transaminases pouco elevadas e sem hiperbilirrubinemia, é padrão colestático. Segundo passo: ligar à doença de base. A colangite esclerosante primária se associa à doença inflamatória intestinal, sobretudo à retocolite ulcerativa. Terceiro passo: escolher o exame. A colangiorressonância é o exame não invasivo de escolha e mostra estenoses e dilatações múltiplas e alternadas da árvore biliar, o aspecto em contas de rosário. Quarto passo: descartar as outras. A tomografia não é o melhor exame para a árvore biliar. A colangiopancreatografia retrógrada é invasiva e reservada para tratamento. A ultrassonografia mostra litíase, que não explica o quadro.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "A tomografia detecta massas, mas não avalia bem a árvore biliar; o resultado de lesão tumoral no hilo hepático não é o esperado."
+  },
+  {
+   "index": 1,
+   "why": "A colangiopancreatografia retrógrada é invasiva, reservada para tratamento, e o resultado de litíase no colédoco não explica o quadro."
+  },
+  {
+   "index": 3,
+   "why": "A ultrassonografia com nódulo na vesícula não é o esperado na colangite esclerosante, que acomete os ductos biliares."
+  }
+ ],
+ "tip": "Retocolite com padrão colestático: colangite esclerosante primária; confirme com colangiorressonância.",
+ "pearl": "A colangite esclerosante primária aumenta o risco de colangiocarcinoma e de câncer colorretal.",
+ "competency_note": "Investigar colestase em paciente com doença inflamatória intestinal.",
+ "claims": [
+  {
+   "claim": "A colangite esclerosante primária associa-se à doença inflamatória intestinal e é diagnosticada pela colangiorressonância, que mostra estenoses multifocais dos ductos biliares.",
+   "source_id": "aasld-csp-2022",
+   "locator": "Diagnóstico"
+  }
+ ],
+ "key_why": "O padrão colestático em paciente com retocolite aponta para colangite esclerosante primária, confirmada pela colangiorressonância.",
+ "theory": {
+  "title": "Colangite esclerosante primária",
+  "intro": "Doença inflamatória e fibrosante dos ductos biliares, associada à doença inflamatória intestinal.",
+  "sections": [
+   {
+    "heading": "Quadro",
+    "items": [
+     "Fosfatase alcalina e gama-GT elevadas",
+     "Fadiga e prurido; pode ser assintomática",
+     "Associação com retocolite ulcerativa"
+    ]
+   },
+   {
+    "heading": "Diagnóstico",
+    "items": [
+     "Colangiorressonância com estenoses e dilatações múltiplas",
+     "Biópsia hepática não é necessária na maioria dos casos"
+    ]
+   },
+   {
+    "heading": "Seguimento",
+    "body": "Rastrear câncer colorretal e colangiocarcinoma. O transplante hepático é opção em doença avançada."
+   }
+  ]
+ },
+ "summary": {
+  "title": "Colangite esclerosante primária",
+  "points": [
+   {
+    "label": "Associação",
+    "text": "Retocolite ulcerativa."
+   },
+   {
+    "label": "Exames",
+    "text": "Fosfatase alcalina e gama-GT altas."
+   },
+   {
+    "label": "Imagem",
+    "text": "Colangiorressonância: estenoses multifocais."
+   },
+   {
+    "label": "Riscos",
+    "text": "Colangiocarcinoma e câncer colorretal."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

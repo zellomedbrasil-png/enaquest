@@ -1,0 +1,82 @@
+{
+ "area_id": "clinica",
+ "competency_id": "terapeutica",
+ "theme": "Supercrescimento bacteriano do intestino delgado",
+ "scenario": "Enfermaria",
+ "difficulty": "medio",
+ "quick": "Diarreia com flatulência e emagrecimento, endoscopia e biópsias normais e teste respiratório com lactulose positivo: supercrescimento bacteriano. Trata-se com antibióticos orais, como rifaximina e neomicina. Alternativa A.",
+ "reasoning": "Primeiro passo: interpretar o quadro. Diarreia por 4 semanas, flatulência, desconforto abdominal e emagrecimento, com endoscopia alta e baixa normais e biópsias normais de estômago, delgado e cólon, afastam doença celíaca, doença inflamatória e colite. Segundo passo: interpretar o teste. O teste respiratório com lactulose positivo mostra produção precoce de hidrogênio ou metano por bactérias no intestino delgado, o que diagnostica o supercrescimento bacteriano, ou SIBO. Terceiro passo: escolher o tratamento. A base é o antibiótico oral, com rifaximina como principal opção, e neomicina associada quando há metano. Quarto passo: descartar as outras. Loperamida e escopolamina tratam o sintoma, mas não a causa. Dieta sem glúten e lactose é para doença celíaca e intolerância. Probióticos e inibidores de bomba de prótons não tratam, e o IBP é fator de risco para SIBO.",
+ "distractors": [
+  {
+   "index": 1,
+   "why": "Loperamida e escopolamina aliviam os sintomas, mas não tratam a causa, e a loperamida pode piorar a estase e o supercrescimento."
+  },
+  {
+   "index": 2,
+   "why": "Dieta sem glúten e sem lactose é para doença celíaca e intolerância à lactose; as biópsias normais afastam a celíaca."
+  },
+  {
+   "index": 3,
+   "why": "Probióticos não são tratamento do supercrescimento, e os inibidores da bomba de prótons são fator de risco para o quadro."
+  }
+ ],
+ "tip": "Teste respiratório com lactulose positivo e biópsias normais: supercrescimento bacteriano, tratado com rifaximina.",
+ "pearl": "Inibidores da bomba de prótons favorecem o supercrescimento bacteriano.",
+ "competency_note": "Reconhecer e tratar supercrescimento bacteriano do intestino delgado.",
+ "claims": [
+  {
+   "claim": "O supercrescimento bacteriano do intestino delgado é diagnosticado por teste respiratório com glicose ou lactulose e tratado com antibióticos, sendo a rifaximina a principal opção e a neomicina associada nos casos com metano.",
+   "source_id": "acg-sibo-2020",
+   "locator": "Diagnóstico e tratamento"
+  }
+ ],
+ "key_why": "Teste respiratório positivo com biópsias normais indica supercrescimento bacteriano, tratado com rifaximina e neomicina.",
+ "theory": {
+  "title": "Supercrescimento bacteriano do intestino delgado",
+  "intro": "Excesso de bactérias no intestino delgado, que fermentam carboidratos e causam diarreia, distensão e má absorção.",
+  "sections": [
+   {
+    "heading": "Fatores de risco",
+    "items": [
+     "Uso de inibidores da bomba de prótons",
+     "Cirurgia abdominal, estase e divertículos",
+     "Doenças com dismotilidade, como diabetes e esclerodermia"
+    ]
+   },
+   {
+    "heading": "Diagnóstico e tratamento",
+    "items": [
+     "Teste respiratório com lactulose ou glicose",
+     "Rifaximina como principal antibiótico",
+     "Neomicina associada nos casos com produção de metano",
+     "Tratar a causa de base"
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "title": "SIBO",
+  "points": [
+   {
+    "label": "Quadro",
+    "text": "Diarreia, flatulência e distensão, com biópsias normais."
+   },
+   {
+    "label": "Exame",
+    "text": "Teste respiratório com lactulose ou glicose."
+   },
+   {
+    "label": "Tratar",
+    "text": "Rifaximina, com neomicina se metano."
+   },
+   {
+    "label": "Risco",
+    "text": "Inibidor de bomba de prótons."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

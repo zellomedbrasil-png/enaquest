@@ -1,0 +1,88 @@
+{
+ "area_id": "coletiva",
+ "competency_id": "etica",
+ "theme": "Violência institucional contra idosos",
+ "scenario": "UBS",
+ "difficulty": "medio",
+ "quick": "Idosos com agressões, isolamento, contenção física e lesões de pressão em uma instituição de longa permanência: ação intersetorial, notificação compulsória da violência e plano conjunto. Alternativa C.",
+ "reasoning": "Primeiro passo: reconhecer a violência. Agressões por funcionários, isolamento excessivo, contenção física em idosos com demência e lesões de pressão caracterizam violência institucional e negligência. Segundo passo: lembrar o dever legal. O Estatuto do Idoso obriga os profissionais de saúde a comunicar às autoridades os casos de suspeita ou confirmação de maus-tratos, e a violência contra idosos é de notificação compulsória. Terceiro passo: agir em rede. A equipe articula com órgãos de proteção e controle social, como o Ministério Público e o conselho do idoso, registra a notificação e elabora um plano de ação com a equipe da instituição, para melhorar o cuidado. Quarto passo: descartar as outras. Apenas denunciar sem intervenção clínica ignora os idosos que precisam de cuidado. Oferecer apoio clínico respeitando a autonomia da instituição deixa a violência sem resposta. Reuniões sobre cuidados paliativos sem envolver outras instâncias não protegem os idosos.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Considerar que contenção e úlcera por pressão são esperadas e não exigem intervenção naturaliza a violência; é preciso agir clínica e legalmente."
+  },
+  {
+   "index": 1,
+   "why": "Oferecer apoio clínico sem notificar e sem acionar a rede deixa a violência sem resposta."
+  },
+  {
+   "index": 3,
+   "why": "Reuniões de educação permanente sem envolver outras instâncias não protegem os idosos de agressões em curso."
+  }
+ ],
+ "tip": "Suspeita de violência contra idoso: notifique, acione a rede de proteção e intervenha junto à instituição.",
+ "pearl": "Contenção física sem indicação e lesões de pressão em série sinalizam negligência institucional.",
+ "competency_note": "Responder à violência institucional contra idosos com notificação e ação intersetorial.",
+ "claims": [
+  {
+   "claim": "O Estatuto do Idoso determina a comunicação à autoridade competente dos casos de suspeita ou confirmação de maus-tratos contra idosos.",
+   "source_id": "estatuto-idoso",
+   "locator": "Art. 19"
+  },
+  {
+   "claim": "A violência é agravo de notificação compulsória no sistema de vigilância.",
+   "source_id": "ms-gvs-2022",
+   "locator": "Lista de notificação compulsória"
+  }
+ ],
+ "key_why": "O caso exige notificação, articulação intersetorial e plano de ação com a instituição.",
+ "theory": {
+  "title": "Violência contra a pessoa idosa",
+  "intro": "A violência pode ser física, psicológica, por negligência, financeira ou institucional.",
+  "sections": [
+   {
+    "heading": "Sinais",
+    "items": [
+     "Lesões inexplicadas e contenção física",
+     "Isolamento e abandono",
+     "Lesões de pressão e desnutrição",
+     "Medo ou retraimento diante do cuidador"
+    ]
+   },
+   {
+    "heading": "Conduta",
+    "items": [
+     "Atender as lesões e as necessidades clínicas",
+     "Notificar no sistema de vigilância",
+     "Comunicar às autoridades e aos conselhos",
+     "Articular com a rede e com a instituição um plano de ação"
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "title": "Violência institucional",
+  "points": [
+   {
+    "label": "Sinais",
+    "text": "Agressão, contenção, isolamento e lesões de pressão."
+   },
+   {
+    "label": "Dever",
+    "text": "Notificar e comunicar às autoridades."
+   },
+   {
+    "label": "Rede",
+    "text": "Ação intersetorial e controle social."
+   },
+   {
+    "label": "Plano",
+    "text": "Trabalhar com a equipe da instituição."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

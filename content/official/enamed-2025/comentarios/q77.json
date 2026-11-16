@@ -1,0 +1,78 @@
+{
+ "area_id": "mfc",
+ "competency_id": "sus",
+ "theme": "Interculturalidade na atenção primária",
+ "scenario": "Território",
+ "difficulty": "medio",
+ "quick": "Em comunidades ribeirinhas e indígenas, a equipe promove espaços formativos que reconhecem os saberes e as práticas das populações. Alternativa B.",
+ "reasoning": "Primeiro passo: entender os dois relatos. A mulher ribeirinha que evita contato visual e responde com monossílabos e o indígena que exige a presença do pajé mostram diferenças culturais na relação com o cuidado, e não falta de colaboração. Segundo passo: lembrar os princípios da atenção primária. Ela deve ser orientada pela integralidade, pelo vínculo e pelo respeito à cultura e aos modos de vida da população. Terceiro passo: escolher a abordagem. A educação permanente da equipe, reconhecendo os saberes e as práticas das populações atendidas, fortalece a comunicação e o cuidado em contexto intercultural. Quarto passo: descartar as outras. Padronizar rotinas e comunicação técnica, ou uniformizar o atendimento, ignora as diferenças. Reforçar apenas a autonomia profissional, mantendo condutas baseadas em evidência sem diálogo, não resolve a barreira cultural.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Padronizar rotinas e usar comunicação técnica e objetiva ignora as diferenças culturais e aumenta a barreira de comunicação."
+  },
+  {
+   "index": 2,
+   "why": "Reforçar a autonomia da médica e manter a conduta sem diálogo não reconhece o saber local, que é parte do cuidado."
+  },
+  {
+   "index": 3,
+   "why": "Rotinas uniformes para ribeirinhos e indígenas ignoram a diversidade cultural entre os grupos e entre as comunidades."
+  }
+ ],
+ "tip": "Cuidado intercultural: reconheça saberes locais, inclua curandeiros e parteiras e eduque a equipe.",
+ "pearl": "Aceitar a presença do pajé ou de um acompanhante de confiança aumenta a adesão e a segurança do paciente.",
+ "competency_note": "Praticar competência cultural na atenção a populações tradicionais.",
+ "claims": [
+  {
+   "claim": "A atenção básica deve considerar as especificidades locais e culturais da população e promover a educação permanente das equipes.",
+   "source_id": "pnab-2017",
+   "locator": "Princípios e diretrizes e educação permanente"
+  }
+ ],
+ "key_why": "O reconhecimento dos saberes e das práticas locais, por meio de formação da equipe, fortalece o vínculo e a qualidade do cuidado.",
+ "theory": {
+  "title": "Saúde de populações tradicionais",
+  "intro": "Povos indígenas, ribeirinhos e outras populações tradicionais têm modos próprios de entender saúde e doença.",
+  "sections": [
+   {
+    "heading": "Princípios",
+    "items": [
+     "Respeito à cultura e aos saberes tradicionais",
+     "Integração entre o cuidado biomédico e as práticas locais",
+     "Presença de agentes e mediadores da comunidade",
+     "Educação permanente da equipe"
+    ]
+   },
+   {
+    "heading": "Na prática",
+    "body": "Aceitar a presença de acompanhantes e líderes, adaptar a comunicação e valorizar o vínculo."
+   }
+  ]
+ },
+ "summary": {
+  "title": "Interculturalidade",
+  "points": [
+   {
+    "label": "Princípio",
+    "text": "Reconhecer saberes e práticas locais."
+   },
+   {
+    "label": "Equipe",
+    "text": "Educação permanente para o cuidado intercultural."
+   },
+   {
+    "label": "Comunicação",
+    "text": "Adaptada à cultura, sem padronização rígida."
+   },
+   {
+    "label": "Vínculo",
+    "text": "Base da adesão e da qualidade."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

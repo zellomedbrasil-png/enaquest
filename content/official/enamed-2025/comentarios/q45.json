@@ -1,0 +1,84 @@
+{
+ "area_id": "coletiva",
+ "competency_id": "decisao",
+ "theme": "Tosse em pessoa privada de liberdade",
+ "scenario": "Unidade prisional",
+ "difficulty": "facil",
+ "quick": "Pessoa em regime fechado com tosse: solicitar radiografia de tórax e pesquisa laboratorial de M. tuberculosis e garantir o tratamento se positivo. Alternativa B.",
+ "reasoning": "Primeiro passo: reconhecer o grupo de risco. Pessoas privadas de liberdade têm risco muito maior de tuberculose que a população geral, por causa da aglomeração e da ventilação precária. Segundo passo: lembrar a busca ativa. Nesses locais, qualquer tosse deve levantar a suspeita e iniciar a investigação, sem esperar três semanas. Terceiro passo: investigar. Pede-se radiografia de tórax e pesquisa de bacilo, com teste rápido molecular e baciloscopia, e, se positivo, garante-se o tratamento diretamente observado. Quarto passo: descartar as outras alternativas. Internação hospitalar não é rotina. Esperar três semanas, como na alternativa D, atrasa o diagnóstico em ambiente de transmissão. Internação social não é necessária para garantir o tratamento supervisionado dentro da unidade.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "A internação clínica não é rotina para investigar tuberculose; o diagnóstico e o tratamento são feitos na unidade e no serviço de saúde do sistema prisional."
+  },
+  {
+   "index": 2,
+   "why": "A internação social não é necessária: o tratamento supervisionado é feito na própria unidade prisional."
+  },
+  {
+   "index": 3,
+   "why": "Esperar três semanas de tosse atrasa o diagnóstico em população de alto risco; nesses locais a investigação começa com tosse de qualquer duração."
+  }
+ ],
+ "tip": "Pessoa privada de liberdade com tosse: investigar logo, com radiografia, teste molecular e baciloscopia.",
+ "pearl": "Em populações de alto risco, o critério de sintomático respiratório é mais sensível que o de três semanas.",
+ "competency_note": "Aplicar busca ativa de tuberculose em população de alto risco.",
+ "claims": [
+  {
+   "claim": "A população privada de liberdade tem risco de adoecimento por tuberculose muito maior que a geral, e a busca ativa de sintomáticos respiratórios deve ser feita de forma sistemática.",
+   "source_id": "ms-tb-2019",
+   "locator": "Populações vulneráveis: pessoas privadas de liberdade"
+  }
+ ],
+ "key_why": "Em pessoa privada de liberdade, tosse deve ser investigada de imediato com radiografia e exame de escarro, com tratamento garantido se positivo.",
+ "theory": {
+  "title": "Tuberculose no sistema prisional",
+  "intro": "A tuberculose é muito mais frequente entre pessoas privadas de liberdade, o que exige busca ativa e diagnóstico precoce.",
+  "sections": [
+   {
+    "heading": "Busca ativa",
+    "items": [
+     "Rastrear sintomáticos respiratórios na entrada e periodicamente",
+     "Investigar tosse sem esperar três semanas"
+    ]
+   },
+   {
+    "heading": "Investigação",
+    "items": [
+     "Teste rápido molecular e baciloscopia",
+     "Radiografia de tórax",
+     "Cultura quando indicada"
+    ]
+   },
+   {
+    "heading": "Tratamento",
+    "body": "Esquema básico, diretamente observado, com acompanhamento dos contatos."
+   }
+  ]
+ },
+ "summary": {
+  "title": "Tuberculose em presídio",
+  "points": [
+   {
+    "label": "Risco",
+    "text": "Muito maior que na população geral."
+   },
+   {
+    "label": "Sintomático",
+    "text": "Tosse deve ser investigada sem esperar três semanas."
+   },
+   {
+    "label": "Exames",
+    "text": "Teste molecular, baciloscopia e radiografia."
+   },
+   {
+    "label": "Tratamento",
+    "text": "Observado diretamente, na própria unidade."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": "Conferir no manual o critério de sintomático respiratório em pessoas privadas de liberdade."
+}

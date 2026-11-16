@@ -1,0 +1,91 @@
+{
+ "area_id": "cirurgia",
+ "competency_id": "hipotese",
+ "theme": "Apendicite aguda em mulher jovem",
+ "scenario": "UPA",
+ "difficulty": "medio",
+ "quick": "Dor que migra do epigástrio para a fossa ilíaca direita, febre, leucocitose com desvio e defesa: apendicite. Pede-se ultrassonografia e parecer cirúrgico: alternativa D.",
+ "reasoning": "Primeiro passo: reconhecer a história clássica. Dor epigástrica que migra para a fossa ilíaca direita, anorexia, náuseas e febre, com descompressão brusca dolorosa e leucocitose com bastonetes, formam o quadro de apendicite aguda. Segundo passo: considerar o diferencial em mulher em idade fértil. O beta-hCG negativo afasta gestação ectópica, e a piúria discreta e hematúria podem ocorrer por irritação do ureter pelo apêndice inflamado, sem significar infecção urinária. Terceiro passo: escolher o exame. Em mulher jovem, a ultrassonografia é o primeiro exame de imagem, pois evita radiação, e a tomografia é reservada para casos duvidosos. Quarto passo: encaminhar. O tratamento é cirúrgico ou conservador com antibiótico, definido pela equipe cirúrgica, por isso o parecer cirúrgico é necessário. Descartar o metotrexato, usado em gravidez ectópica, e o tratamento ambulatorial.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Tratar como infecção urinária ignora o quadro de abdome agudo: a piúria discreta pode ocorrer por irritação ureteral pelo apêndice inflamado."
+  },
+  {
+   "index": 1,
+   "why": "Metotrexato trata gravidez ectópica, que está descartada pelo beta-hCG negativo; a tomografia não é o primeiro exame em mulher jovem."
+  },
+  {
+   "index": 2,
+   "why": "Antibiótico e acompanhamento ambulatorial são inadequados em paciente com sinal de irritação peritoneal."
+  }
+ ],
+ "tip": "Dor que migra para a fossa ilíaca direita com febre e leucocitose: apendicite, até prova em contrário.",
+ "pearl": "Leucócitos e hemácias discretos na urina não excluem apendicite; o apêndice inflamado irrita o ureter.",
+ "competency_note": "Conduzir dor em fossa ilíaca direita em mulher em idade fértil.",
+ "claims": [
+  {
+   "claim": "O diagnóstico de apendicite aguda combina quadro clínico, exames laboratoriais e imagem, e a ultrassonografia é o primeiro exame em mulheres jovens e crianças, sem radiação.",
+   "source_id": "wses-apendicite-2020",
+   "locator": "Diagnóstico por imagem"
+  },
+  {
+   "claim": "O tratamento da apendicite é cirúrgico ou conservador com antibiótico, a depender da avaliação do cirurgião.",
+   "source_id": "wses-apendicite-2020",
+   "locator": "Tratamento"
+  }
+ ],
+ "key_why": "A história típica, o exame com irritação peritoneal e o hemograma sugerem apendicite, que se confirma com ultrassonografia e é conduzida com a cirurgia.",
+ "theory": {
+  "title": "Apendicite aguda",
+  "intro": "É a causa mais frequente de abdome agudo cirúrgico. O diagnóstico é clínico, apoiado por laboratório e imagem.",
+  "sections": [
+   {
+    "heading": "Quadro",
+    "items": [
+     "Dor epigástrica ou periumbilical que migra para a fossa ilíaca direita",
+     "Anorexia, náuseas e febre baixa",
+     "Descompressão brusca dolorosa no ponto de McBurney"
+    ]
+   },
+   {
+    "heading": "Exames",
+    "items": [
+     "Hemograma com leucocitose e desvio à esquerda",
+     "Ultrassonografia como primeiro exame em mulher jovem",
+     "Tomografia quando há dúvida",
+     "Beta-hCG em mulher em idade fértil"
+    ]
+   },
+   {
+    "heading": "Conduta",
+    "body": "Parecer da cirurgia. O tratamento é apendicectomia ou, em casos selecionados, antibiótico isolado."
+   }
+  ]
+ },
+ "summary": {
+  "title": "Apendicite",
+  "points": [
+   {
+    "label": "Quadro",
+    "text": "Dor migratória para fossa ilíaca direita, febre, anorexia."
+   },
+   {
+    "label": "Exames",
+    "text": "Leucocitose e ultrassonografia em mulher jovem."
+   },
+   {
+    "label": "Cuidado",
+    "text": "Beta-hCG para afastar gravidez ectópica."
+   },
+   {
+    "label": "Conduta",
+    "text": "Parecer cirúrgico e tratamento definido pelo cirurgião."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

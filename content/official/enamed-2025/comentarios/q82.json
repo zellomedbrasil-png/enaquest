@@ -1,0 +1,86 @@
+{
+ "area_id": "go",
+ "competency_id": "terapeutica",
+ "theme": "Colo curto e prevenção de parto prematuro",
+ "scenario": "UBS",
+ "difficulty": "medio",
+ "quick": "Colo de 1,5 cm com 23 semanas, em gestante com parto prematuro anterior: progesterona vaginal 200 mg ao dia até 36 semanas. Alternativa D.",
+ "reasoning": "Primeiro passo: avaliar o risco. A paciente teve parto prematuro anterior, com trabalho de parto rápido com 28 semanas, e agora, na ultrassonografia, mostra colo de 1,5 cm, abaixo do limite de 25 mm. Isso define alto risco de parto prematuro. Segundo passo: escolher a prevenção. A progesterona micronizada por via vaginal, na dose de 200 mg ao dia, reduz o risco de parto prematuro em mulheres com colo curto, iniciada entre 16 e 24 semanas e mantida até 36 semanas. Terceiro passo: descartar as outras. A pesquisa do estreptococo do grupo B é feita entre 35 e 37 semanas, e não aos 28. O atosiban é tocolítico para trabalho de parto ativo, e não para prevenção. O nifedipino também é tocolítico de uso agudo e não por semanas até o termo.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "A pesquisa de estreptococo do grupo B é feita entre 35 e 37 semanas, e não com 28 semanas; não previne parto prematuro."
+  },
+  {
+   "index": 1,
+   "why": "O atosiban é tocolítico de uso agudo em trabalho de parto, e não para prevenção contínua por semanas."
+  },
+  {
+   "index": 2,
+   "why": "O nifedipino é tocolítico de uso agudo e não deve ser mantido até 39 semanas como prevenção."
+  }
+ ],
+ "tip": "Colo menor que 25 mm antes de 24 semanas: progesterona vaginal 200 mg ao dia até 36 semanas.",
+ "pearl": "A progesterona não trata trabalho de parto prematuro já iniciado; ela previne.",
+ "competency_note": "Indicar prevenção do parto prematuro em colo curto.",
+ "claims": [
+  {
+   "claim": "Em gestantes com colo curto, menor que 25 mm, entre 16 e 24 semanas, recomenda-se progesterona vaginal para reduzir parto prematuro.",
+   "source_id": "pm-38754603",
+   "locator": "Recomendações"
+  },
+  {
+   "claim": "A progesterona vaginal é indicada na prevenção do parto prematuro em gestantes de alto risco, como as com parto prematuro anterior ou colo curto.",
+   "source_id": "ms-gar-2022",
+   "locator": "Parto prematuro"
+  }
+ ],
+ "key_why": "Colo curto com antecedente de prematuridade indica progesterona vaginal até 36 semanas.",
+ "theory": {
+  "title": "Prevenção do parto prematuro",
+  "intro": "O parto prematuro ocorre antes de 37 semanas, e é a principal causa de morte neonatal.",
+  "sections": [
+   {
+    "heading": "Fatores de risco",
+    "items": [
+     "Parto prematuro anterior",
+     "Colo curto, menor que 25 mm, na ultrassonografia morfológica",
+     "Gestação múltipla, infecções e cirurgias do colo"
+    ]
+   },
+   {
+    "heading": "Prevenção",
+    "items": [
+     "Progesterona vaginal de 16 a 24 semanas até 36 semanas",
+     "Cerclagem em casos selecionados",
+     "Tocolíticos só para trabalho de parto ativo, por tempo curto"
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "title": "Colo curto",
+  "points": [
+   {
+    "label": "Definição",
+    "text": "Menor que 25 mm antes de 24 semanas."
+   },
+   {
+    "label": "Prevenção",
+    "text": "Progesterona vaginal até 36 semanas."
+   },
+   {
+    "label": "Tocolítico",
+    "text": "Uso agudo, e não prevenção."
+   },
+   {
+    "label": "Outros",
+    "text": "Cerclagem em casos selecionados."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

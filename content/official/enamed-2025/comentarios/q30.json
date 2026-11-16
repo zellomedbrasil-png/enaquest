@@ -1,0 +1,85 @@
+{
+ "area_id": "pediatria",
+ "competency_id": "terapeutica",
+ "theme": "Fimose patológica com balanopostite de repetição",
+ "scenario": "UBS",
+ "difficulty": "medio",
+ "quick": "Anel fibrótico no prepúcio e balanopostites repetidas indicam fimose patológica com fibrose: há indicação cirúrgica. Alternativa C.",
+ "reasoning": "Primeiro passo: separar fimose fisiológica de patológica. A fimose é fisiológica em crianças pequenas, e o prepúcio costuma se retrair sozinho até os 3 a 4 anos. Segundo passo: avaliar o caso. A criança tem 6 anos, balanopostites recorrentes desde 1 ano e um anel fibrótico ao tracionar o prepúcio, o que indica fimose patológica com fibrose. Terceiro passo: escolher o tratamento. Quando há anel fibrótico ou infecções recorrentes, o creme de corticoide tópico tende a falhar, e a indicação é cirúrgica, com postectomia. Quarto passo: descartar as alternativas. Exercícios de redução e higiene servem para fimose fisiológica. Esperar a adolescência não faz sentido com infecção recorrente. O corticoide tópico é primeira linha na fimose sem fibrose e sem infecção de repetição.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "A fimose fisiológica não tem anel fibrótico nem infecções de repetição e melhora com o crescimento; este caso já é patológico."
+  },
+  {
+   "index": 1,
+   "why": "Aguardar a adolescência mantém a criança com balanopostites recorrentes, que já são indicação cirúrgica."
+  },
+  {
+   "index": 3,
+   "why": "Corticoide tópico serve para fimose sem fibrose; com anel fibrótico e infecções recorrentes, a falha é provável e a cirurgia está indicada."
+  }
+ ],
+ "tip": "Anel fibrótico, balanopostite de repetição ou infecção urinária: fimose patológica e cirurgia.",
+ "pearl": "Corticoide tópico funciona na fimose sem fibrose; anel esbranquiçado e rígido indica cirurgia.",
+ "competency_note": "Diferenciar fimose fisiológica de patológica e indicar o tratamento.",
+ "claims": [
+  {
+   "claim": "A fimose fisiológica é comum na primeira infância e o tratamento clínico com corticoide tópico é indicado na fimose sem fibrose; a postectomia é reservada para falha do tratamento ou presença de anel fibrótico e infecções recorrentes.",
+   "source_id": "pm-12580737",
+   "locator": "Resumo"
+  }
+ ],
+ "key_why": "O anel fibrótico e as balanopostites recorrentes definem fimose patológica com indicação de cirurgia.",
+ "theory": {
+  "title": "Fimose na criança",
+  "intro": "A fimose é a dificuldade de expor a glande. Na infância é frequentemente fisiológica, e o prepúcio costuma se soltar sozinho com a idade.",
+  "sections": [
+   {
+    "heading": "Quando é fisiológica",
+    "items": [
+     "Prepúcio com mucosa elástica, sem anel fibrótico",
+     "Sem infecções de repetição",
+     "Higiene e observação"
+    ]
+   },
+   {
+    "heading": "Quando é patológica",
+    "items": [
+     "Anel fibrótico esbranquiçado que impede a exposição",
+     "Balanopostite de repetição ou infecção urinária recorrente",
+     "Em casos sem fibrose, tentar corticoide tópico antes da cirurgia"
+    ]
+   },
+   {
+    "heading": "Cirurgia",
+    "body": "A postectomia é indicada na fimose patológica com fibrose ou quando o tratamento clínico falha."
+   }
+  ]
+ },
+ "summary": {
+  "title": "Fimose em criança",
+  "points": [
+   {
+    "label": "Fisiológica",
+    "text": "Sem fibrose nem infecções; observar."
+   },
+   {
+    "label": "Patológica",
+    "text": "Anel fibrótico ou balanopostite recorrente."
+   },
+   {
+    "label": "Sem fibrose",
+    "text": "Tentar corticoide tópico."
+   },
+   {
+    "label": "Com fibrose",
+    "text": "Postectomia."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": "Fonte de apoio de baixa força; conferir recomendação com diretriz de urologia pediátrica."
+}

@@ -1,0 +1,86 @@
+{
+ "area_id": "mfc",
+ "competency_id": "decisao",
+ "theme": "Critérios de referência ao pré-natal de alto risco",
+ "scenario": "UBS",
+ "difficulty": "medio",
+ "quick": "Questão anulada. A gestação gemelar dicoriônica diamniótica é critério de referência ao pré-natal de alto risco; a alternativa sobre anemia traz a unidade errada, o que contribuiu para a anulação.",
+ "reasoning": "Primeiro passo: lembrar os critérios de referência. A gestação gemelar é situação de alto risco, pelo maior risco de parto prematuro, restrição de crescimento e pré-eclâmpsia, e precisa de acompanhamento em serviço especializado, mesmo quando as placentas são separadas. Segundo passo: analisar as outras. A malária no terceiro trimestre exige tratamento e acompanhamento, mas não é, por si só, critério de pré-natal de alto risco. A anemia é de alto risco quando grave, e a alternativa cita 9,5 mg/dL de hemoglobina, uma unidade incorreta, pois a hemoglobina se mede em g/dL, o que torna a afirmação ambígua. O diabetes gestacional controlado só com dieta é acompanhado na atenção primária, com apoio. Terceiro passo: entender a anulação. A unidade incorreta na alternativa B e a possibilidade de discutir os critérios nas outras alternativas levaram a banca a anular a questão.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "A malária no terceiro trimestre exige tratamento e vigilância, mas não é critério isolado de pré-natal de alto risco."
+  },
+  {
+   "index": 1,
+   "why": "A alternativa cita a hemoglobina em mg/dL, unidade errada; a anemia só é de alto risco quando grave, e 9,5 g/dL é anemia leve a moderada, tratada na atenção primária."
+  },
+  {
+   "index": 2,
+   "why": "É a alternativa que melhor corresponde a um critério de pré-natal de alto risco, mas a banca anulou a questão por problemas na redação das demais."
+  },
+  {
+   "index": 3,
+   "why": "O diabetes gestacional controlado só com dieta pode ser acompanhado na atenção primária, com apoio do especialista."
+  }
+ ],
+ "tip": "Gestação gemelar é critério de pré-natal de alto risco; diabetes gestacional controlado com dieta e anemia leve seguem na atenção primária.",
+ "pearl": "Leia as unidades com atenção: hemoglobina se mede em g/dL.",
+ "competency_note": "Reconhecer critérios de referência ao pré-natal de alto risco.",
+ "claims": [
+  {
+   "claim": "A gestação múltipla é condição que indica acompanhamento em pré-natal de alto risco.",
+   "source_id": "ms-gar-2022",
+   "locator": "Critérios de encaminhamento ao pré-natal de alto risco"
+  },
+  {
+   "claim": "O pré-natal de baixo risco é conduzido na atenção primária, que encaminha as gestantes com fatores de risco para serviços especializados.",
+   "source_id": "ms-prenatal-2012",
+   "locator": "Classificação de risco gestacional"
+  }
+ ],
+ "theory": {
+  "title": "Pré-natal de alto risco",
+  "intro": "A classificação de risco define se a gestante é acompanhada na atenção primária ou em serviço especializado.",
+  "sections": [
+   {
+    "heading": "Exemplos de alto risco",
+    "items": [
+     "Gestação múltipla",
+     "Hipertensão crônica ou pré-eclâmpsia",
+     "Diabetes pré-gestacional ou gestacional com insulina",
+     "Cardiopatias e outras doenças maternas graves"
+    ]
+   },
+   {
+    "heading": "Baixo risco",
+    "body": "A atenção primária acompanha, com consultas e exames de rotina, e a gestante pode ser encaminhada se surgirem fatores de risco."
+   }
+  ]
+ },
+ "summary": {
+  "title": "Risco gestacional",
+  "points": [
+   {
+    "label": "Alto risco",
+    "text": "Gestação múltipla, hipertensão, diabetes com insulina, doenças graves."
+   },
+   {
+    "label": "Baixo risco",
+    "text": "Atenção primária."
+   },
+   {
+    "label": "Cuidado",
+    "text": "Reavaliar o risco a cada consulta."
+   },
+   {
+    "label": "Leitura",
+    "text": "Atenção às unidades dos exames."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": "Anulada. Conferir qual alternativa a banca considerava correta antes da anulação."
+}

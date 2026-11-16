@@ -1,3 +1,4 @@
+import { toPublicQuestion } from "./questions";
 import "server-only";
 import { admin } from "@/lib/supabase/admin";
 import { AppError } from "./session";
@@ -53,6 +54,8 @@ export async function getLotReview(lotId: string) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const items = (questions ?? []).map((question: any) => ({
     question,
+    // Figuras com a URL pública resolvida, como o aluno vê.
+    images: toPublicQuestion(question).images,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     key: (keys ?? []).find((k: any) => k.question_id === question.id)?.correct_index,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

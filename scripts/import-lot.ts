@@ -5,7 +5,8 @@
 // Com --enrich-only, só grava o material de estudo (key_why, theory, summary) das questões que já
 // existem, sem tocar em status, enunciado ou gabarito. É o jeito seguro de atualizar questões publicadas.
 import { config } from "dotenv";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
+import { join } from "node:path";
 import { createClient } from "@supabase/supabase-js";
 import { LotSchema } from "./pipeline/schema";
 import { lintLot } from "./pipeline/lint";
@@ -72,6 +73,16 @@ async function main() {
         key_url: exam.key_url ?? null,
       }),
     );
+  }
+
+  // Figuras do enunciado: arquivo em content/media/<src>, enviado ao bucket público question-media.
+  for (const image of lot.questions.flatMap((q) => q.images ?? [])) {
+    if (/^https?:\/\//.test(image.src)) continue;
+    const file = join("content", "media", image.src);
+    if (!existsSync(file)) throw new Error(`Figura não encontrada: ${file}`);
+    const type = image.src.endsWith(".png") ? "image/png" : "image/jpeg";
+    const { error } = await db.storage.from("question-media").upload(image.src, readFileSync(file), { upsert: true, contentType: type });
+    if (error) throw new Error(`Falha ao enviar ${image.src}: ${error.message}`);
   }
 
   await check(db.from("sources").upsert(lot.sources));

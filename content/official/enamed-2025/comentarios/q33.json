@@ -1,0 +1,87 @@
+{
+ "area_id": "coletiva",
+ "competency_id": "decisao",
+ "theme": "Reinício de tratamento da tuberculose após abandono",
+ "scenario": "UBS",
+ "difficulty": "medio",
+ "quick": "Retorno após abandono com TRM-TB negativo e baciloscopia positiva: pedir cultura com teste de sensibilidade e reiniciar o esquema básico enquanto aguarda. Alternativa C.",
+ "reasoning": "Primeiro passo: reconhecer o contexto. O paciente abandonou o tratamento da tuberculose por cerca de 2 meses e volta para reiniciar. Isso é reingresso após abandono, que exige investigar resistência. Segundo passo: lembrar a rotina. Todo caso de retratamento deve fazer TRM-TB, baciloscopia, cultura e teste de sensibilidade. Terceiro passo: interpretar os resultados. TRM-TB positivo e sem resistência à rifampicina permite reiniciar o esquema básico. Quando o TRM-TB é negativo e a baciloscopia é positiva, pode ser micobactéria não tuberculosa ou erro, então pede-se cultura com teste de sensibilidade e se reinicia o esquema básico enquanto se aguarda. Quarto passo: descartar as outras. TRM-TB positivo com resistência à rifampicina exige encaminhamento à referência terciária para esquema especial, e não o esquema básico. Baciloscopia negativa não impede o reinício se o TRM-TB for positivo e houver clínica.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Reiniciar o esquema básico com TRM-TB positivo sem resistência é correto, mas a alternativa deixa de considerar a cultura, que é necessária em todo retratamento."
+  },
+  {
+   "index": 1,
+   "why": "Com TRM-TB negativo e baciloscopia positiva, a resistência à rifampicina não foi detectada; reiniciar só se houver resistência confirmada está errado."
+  },
+  {
+   "index": 3,
+   "why": "Resistência à rifampicina exige encaminhamento à referência para esquema especial, e não reinício do esquema básico."
+  }
+ ],
+ "tip": "Retratamento: sempre cultura e teste de sensibilidade, e esquema básico enquanto aguarda quando não há resistência à rifampicina.",
+ "pearl": "Resistência à rifampicina no TRM-TB é sinal de tuberculose multirresistente e muda o esquema.",
+ "competency_note": "Conduzir reingresso após abandono no tratamento da tuberculose.",
+ "claims": [
+  {
+   "claim": "No retratamento da tuberculose, devem ser solicitados teste rápido molecular, baciloscopia, cultura e teste de sensibilidade, e o esquema básico é reiniciado enquanto se aguarda o resultado quando não há resistência à rifampicina.",
+   "source_id": "ms-tb-2019",
+   "locator": "Retratamento e reingresso após abandono"
+  },
+  {
+   "claim": "Resistência à rifampicina no teste rápido molecular exige encaminhamento à unidade de referência.",
+   "source_id": "ms-tb-2019",
+   "locator": "Tuberculose resistente"
+  }
+ ],
+ "key_why": "Retratamento exige cultura com teste de sensibilidade, e o esquema básico é reiniciado enquanto se aguarda, desde que não haja resistência à rifampicina.",
+ "theory": {
+  "title": "Reingresso após abandono na tuberculose",
+  "intro": "O abandono de tratamento aumenta o risco de resistência e de recidiva e exige investigação diferente do caso novo.",
+  "sections": [
+   {
+    "heading": "Exames",
+    "items": [
+     "Teste rápido molecular com pesquisa de resistência à rifampicina",
+     "Baciloscopia",
+     "Cultura com teste de sensibilidade",
+     "Radiografia de tórax"
+    ]
+   },
+   {
+    "heading": "Conduta",
+    "items": [
+     "Sem resistência à rifampicina: reiniciar o esquema básico e aguardar cultura",
+     "Com resistência: encaminhar à referência terciária para esquema especial",
+     "Tratamento diretamente observado e apoio psicossocial"
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "title": "Retratamento da tuberculose",
+  "points": [
+   {
+    "label": "Exames",
+    "text": "TRM-TB, baciloscopia, cultura e teste de sensibilidade."
+   },
+   {
+    "label": "Sem resistência",
+    "text": "Reiniciar esquema básico e aguardar cultura."
+   },
+   {
+    "label": "Com resistência",
+    "text": "Referência terciária."
+   },
+   {
+    "label": "Apoio",
+    "text": "Tratamento observado e cuidado psicossocial."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": "Alternativa C cobre baciloscopia positiva com TRM negativo; conferir o fluxograma do manual."
+}

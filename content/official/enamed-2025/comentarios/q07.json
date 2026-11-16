@@ -1,0 +1,114 @@
+{
+ "area_id": "mental",
+ "competency_id": "urgencia",
+ "theme": "Distonia aguda por antipsicótico",
+ "scenario": "UPA",
+ "difficulty": "medio",
+ "quick": "Questão anulada. O quadro é de distonia aguda pelo haloperidol, tratada com anticolinérgico ou anti-histamínico parenteral. As alternativas A e D descrevem diagnóstico e conduta aceitáveis, o que deixou a questão sem resposta única.",
+ "reasoning": "Primeiro passo: identificar o gatilho. O paciente trocou risperidona, um atípico de menor risco extrapiramidal, por haloperidol, um típico de alta potência, há 5 dias. Segundo passo: caracterizar o quadro. Ele acordou com contratura cervical e fácies de dor, sem febre nem alteração de consciência. Isso é torcicolo doloroso, a forma clássica de distonia aguda, e afasta síndrome neuroléptica maligna. Terceiro passo: situar o tempo e o perfil. A distonia aguda aparece nos primeiros dias de uso, e o paciente é um homem jovem, o que reforça a hipótese. Acatisia não cursa com contratura, e discinesia tardia exige meses ou anos de exposição. Quarto passo: escolher o tratamento. A distonia responde a anticolinérgico parenteral, como o biperideno, ou a anti-histamínico com ação anticolinérgica, como a prometazina. Quinto passo: comparar as alternativas. A alternativa A traz o diagnóstico específico e um tratamento eficaz. A alternativa D usa o termo do grupo, síndrome extrapiramidal, que também descreve o quadro, e propõe outro tratamento eficaz e bastante usado nas urgências brasileiras. Por isso a banca anulou a questão.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Distonia é o diagnóstico específico do quadro, e o biperideno intramuscular é um anticolinérgico eficaz para revertê-lo. A alternativa é coerente, mas não pode ser tomada como única resposta, porque D também descreve o quadro e propõe tratamento eficaz."
+  },
+  {
+   "index": 1,
+   "why": "Acatisia é inquietação motora com sensação de não conseguir ficar parado, sem contratura dolorosa. Além disso, dar mais haloperidol pioraria qualquer efeito extrapiramidal. Diagnóstico e conduta estão errados."
+  },
+  {
+   "index": 2,
+   "why": "Discinesia tardia surge após meses ou anos de antipsicótico, com movimentos coreiformes orofaciais, e não 5 dias depois com contratura cervical. Diazepam intramuscular não é o tratamento de escolha nem desse quadro nem da distonia aguda, que responde a anticolinérgico."
+  },
+  {
+   "index": 3,
+   "why": "Síndrome extrapiramidal é o termo do grupo e engloba a distonia aguda, portanto não está errado, apenas é menos específico. A prometazina, por sua ação anti-histamínica e anticolinérgica, reverte a distonia e é muito usada nas urgências. Por isso esta alternativa também é defensável, o que motivou a anulação."
+  }
+ ],
+ "tip": "Antipsicótico novo ou dose aumentada há poucos dias, homem jovem e contratura dolorosa de pescoço, olhos ou língua: pense em distonia aguda e trate com anticolinérgico ou anti-histamínico parenteral.",
+ "pearl": "Discinesia tardia não melhora com anticolinérgico e pode até piorar. Distonia aguda responde em minutos. Na distonia laríngea, com estridor, a prioridade é proteger a via aérea e dar o anticolinérgico parenteral imediatamente.",
+ "competency_note": "Avaliou o reconhecimento de efeito adverso agudo de antipsicótico típico na urgência e a escolha do tratamento parenteral adequado.",
+ "claims": [
+  {
+   "claim": "Antipsicóticos típicos de alta potência, como o haloperidol, têm maior risco de efeitos extrapiramidais, entre eles a distonia aguda.",
+   "source_id": "ms-mental-2013",
+   "locator": "Capítulo sobre psicofármacos na atenção básica, seção de antipsicóticos e efeitos adversos"
+  },
+  {
+   "claim": "Efeitos extrapiramidais agudos de antipsicóticos são tratados com anticolinérgico, como o biperideno.",
+   "source_id": "ms-mental-2013",
+   "locator": "Capítulo sobre psicofármacos na atenção básica, seção de antipsicóticos e manejo de efeitos extrapiramidais"
+  },
+  {
+   "claim": "Discinesia tardia é efeito de uso prolongado de antipsicóticos, com movimentos involuntários orofaciais.",
+   "source_id": "ms-mental-2013",
+   "locator": "Capítulo sobre psicofármacos na atenção básica, seção de antipsicóticos e efeitos adversos"
+  }
+ ],
+ "theory": {
+  "title": "Distonia aguda por antipsicótico",
+  "intro": "Os antipsicóticos típicos de alta potência, como o haloperidol, bloqueiam fortemente os receptores D2 da via nigroestriatal. Esse bloqueio produz efeitos extrapiramidais. A distonia aguda é o efeito mais precoce e dramático do grupo e costuma aparecer em serviços de urgência.",
+  "sections": [
+   {
+    "heading": "Quando suspeitar",
+    "body": "Contração muscular involuntária, sustentada e dolorosa que surge de horas a poucos dias após iniciar o antipsicótico ou aumentar sua dose. O risco é maior em homens jovens e com fármacos típicos de alta potência.",
+    "items": [
+     "Torcicolo ou retrocolo",
+     "Crise oculógira, com os olhos desviados para cima",
+     "Protrusão de língua, trismo e opistótono",
+     "Distonia laríngea, rara, que ameaça a via aérea"
+    ]
+   },
+   {
+    "heading": "Como conduzir",
+    "body": "O tratamento é feito com anticolinérgico parenteral, como o biperideno intramuscular, ou com anti-histamínico de ação anticolinérgica, como a prometazina ou a difenidramina. A resposta costuma vir em minutos. Depois disso, mantém-se o anticolinérgico por via oral por alguns dias e reavalia-se o esquema antipsicótico: reduzir a dose ou voltar a um fármaco de menor risco extrapiramidal. O benzodiazepínico pode ser usado como adjuvante, mas não é a primeira escolha."
+   },
+   {
+    "heading": "Diferenciais extrapiramidais",
+    "items": [
+     "Acatisia: inquietação subjetiva e motora, sem contratura. Trata-se reduzindo a dose; propranolol ou benzodiazepínico ajudam.",
+     "Parkinsonismo: rigidez, bradicinesia e tremor, em semanas. Responde a anticolinérgico.",
+     "Discinesia tardia: movimentos coreiformes orofaciais após meses ou anos de uso. Não melhora com anticolinérgico.",
+     "Síndrome neuroléptica maligna: febre, rigidez, alteração de consciência e CPK elevada. É uma emergência."
+    ]
+   }
+  ],
+  "alert": "Síndrome extrapiramidal é o nome do grupo inteiro, e a distonia aguda é uma de suas formas. Como biperideno e prometazina tratam o quadro, a questão admitiu duas leituras e acabou anulada."
+ },
+ "summary": {
+  "title": "Distonia aguda: revisão rápida",
+  "points": [
+   {
+    "label": "Conceito",
+    "text": "Contratura muscular involuntária e dolorosa causada pelo bloqueio D2 nigroestriatal."
+   },
+   {
+    "label": "Tempo",
+    "text": "Surge em horas a poucos dias após iniciar ou aumentar o antipsicótico."
+   },
+   {
+    "label": "Fator de risco",
+    "text": "Homem jovem em uso de antipsicótico típico de alta potência, como o haloperidol."
+   },
+   {
+    "label": "Quadro",
+    "text": "Torcicolo, crise oculógira, trismo, opistótono e, raramente, distonia laríngea."
+   },
+   {
+    "label": "Conduta",
+    "text": "Anticolinérgico parenteral, como o biperideno, ou anti-histamínico, como a prometazina. Depois, manutenção oral e revisão do antipsicótico."
+   },
+   {
+    "label": "Diferencial",
+    "text": "Acatisia é inquietação; discinesia tardia aparece após meses ou anos; síndrome neuroléptica maligna tem febre e rigidez."
+   },
+   {
+    "label": "Anulação",
+    "text": "Distonia é um tipo de síndrome extrapiramidal e as duas drogas funcionam, por isso A e D são defensáveis."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

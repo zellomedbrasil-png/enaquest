@@ -1,0 +1,88 @@
+{
+ "area_id": "pediatria",
+ "competency_id": "urgencia",
+ "theme": "Hérnia diafragmática congênita na sala de parto",
+ "scenario": "Sala de parto",
+ "difficulty": "dificil",
+ "quick": "Recém-nascido com apneia, bradicardia, desvio do ictus à direita, abdome escavado e ruídos hidroaéreos no tórax esquerdo: hérnia diafragmática. Intubação traqueal e massagem cardíaca. Alternativa A.",
+ "reasoning": "Primeiro passo: reconhecer a hérnia diafragmática congênita à esquerda. O abdome escavado, os ruídos hidroaéreos no hemitórax esquerdo e o desvio do ictus para a direita mostram que as alças estão no tórax. Segundo passo: evitar o erro clássico. A ventilação com máscara e balão enche o intestino de ar, comprime o pulmão e piora a hipóxia. Por isso a conduta é intubação traqueal precoce. Terceiro passo: seguir o fluxo da reanimação. Se, depois de ventilação efetiva por via traqueal, a frequência cardíaca permanece abaixo de 60 por minuto, iniciam-se compressões torácicas, com oxigênio e, se necessário, adrenalina. Quarto passo: descartar as outras. Cateterismo umbilical e drenagem de tórax não são prioridade e podem perfurar vísceras. O óxido nítrico e o surfactante são usados na terapia intensiva, e não na sala de parto. A ventilação com balão é inadequada pelo risco de distender o estômago.",
+ "distractors": [
+  {
+   "index": 1,
+   "why": "Cateterismo umbilical é útil na reanimação, mas drenar o hemitórax esquerdo em hérnia diafragmática pode perfurar alças e é inadequado."
+  },
+  {
+   "index": 2,
+   "why": "Óxido nítrico e surfactante pertencem à terapia intensiva neonatal, e não ao atendimento na sala de parto."
+  },
+  {
+   "index": 3,
+   "why": "A ventilação com balão e máscara distende o estômago e as alças e agrava a compressão pulmonar na hérnia diafragmática."
+  }
+ ],
+ "tip": "Hérnia diafragmática: nada de ventilação com máscara; intubar logo e passar sonda gástrica.",
+ "pearl": "Abdome escavado e ruídos hidroaéreos no tórax em recém-nascido com desconforto: pense em hérnia diafragmática.",
+ "competency_note": "Adaptar a reanimação neonatal à hérnia diafragmática congênita.",
+ "claims": [
+  {
+   "claim": "No recém-nascido com hérnia diafragmática congênita, a intubação traqueal precoce é recomendada para evitar a ventilação com máscara, que distende o intestino.",
+   "source_id": "pm-27077664",
+   "locator": "Manejo na sala de parto"
+  },
+  {
+   "claim": "Na reanimação neonatal, as compressões torácicas são iniciadas quando a frequência cardíaca permanece abaixo de 60 por minuto depois de ventilação efetiva.",
+   "source_id": "aha-rn-2020",
+   "locator": "Algoritmo de reanimação neonatal"
+  }
+ ],
+ "key_why": "Na hérnia diafragmática, a ventilação por máscara é evitada, e o recém-nascido recebe intubação e, se a frequência cardíaca continuar baixa, compressões.",
+ "theory": {
+  "title": "Hérnia diafragmática congênita",
+  "intro": "Falha do fechamento do diafragma que permite a passagem das vísceras para o tórax e leva à hipoplasia pulmonar.",
+  "sections": [
+   {
+    "heading": "Sinais",
+    "items": [
+     "Desconforto respiratório e cianose logo ao nascer",
+     "Abdome escavado",
+     "Ruídos hidroaéreos no tórax, geralmente à esquerda",
+     "Desvio do ictus para o lado oposto"
+    ]
+   },
+   {
+    "heading": "Conduta na sala de parto",
+    "items": [
+     "Intubação traqueal precoce",
+     "Evitar ventilação com máscara e balão",
+     "Sonda orogástrica para descompressão",
+     "Compressões se a frequência cardíaca ficar abaixo de 60 por minuto"
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "title": "Hérnia diafragmática",
+  "points": [
+   {
+    "label": "Quadro",
+    "text": "Abdome escavado e ruídos hidroaéreos no tórax."
+   },
+   {
+    "label": "Evitar",
+    "text": "Máscara e balão."
+   },
+   {
+    "label": "Fazer",
+    "text": "Intubar e descomprimir o estômago."
+   },
+   {
+    "label": "Reanimação",
+    "text": "Compressões se a frequência cardíaca for menor que 60."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

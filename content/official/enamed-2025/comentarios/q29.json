@@ -1,0 +1,100 @@
+{
+ "area_id": "clinica",
+ "competency_id": "decisao",
+ "theme": "Contraindicação à trombólise no AVC isquêmico",
+ "scenario": "UPA",
+ "difficulty": "dificil",
+ "quick": "Hipodensidade extensa, maior que um terço do território da artéria cerebral média, é contraindicação à trombólise. Alternativa A.",
+ "reasoning": "Primeiro passo: situar o tempo. Os sintomas foram vistos 30 minutos antes da chegada, e o último momento sem déficit foi cerca de 90 minutos antes, o que deixa o paciente dentro da janela de 4,5 horas mesmo com a tomografia emitida às 3 horas. Segundo passo: conferir a pressão. A trombólise exige pressão abaixo de 185 x 110 mmHg antes de iniciar; 170 x 100 está no limite aceito e pode ser baixada. Terceiro passo: conferir a glicemia. A glicemia de 285 não contraindica; só valores abaixo de 50 mg/dL impedem, por poderem simular o déficit. Quarto passo: interpretar a tomografia. Hipodensidade em cerca de 40% do território da artéria cerebral média indica lesão já estabelecida e extensa, o que aumenta muito o risco de transformação hemorrágica e contraindica a trombólise. Por isso a alternativa A é a correta.",
+ "distractors": [
+  {
+   "index": 1,
+   "why": "A janela é de 4,5 horas a partir do último momento sem déficit; ele chegou dentro dela."
+  },
+  {
+   "index": 2,
+   "why": "Glicemia acima de 200 mg/dL não contraindica a trombólise; só a hipoglicemia abaixo de 50 mg/dL impede."
+  },
+  {
+   "index": 3,
+   "why": "A pressão de 170 x 100 mmHg está abaixo do limite de 185 x 110 mmHg e pode ser reduzida antes do tratamento."
+  }
+ ],
+ "tip": "Trombólise: janela de 4,5 horas, pressão abaixo de 185 x 110, glicemia acima de 50 e sem hipodensidade extensa na tomografia.",
+ "pearl": "Glicemia alta não impede a trombólise; hipoglicemia é que precisa ser corrigida antes, pois imita AVC.",
+ "competency_note": "Aplicar critérios de indicação e contraindicação à trombólise no AVC isquêmico.",
+ "claims": [
+  {
+   "claim": "A trombólise com alteplase é indicada até 4,5 horas do início dos sintomas, com pressão abaixo de 185 x 110 mmHg e glicemia acima de 50 mg/dL.",
+   "source_id": "aha-stroke-2019",
+   "locator": "Recomendações para trombólise intravenosa"
+  },
+  {
+   "claim": "A hipodensidade extensa na tomografia, indicando lesão estabelecida, é contraindicação à trombólise por risco de hemorragia.",
+   "source_id": "aha-stroke-2019",
+   "locator": "Contraindicações"
+  },
+  {
+   "claim": "No manejo do AVC isquêmico agudo, o tempo, a pressão arterial, a glicemia e a tomografia sem contraste orientam a indicação da trombólise.",
+   "source_id": "ms-avc-2013",
+   "locator": "Fluxo de atendimento do AVC"
+  }
+ ],
+ "key_why": "A extensão superior a um terço do território da artéria cerebral média na tomografia contraindica a trombólise, enquanto tempo, glicemia e pressão estão dentro dos limites.",
+ "theory": {
+  "title": "Trombólise no AVC isquêmico",
+  "intro": "A alteplase venosa recanaliza a artéria e melhora o desfecho quando indicada cedo e com segurança.",
+  "sections": [
+   {
+    "heading": "Indicação",
+    "items": [
+     "Até 4,5 horas do último momento sem déficit",
+     "Déficit neurológico incapacitante",
+     "Tomografia sem hemorragia e sem hipodensidade extensa"
+    ]
+   },
+   {
+    "heading": "Controles antes de iniciar",
+    "items": [
+     "Pressão abaixo de 185 x 110 mmHg",
+     "Glicemia acima de 50 mg/dL",
+     "Plaquetas e coagulação adequadas, quando há suspeita de alteração"
+    ]
+   },
+   {
+    "heading": "Contraindicações importantes",
+    "items": [
+     "Hemorragia intracraniana",
+     "Hipodensidade extensa, maior que um terço do território da artéria cerebral média",
+     "Cirurgia ou trauma graves recentes, uso de anticoagulante com coagulação alterada"
+    ]
+   }
+  ],
+  "alert": "Fibrilação atrial sem anticoagulação aumenta o risco de AVC e deve ser registrada na avaliação."
+ },
+ "summary": {
+  "title": "Trombólise no AVC",
+  "points": [
+   {
+    "label": "Janela",
+    "text": "4,5 horas do último momento sem déficit."
+   },
+   {
+    "label": "Pressão",
+    "text": "Abaixo de 185 x 110 mmHg."
+   },
+   {
+    "label": "Glicemia",
+    "text": "Acima de 50 mg/dL; hiperglicemia não contraindica."
+   },
+   {
+    "label": "Tomografia",
+    "text": "Sem hemorragia e sem hipodensidade extensa."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

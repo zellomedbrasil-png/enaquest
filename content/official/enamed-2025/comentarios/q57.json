@@ -1,0 +1,82 @@
+{
+ "area_id": "mental",
+ "competency_id": "decisao",
+ "theme": "Monitoramento do uso de metilfenidato",
+ "scenario": "UBS",
+ "difficulty": "medio",
+ "quick": "Criança em uso prolongado de metilfenidato: consultas periódicas com medida de altura, peso e pressão arterial, com reavaliação da necessidade do fármaco. Alternativa D.",
+ "reasoning": "Primeiro passo: lembrar os efeitos do metilfenidato. O estimulante pode reduzir o apetite, o ganho de peso e a velocidade de crescimento, e pode elevar a pressão e a frequência cardíaca. Segundo passo: definir o monitoramento. A diretriz recomenda medir altura, peso, pressão arterial e frequência cardíaca nas consultas de acompanhamento, a cada 3 a 6 meses. Terceiro passo: reavaliar. O uso é revisto periodicamente, com avaliação da necessidade de continuar ou tentar a retirada, por exemplo nas férias escolares. Quarto passo: descartar as outras. Dislipidemia não é efeito típico. Testes psicodinâmicos não medem efetividade. Hemograma e tireoide anuais não são rotina, e antipsicótico não é conduta para efeito colateral do metilfenidato.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Aumento de peso e dislipidemia não são efeitos típicos do metilfenidato, que reduz o apetite; o acompanhamento específico é de peso, altura e pressão."
+  },
+  {
+   "index": 1,
+   "why": "Testes psicodinâmicos não são instrumento padrão para avaliar efetividade; usa-se avaliação clínica e relatos de pais e escola."
+  },
+  {
+   "index": 2,
+   "why": "Hemograma e hormônios tireoidianos anuais não são monitoramento de rotina, e antipsicótico não trata efeito colateral do estimulante."
+  }
+ ],
+ "tip": "Metilfenidato: meça altura, peso, pressão e frequência cardíaca e reavalie a necessidade periodicamente.",
+ "pearl": "Estimulantes podem frear o crescimento e o ganho de peso, por isso o acompanhamento pondero-estatural é essencial.",
+ "competency_note": "Monitorar efeitos adversos do tratamento do TDAH.",
+ "claims": [
+  {
+   "claim": "No tratamento do TDAH com estimulantes, recomenda-se monitorar altura, peso, pressão arterial e frequência cardíaca, e reavaliar periodicamente a necessidade do medicamento.",
+   "source_id": "aap-tdah-2019",
+   "locator": "Monitoramento do tratamento"
+  }
+ ],
+ "key_why": "O monitoramento de altura, peso e pressão em consultas periódicas, com reavaliação da retirada, é a estratégia indicada.",
+ "theory": {
+  "title": "Tratamento do TDAH com metilfenidato",
+  "intro": "O metilfenidato é o estimulante mais usado e exige acompanhamento regular de seus efeitos.",
+  "sections": [
+   {
+    "heading": "Efeitos adversos",
+    "items": [
+     "Redução do apetite e do ganho de peso",
+     "Possível redução da velocidade de crescimento",
+     "Aumento da pressão arterial e da frequência cardíaca",
+     "Insônia e irritabilidade"
+    ]
+   },
+   {
+    "heading": "Acompanhamento",
+    "items": [
+     "Medir altura, peso, pressão e frequência cardíaca",
+     "Avaliar resposta com pais e escola",
+     "Reavaliar a necessidade e tentar pausas quando adequado"
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "title": "Metilfenidato",
+  "points": [
+   {
+    "label": "Monitorar",
+    "text": "Altura, peso, pressão e frequência cardíaca."
+   },
+   {
+    "label": "Efeitos",
+    "text": "Menos apetite e menor ganho de peso."
+   },
+   {
+    "label": "Revisão",
+    "text": "Avaliar periodicamente a necessidade."
+   },
+   {
+    "label": "Não é rotina",
+    "text": "Hemograma e tireoide anuais."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

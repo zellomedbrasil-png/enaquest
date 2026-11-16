@@ -20,6 +20,8 @@
     "content:import": "tsx scripts/import-lot.ts",
     "content:pipeline": "tsx scripts/pipeline/run.ts",
     "content:enrich": "tsx scripts/pipeline/enrich.ts",
+    "content:official": "tsx scripts/pipeline/official.ts",
+    "content:assemble": "tsx scripts/content/assemble-official.ts",
     "dev:publish-pilot": "tsx scripts/dev-publish-pilot.ts",
     "dev:make-admin": "tsx scripts/dev-make-admin.ts"
   },

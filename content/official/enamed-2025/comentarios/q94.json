@@ -1,0 +1,81 @@
+{
+ "area_id": "go",
+ "competency_id": "hipotese",
+ "theme": "Sangramento pós-menopausa com endométrio espessado",
+ "scenario": "UPA",
+ "difficulty": "dificil",
+ "quick": "Sangramento na pós-menopausa em obesa nulípara, com endométrio de 8 mm, aponta para proliferação endometrial. A banca considerou hiperplasia endometrial. Alternativa A.",
+ "reasoning": "Primeiro passo: reconhecer o sinal de alarme. Todo sangramento na pós-menopausa exige investigação do endométrio. Segundo passo: avaliar o risco. A paciente é obesa, nulípara e nunca usou reposição hormonal, o que aumenta a exposição ao estrogênio sem oposição, por conversão periférica no tecido adiposo. Terceiro passo: interpretar o ultrassom. Endométrio de 8 mm está acima do limite de cerca de 4 mm na pós-menopausa com sangramento, o que sugere hiperplasia ou neoplasia, e exige biópsia. Quarto passo: considerar as outras. O endométrio atrófico tem espessura abaixo de 4 mm. O câncer de colo é considerado pela lesão no orifício externo, mas a ectocérvice é normal. O leiomioma submucoso pode se exteriorizar pelo colo, e é um diferencial plausível, mas não explica o endométrio espessado e a obesidade com a mesma força. Por isso a banca escolheu hiperplasia endometrial.",
+ "distractors": [
+  {
+   "index": 1,
+   "why": "A ectocérvice está sem alterações, e a lesão polipoide está no canal; o câncer de colo não explica o endométrio espessado."
+  },
+  {
+   "index": 2,
+   "why": "Um leiomioma submucoso pode se exteriorizar pelo colo e é um diferencial plausível, mas não explica o endométrio espessado e o contexto de exposição estrogênica."
+  },
+  {
+   "index": 3,
+   "why": "O endométrio atrófico mede menos de 4 mm na pós-menopausa; aqui mede 8 mm."
+  }
+ ],
+ "tip": "Sangramento na pós-menopausa com endométrio acima de 4 mm: biópsia, pois pode ser hiperplasia ou câncer.",
+ "pearl": "Obesidade, nuliparidade e ausência de progesterona aumentam o risco de hiperplasia e câncer de endométrio.",
+ "competency_note": "Investigar sangramento na pós-menopausa.",
+ "claims": [
+  {
+   "claim": "No sangramento na pós-menopausa, a espessura endometrial acima de 4 mm exige investigação com biópsia, e a obesidade é fator de risco para hiperplasia e câncer de endométrio.",
+   "source_id": "pm-38901794",
+   "locator": "Avaliação do espessamento endometrial"
+  }
+ ],
+ "key_why": "Obesidade e espessamento endometrial de 8 mm com sangramento indicam proliferação endometrial, que precisa de biópsia.",
+ "theory": {
+  "title": "Sangramento na pós-menopausa",
+  "intro": "É sempre um sinal de alarme, pelo risco de câncer de endométrio.",
+  "sections": [
+   {
+    "heading": "Investigação",
+    "items": [
+     "Ultrassonografia transvaginal: endométrio acima de 4 mm exige investigação",
+     "Biópsia de endométrio ou histeroscopia",
+     "Avaliar pólipos e miomas como causas"
+    ]
+   },
+   {
+    "heading": "Causas",
+    "items": [
+     "Atrofia endometrial: a mais comum",
+     "Hiperplasia e câncer de endométrio",
+     "Pólipos e miomas"
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "title": "Pós-menopausa com sangramento",
+  "points": [
+   {
+    "label": "Regra",
+    "text": "Investigar sempre."
+   },
+   {
+    "label": "Ultrassom",
+    "text": "Endométrio acima de 4 mm exige biópsia."
+   },
+   {
+    "label": "Risco",
+    "text": "Obesidade e estrogênio sem oposição."
+   },
+   {
+    "label": "Causas",
+    "text": "Atrofia, hiperplasia, câncer, pólipo e mioma."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": "O quadro também é compatível com mioma submucoso parido, descrito no exame especular.",
+ "review_note": "Duas hipóteses defensáveis (hiperplasia e leiomioma submucoso); conferir o gabarito."
+}

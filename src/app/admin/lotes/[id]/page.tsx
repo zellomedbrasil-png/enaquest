@@ -1,3 +1,4 @@
+import { QuestionImages } from "@/components/QuestionView";
 import { approveLotAction, decideSampleAction, rejectLotAction } from "@/app/actions";
 import { getLotReview } from "@/lib/server/editorial";
 import { LETTERS } from "@/lib/ui/labels";
@@ -54,13 +55,19 @@ export default async function LotReviewPage({ params, searchParams }: { params: 
       {items.map((item: any, position: number) => (
         <article key={item.question.id} id={`q-${item.question.id}`} className="card">
           <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 8 }}>
-            <strong style={{ marginRight: "auto" }}>Amostra {position + 1}</strong>
+            <strong style={{ marginRight: "auto" }}>
+              Amostra {position + 1}
+              {item.question.official_number ? ` · questão ${item.question.official_number} do caderno` : ""}
+            </strong>
+            {item.question.annulled && <span className="pill" style={{ color: "var(--bad)" }}>Anulada</span>}
             <span className="pill">{item.question.area_id}</span>
             <span className="pill">{item.question.difficulty}</span>
             {item.question.risk_level === "alto" && <span className="pill" style={{ color: "var(--bad)" }}>Alto risco</span>}
             {item.sample.decision && <span className="pill">{DECISION[item.sample.decision]}</span>}
           </div>
+          {item.question.annulled_note && <p className="muted">{item.question.annulled_note}</p>}
           <p className="stem">{item.question.stem}</p>
+          <QuestionImages images={item.images} />
           {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
           {item.question.exams?.map((table: any) => (
             <div key={table.title} style={{ marginTop: 8 }}>

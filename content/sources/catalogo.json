@@ -1,0 +1,980 @@
+{
+  "sources": [
+    {
+      "id": "ms-dengue-2024",
+      "title": "Dengue: diagnóstico e manejo clínico: adulto e criança, 6ª edição",
+      "publisher": "Ministério da Saúde",
+      "year": 2024,
+      "url": "https://bvsms.saude.gov.br/bvs/publicacoes/dengue_diagnostico_manejo_clinico_6ed.pdf",
+      "checked_on": "2026-11-09"
+    },
+    {
+      "id": "ms-tb-2019",
+      "title": "Manual de recomendações para o controle da tuberculose no Brasil, 2ª edição",
+      "publisher": "Ministério da Saúde",
+      "year": 2019,
+      "url": "https://bvsms.saude.gov.br/bvs/publicacoes/manual_recomendacoes_controle_tuberculose_brasil_2_ed.pdf",
+      "checked_on": "2026-11-09"
+    },
+    {
+      "id": "ms-has-2014",
+      "title": "Cadernos de Atenção Básica nº 37: Hipertensão arterial sistêmica",
+      "publisher": "Ministério da Saúde",
+      "year": 2014,
+      "url": "https://bvsms.saude.gov.br/bvs/publicacoes/hipertensao_arterial_sistemica_cab37.pdf",
+      "checked_on": "2026-11-09"
+    },
+    {
+      "id": "ms-dm-2013",
+      "title": "Cadernos de Atenção Básica nº 36: Diabetes mellitus",
+      "publisher": "Ministério da Saúde",
+      "year": 2013,
+      "url": "https://bvsms.saude.gov.br/bvs/publicacoes/estrategias_cuidado_pessoa_diabetes_mellitus_cab36.pdf",
+      "checked_on": "2026-11-09"
+    },
+    {
+      "id": "ms-avc-2013",
+      "title": "Manual de rotinas para atenção ao AVC",
+      "publisher": "Ministério da Saúde",
+      "year": 2013,
+      "url": "https://bvsms.saude.gov.br/bvs/publicacoes/manual_rotinas_para_atencao_avc.pdf",
+      "checked_on": "2026-11-09"
+    },
+    {
+      "id": "ms-samu-2016",
+      "title": "Protocolos de Suporte Avançado de Vida do SAMU 192",
+      "publisher": "Ministério da Saúde",
+      "year": 2016,
+      "url": "https://bvsms.saude.gov.br/bvs/publicacoes/protocolo_suporte_avancado_vida.pdf",
+      "checked_on": "2026-11-09"
+    },
+    {
+      "id": "ms-aidpi-2017",
+      "title": "Manual de quadros de procedimentos AIDPI Criança: 2 meses a 5 anos",
+      "publisher": "Ministério da Saúde",
+      "year": 2017,
+      "url": "https://bvsms.saude.gov.br/bvs/publicacoes/manual_quadros_procedimentos_aidpi_crianca_2meses_5anos.pdf",
+      "checked_on": "2026-11-09"
+    },
+    {
+      "id": "ms-calendario-2026",
+      "title": "Calendário Nacional de Vacinação da criança",
+      "publisher": "Ministério da Saúde",
+      "year": 2026,
+      "url": "https://www.gov.br/saude/pt-br/vacinacao/calendario",
+      "checked_on": "2026-11-09"
+    },
+    {
+      "id": "ms-crianca-2012",
+      "title": "Cadernos de Atenção Básica nº 33: Saúde da criança, crescimento e desenvolvimento",
+      "publisher": "Ministério da Saúde",
+      "year": 2012,
+      "url": "https://bvsms.saude.gov.br/bvs/publicacoes/saude_crianca_crescimento_desenvolvimento.pdf",
+      "checked_on": "2026-11-09"
+    },
+    {
+      "id": "ms-gar-2022",
+      "title": "Manual de gestação de alto risco",
+      "publisher": "Ministério da Saúde",
+      "year": 2022,
+      "url": "https://bvsms.saude.gov.br/bvs/publicacoes/manual_gestacao_alto_risco.pdf",
+      "checked_on": "2026-11-09"
+    },
+    {
+      "id": "ms-ist-2015",
+      "title": "PCDT para Atenção Integral às Pessoas com Infecções Sexualmente Transmissíveis",
+      "publisher": "Ministério da Saúde",
+      "year": 2015,
+      "url": "https://bvsms.saude.gov.br/bvs/publicacoes/protocolo_clinico_diretrizes_terapeutica_atencao_integral_pessoas_infeccoes_sexualmente_transmissiveis.pdf",
+      "checked_on": "2026-11-09"
+    },
+    {
+      "id": "ms-queimaduras-2012",
+      "title": "Cartilha para tratamento de emergência das queimaduras",
+      "publisher": "Ministério da Saúde",
+      "year": 2012,
+      "url": "https://bvsms.saude.gov.br/bvs/publicacoes/cartilha_tratamento_emergencia_queimaduras.pdf",
+      "checked_on": "2026-11-09"
+    },
+    {
+      "id": "ms-mental-2013",
+      "title": "Cadernos de Atenção Básica nº 34: Saúde mental",
+      "publisher": "Ministério da Saúde",
+      "year": 2013,
+      "url": "https://bvsms.saude.gov.br/bvs/publicacoes/cadernos_atencao_basica_34_saude_mental.pdf",
+      "checked_on": "2026-11-09"
+    },
+    {
+      "id": "ms-gvs-2022",
+      "title": "Guia de Vigilância em Saúde, 5ª edição revisada",
+      "publisher": "Ministério da Saúde",
+      "year": 2022,
+      "url": "https://bvsms.saude.gov.br/bvs/publicacoes/guia_vigilancia_saude_5ed_rev_atual.pdf",
+      "checked_on": "2026-11-09"
+    },
+    {
+      "id": "ms-rastreamento-2010",
+      "title": "Cadernos de Atenção Primária nº 29: Rastreamento",
+      "publisher": "Ministério da Saúde",
+      "year": 2010,
+      "url": "https://bvsms.saude.gov.br/bvs/publicacoes/caderno_atencao_primaria_29_rastreamento.pdf",
+      "checked_on": "2026-11-09"
+    },
+    {
+      "id": "cfm-cem-2019",
+      "title": "Código de Ética Médica (Resolução CFM nº 2.217/2018)",
+      "publisher": "Conselho Federal de Medicina",
+      "year": 2019,
+      "url": "https://portal.cfm.org.br/images/PDF/cem2019.pdf",
+      "checked_on": "2026-11-09"
+    },
+    {
+      "id": "lei-14443-2022",
+      "title": "Lei nº 14.443, de 2 de setembro de 2022",
+      "publisher": "Presidência da República",
+      "year": 2022,
+      "url": "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2022/lei/l14443.htm",
+      "checked_on": "2026-11-09"
+    },
+    {
+      "id": "ms-idoso-2006",
+      "title": "Cadernos de Atenção Básica nº 19: Envelhecimento e saúde da pessoa idosa",
+      "publisher": "Ministério da Saúde",
+      "year": 2006,
+      "url": "https://bvsms.saude.gov.br/bvs/publicacoes/evelhecimento_saude_pessoa_idosa.pdf",
+      "checked_on": "2026-11-09"
+    },
+    {
+      "id": "sbc-ic-2018",
+      "title": "Diretriz Brasileira de Insuficiência Cardíaca Crônica e Aguda",
+      "publisher": "Sociedade Brasileira de Cardiologia",
+      "year": 2018,
+      "url": "https://doi.org/10.5935/abc.20180190",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "ms-esporotricose-gov",
+      "title": "Esporotricose humana (Saúde de A a Z)",
+      "publisher": "Ministério da Saúde",
+      "year": 2023,
+      "url": "https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/e/esporotricose-humana",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "btf-edh-2006",
+      "title": "Surgical Management of Acute Epidural Hematomas (Guidelines for the Surgical Management of Traumatic Brain Injury)",
+      "publisher": "Brain Trauma Foundation / Neurosurgery",
+      "year": 2006,
+      "url": "https://doi.org/10.1227/01.NEU.0000210363.91172.A8",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "eshre-endometriose-2022",
+      "title": "ESHRE guideline: endometriosis",
+      "publisher": "European Society of Human Reproduction and Embryology",
+      "year": 2022,
+      "url": "https://www.eshre.eu/Guidelines-and-Legal/Guidelines/Endometriosis-guideline",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pnab-2017",
+      "title": "Portaria nº 2.436, de 21 de setembro de 2017: Política Nacional de Atenção Básica",
+      "publisher": "Ministério da Saúde",
+      "year": 2017,
+      "url": "https://bvsms.saude.gov.br/bvs/saudelegis/gm/2017/prt2436_22_09_2017.html",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "acr-eular-ar-2010",
+      "title": "2010 Rheumatoid arthritis classification criteria: an American College of Rheumatology/European League Against Rheumatism collaborative initiative",
+      "publisher": "American College of Rheumatology / EULAR (Arthritis & Rheumatism)",
+      "year": 2010,
+      "url": "https://doi.org/10.1002/art.27584",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "sbr-ar-2017",
+      "title": "2017 recommendations of the Brazilian Society of Rheumatology for the pharmacological treatment of rheumatoid arthritis",
+      "publisher": "Sociedade Brasileira de Reumatologia (Advances in Rheumatology)",
+      "year": 2018,
+      "url": "https://doi.org/10.1186/s42358-018-0005-0",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "herniasurge-2018",
+      "title": "International guidelines for groin hernia management",
+      "publisher": "HerniaSurge Group / Hernia",
+      "year": 2018,
+      "url": "https://doi.org/10.1007/s10029-017-1668-x",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "wses-hernia-2017",
+      "title": "2017 update of the WSES guidelines for emergency repair of complicated abdominal wall hernias",
+      "publisher": "World Society of Emergency Surgery / World Journal of Emergency Surgery",
+      "year": 2017,
+      "url": "https://doi.org/10.1186/s13017-017-0149-y",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "ssc-2021",
+      "title": "Surviving sepsis campaign: international guidelines for management of sepsis and septic shock 2021",
+      "publisher": "Society of Critical Care Medicine e ESICM",
+      "year": 2021,
+      "url": "https://doi.org/10.1007/s00134-021-06506-y",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "ssc-ped-2020",
+      "title": "Surviving Sepsis Campaign International Guidelines for the Management of Septic Shock and Sepsis-Associated Organ Dysfunction in Children",
+      "publisher": "Pediatrics",
+      "year": 2020,
+      "url": "https://doi.org/10.1542/peds.2020-0629",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "sbc-has-2020",
+      "title": "Diretrizes Brasileiras de Hipertensão Arterial 2020",
+      "publisher": "Sociedade Brasileira de Cardiologia",
+      "year": 2021,
+      "url": "https://doi.org/10.36660/abc.20201238",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "sbc-dislip-2017",
+      "title": "Atualização da Diretriz Brasileira de Dislipidemias e Prevenção da Aterosclerose 2017",
+      "publisher": "Sociedade Brasileira de Cardiologia",
+      "year": 2017,
+      "url": "https://doi.org/10.5935/abc.20170121",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "esc-nste-2020",
+      "title": "2020 ESC Guidelines for the management of acute coronary syndromes in patients presenting without persistent ST-segment elevation",
+      "publisher": "European Society of Cardiology",
+      "year": 2020,
+      "url": "https://doi.org/10.1093/eurheartj/ehaa575",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "aha-stroke-2019",
+      "title": "Guidelines for the Early Management of Patients With Acute Ischemic Stroke: 2019 Update to the 2018 Guidelines",
+      "publisher": "American Heart Association e American Stroke Association",
+      "year": 2019,
+      "url": "https://doi.org/10.1161/STR.0000000000000211",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "esc-af-2020",
+      "title": "2020 ESC Guidelines for the diagnosis and management of atrial fibrillation",
+      "publisher": "European Society of Cardiology",
+      "year": 2020,
+      "url": "https://doi.org/10.1093/eurheartj/ehaa612",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "ada-2024-farmaco",
+      "title": "Pharmacologic Approaches to Glycemic Treatment: Standards of Care in Diabetes 2024",
+      "publisher": "American Diabetes Association",
+      "year": 2024,
+      "url": "https://doi.org/10.2337/dc24-S009",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "cdc-ist-2021",
+      "title": "Sexually Transmitted Infections Treatment Guidelines, 2021",
+      "publisher": "CDC",
+      "year": 2021,
+      "url": "https://doi.org/10.15585/mmwr.rr7004a1",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "aap-tdah-2019",
+      "title": "Clinical Practice Guideline for the Diagnosis, Evaluation, and Treatment of Attention-Deficit/Hyperactivity Disorder in Children and Adolescents",
+      "publisher": "American Academy of Pediatrics",
+      "year": 2019,
+      "url": "https://doi.org/10.1542/peds.2019-2528",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "ispad-cad-2022",
+      "title": "ISPAD Clinical Practice Consensus Guidelines 2022: Diabetic ketoacidosis and hyperglycemic hyperosmolar state",
+      "publisher": "ISPAD",
+      "year": 2022,
+      "url": "https://doi.org/10.1111/pedi.13406",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "tg18-colangite",
+      "title": "Tokyo Guidelines 2018: initial management of acute biliary infection and flowchart for acute cholangitis",
+      "publisher": "Journal of Hepato-Biliary-Pancreatic Sciences",
+      "year": 2018,
+      "url": "https://doi.org/10.1002/jhbp.509",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "wses-colecistite-2020",
+      "title": "2020 World Society of Emergency Surgery updated guidelines for the diagnosis and treatment of acute calculus cholecystitis",
+      "publisher": "World Society of Emergency Surgery",
+      "year": 2020,
+      "url": "https://doi.org/10.1186/s13017-020-00336-x",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "ms-prenatal-2012",
+      "title": "Cadernos de Atenção Básica nº 32: Atenção ao pré-natal de baixo risco",
+      "publisher": "Ministério da Saúde",
+      "year": 2012,
+      "url": "https://bvsms.saude.gov.br/bvs/publicacoes/cadernos_atencao_basica_32_prenatal.pdf",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "ms-raiva-gov",
+      "title": "Raiva (Saúde de A a Z)",
+      "publisher": "Ministério da Saúde",
+      "year": 2024,
+      "url": "https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/r/raiva",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "ms-malaria-gov",
+      "title": "Malária (Saúde de A a Z)",
+      "publisher": "Ministério da Saúde",
+      "year": 2024,
+      "url": "https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/m/malaria",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "ms-sifilis-gov",
+      "title": "Sífilis (Saúde de A a Z)",
+      "publisher": "Ministério da Saúde",
+      "year": 2024,
+      "url": "https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/s/sifilis",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "ms-hanseniase-gov",
+      "title": "Hanseníase (Saúde de A a Z)",
+      "publisher": "Ministério da Saúde",
+      "year": 2024,
+      "url": "https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/h/hanseniase",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "ms-tuberculose-gov",
+      "title": "Tuberculose (Saúde de A a Z)",
+      "publisher": "Ministério da Saúde",
+      "year": 2024,
+      "url": "https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/t/tuberculose",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "ms-hiv-gov",
+      "title": "HIV/Aids (Saúde de A a Z)",
+      "publisher": "Ministério da Saúde",
+      "year": 2024,
+      "url": "https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/h/hiv-aids",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "ms-chik-gov",
+      "title": "Chikungunya (Saúde de A a Z)",
+      "publisher": "Ministério da Saúde",
+      "year": 2024,
+      "url": "https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/c/chikungunya",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "ms-vacinacao-gov",
+      "title": "Calendário Nacional de Vacinação",
+      "publisher": "Ministério da Saúde",
+      "year": 2024,
+      "url": "https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/c/calendario-nacional-de-vacinacao",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "ms-hepatites-gov",
+      "title": "Hepatites virais (Saúde de A a Z)",
+      "publisher": "Ministério da Saúde",
+      "year": 2024,
+      "url": "https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/h/hepatites-virais",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "kdigo-glomerulo-2021",
+      "title": "KDIGO 2021 Clinical Practice Guideline for the Management of Glomerular Diseases",
+      "publisher": "KDIGO",
+      "year": 2021,
+      "url": "https://doi.org/10.1016/j.kint.2021.05.021",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "aap-down-2022",
+      "title": "Health Supervision for Children and Adolescents With Down Syndrome",
+      "publisher": "American Academy of Pediatrics",
+      "year": 2022,
+      "url": "https://doi.org/10.1542/peds.2022-057010",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "wses-apendicite-2020",
+      "title": "Diagnosis and treatment of acute appendicitis: 2020 update of the WSES Jerusalem guidelines",
+      "publisher": "World Society of Emergency Surgery",
+      "year": 2020,
+      "url": "https://doi.org/10.1186/s13017-020-00306-3",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "lancet-lombalgia-2018",
+      "title": "What low back pain is and why we need to pay attention",
+      "publisher": "The Lancet",
+      "year": 2018,
+      "url": "https://doi.org/10.1016/S0140-6736(18)30480-X",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "bmj-sens-esp-1994",
+      "title": "Statistics Notes: Diagnostic tests 1: sensitivity and specificity",
+      "publisher": "BMJ",
+      "year": 1994,
+      "url": "https://doi.org/10.1136/bmj.308.6943.1552",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "bmj-vp-1994",
+      "title": "Statistics Notes: Diagnostic tests 2: predictive values",
+      "publisher": "BMJ",
+      "year": 1994,
+      "url": "https://doi.org/10.1136/bmj.309.6947.102",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "ags-beers-2023",
+      "title": "American Geriatrics Society 2023 updated AGS Beers Criteria for potentially inappropriate medication use in older adults",
+      "publisher": "American Geriatrics Society",
+      "year": 2023,
+      "url": "https://doi.org/10.1111/jgs.18372",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "aha-jones-2015",
+      "title": "Revision of the Jones Criteria for the Diagnosis of Acute Rheumatic Fever in the Era of Doppler Echocardiography",
+      "publisher": "American Heart Association",
+      "year": 2015,
+      "url": "https://doi.org/10.1161/CIR.0000000000000205",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "ada-crises-2024",
+      "title": "Hyperglycemic Crises in Adults With Diabetes: A Consensus Report",
+      "publisher": "American Diabetes Association",
+      "year": 2024,
+      "url": "https://doi.org/10.2337/dci24-0032",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "asas-2009",
+      "title": "The development of Assessment of SpondyloArthritis international Society classification criteria for axial spondyloarthritis",
+      "publisher": "Annals of the Rheumatic Diseases",
+      "year": 2009,
+      "url": "https://doi.org/10.1136/ard.2009.108233",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "cdc-mec-2024",
+      "title": "U.S. Medical Eligibility Criteria for Contraceptive Use, 2024",
+      "publisher": "CDC",
+      "year": 2024,
+      "url": "https://doi.org/10.15585/mmwr.rr7304a1",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "aasld-csp-2022",
+      "title": "AASLD practice guidance on primary sclerosing cholangitis and cholangiocarcinoma",
+      "publisher": "AASLD",
+      "year": 2022,
+      "url": "https://doi.org/10.1002/hep.32771",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "ata-hipertireoidismo-2016",
+      "title": "2016 American Thyroid Association Guidelines for Diagnosis and Management of Hyperthyroidism and Other Causes of Thyrotoxicosis",
+      "publisher": "American Thyroid Association",
+      "year": 2016,
+      "url": "https://doi.org/10.1089/thy.2016.0229",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "eu-escabiose-2017",
+      "title": "European guideline for the management of scabies",
+      "publisher": "Journal of the European Academy of Dermatology and Venereology",
+      "year": 2017,
+      "url": "https://doi.org/10.1111/jdv.14351",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "acg-sibo-2020",
+      "title": "ACG Clinical Guideline: Small Intestinal Bacterial Overgrowth",
+      "publisher": "American College of Gastroenterology",
+      "year": 2020,
+      "url": "https://doi.org/10.14309/ajg.0000000000000501",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "aap-convulsao-febril-2011",
+      "title": "Febrile Seizures: Guideline for the Neurodiagnostic Evaluation of the Child With a Simple Febrile Seizure",
+      "publisher": "American Academy of Pediatrics",
+      "year": 2011,
+      "url": "https://doi.org/10.1542/peds.2010-3318",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "aha-rn-2020",
+      "title": "Part 5: Neonatal Resuscitation: 2020 American Heart Association Guidelines for Cardiopulmonary Resuscitation and Emergency Cardiovascular Care",
+      "publisher": "American Heart Association",
+      "year": 2020,
+      "url": "https://doi.org/10.1161/CIR.0000000000000902",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "eular-vasculite-2018",
+      "title": "2018 Update of the EULAR recommendations for the management of large vessel vasculitis",
+      "publisher": "EULAR",
+      "year": 2020,
+      "url": "https://doi.org/10.1136/annrheumdis-2019-215672",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "aap-obesidade-2023",
+      "title": "Clinical Practice Guideline for the Evaluation and Treatment of Children and Adolescents With Obesity",
+      "publisher": "American Academy of Pediatrics",
+      "year": 2023,
+      "url": "https://doi.org/10.1542/peds.2022-060640",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "lancet-parkinson-2021",
+      "title": "Parkinson's disease",
+      "publisher": "The Lancet",
+      "year": 2021,
+      "url": "https://doi.org/10.1016/S0140-6736(21)00218-X",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "acg-pancreatite-cronica-2020",
+      "title": "ACG Clinical Guideline: Chronic Pancreatitis",
+      "publisher": "American College of Gastroenterology",
+      "year": 2020,
+      "url": "https://doi.org/10.14309/ajg.0000000000000535",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "eca-1990",
+      "title": "Estatuto da Criança e do Adolescente (Lei nº 8.069/1990)",
+      "publisher": "Ministério da Saúde (edição)",
+      "year": 2008,
+      "url": "https://bvsms.saude.gov.br/bvs/publicacoes/estatuto_crianca_adolescente_3ed.pdf",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "estatuto-idoso",
+      "title": "Estatuto do Idoso (Lei nº 10.741/2003)",
+      "publisher": "Ministério da Saúde (edição)",
+      "year": 2009,
+      "url": "https://bvsms.saude.gov.br/bvs/publicacoes/estatuto_idoso_3edicao.pdf",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "lei-10216-2001",
+      "title": "Lei nº 10.216, de 6 de abril de 2001 (proteção e direitos das pessoas com transtornos mentais)",
+      "publisher": "Presidência da República",
+      "year": 2001,
+      "url": "https://www.planalto.gov.br/ccivil_03/leis/leis_2001/l10216.htm",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "portaria-lgbt-2011",
+      "title": "Portaria GM/MS nº 2.836/2011: Política Nacional de Saúde Integral de LGBT",
+      "publisher": "Ministério da Saúde",
+      "year": 2011,
+      "url": "https://bvsms.saude.gov.br/bvs/saudelegis/gm/2011/prt2836_01_12_2011.html",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "cfm-1779-2005",
+      "title": "Resolução CFM nº 1.779/2005: responsabilidade médica no fornecimento da declaração de óbito",
+      "publisher": "Conselho Federal de Medicina",
+      "year": 2005,
+      "url": "https://sistemas.cfm.org.br/normas/visualizar/resolucoes/BR/2005/1779",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "inca-colo-gov",
+      "title": "Controle do câncer do colo do útero",
+      "publisher": "INCA",
+      "year": 2024,
+      "url": "https://www.gov.br/inca/pt-br/assuntos/gestor-e-profissional-de-saude/controle-do-cancer-do-colo-do-utero",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-30139461",
+      "title": "Clinical Approach to Proximal Renal Tubular Acidosis in Children",
+      "publisher": "Adv Chronic Kidney Dis",
+      "year": 2018,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30139461/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-31164249",
+      "title": "Focus on Disruptive Mood Dysregulation Disorder: A review of the literature",
+      "publisher": "Psychiatry Res",
+      "year": 2019,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31164249/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-33514065",
+      "title": "Complete Androgen Insensitivity Syndrome: From Bench to Bed",
+      "publisher": "Int J Mol Sci",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33514065/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-38245889",
+      "title": "International Consensus Criteria for Pediatric Sepsis and Septic Shock",
+      "publisher": "JAMA",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38245889/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-33687470",
+      "title": "Screening for Lung Cancer: US Preventive Services Task Force Recommendation Statement",
+      "publisher": "JAMA",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33687470/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-29801017",
+      "title": "Screening for Prostate Cancer: US Preventive Services Task Force Recommendation Statement",
+      "publisher": "JAMA",
+      "year": 2018,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29801017/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-34003218",
+      "title": "Screening for Colorectal Cancer: US Preventive Services Task Force Recommendation Statement",
+      "publisher": "JAMA",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34003218/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-26504127",
+      "title": "Growth Charts for Children With Down Syndrome in the United States",
+      "publisher": "Pediatrics",
+      "year": 2015,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26504127/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-34470716",
+      "title": "Traumatic Pneumothorax: A Review of Current Diagnostic Practices And Evolving Management",
+      "publisher": "J Emerg Med",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34470716/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-41326046",
+      "title": "Canadian guideline on HIV pre- and postexposure prophylaxis: 2025 update",
+      "publisher": "CMAJ",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41326046/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-36058805",
+      "title": "Medical Management of Restrictive Eating Disorders in Adolescents and Young Adults",
+      "publisher": "J Adolesc Health",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36058805/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-37024943",
+      "title": "Medical instability in typical and atypical adolescent anorexia nervosa: a systematic review and meta-analysis",
+      "publisher": "J Eat Disord",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37024943/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-28192789",
+      "title": "Noninvasive Treatments for Acute, Subacute, and Chronic Low Back Pain: A Clinical Practice Guideline From the American College of Physicians",
+      "publisher": "Ann Intern Med",
+      "year": 2017,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28192789/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-17706760",
+      "title": "Management of acute organophosphorus pesticide poisoning",
+      "publisher": "Lancet",
+      "year": 2008,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17706760/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-20976376",
+      "title": "[Brazilian guidelines for the diagnosis, treatment and prevention of rheumatic fever]",
+      "publisher": "Arq Bras Cardiol",
+      "year": 2009,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20976376/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-37678671",
+      "title": "Pancreatic cancer: ESMO Clinical Practice Guideline for diagnosis, treatment and follow-up",
+      "publisher": "Ann Oncol",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37678671/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-12580737",
+      "title": "Treating phimosis",
+      "publisher": "Med J Aust",
+      "year": 2003,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12580737/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-32381121",
+      "title": "2020 update of the WSES guidelines for the management of acute colonic diverticulitis in the emergency setting",
+      "publisher": "World J Emerg Surg",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32381121/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-35916842",
+      "title": "Diagnosis, Treatment, and Prevention of Malaria in the US: A Review",
+      "publisher": "JAMA",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35916842/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-22144437",
+      "title": "Review: Malaria chemoprophylaxis for travelers to Latin America",
+      "publisher": "Am J Trop Med Hyg",
+      "year": 2011,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22144437/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-25050770",
+      "title": "Practice bulletin no. 146: Management of late-term and postterm pregnancies",
+      "publisher": "Obstet Gynecol",
+      "year": 2014,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25050770/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-25631379",
+      "title": "Controlled cord traction for the third stage of labour",
+      "publisher": "Cochrane Database Syst Rev",
+      "year": 2015,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25631379/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-19941729",
+      "title": "Active management of the third stage of labour: prevention and treatment of postpartum hemorrhage",
+      "publisher": "J Obstet Gynaecol Can",
+      "year": 2009,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19941729/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-37983698",
+      "title": "Pleural Effusion: Diagnostic Approach in Adults",
+      "publisher": "Am Fam Physician",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37983698/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-34226265",
+      "title": "De Quervain subacute thyroiditis",
+      "publisher": "CMAJ",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34226265/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-34399110",
+      "title": "Updated International Tuberous Sclerosis Complex Diagnostic Criteria and Surveillance and Management Recommendations",
+      "publisher": "Pediatr Neurol",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34399110/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-33180985",
+      "title": "Prevention of Epilepsy in Infants with Tuberous Sclerosis Complex in the EPISTOP Trial",
+      "publisher": "Ann Neurol",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33180985/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-30252271",
+      "title": "Death Certification",
+      "publisher": "",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30252271/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-14998794",
+      "title": "Improving the reporting quality of nonrandomized evaluations of behavioral and public health interventions: the TREND statement",
+      "publisher": "Am J Public Health",
+      "year": 2004,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/14998794/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-38733983",
+      "title": "Thrombophilia Screening: Not So Straightforward",
+      "publisher": "Semin Thromb Hemost",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38733983/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-36740346",
+      "title": "Obsessive-Compulsive Disorder: Diagnosis, Clinical Features, Nosology, and Epidemiology",
+      "publisher": "Psychiatr Clin North Am",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36740346/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-26039070",
+      "title": "Epidemiology of DSM-5 Alcohol Use Disorder: Results From the National Epidemiologic Survey on Alcohol and Related Conditions III",
+      "publisher": "JAMA Psychiatry",
+      "year": 2015,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26039070/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-31531726",
+      "title": "Traction Injury of Recurrent Laryngeal Nerve During Thyroidectomy",
+      "publisher": "World J Surg",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31531726/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-27926552",
+      "title": "Clinical Practice Guideline for the Management of Anal Fissures",
+      "publisher": "Dis Colon Rectum",
+      "year": 2017,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27926552/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-38754603",
+      "title": "SMFM Consult Series #70: Management of short cervix in individuals without a history of spontaneous preterm birth",
+      "publisher": "Am J Obstet Gynecol",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38754603/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-9306053",
+      "title": "A risk-benefit assessment of flumazenil in the management of benzodiazepine overdose",
+      "publisher": "Drug Saf",
+      "year": 1997,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9306053/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-27077664",
+      "title": "Standardized Postnatal Management of Infants with Congenital Diaphragmatic Hernia in Europe: The CDH EURO Consortium Consensus - 2015 Update",
+      "publisher": "Neonatology",
+      "year": 2016,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27077664/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-27116362",
+      "title": "Pediatric acute asthma exacerbations: Evaluation and management from emergency department to intensive care unit",
+      "publisher": "J Asthma",
+      "year": 2016,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27116362/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-32982161",
+      "title": "Management Strategies of Ocular Chemical Burns: Current Perspectives",
+      "publisher": "Clin Ophthalmol",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32982161/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-32080050",
+      "title": "Prelabor Rupture of Membranes: ACOG Practice Bulletin, Number 217",
+      "publisher": "Obstet Gynecol",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32080050/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-37179347",
+      "title": "Clinical practice guidelines for the antenatal management of dichorionic diamniotic twin pregnancies: a systematic review",
+      "publisher": "BMC Pregnancy Childbirth",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37179347/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-39951396",
+      "title": "Optimal dose and duration of iron supplementation for treating iron deficiency anaemia in children and adolescents: A systematic review and meta-analysis",
+      "publisher": "PLoS One",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39951396/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-34398416",
+      "title": "Evaluation of Short Stature in Children and Adolescents",
+      "publisher": "Indian J Pediatr",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34398416/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-38901794",
+      "title": "Guideline No. 451: Asymptomatic Endometrial Thickening in Postmenopausal Women",
+      "publisher": "J Obstet Gynaecol Can",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38901794/",
+      "checked_on": "2026-11-16"
+    },
+    {
+      "id": "pm-24597521",
+      "title": "Epidemiology, clinical features, diagnosis and treatment of Haemophilus ducreyi - a disappearing pathogen?",
+      "publisher": "Expert Rev Anti Infect Ther",
+      "year": 2014,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24597521/",
+      "checked_on": "2026-11-16"
+    }
+  ]
+}

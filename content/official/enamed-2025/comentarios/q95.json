@@ -1,0 +1,87 @@
+{
+ "area_id": "pediatria",
+ "competency_id": "terapeutica",
+ "theme": "Anemia ferropriva na criança",
+ "scenario": "UBS",
+ "difficulty": "medio",
+ "quick": "Anemia microcítica e hipocrômica com RDW alto em menina de 11 anos: ferropriva. Trata-se com ferro elementar de 3 a 5 mg/kg por dia, e os reticulócitos sobem em poucos dias. Alternativa B.",
+ "reasoning": "Primeiro passo: interpretar o hemograma. Hemoglobina de 8,4, VCM de 62, HCM de 24, CHCM de 28 e RDW de 22% indicam anemia microcítica e hipocrômica com grande variação do tamanho das hemácias, padrão típico de ferropenia. Plaquetas discretamente altas e eosinofilia leve acompanham a ferropenia, sem indicar doença hematológica. Segundo passo: tratar. Inicia-se ferro oral na dose de 3 a 5 mg/kg por dia de ferro elementar, com resposta de aumento dos reticulócitos em 4 a 7 dias e da hemoglobina em semanas. Terceiro passo: descartar as outras. O ferro sérico varia ao longo do dia e não é o melhor exame, sendo a ferritina preferida. O VCM de 62 indica anemia microcítica, e não normocítica. Eosinofilia e trombocitose leves não justificam encaminhamento ao hematologista.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "O ferro sérico varia ao longo do dia e não é sensível nem específico; a ferritina é o exame preferido para a ferropenia."
+  },
+  {
+   "index": 2,
+   "why": "O VCM de 62 fL e o HCM baixo mostram anemia microcítica, e não normocítica; em ferropenia, o esfregaço mostra anisocitose e hemácias em lápis, não eliptocitose."
+  },
+  {
+   "index": 3,
+   "why": "Eosinofilia e plaquetas discretamente altas acompanham a ferropenia e as parasitoses; não justificam encaminhar ao hematologista."
+  }
+ ],
+ "tip": "Anemia microcítica com RDW alto: ferropenia; trate com ferro elementar 3 a 5 mg/kg por dia.",
+ "pearl": "A eosinofilia pode indicar parasitose, que causa perda de ferro; investigue e trate.",
+ "competency_note": "Diagnosticar e tratar anemia ferropriva na criança.",
+ "claims": [
+  {
+   "claim": "O tratamento da anemia ferropriva em crianças usa ferro oral em dose de 3 a 6 mg/kg por dia de ferro elementar, com acompanhamento da resposta.",
+   "source_id": "pm-39951396",
+   "locator": "Dose e duração do ferro"
+  },
+  {
+   "claim": "A deficiência de ferro causa anemia microcítica e hipocrômica com aumento do RDW.",
+   "source_id": "ms-crianca-2012",
+   "locator": "Anemia ferropriva"
+  }
+ ],
+ "key_why": "O hemograma mostra anemia ferropriva, e o ferro oral em 3 a 5 mg/kg por dia é o tratamento, com reticulócitos aumentando em poucos dias.",
+ "theory": {
+  "title": "Anemia ferropriva",
+  "intro": "É a anemia mais comum na infância e na adolescência, por dieta pobre em ferro, perdas ou parasitoses.",
+  "sections": [
+   {
+    "heading": "Hemograma",
+    "items": [
+     "Hemoglobina baixa, VCM e HCM baixos",
+     "RDW aumentado",
+     "Ferritina baixa"
+    ]
+   },
+   {
+    "heading": "Tratamento",
+    "items": [
+     "Ferro elementar oral de 3 a 5 mg/kg por dia",
+     "Reticulócitos sobem em poucos dias; hemoglobina em semanas",
+     "Tratar a causa, como parasitose",
+     "Manter o ferro depois da correção, para repor os estoques"
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "title": "Anemia ferropriva",
+  "points": [
+   {
+    "label": "Hemograma",
+    "text": "Microcítica, hipocrômica, RDW alto."
+   },
+   {
+    "label": "Exame",
+    "text": "Ferritina baixa."
+   },
+   {
+    "label": "Tratamento",
+    "text": "Ferro elementar de 3 a 5 mg/kg por dia."
+   },
+   {
+    "label": "Resposta",
+    "text": "Reticulócitos em 4 a 7 dias."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": "Conferir a faixa de dose e o prazo de resposta reticulocitária na orientação da Sociedade Brasileira de Pediatria."
+}

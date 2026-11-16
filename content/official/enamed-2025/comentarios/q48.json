@@ -1,0 +1,91 @@
+{
+ "area_id": "clinica",
+ "competency_id": "propedeutica",
+ "theme": "Derrame pleural e suspeita de tuberculose pleural",
+ "scenario": "Ambulatório",
+ "difficulty": "medio",
+ "quick": "Tosse, febre vespertina, emagrecimento e macicez em base pulmonar indicam derrame pleural, provavelmente tuberculoso. Ultrassonografia e toracocentese diagnóstica: alternativa D.",
+ "reasoning": "Primeiro passo: interpretar o exame. Murmúrio vesicular diminuído e percussão maciça na base esquerda, com dor infraescapular, configuram derrame pleural. Segundo passo: pensar na causa. Homem jovem com tosse por mais de 3 semanas, febre vespertina e emagrecimento tem tuberculose pleural como hipótese principal. Terceiro passo: confirmar e coletar. A ultrassonografia identifica e localiza o líquido, e guia a toracocentese, que fornece o líquido para análise: proteínas, DHL, glicose, celularidade e adenosina deaminase, além de cultura. Quarto passo: descartar as alternativas. A tomografia só é necessária se o diagnóstico seguir duvidoso. Drenagem de tórax é para empiema ou derrame volumoso com sintomas. Lobectomia e programação cirúrgica não se aplicam. Ressonância não é exame de rotina para derrame pleural.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Ressonância magnética não é exame de escolha para derrame pleural, e a programação cirúrgica não se aplica à hipótese de tuberculose."
+  },
+  {
+   "index": 1,
+   "why": "Lobectomia segmentar é tratamento cirúrgico de lesão pulmonar localizada; aqui há derrame pleural, que se investiga com toracocentese."
+  },
+  {
+   "index": 2,
+   "why": "A drenagem de tórax é reservada para empiema ou derrame volumoso e sintomático; antes se faz toracocentese diagnóstica."
+  }
+ ],
+ "tip": "Derrame pleural de causa desconhecida: ultrassonografia e toracocentese diagnóstica.",
+ "pearl": "No derrame por tuberculose a baciloscopia do líquido costuma ser negativa; a adenosina deaminase e a biópsia ajudam.",
+ "competency_note": "Investigar derrame pleural na suspeita de tuberculose.",
+ "claims": [
+  {
+   "claim": "A investigação do derrame pleural começa com exame de imagem e toracocentese diagnóstica com análise bioquímica e celular do líquido.",
+   "source_id": "pm-37983698",
+   "locator": "Abordagem diagnóstica"
+  },
+  {
+   "claim": "A tuberculose pleural é uma forma extrapulmonar de tuberculose que exige confirmação com exames do líquido ou biópsia pleural.",
+   "source_id": "ms-tb-2019",
+   "locator": "Formas extrapulmonares"
+  }
+ ],
+ "key_why": "O derrame pleural sem causa conhecida pede ultrassonografia e toracocentese diagnóstica, sem cirurgia nem drenagem.",
+ "theory": {
+  "title": "Derrame pleural",
+  "intro": "Acúmulo de líquido no espaço pleural. A causa se define pelo quadro clínico e pela análise do líquido.",
+  "sections": [
+   {
+    "heading": "Exame físico",
+    "items": [
+     "Murmúrio vesicular diminuído",
+     "Macicez à percussão",
+     "Diminuição do frêmito toracovocal"
+    ]
+   },
+   {
+    "heading": "Investigação",
+    "items": [
+     "Radiografia e ultrassonografia de tórax",
+     "Toracocentese diagnóstica",
+     "Critérios de Light para exsudato ou transudato",
+     "Adenosina deaminase na suspeita de tuberculose"
+    ]
+   },
+   {
+    "heading": "Tuberculose pleural",
+    "body": "É causa comum de exsudato em jovem. A pesquisa de bacilo no líquido tem baixa sensibilidade, e a biópsia pleural pode ser necessária."
+   }
+  ]
+ },
+ "summary": {
+  "title": "Derrame pleural",
+  "points": [
+   {
+    "label": "Quadro",
+    "text": "Macicez e murmúrio diminuído na base."
+   },
+   {
+    "label": "Exame",
+    "text": "Ultrassonografia e toracocentese diagnóstica."
+   },
+   {
+    "label": "Líquido",
+    "text": "Critérios de Light e adenosina deaminase."
+   },
+   {
+    "label": "Drenagem",
+    "text": "Para empiema ou derrame volumoso."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

@@ -1,0 +1,77 @@
+{
+ "area_id": "cirurgia",
+ "competency_id": "urgencia",
+ "theme": "Hemorragia exsanguinante de membro no pré-hospitalar",
+ "scenario": "Pré-hospitalar",
+ "difficulty": "medio",
+ "quick": "Ferida com sangramento pulsátil em braço: compressão direta e, se não cessar, torniquete acima da ferida e fora da articulação, com reposição de soro fisiológico. Alternativa C.",
+ "reasoning": "Primeiro passo: reconhecer a prioridade. Sangramento pulsátil em grande volume, pele fria, taquicardia e hipotensão indicam choque hemorrágico por lesão arterial. Segundo passo: controlar a hemorragia, que vem antes de qualquer reposição de líquidos. A compressão direta é a primeira medida. Se não cessar o sangramento, aplica-se torniquete acima da lesão, fora da articulação. Terceiro passo: repor volume com cristaloide isotônico, em quantidade suficiente para manter perfusão, sem excesso. Albumina não é recomendada nessa fase. Quarto passo: descartar a dissecção e pinçamento de vasos no local, que perdem tempo e podem lesionar nervos e vasos. O soro glicofisiológico não é indicado, pela glicose e pelo risco de hiponatremia.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Dissecar a ferida e pinçar o vaso no pré-hospitalar é inadequado: perde tempo e lesa estruturas; e albumina não é indicada na reposição inicial."
+  },
+  {
+   "index": 1,
+   "why": "Dissecção e pinçamento no pré-hospitalar não são recomendados; e o soro glicofisiológico não é indicado na reposição volêmica do trauma."
+  },
+  {
+   "index": 3,
+   "why": "A conduta de hemorragia está certa, mas a albumina não é recomendada na reposição inicial do trauma; usa-se cristaloide isotônico."
+  }
+ ],
+ "tip": "Hemorragia de membro: compressão direta, torniquete se falhar, depois cristaloide em volume moderado.",
+ "pearl": "Controlar a hemorragia vem antes de repor volume; repor sem controlar a fonte só aumenta a perda.",
+ "competency_note": "Priorizar o controle de hemorragia exsanguinante no trauma.",
+ "claims": [
+  {
+   "claim": "No trauma com hemorragia externa de membro, a compressão direta é a primeira medida, com torniquete quando a compressão falha, e a reposição volêmica inicial é feita com cristaloide isotônico.",
+   "source_id": "ms-samu-2016",
+   "locator": "Trauma: controle de hemorragia e reposição volêmica"
+  }
+ ],
+ "key_why": "Primeiro controla-se a hemorragia, com compressão e torniquete, e depois se repõe o volume com soro fisiológico.",
+ "theory": {
+  "title": "Hemorragia no trauma",
+  "intro": "A hemorragia é causa evitável de morte no trauma e é prioridade no atendimento inicial.",
+  "sections": [
+   {
+    "heading": "Controle",
+    "items": [
+     "Compressão direta da ferida",
+     "Torniquete proximal à lesão, fora da articulação, se a compressão falhar",
+     "Anotar o horário de colocação do torniquete"
+    ]
+   },
+   {
+    "heading": "Reposição",
+    "body": "Cristaloide isotônico aquecido, em volume suficiente para manter a perfusão, e sangue assim que disponível."
+   }
+  ]
+ },
+ "summary": {
+  "title": "Hemorragia de membro",
+  "points": [
+   {
+    "label": "Primeiro",
+    "text": "Compressão direta."
+   },
+   {
+    "label": "Se falhar",
+    "text": "Torniquete acima da lesão e fora da articulação."
+   },
+   {
+    "label": "Volume",
+    "text": "Cristaloide isotônico, sem excesso."
+   },
+   {
+    "label": "Evitar",
+    "text": "Dissecar ou pinçar vasos no local."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

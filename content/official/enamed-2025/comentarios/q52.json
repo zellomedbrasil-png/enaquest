@@ -1,0 +1,78 @@
+{
+ "area_id": "pediatria",
+ "competency_id": "hipotese",
+ "theme": "Reflexos primitivos no lactente",
+ "scenario": "UBS",
+ "difficulty": "medio",
+ "quick": "Aos 11 meses, o reflexo plantar em extensão persiste, enquanto Moro, procura e tônico cervical já desapareceram. Alternativa A.",
+ "reasoning": "Primeiro passo: lembrar a cronologia. Os reflexos primitivos somem à medida que o sistema nervoso amadurece. Segundo passo: aplicar à idade. O reflexo de Moro desaparece por volta de 4 a 6 meses. O reflexo de procura desaparece em torno de 3 a 4 meses, e o tônico cervical assimétrico por volta de 6 meses. O reflexo cutâneo-plantar em extensão, o sinal de Babinski, pode persistir até cerca de 12 a 24 meses, o que o torna o único presente aos 11 meses. Terceiro passo: ligar ao desenvolvimento. A criança já começa a trocar passos, o que indica que a maturação motora está dentro do esperado.",
+ "distractors": [
+  {
+   "index": 1,
+   "why": "O reflexo de Moro desaparece por volta de 4 a 6 meses; a persistência aos 11 meses seria sinal de alteração."
+  },
+  {
+   "index": 2,
+   "why": "O reflexo de procura some em torno de 3 a 4 meses de vida, bem antes dos 11 meses."
+  },
+  {
+   "index": 3,
+   "why": "O reflexo tônico cervical assimétrico some por volta de 6 meses; a persistência é anormal."
+  }
+ ],
+ "tip": "Moro, procura e tônico cervical somem até os 6 meses; o plantar em extensão vai até cerca de 2 anos.",
+ "pearl": "Reflexo primitivo que persiste além do tempo esperado pode indicar lesão neurológica.",
+ "competency_note": "Conhecer a cronologia de desaparecimento dos reflexos primitivos.",
+ "claims": [
+  {
+   "claim": "O acompanhamento do crescimento e do desenvolvimento infantil inclui a avaliação dos reflexos primitivos e dos marcos motores de acordo com a idade.",
+   "source_id": "ms-crianca-2012",
+   "locator": "Avaliação do desenvolvimento neuropsicomotor"
+  }
+ ],
+ "key_why": "Aos 11 meses, só o reflexo plantar pode estar presente; os outros reflexos primitivos já desapareceram.",
+ "theory": {
+  "title": "Reflexos primitivos",
+  "intro": "São respostas automáticas do recém-nascido que desaparecem com a maturação do sistema nervoso. Sua persistência ou ausência pode indicar doença neurológica.",
+  "sections": [
+   {
+    "heading": "Quando desaparecem",
+    "items": [
+     "Procura e sucção: cerca de 3 a 4 meses",
+     "Moro e preensão palmar: cerca de 4 a 6 meses",
+     "Tônico cervical assimétrico: cerca de 6 meses",
+     "Resposta plantar em extensão: pode persistir até 12 a 24 meses"
+    ]
+   },
+   {
+    "heading": "Importância",
+    "body": "A ausência de um reflexo esperado ou a persistência de reflexo que deveria ter desaparecido são sinais de alerta no desenvolvimento."
+   }
+  ]
+ },
+ "summary": {
+  "title": "Reflexos primitivos",
+  "points": [
+   {
+    "label": "Procura",
+    "text": "Some em 3 a 4 meses."
+   },
+   {
+    "label": "Moro",
+    "text": "Some em 4 a 6 meses."
+   },
+   {
+    "label": "Tônico cervical",
+    "text": "Some em cerca de 6 meses."
+   },
+   {
+    "label": "Plantar",
+    "text": "Em extensão até 12 a 24 meses."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": "Confirmar na caderneta ou manual de puericultura a idade de cada reflexo."
+}

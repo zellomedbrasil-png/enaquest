@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from "vitest";
+import { afterAll, describe, expect, it, vi } from "vitest";
 import { randomUUID } from "node:crypto";
 import { clearDaily, createQuestions, createUser, db, makePremium } from "./helpers";
 import { submitAnswer } from "@/lib/server/answers";
@@ -10,8 +10,18 @@ import { FREE_OFFICIAL_QUESTIONS, listOfficialExams, startOfficialRound } from "
 vi.mock("next/navigation", () => ({ redirect: vi.fn() }));
 vi.mock("next/headers", () => ({ cookies: vi.fn() }));
 
+const createdExams: string[] = [];
+
+// Não deixa provas de teste no banco, para não aparecerem na lista de provas do app local.
+afterAll(async () => {
+  if (!createdExams.length) return;
+  await db().from("questions").delete().in("official_exam_id", createdExams);
+  await db().from("official_exams").delete().in("id", createdExams);
+});
+
 async function createExam() {
   const id = `teste-${randomUUID()}`;
+  createdExams.push(id);
   const { error } = await db()
     .from("official_exams")
     .insert({ id, track_id: "enamed", board: "Inep", name: "ENAMED 2025", year: 2025, booklet: "Caderno 01", key_status: "definitivo" });

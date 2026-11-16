@@ -1,0 +1,82 @@
+{
+ "area_id": "coletiva",
+ "competency_id": "decisao",
+ "theme": "Sensibilidade, especificidade e prevalência",
+ "scenario": "Ambulatório",
+ "difficulty": "medio",
+ "quick": "Com especificidade baixa e prevalência baixa, o valor preditivo positivo é baixo e o número de falsos-positivos é alto. Alternativa B.",
+ "reasoning": "Primeiro passo: lembrar as definições. Sensibilidade é a capacidade de detectar doentes, e especificidade é a capacidade de excluir não doentes. O valor preditivo positivo depende da sensibilidade, da especificidade e da prevalência. Segundo passo: aplicar aos números. A especificidade é de 65%, então 35% dos não doentes terão resultado positivo. Em população com doença rara, quase todos são não doentes, e os falsos-positivos superam muito os verdadeiros positivos. Terceiro passo: avaliar as alternativas. Dizer que quase todos os positivos são doentes ignora a prevalência. Falsos-negativos seriam poucos, pois a sensibilidade é alta. Um teste muito sensível é bom para triagem, e não para confirmação.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "O valor preditivo positivo depende da prevalência; com doença rara e baixa especificidade, a maioria dos positivos será falsa."
+  },
+  {
+   "index": 2,
+   "why": "A sensibilidade de 92% significa poucos falsos-negativos; o problema do teste está na baixa especificidade."
+  },
+  {
+   "index": 3,
+   "why": "Alta sensibilidade serve para triagem, para excluir doença; a confirmação exige teste muito específico."
+  }
+ ],
+ "tip": "Prevalência baixa mais especificidade baixa: muitos falsos-positivos e valor preditivo positivo baixo.",
+ "pearl": "Teste sensível é para triagem; teste específico é para confirmar.",
+ "competency_note": "Interpretar desempenho de teste diagnóstico conforme a prevalência.",
+ "claims": [
+  {
+   "claim": "A sensibilidade é a proporção de doentes com teste positivo e a especificidade é a proporção de não doentes com teste negativo.",
+   "source_id": "bmj-sens-esp-1994",
+   "locator": "Texto principal"
+  },
+  {
+   "claim": "O valor preditivo positivo depende da prevalência: em populações com doença rara, ele é baixo mesmo com boa sensibilidade.",
+   "source_id": "bmj-vp-1994",
+   "locator": "Texto principal"
+  }
+ ],
+ "key_why": "Com especificidade de 65% e doença rara, a maioria dos positivos é falso-positivo.",
+ "theory": {
+  "title": "Desempenho de testes diagnósticos",
+  "intro": "Sensibilidade e especificidade são propriedades do teste, enquanto os valores preditivos dependem também da prevalência.",
+  "sections": [
+   {
+    "heading": "Definições",
+    "items": [
+     "Sensibilidade: detecta os doentes; ajuda a excluir quando é alta e o resultado é negativo",
+     "Especificidade: reconhece os não doentes; ajuda a confirmar quando é alta e o resultado é positivo",
+     "Valor preditivo positivo: chance de doença em quem tem teste positivo"
+    ]
+   },
+   {
+    "heading": "Efeito da prevalência",
+    "body": "Quanto mais rara a doença, menor o valor preditivo positivo e maior a proporção de falsos-positivos."
+   }
+  ]
+ },
+ "summary": {
+  "title": "Testes e prevalência",
+  "points": [
+   {
+    "label": "Sensibilidade",
+    "text": "Detecta doentes; boa para triagem."
+   },
+   {
+    "label": "Especificidade",
+    "text": "Exclui não doentes; boa para confirmar."
+   },
+   {
+    "label": "VPP",
+    "text": "Cai quando a prevalência é baixa."
+   },
+   {
+    "label": "Aqui",
+    "text": "Especificidade de 65% e doença rara gera muitos falsos-positivos."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

@@ -1,0 +1,124 @@
+{
+ "area_id": "go",
+ "competency_id": "hipotese",
+ "theme": "Endometriose: diagnóstico clínico",
+ "scenario": "Ambulatório",
+ "difficulty": "facil",
+ "quick": "Endometriose (D). Dismenorreia progressiva, dispareunia profunda e fadiga em mulher jovem, com útero normal, retroversofletido e doloroso, sem sinais infecciosos, formam o quadro típico.",
+ "reasoning": "Primeiro, defina o padrão temporal: os sintomas são crônicos e progressivos (dismenorreia que piora com o tempo), e não um quadro agudo. Segundo, identifique os sintomas-chave: a dispareunia de profundidade e a dismenorreia progressiva são os marcadores clássicos de endometriose, sobretudo da doença em fundo de saco posterior e ligamentos uterossacros. A fadiga também faz parte do quadro. Terceiro, interprete o exame: o volume uterino normal afasta miomatose. O útero retroversofletido sugere fixação posterior por aderências, e a dor à mobilização do colo traduz o processo inflamatório pélvico crônico. Quarto, procure sinais de infecção: não há febre, corrimento, leucocitose nem evolução aguda que sustentem DIP. Também não há dor aguda nem massa anexial que indiquem cisto hemorrágico. A hipótese principal é endometriose.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Embora a dor à mobilização do colo seja critério mínimo de DIP, a doença tem curso agudo, com dor em baixo ventre, febre e corrimento cervical. Não explica dismenorreia progressiva nem dispareunia crônica sem sinais infecciosos."
+  },
+  {
+   "index": 1,
+   "why": "A miomatose cursa com útero aumentado e irregular ao toque e com sangramento uterino aumentado. Aqui o útero tem volume normal."
+  },
+  {
+   "index": 2,
+   "why": "O cisto hemorrágico causa dor aguda, geralmente unilateral e relacionada à fase lútea, com massa anexial. Não justifica sintomas progressivos ao longo de vários ciclos nem dispareunia de profundidade crônica."
+  }
+ ],
+ "tip": "Dismenorreia progressiva + dispareunia de profundidade + útero retrovertido fixo = endometriose até prova em contrário.",
+ "pearl": "Dor à mobilização do colo não é sinônimo de DIP. Sem febre, corrimento e evolução aguda, em dor cíclica e crônica, o achado reflete inflamação e aderências da endometriose.",
+ "competency_note": "Avaliou o reconhecimento clínico da endometriose e sua diferenciação de DIP, mioma e cisto hemorrágico pela história e pelo toque vaginal.",
+ "claims": [
+  {
+   "claim": "Dismenorreia, dispareunia de profundidade, disquezia, disúria, infertilidade e fadiga são sintomas que devem levar à suspeita de endometriose.",
+   "source_id": "eshre-endometriose-2022",
+   "locator": "Diagnosis of endometriosis: symptoms"
+  },
+  {
+   "claim": "O exame clínico, com toque vaginal, é recomendado na investigação; achados como nódulos e dor sugerem endometriose, e exame de imagem normal não exclui a doença.",
+   "source_id": "eshre-endometriose-2022",
+   "locator": "Diagnosis of endometriosis: clinical examination and imaging"
+  },
+  {
+   "claim": "O tratamento clínico empírico pode ser iniciado sem confirmação cirúrgica ou histológica.",
+   "source_id": "eshre-endometriose-2022",
+   "locator": "Treatment of endometriosis-associated pain: empirical treatment"
+  },
+  {
+   "claim": "Critérios mínimos de DIP: dor no hipogástrio, dor à palpação dos anexos e dor à mobilização do colo uterino; febre e conteúdo vaginal ou secreção endocervical anormal são critérios adicionais.",
+   "source_id": "ms-ist-2015",
+   "locator": "Capítulo Doença inflamatória pélvica, critérios diagnósticos"
+  }
+ ],
+ "key_why": "Mulher de 30 anos com a tríade dismenorreia progressiva, dispareunia de profundidade e fadiga, em quadro crônico, sem febre nem corrimento, com útero de volume normal, retroversofletido e doloroso à mobilização, sugere implantes endometrióticos em fundo de saco posterior e ligamentos uterossacros. Por isso a principal hipótese é endometriose.",
+ "theory": {
+  "title": "Endometriose: suspeita clínica",
+  "intro": "Endometriose é a presença de tecido semelhante ao endométrio fora da cavidade uterina, causando inflamação crônica, dor pélvica e infertilidade. Acomete mulheres em idade reprodutiva e o diagnóstico costuma atrasar anos porque a dor menstrual é banalizada.",
+  "sections": [
+   {
+    "heading": "Quando suspeitar",
+    "items": [
+     "Dismenorreia progressiva, que piora ao longo dos anos e não responde bem a analgésicos",
+     "Dispareunia de profundidade",
+     "Dor pélvica crônica, disquezia ou disúria cíclicas",
+     "Infertilidade",
+     "Fadiga como sintoma associado"
+    ]
+   },
+   {
+    "heading": "Exame físico sugestivo",
+    "items": [
+     "Útero retroversofletido e pouco móvel, fixado por aderências no fundo de saco posterior",
+     "Dor à mobilização do colo e ao toque do fundo de saco",
+     "Nodulações em ligamentos uterossacros ou septo retovaginal",
+     "Massa anexial compatível com endometrioma",
+     "Volume uterino normal, o que afasta miomatose e adenomiose volumosa"
+    ]
+   },
+   {
+    "heading": "Como diferenciar",
+    "items": [
+     "DIP: quadro agudo, febre, corrimento cervical purulento, fatores de risco para IST",
+     "Miomatose: útero aumentado e irregular, sangramento uterino aumentado",
+     "Cisto hemorrágico: dor aguda, geralmente unilateral, com massa anexial à ultrassonografia",
+     "Endometriose: dor crônica cíclica e progressiva, sem sinais infecciosos"
+    ]
+   },
+   {
+    "heading": "Investigação",
+    "body": "Exame físico e imagem (ultrassonografia transvaginal com preparo intestinal ou ressonância magnética) mapeiam a doença. Exame de imagem normal não exclui endometriose, e o tratamento clínico empírico pode ser iniciado sem confirmação cirúrgica."
+   }
+  ],
+  "alert": "Dor à mobilização do colo não é exclusiva de DIP: sem febre, corrimento e evolução aguda, pense em endometriose."
+ },
+ "summary": {
+  "title": "Endometriose em 30 segundos",
+  "points": [
+   {
+    "label": "Conceito",
+    "text": "Tecido endometrial ectópico com inflamação crônica, dependente de estrogênio."
+   },
+   {
+    "label": "Clínica",
+    "text": "Dor cíclica e progressiva com infertilidade.",
+    "sub": [
+     "Dismenorreia progressiva",
+     "Dispareunia de profundidade",
+     "Disquezia e disúria cíclicas",
+     "Fadiga"
+    ]
+   },
+   {
+    "label": "Exame",
+    "text": "Útero retroversofletido fixo, dor à mobilização, nódulos uterossacros."
+   },
+   {
+    "label": "Diferencial",
+    "text": "DIP é aguda e febril; mioma aumenta o útero; cisto hemorrágico dá dor aguda com massa anexial."
+   },
+   {
+    "label": "Imagem",
+    "text": "USG transvaginal ou RM; exame normal não exclui a doença."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

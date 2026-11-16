@@ -1,0 +1,84 @@
+{
+ "area_id": "pediatria",
+ "competency_id": "hipotese",
+ "theme": "Esclerose tuberosa com espasmos infantis",
+ "scenario": "UBS",
+ "difficulty": "medio",
+ "quick": "Espasmos em flexão, manchas hipomelanóticas e astrocitomas subependimários de células gigantes: esclerose tuberosa. Alternativa B.",
+ "reasoning": "Primeiro passo: caracterizar as crises. Espasmos em flexão dos membros superiores, em salvas, semelhantes a sustos, nos períodos de sonolência, em lactente de 9 meses, são espasmos infantis, da síndrome de West. Segundo passo: procurar a causa. Manchas hipomelanóticas no tronco e nos membros inferiores são marcadoras de esclerose tuberosa. Terceiro passo: confirmar com a imagem. Astrocitoma subependimário de células gigantes é um tumor típico da doença, e a ressonância mostra os túberes corticais e os nódulos subependimários. Quarto passo: afastar as outras. Na neurofibromatose, as manchas são café com leite, hiperpigmentadas. Na síndrome de Sturge-Weber há mancha vinho do porto na face. Na doença de von Hippel-Lindau há hemangioblastomas do cerebelo e da retina, sem espasmos infantis típicos.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Na neurofibromatose as manchas são café com leite, hiperpigmentadas, e os tumores são neurofibromas e gliomas ópticos."
+  },
+  {
+   "index": 2,
+   "why": "A síndrome de Sturge-Weber cursa com mancha vinho do porto na face e angioma leptomeníngeo, sem manchas hipomelanóticas."
+  },
+  {
+   "index": 3,
+   "why": "A doença de von Hippel-Lindau tem hemangioblastomas cerebelares e retinianos e começa em adultos jovens, sem manchas hipomelanóticas."
+  }
+ ],
+ "tip": "Manchas hipopigmentadas mais espasmos infantis: esclerose tuberosa; o tratamento dos espasmos é vigabatrina.",
+ "pearl": "Mancha hipomelanótica em folha de freixo é o primeiro sinal cutâneo da esclerose tuberosa, e aparece já no nascimento.",
+ "competency_note": "Reconhecer fenótipo neurocutâneo em lactente com epilepsia.",
+ "claims": [
+  {
+   "claim": "Manchas hipomelanóticas, astrocitoma subependimário de células gigantes e espasmos infantis são critérios do complexo de esclerose tuberosa.",
+   "source_id": "pm-34399110",
+   "locator": "Critérios maiores"
+  },
+  {
+   "claim": "A vigabatrina é tratamento de primeira escolha para espasmos infantis na esclerose tuberosa.",
+   "source_id": "pm-33180985",
+   "locator": "Resumo"
+  }
+ ],
+ "key_why": "A associação de espasmos infantis, manchas hipomelanóticas e astrocitoma subependimário caracteriza esclerose tuberosa.",
+ "theory": {
+  "title": "Complexo da esclerose tuberosa",
+  "intro": "Doença genética que forma hamartomas em vários órgãos, com epilepsia e comprometimento do desenvolvimento.",
+  "sections": [
+   {
+    "heading": "Critérios maiores",
+    "items": [
+     "Manchas hipomelanóticas",
+     "Angiofibromas faciais e placas fibrosas",
+     "Túberes corticais e nódulos subependimários",
+     "Astrocitoma subependimário de células gigantes",
+     "Rabdomiomas cardíacos e angiomiolipomas renais"
+    ]
+   },
+   {
+    "heading": "Crises",
+    "body": "Os espasmos infantis são frequentes no primeiro ano. A vigabatrina é o tratamento preferido."
+   }
+  ]
+ },
+ "summary": {
+  "title": "Esclerose tuberosa",
+  "points": [
+   {
+    "label": "Pele",
+    "text": "Manchas hipomelanóticas."
+   },
+   {
+    "label": "Cérebro",
+    "text": "Túberes, nódulos e astrocitoma de células gigantes."
+   },
+   {
+    "label": "Crises",
+    "text": "Espasmos infantis; tratar com vigabatrina."
+   },
+   {
+    "label": "Outros órgãos",
+    "text": "Coração e rins."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

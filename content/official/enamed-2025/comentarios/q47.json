@@ -1,0 +1,78 @@
+{
+ "area_id": "coletiva",
+ "competency_id": "sus",
+ "theme": "Vacinação de adolescente",
+ "scenario": "UBS",
+ "difficulty": "medio",
+ "quick": "Aos 12 anos, com vacinação em dia até os 8 anos, a adolescente deve receber HPV, meningocócica ACWY e a segunda dose de febre amarela. Alternativa C.",
+ "reasoning": "Primeiro passo: avaliar o histórico. Todas as vacinas do calendário até os 8 anos estão em dia, e a febre amarela foi feita em uma única dose, aos 9 meses. Segundo passo: lembrar as vacinas da adolescência. A vacina HPV é oferecida a meninas e meninos de 9 a 14 anos. A meningocócica ACWY é oferecida entre 11 e 12 anos. A febre amarela exige duas doses, e quem recebeu apenas uma antes dos cinco anos recebe a dose de reforço. Terceiro passo: eliminar as outras. A dT é reforço a cada 10 anos, e não se aplica aqui, pois a última dose foi há pouco tempo. SCR e hepatite B já foram feitas na infância e não precisam de reforço de rotina.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "O reforço de hepatite B e a dT não são indicados a quem está com a vacinação em dia; falta a meningocócica ACWY e a febre amarela."
+  },
+  {
+   "index": 1,
+   "why": "Reforço de hepatite B, dT e SCR não é indicado em quem completou o esquema da infância; faltam HPV, meningocócica e febre amarela."
+  },
+  {
+   "index": 3,
+   "why": "A SCR foi feita na infância, e esta combinação deixa de fora a HPV, que é indicada nessa idade."
+  }
+ ],
+ "tip": "Adolescente de 11 a 14 anos: HPV, meningocócica ACWY e, se só uma dose, reforço de febre amarela.",
+ "pearl": "Quem recebeu uma dose de febre amarela antes dos 5 anos deve receber a segunda dose.",
+ "competency_note": "Atualizar vacinas do adolescente conforme o calendário nacional.",
+ "claims": [
+  {
+   "claim": "O Calendário Nacional de Vacinação inclui HPV para adolescentes de 9 a 14 anos, meningocócica ACWY na adolescência e reforço de febre amarela para quem recebeu uma dose antes dos 5 anos.",
+   "source_id": "ms-vacinacao-gov",
+   "locator": "Calendário do adolescente"
+  }
+ ],
+ "key_why": "Adolescente com vacinação em dia deve receber as vacinas da faixa etária: HPV, meningocócica ACWY e a segunda dose de febre amarela.",
+ "theory": {
+  "title": "Calendário de vacinação do adolescente",
+  "intro": "A adolescência é uma oportunidade para completar esquemas e aplicar vacinas próprias da faixa etária.",
+  "sections": [
+   {
+    "heading": "Vacinas principais",
+    "items": [
+     "HPV: de 9 a 14 anos",
+     "Meningocócica ACWY: aos 11 e 12 anos",
+     "Febre amarela: segunda dose se recebeu uma antes dos 5 anos",
+     "dT: reforço a cada 10 anos"
+    ]
+   },
+   {
+    "heading": "Como conferir",
+    "body": "Revise a caderneta, verifique esquemas incompletos e aproveite a consulta para atualizar tudo."
+   }
+  ]
+ },
+ "summary": {
+  "title": "Vacinas aos 12 anos",
+  "points": [
+   {
+    "label": "HPV",
+    "text": "De 9 a 14 anos."
+   },
+   {
+    "label": "Meningocócica ACWY",
+    "text": "Entre 11 e 12 anos."
+   },
+   {
+    "label": "Febre amarela",
+    "text": "Segunda dose se só recebeu uma."
+   },
+   {
+    "label": "dT",
+    "text": "Reforço a cada 10 anos."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": "Conferir a idade exata de ACWY e do reforço de febre amarela no calendário vigente."
+}

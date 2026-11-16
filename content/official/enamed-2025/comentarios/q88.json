@@ -1,0 +1,84 @@
+{
+ "area_id": "cirurgia",
+ "competency_id": "propedeutica",
+ "theme": "Icterícia obstrutiva com suspeita de câncer de pâncreas",
+ "scenario": "Ambulatório",
+ "difficulty": "medio",
+ "quick": "Questão excluída do cálculo. Dor em faixa, perda de peso, icterícia, colúria e acolia em idoso tabagista: neoplasia de cabeça de pâncreas. Os exames iniciais são tomografia com contraste e CA 19-9.",
+ "reasoning": "Primeiro passo: reconhecer a síndrome. Idoso com dor epigástrica em faixa para o dorso, perda de 8 kg, prurido, icterícia, colúria e acolia tem síndrome colestática obstrutiva com sinais de alarme. Tabagismo, diabetes e idade avançada aumentam o risco de câncer de pâncreas. Segundo passo: escolher a investigação. A tomografia computadorizada de abdome com contraste, em protocolo pancreático, avalia o tumor, a invasão vascular e as metástases e orienta a ressecabilidade. O CA 19-9 é marcador usado como apoio e para seguimento, e não como diagnóstico. Terceiro passo: descartar as outras. Ultrassonografia e sorologias para hepatites são menos adequadas diante desta suspeita. A colangiopancreatografia endoscópica é invasiva e reservada para drenagem biliar. A ressonância com dosagens de enzimas pancreáticas não é o exame inicial ideal. A banca excluiu a questão do cálculo por desajuste estatístico.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "A ultrassonografia e as sorologias de hepatite são exames de apoio, mas não estadiam um tumor pancreático e não são a melhor escolha inicial."
+  },
+  {
+   "index": 1,
+   "why": "A colangiopancreatografia endoscópica é invasiva, com risco de pancreatite, e é reservada para drenagem biliar, não para diagnóstico inicial."
+  },
+  {
+   "index": 2,
+   "why": "A ressonância é alternativa à tomografia, mas amilase, lipase e cálcio não ajudam na investigação de tumor."
+  },
+  {
+   "index": 3,
+   "why": "É a combinação mais coerente: tomografia para diagnóstico e estadiamento e CA 19-9 como apoio."
+  }
+ ],
+ "tip": "Icterícia obstrutiva em idoso com perda de peso: tomografia com protocolo pancreático e CA 19-9 de apoio.",
+ "pearl": "O CA 19-9 pode estar alto em obstrução biliar benigna; ele não faz o diagnóstico sozinho.",
+ "competency_note": "Investigar icterícia obstrutiva com suspeita de neoplasia de pâncreas.",
+ "claims": [
+  {
+   "claim": "O câncer de pâncreas é diagnosticado e estadiado por tomografia computadorizada com protocolo pancreático, e o CA 19-9 é usado como apoio e para acompanhamento.",
+   "source_id": "pm-37678671",
+   "locator": "Diagnóstico e estadiamento"
+  }
+ ],
+ "theory": {
+  "title": "Câncer de pâncreas",
+  "intro": "Tumor de mau prognóstico, diagnosticado em fase avançada. Os tumores de cabeça causam icterícia obstrutiva.",
+  "sections": [
+   {
+    "heading": "Quadro",
+    "items": [
+     "Dor epigástrica irradiada para o dorso",
+     "Perda de peso, icterícia, prurido, colúria e acolia",
+     "Diabetes de início recente"
+    ]
+   },
+   {
+    "heading": "Investigação",
+    "items": [
+     "Tomografia de abdome com protocolo pancreático",
+     "CA 19-9 como marcador de apoio",
+     "Ecoendoscopia com biópsia quando necessário"
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "title": "Câncer de pâncreas",
+  "points": [
+   {
+    "label": "Quadro",
+    "text": "Icterícia, dor em faixa e perda de peso."
+   },
+   {
+    "label": "Exame",
+    "text": "Tomografia com protocolo pancreático."
+   },
+   {
+    "label": "Marcador",
+    "text": "CA 19-9 serve de apoio."
+   },
+   {
+    "label": "CPRE",
+    "text": "Para drenagem, e não para diagnóstico inicial."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": "Questão excluída pelo Inep; a alternativa D é a mais coerente com a investigação inicial.",
+ "review_note": "Excluída do cálculo."
+}

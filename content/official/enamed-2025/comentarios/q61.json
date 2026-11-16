@@ -1,0 +1,81 @@
+{
+ "area_id": "go",
+ "competency_id": "terapeutica",
+ "theme": "Candidíase vulvovaginal",
+ "scenario": "UBS",
+ "difficulty": "facil",
+ "quick": "Prurido, disúria terminal, corrimento esbranquiçado e fissuras, em diabética que usou antibiótico, com teste das aminas negativo: candidíase. Miconazol vaginal por 7 noites. Alternativa A.",
+ "reasoning": "Primeiro passo: identificar os fatores de risco. A paciente é diabética e usou antibiótico recentemente, dois fatores clássicos de candidíase vulvovaginal. Segundo passo: avaliar o quadro. Prurido intenso, edema, hiperemia, fissuras e corrimento esbranquiçado, sem odor e com teste das aminas negativo, indicam candidíase, e não vaginose bacteriana. Terceiro passo: escolher o tratamento. O tratamento tópico com miconazol creme vaginal por 7 noites é esquema recomendado. Alternativas orais com fluconazol também existem. Quarto passo: descartar as outras. Cefalexina e azitromicina são antibacterianos e podem até piorar a candidíase. Metronidazol trata vaginose bacteriana e tricomoníase, que têm teste das aminas positivo ou corrimento verde-amarelado.",
+ "distractors": [
+  {
+   "index": 1,
+   "why": "Cefalexina é antibiótico e não trata fungo; o uso prévio de antibiótico é justamente um fator de risco da candidíase."
+  },
+  {
+   "index": 2,
+   "why": "Azitromicina trata infecções bacterianas, como a clamídia, e não candidíase."
+  },
+  {
+   "index": 3,
+   "why": "Metronidazol trata vaginose bacteriana e tricomoníase, que cursam com teste das aminas positivo ou corrimento amarelo-esverdeado."
+  }
+ ],
+ "tip": "Corrimento grumoso, prurido e teste das aminas negativo em diabética ou pós-antibiótico: candidíase.",
+ "pearl": "Antibiótico e diabetes descompensado favorecem a candidíase; trate o fator de risco também.",
+ "competency_note": "Tratar corrimento vaginal conforme o agente mais provável.",
+ "claims": [
+  {
+   "claim": "A candidíase vulvovaginal é tratada com miconazol creme vaginal por 7 noites ou nistatina, e o fluconazol oral é alternativa.",
+   "source_id": "ms-ist-2015",
+   "locator": "Candidíase vulvovaginal"
+  }
+ ],
+ "key_why": "O quadro típico em paciente de risco e o teste das aminas negativo indicam candidíase, tratada com miconazol por 7 noites.",
+ "theory": {
+  "title": "Corrimento vaginal",
+  "intro": "As três causas mais comuns de vaginite são a candidíase, a vaginose bacteriana e a tricomoníase.",
+  "sections": [
+   {
+    "heading": "Como diferenciar",
+    "items": [
+     "Candidíase: prurido, corrimento grumoso, teste das aminas negativo",
+     "Vaginose bacteriana: odor de peixe, teste das aminas positivo",
+     "Tricomoníase: corrimento amarelo-esverdeado, espumoso"
+    ]
+   },
+   {
+    "heading": "Tratamento",
+    "items": [
+     "Candidíase: miconazol vaginal por 7 noites ou fluconazol oral",
+     "Vaginose: metronidazol",
+     "Tricomoníase: metronidazol, com tratamento do parceiro"
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "title": "Candidíase vulvovaginal",
+  "points": [
+   {
+    "label": "Fatores",
+    "text": "Diabetes, antibiótico, gestação."
+   },
+   {
+    "label": "Quadro",
+    "text": "Prurido, corrimento grumoso e teste das aminas negativo."
+   },
+   {
+    "label": "Tratar",
+    "text": "Miconazol vaginal por 7 noites."
+   },
+   {
+    "label": "Diferencial",
+    "text": "Metronidazol é para vaginose e tricomoníase."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

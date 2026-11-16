@@ -1,0 +1,82 @@
+{
+ "area_id": "pediatria",
+ "competency_id": "decisao",
+ "theme": "Convulsão febril simples",
+ "scenario": "UBS",
+ "difficulty": "facil",
+ "quick": "Crise tônico-clônica generalizada breve, em criança de 2 anos febril, sem recorrência e com exame normal: convulsão febril simples. Tranquilizar e manter puericultura de rotina. Alternativa C.",
+ "reasoning": "Primeiro passo: classificar a crise. A crise foi generalizada, durou 2 minutos e não se repetiu em 24 horas, em criança com febre alta e exame neurológico normal. Isso preenche os critérios de convulsão febril simples. Segundo passo: lembrar o prognóstico. É benigna e não causa dano neurológico. A chance de recorrência é de cerca de um terço, e o risco de epilepsia é próximo ao da população geral. Terceiro passo: indicar a conduta. Em convulsão febril simples, não se pedem eletroencefalograma, exames laboratoriais ou de imagem. Não se faz profilaxia contínua. A conduta é tranquilizar os pais, orientar sobre o que fazer em caso de nova crise e manter o acompanhamento de rotina. Quarto passo: descartar as outras. O eletroencefalograma e os exames de imagem não se justificam, e os barbitúricos não são indicados.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "O eletroencefalograma não é indicado na convulsão febril simples, pois não muda a conduta nem o prognóstico."
+  },
+  {
+   "index": 1,
+   "why": "A profilaxia com barbitúricos não é indicada: há efeitos adversos e não previne epilepsia."
+  },
+  {
+   "index": 3,
+   "why": "Exames laboratoriais e de imagem não são indicados em criança com convulsão febril simples e exame neurológico normal."
+  }
+ ],
+ "tip": "Convulsão febril simples: sem exames, sem profilaxia; tranquilize e oriente os pais.",
+ "pearl": "Tratar a febre não previne recorrência da convulsão febril.",
+ "competency_note": "Conduzir convulsão febril simples sem excesso de exames.",
+ "claims": [
+  {
+   "claim": "Na criança com convulsão febril simples, não se recomenda eletroencefalograma, exames de neuroimagem nem profilaxia contínua; a conduta é tranquilizar e orientar a família.",
+   "source_id": "aap-convulsao-febril-2011",
+   "locator": "Recomendações"
+  }
+ ],
+ "key_why": "A crise simples, em criança com exame normal, não exige investigação nem tratamento contínuo.",
+ "theory": {
+  "title": "Convulsão febril",
+  "intro": "É a crise convulsiva associada à febre, entre 6 meses e 5 anos, sem infecção do sistema nervoso central.",
+  "sections": [
+   {
+    "heading": "Simples",
+    "items": [
+     "Generalizada",
+     "Dura menos de 15 minutos",
+     "Não se repete em 24 horas"
+    ]
+   },
+   {
+    "heading": "Conduta",
+    "items": [
+     "Avaliar a causa da febre",
+     "Sem eletroencefalograma, neuroimagem ou exames de rotina",
+     "Sem profilaxia contínua",
+     "Orientar os pais sobre o manejo da crise"
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "title": "Convulsão febril simples",
+  "points": [
+   {
+    "label": "Definição",
+    "text": "Crise breve e generalizada, com febre, uma vez em 24 horas."
+   },
+   {
+    "label": "Exames",
+    "text": "Não são necessários."
+   },
+   {
+    "label": "Tratamento",
+    "text": "Sem profilaxia contínua."
+   },
+   {
+    "label": "Família",
+    "text": "Tranquilizar e orientar."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

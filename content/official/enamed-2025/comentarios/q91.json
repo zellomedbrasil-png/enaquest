@@ -1,0 +1,78 @@
+{
+ "area_id": "clinica",
+ "competency_id": "decisao",
+ "theme": "Síndrome coronariana aguda sem supradesnível e estratificação",
+ "scenario": "Hospital terciário",
+ "difficulty": "medio",
+ "quick": "Infarto sem supradesnível do ST com escore GRACE de 152: estratégia invasiva precoce, com cateterismo nas primeiras 24 horas. Alternativa B.",
+ "reasoning": "Primeiro passo: reconhecer o quadro. Dor torácica típica, infradesnivelamento de ST e elevação da troponina em paciente diabético e hipertenso configuram infarto sem supradesnível do ST, de risco alto. Segundo passo: estratificar. O escore GRACE de 152 é maior que 140, e o TIMI de 5 é alto, além de o paciente ter infradesnivelamento dinâmico e troponina elevada. Terceiro passo: definir o momento do cateterismo. Em pacientes de alto risco, como GRACE acima de 140, a estratégia invasiva precoce, com cateterismo em até 24 horas, é recomendada. Quarto passo: descartar as outras. A estratégia imediata, em menos de 2 horas, é para instabilidade. Cateterismo em até 3 dias é para risco intermediário. Angiotomografia e ecocardiograma de estresse são para baixo risco ou dor estável.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "A angiotomografia coronária é indicada para baixa probabilidade de doença, e não para infarto de alto risco com troponina elevada."
+  },
+  {
+   "index": 2,
+   "why": "O cateterismo em até 3 dias é para risco intermediário; o GRACE de 152 indica estratégia precoce em até 24 horas."
+  },
+  {
+   "index": 3,
+   "why": "O ecocardiograma de estresse é teste de isquemia para risco baixo ou intermediário, inadequado em infarto de alto risco."
+  }
+ ],
+ "tip": "SCA sem supra com GRACE acima de 140: cateterismo em até 24 horas.",
+ "pearl": "Instabilidade hemodinâmica, angina refratária ou arritmia grave indicam cateterismo imediato, em menos de 2 horas.",
+ "competency_note": "Definir o momento do cateterismo na síndrome coronariana aguda sem supradesnível.",
+ "claims": [
+  {
+   "claim": "Na síndrome coronariana aguda sem supradesnível do ST, a estratégia invasiva precoce, em até 24 horas, é recomendada em pacientes de alto risco, como os com GRACE acima de 140.",
+   "source_id": "esc-nste-2020",
+   "locator": "Estratégia invasiva"
+  }
+ ],
+ "key_why": "O GRACE acima de 140 indica estratégia invasiva precoce, com cateterismo em até 24 horas.",
+ "theory": {
+  "title": "SCA sem supradesnível do ST",
+  "intro": "Engloba a angina instável e o infarto sem supra. O momento do cateterismo depende do risco.",
+  "sections": [
+   {
+    "heading": "Momento do cateterismo",
+    "items": [
+     "Imediato (menos de 2 horas): instabilidade, angina refratária, arritmia grave",
+     "Precoce (até 24 horas): GRACE acima de 140 ou critérios de alto risco",
+     "Em até 72 horas: risco intermediário",
+     "Seletivo: baixo risco"
+    ]
+   },
+   {
+    "heading": "Tratamento inicial",
+    "body": "Antiagregação, anticoagulação, estatina e betabloqueador, além do tratamento da dor."
+   }
+  ]
+ },
+ "summary": {
+  "title": "SCA sem supra",
+  "points": [
+   {
+    "label": "Imediato",
+    "text": "Instabilidade ou angina refratária."
+   },
+   {
+    "label": "Precoce",
+    "text": "GRACE acima de 140: até 24 horas."
+   },
+   {
+    "label": "Intermediário",
+    "text": "Até 72 horas."
+   },
+   {
+    "label": "Baixo risco",
+    "text": "Teste não invasivo."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

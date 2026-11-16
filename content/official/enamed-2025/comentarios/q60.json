@@ -1,0 +1,78 @@
+{
+ "area_id": "cirurgia",
+ "competency_id": "propedeutica",
+ "theme": "Diverticulite aguda: exame de escolha",
+ "scenario": "Pronto-socorro",
+ "difficulty": "facil",
+ "quick": "Dor em fossa ilíaca esquerda com febre, leucocitose e plastrão em paciente de 59 anos: diverticulite aguda. O exame de maior acurácia é a tomografia com contraste. Alternativa C.",
+ "reasoning": "Primeiro passo: reconhecer o quadro. Dor há 5 dias em fossa ilíaca esquerda, febre, plastrão no hipogástrio e leucocitose com desvio à esquerda em homem acima dos 50 anos, com episódio prévio e hematoquezia, sugerem diverticulite do sigmoide. Segundo passo: escolher o exame. A tomografia de abdome com contraste tem a maior sensibilidade e especificidade, confirma o diagnóstico, classifica a gravidade e mostra abscesso ou perfuração. Terceiro passo: descartar as outras. A radiografia tem baixa acurácia. A colonoscopia está contraindicada na fase aguda, pelo risco de perfuração, e é feita depois da resolução. A ultrassonografia é operador-dependente e menos acurada.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "A radiografia abdominal pode mostrar íleo ou pneumoperitônio, mas tem baixa acurácia para diverticulite."
+  },
+  {
+   "index": 1,
+   "why": "A colonoscopia na fase aguda tem risco de perfuração e deve ser adiada para depois da resolução do episódio."
+  },
+  {
+   "index": 3,
+   "why": "A ultrassonografia depende do operador e tem menor acurácia que a tomografia, sobretudo no paciente obeso."
+  }
+ ],
+ "tip": "Diverticulite aguda: tomografia com contraste; colonoscopia depois de 6 a 8 semanas.",
+ "pearl": "Em paciente com hematoquezia prévia e idade avançada, a colonoscopia depois do episódio agudo é obrigatória, para afastar câncer.",
+ "competency_note": "Escolher o exame de imagem na suspeita de diverticulite aguda.",
+ "claims": [
+  {
+   "claim": "A tomografia computadorizada de abdome com contraste é o exame de imagem de escolha para diagnóstico e classificação da diverticulite aguda.",
+   "source_id": "pm-32381121",
+   "locator": "Diagnóstico por imagem"
+  }
+ ],
+ "key_why": "A tomografia com contraste confirma a diverticulite e classifica a gravidade, com maior acurácia que os demais exames.",
+ "theory": {
+  "title": "Diverticulite aguda",
+  "intro": "Inflamação de divertículos do cólon, mais comum no sigmoide, em pessoas acima de 50 anos.",
+  "sections": [
+   {
+    "heading": "Quadro",
+    "items": [
+     "Dor em fossa ilíaca esquerda",
+     "Febre e leucocitose",
+     "Plastrão palpável",
+     "Alteração do hábito intestinal"
+    ]
+   },
+   {
+    "heading": "Diagnóstico",
+    "body": "Tomografia de abdome com contraste. Colonoscopia só 6 a 8 semanas depois do episódio."
+   }
+  ]
+ },
+ "summary": {
+  "title": "Diverticulite aguda",
+  "points": [
+   {
+    "label": "Quadro",
+    "text": "Dor em fossa ilíaca esquerda, febre e plastrão."
+   },
+   {
+    "label": "Exame",
+    "text": "Tomografia com contraste."
+   },
+   {
+    "label": "Colonoscopia",
+    "text": "Depois da fase aguda."
+   },
+   {
+    "label": "Complicações",
+    "text": "Abscesso, perfuração, fístula."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

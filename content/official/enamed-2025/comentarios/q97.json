@@ -1,0 +1,80 @@
+{
+ "area_id": "pediatria",
+ "competency_id": "hipotese",
+ "theme": "Baixa estatura familiar",
+ "scenario": "UBS",
+ "difficulty": "dificil",
+ "quick": "Menina de 7 anos, com peso proporcional, relação segmento superior/inferior normal, estatura alvo baixa e idade óssea próxima da cronológica: baixa estatura familiar. Alternativa C.",
+ "reasoning": "Primeiro passo: avaliar a estatura em relação ao alvo. A estatura está entre -3 e -2 escores Z, e o alvo familiar é 1,50 m, com escore Z de -2. A criança cresce no canal da família. Segundo passo: avaliar as proporções. A relação entre segmento superior e inferior é normal, de 1,02, o que afasta displasias esqueléticas como a acondroplasia, que têm membros curtos. Terceiro passo: avaliar a idade óssea. Ela está atrasada por menos de um ano, de 5 anos e 10 meses para uma idade de 6 anos e 8 meses, o que é compatível com variação normal e não com o atraso constitucional, em que a idade óssea fica muito atrasada e o alvo familiar é normal. Quarto passo: descartar as outras. Na síndrome de Turner há outras características e o crescimento cai abaixo do canal. Na baixa estatura familiar, a velocidade de crescimento é normal e o desenvolvimento puberal ocorre na idade usual.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Na acondroplasia a relação entre segmentos está alterada, com membros curtos; aqui é normal."
+  },
+  {
+   "index": 1,
+   "why": "A síndrome de Turner cursa com estatura abaixo do alvo e outras alterações, e seria investigada se a velocidade de crescimento fosse baixa."
+  },
+  {
+   "index": 3,
+   "why": "No atraso constitucional, a idade óssea está muito atrasada e o alvo familiar é normal; aqui o alvo é baixo e o atraso é discreto."
+  }
+ ],
+ "tip": "Estatura baixa com alvo familiar baixo, proporções normais e idade óssea próxima da cronológica: baixa estatura familiar.",
+ "pearl": "A baixa estatura familiar e o atraso constitucional são variantes normais do crescimento, e não doenças.",
+ "competency_note": "Diferenciar causas de baixa estatura na infância.",
+ "claims": [
+  {
+   "claim": "A avaliação da baixa estatura considera a altura-alvo familiar, as proporções corporais, a velocidade de crescimento e a idade óssea, que diferenciam baixa estatura familiar, atraso constitucional e causas patológicas.",
+   "source_id": "pm-34398416",
+   "locator": "Abordagem diagnóstica"
+  }
+ ],
+ "key_why": "O alvo familiar baixo, as proporções normais e a idade óssea próxima da cronológica sugerem baixa estatura familiar.",
+ "theory": {
+  "title": "Baixa estatura na infância",
+  "intro": "É a estatura abaixo de dois desvios-padrão para a idade e o sexo. A maioria dos casos é variante normal.",
+  "sections": [
+   {
+    "heading": "Variantes normais",
+    "items": [
+     "Baixa estatura familiar: alvo baixo, idade óssea normal, puberdade na época",
+     "Atraso constitucional: idade óssea atrasada, alvo normal, puberdade tardia"
+    ]
+   },
+   {
+    "heading": "Causas patológicas",
+    "items": [
+     "Displasias esqueléticas, com proporções alteradas",
+     "Síndromes genéticas, como Turner",
+     "Doenças crônicas e endocrinopatias"
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "title": "Baixa estatura",
+  "points": [
+   {
+    "label": "Familiar",
+    "text": "Alvo baixo, idade óssea normal."
+   },
+   {
+    "label": "Constitucional",
+    "text": "Idade óssea atrasada e alvo normal."
+   },
+   {
+    "label": "Displasia",
+    "text": "Proporções corporais alteradas."
+   },
+   {
+    "label": "Investigar",
+    "text": "Crescimento lento, desproporção ou sinais de síndrome."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

@@ -1,0 +1,82 @@
+{
+ "area_id": "clinica",
+ "competency_id": "urgencia",
+ "theme": "Sepse de foco urinário",
+ "scenario": "UPA",
+ "difficulty": "medio",
+ "quick": "Idosa diabética com febre, calafrios, taquicardia, taquipneia, leucocitose e desvio à esquerda: sepse de foco urinário. Antibiótico de amplo espectro na primeira hora. Alternativa B.",
+ "reasoning": "Primeiro passo: reconhecer a sepse. Febre, taquicardia, taquipneia, leucocitose com bastonetes e infecção urinária de repetição em diabética indicam sepse de foco urinário. Segundo passo: lembrar que a sepse é emergência dependente do tempo. O atraso no antibiótico aumenta a mortalidade. Terceiro passo: aplicar o pacote da primeira hora. Colhem-se culturas, mede-se o lactato, repõem-se líquidos conforme a necessidade e administra-se antibiótico de amplo espectro em até uma hora. Quarto passo: descartar as outras. Antitérmico e hidratação oral com observação atrasam o tratamento. Cobertura contra Candida não é rotina, pois a maioria das infecções urinárias de repetição é bacteriana. Manter o antibiótico de amplo espectro por todo o tratamento, mesmo depois da cultura, vai contra o descalonamento, que ajusta o antibiótico ao resultado.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Antitérmico, hidratação oral e observação atrasam o antibiótico, e o atraso aumenta a mortalidade na sepse."
+  },
+  {
+   "index": 2,
+   "why": "A cobertura antifúngica não é rotina na infecção urinária de repetição em diabética; a causa mais provável é bacteriana."
+  },
+  {
+   "index": 3,
+   "why": "O antibiótico de amplo espectro é descalonado conforme a cultura e a evolução; mantê-lo sem revisão favorece resistência e efeitos adversos."
+  }
+ ],
+ "tip": "Sepse: culturas, lactato e antibiótico de amplo espectro na primeira hora.",
+ "pearl": "O tempo até o antibiótico é um dos principais determinantes de sobrevida na sepse.",
+ "competency_note": "Aplicar o pacote inicial de tratamento da sepse.",
+ "claims": [
+  {
+   "claim": "Em adultos com sepse ou choque séptico, recomenda-se administrar antimicrobianos o mais rápido possível, idealmente na primeira hora, e reavaliar o esquema quando saem as culturas.",
+   "source_id": "ssc-2021",
+   "locator": "Recomendações sobre antimicrobianos"
+  }
+ ],
+ "key_why": "Na sepse, o antibiótico de amplo espectro deve ser dado na primeira hora, com revisão depois das culturas.",
+ "theory": {
+  "title": "Sepse no adulto",
+  "intro": "Sepse é disfunção orgânica ameaçadora à vida causada por resposta desregulada à infecção.",
+  "sections": [
+   {
+    "heading": "Reconhecimento",
+    "items": [
+     "Febre ou hipotermia, taquicardia, taquipneia",
+     "Hipotensão, alteração de consciência, lactato elevado",
+     "Foco infeccioso provável, como o urinário"
+    ]
+   },
+   {
+    "heading": "Primeira hora",
+    "items": [
+     "Culturas antes do antibiótico, sem atrasá-lo",
+     "Antibiótico de amplo espectro",
+     "Lactato e reposição de volume",
+     "Controle do foco"
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "title": "Sepse",
+  "points": [
+   {
+    "label": "Tempo",
+    "text": "Antibiótico na primeira hora."
+   },
+   {
+    "label": "Exames",
+    "text": "Culturas e lactato."
+   },
+   {
+    "label": "Líquidos",
+    "text": "Reposição guiada pela perfusão."
+   },
+   {
+    "label": "Descalonar",
+    "text": "Ajustar o antibiótico depois da cultura."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

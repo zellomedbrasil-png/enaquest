@@ -1,0 +1,88 @@
+{
+ "area_id": "coletiva",
+ "competency_id": "sus",
+ "theme": "Manejo integrado de vetores",
+ "scenario": "Território",
+ "difficulty": "medio",
+ "quick": "O manejo integrado de vetores é um ciclo: análise situacional com dados epidemiológicos e entomológicos, planejamento, implementação, monitoramento e avaliação. Alternativa D.",
+ "reasoning": "Primeiro passo: lembrar o conceito. O manejo integrado de vetores combina várias ações em um processo cíclico, baseado em dados locais. Segundo passo: listar as etapas. Começa pela análise da situação epidemiológica e entomológica do território, segue com o desenho das operações e o planejamento, a implementação das ações, o monitoramento e a avaliação, que realimentam um novo ciclo. Terceiro passo: avaliar as outras alternativas. Levantamento de índice larvário, notificação de vetores infectados e avaliação de indicadores são partes isoladas do processo. Treinamento da equipe, inseticida intensivo e mutirões são ações pontuais, sem o desenho de ciclo. Vigilância virológica e notificação semanal de casos suspeitos descrevem ações de vigilância epidemiológica, e não o ciclo do manejo integrado.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Levantamento larvário e indicadores entram como ferramentas da análise, mas não descrevem o ciclo completo de planejamento, implementação e avaliação."
+  },
+  {
+   "index": 1,
+   "why": "Treinamento, inseticida intensivo e mutirões são ações pontuais; o uso intensivo de inseticida contraria o princípio de manejo integrado."
+  },
+  {
+   "index": 2,
+   "why": "Vigilância virológica e notificação de casos são ações da vigilância epidemiológica, e não o ciclo do manejo integrado de vetores."
+  }
+ ],
+ "tip": "Manejo integrado de vetores é um ciclo: analisar, planejar, executar, monitorar e avaliar.",
+ "pearl": "Inseticida isolado não controla o Aedes; a eliminação de criadouros e a participação da comunidade são centrais.",
+ "competency_note": "Descrever o ciclo do manejo integrado de vetores.",
+ "claims": [
+  {
+   "claim": "O controle do Aedes aegypti combina eliminação de criadouros, ações de campo e vigilância entomológica e epidemiológica, em ciclos de planejamento e avaliação.",
+   "source_id": "ms-gvs-2022",
+   "locator": "Dengue, chikungunya e zika: controle vetorial"
+  },
+  {
+   "claim": "A prevenção da chikungunya depende do controle do vetor Aedes.",
+   "source_id": "ms-chik-gov",
+   "locator": "Prevenção"
+  }
+ ],
+ "key_why": "O ciclo completo, da análise situacional à avaliação, é o que caracteriza o manejo integrado de vetores.",
+ "theory": {
+  "title": "Manejo integrado de vetores",
+  "intro": "Estratégia que combina ações de vigilância, controle e participação da comunidade em um processo contínuo.",
+  "sections": [
+   {
+    "heading": "Ciclo",
+    "items": [
+     "Análise situacional com dados epidemiológicos e entomológicos",
+     "Planejamento e desenho das operações",
+     "Implementação das ações",
+     "Monitoramento e avaliação"
+    ]
+   },
+   {
+    "heading": "Ações",
+    "items": [
+     "Eliminação de criadouros",
+     "Visitas domiciliares pelos agentes",
+     "Tratamento de pontos estratégicos",
+     "Mobilização social"
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "title": "Manejo integrado do Aedes",
+  "points": [
+   {
+    "label": "Ideia",
+    "text": "Processo cíclico, baseado em dados locais."
+   },
+   {
+    "label": "Etapas",
+    "text": "Análise, planejamento, implementação, monitoramento e avaliação."
+   },
+   {
+    "label": "Foco",
+    "text": "Eliminar criadouros com a comunidade."
+   },
+   {
+    "label": "Evitar",
+    "text": "Depender só de inseticida."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

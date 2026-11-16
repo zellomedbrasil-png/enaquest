@@ -72,7 +72,7 @@ export const QuestionImageSchema = z.object({
 
 /**
  * Questão de prova oficial. O enunciado e as alternativas são os da banca, sem reescrita.
- * Em questão anulada, correct_index guarda o gabarito preliminar (só para registro).
+ * Em questão anulada, correct_index é ignorado na importação: a banca não deixou gabarito válido.
  */
 export const OfficialRefSchema = z.object({
   number: z.number().int().positive(),

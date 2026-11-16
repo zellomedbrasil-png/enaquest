@@ -1,0 +1,101 @@
+{
+ "area_id": "mfc",
+ "competency_id": "decisao",
+ "theme": "Rastreamento em adulto na atenção primária",
+ "scenario": "UBS",
+ "difficulty": "medio",
+ "quick": "Para homem de 52 anos tabagista sem queixas, pede-se lipídios, glicemia e pesquisa de sangue oculto nas fezes, oferece-se teste rápido para HIV, sífilis e hepatites B e C e aborda-se a cessação do tabagismo. Alternativa D.",
+ "reasoning": "Primeiro passo: lembrar que o rastreamento deve seguir a idade e o risco, sem pedir exames de rotina que não têm benefício. O paciente tem 52 anos, é tabagista, tem família com diabetes e hipertensão e IMC normal. Segundo passo: separar o que se indica. Lipídios e glicemia entram pela idade e pelo tabagismo. O câncer colorretal é rastreado a partir dos 50 anos, e a pesquisa de sangue oculto nas fezes é a opção disponível no SUS. Testes rápidos para HIV, sífilis e hepatites B e C são ofertados a todo adulto ao menos uma vez. Terceiro passo: tratar o tabagismo, o principal fator de risco modificável, com abordagem de cessação. Quarto passo: descartar o excesso. PSA e toque retal de rotina não têm recomendação de rastreamento populacional. Radiografia de tórax e colonoscopia como primeira escolha não se aplicam a assintomático. Hemograma e creatinina também não são rastreamento de rotina. Deixar tudo para depois, como na alternativa C, desperdiça a idade em que o rastreamento deve começar.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Pede exames em excesso: PSA, radiografia de tórax, colonoscopia como primeira escolha, hemograma e creatinina em assintomático não são rastreamento recomendado."
+  },
+  {
+   "index": 1,
+   "why": "Inclui PSA e toque retal, sem recomendação de rastreamento populacional, e deixa de ofertar sífilis e hepatite C. Grupo na UBS é válido, mas o conjunto de exames está inadequado."
+  },
+  {
+   "index": 2,
+   "why": "Acompanhar apenas por consultas ignora que ele já está na idade do rastreamento colorretal e de dislipidemia e diabetes, que devem ser feitos agora."
+  }
+ ],
+ "tip": "Rastreamento depende de idade e risco. A partir dos 50 anos, pense em câncer colorretal e doenças metabólicas.",
+ "pearl": "PSA e toque retal de rotina não são indicados para rastreamento populacional; o benefício é pequeno e há risco de sobrediagnóstico.",
+ "competency_note": "Indicar rastreamentos com base em idade e risco, sem excesso de exames.",
+ "claims": [
+  {
+   "claim": "O rastreamento deve basear-se em evidência de benefício e em critérios de idade e risco, evitando exames sem benefício comprovado.",
+   "source_id": "ms-rastreamento-2010",
+   "locator": "Princípios do rastreamento"
+  },
+  {
+   "claim": "Recomenda-se rastreamento de câncer colorretal a partir dos 45 a 50 anos, conforme a diretriz, e a decisão sobre PSA é individualizada, sem rastreamento de rotina.",
+   "source_id": "pm-34003218",
+   "locator": "Resumo"
+  },
+  {
+   "claim": "A decisão sobre rastreamento de câncer de próstata com PSA deve ser individualizada entre 55 e 69 anos, após conversa sobre riscos e benefícios.",
+   "source_id": "pm-29801017",
+   "locator": "Resumo"
+  },
+  {
+   "claim": "Rastreamento de câncer de pulmão com tomografia de baixa dose é indicado a fumantes de 50 a 80 anos com carga tabágica de pelo menos 20 maços-ano.",
+   "source_id": "pm-33687470",
+   "locator": "Resumo"
+  }
+ ],
+ "key_why": "Aos 52 anos, tabagista, entram lipídios, glicemia, sangue oculto nas fezes, testes rápidos de infecções e abordagem da cessação, sem PSA, toque retal ou exames sem indicação.",
+ "theory": {
+  "title": "Rastreamento no adulto na atenção primária",
+  "intro": "Rastrear é buscar doença em quem não tem sintomas. Só vale a pena quando há benefício comprovado, e a indicação depende de idade, sexo e fatores de risco.",
+  "sections": [
+   {
+    "heading": "O que costuma entrar aos 50 anos",
+    "items": [
+     "Colorretal: pesquisa de sangue oculto nas fezes ou colonoscopia, a partir dos 45 a 50 anos",
+     "Dislipidemia e diabetes, conforme risco",
+     "Teste rápido para HIV, sífilis e hepatites B e C, ao menos uma vez",
+     "Pressão arterial em toda consulta"
+    ]
+   },
+   {
+    "heading": "O que não entra de rotina",
+    "items": [
+     "PSA e toque retal como rastreamento populacional",
+     "Radiografia de tórax para câncer de pulmão",
+     "Hemograma e creatinina em assintomático sem risco"
+    ]
+   },
+   {
+    "heading": "Tabagismo",
+    "body": "Toda consulta é oportunidade de abordar o tabagismo com aconselhamento breve e oferta de tratamento. Em fumantes com carga alta, alguns países recomendam tomografia de baixa dose, que não é rastreamento de rotina no SUS."
+   }
+  ]
+ },
+ "summary": {
+  "title": "Rastreamento aos 50 anos",
+  "points": [
+   {
+    "label": "Entra",
+    "text": "Colorretal, lipídios, glicemia, testes rápidos de HIV, sífilis e hepatites."
+   },
+   {
+    "label": "Não entra",
+    "text": "PSA e toque retal de rotina, radiografia de tórax, colonoscopia como primeira escolha."
+   },
+   {
+    "label": "Tabagismo",
+    "text": "Abordagem da cessação em toda consulta."
+   },
+   {
+    "label": "Regra",
+    "text": "Rastrear conforme idade e risco, com benefício comprovado."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

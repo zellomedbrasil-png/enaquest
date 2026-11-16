@@ -1,0 +1,82 @@
+{
+ "area_id": "pediatria",
+ "competency_id": "propedeutica",
+ "theme": "Acantose nigricans em adolescente com obesidade",
+ "scenario": "UBS",
+ "difficulty": "medio",
+ "quick": "Manchas escurecidas em dobras e IMC com escore Z entre +2 e +3: acantose nigricans por resistência à insulina. Além de dieta e atividade, pede-se perfil lipídico e ultrassonografia de abdome. Alternativa B.",
+ "reasoning": "Primeiro passo: reconhecer o sinal. Manchas hipercrômicas e aveludadas no pescoço, nas axilas e nas virilhas em adolescente obeso são acantose nigricans, marcador cutâneo de resistência à insulina. Segundo passo: lembrar as comorbidades da obesidade. Resistência à insulina se associa a diabetes, dislipidemia, hipertensão e esteatose hepática. Terceiro passo: rastrear. Em adolescente com obesidade e acantose, investigam-se o perfil lipídico e o fígado, com enzimas e ultrassonografia, além de glicemia e hemoglobina glicada. Quarto passo: descartar as outras. Biópsia da lesão não é necessária, pois o diagnóstico é clínico. Corticoide tópico e evitar sol não tratam a causa. Antifúngico não se aplica, e a hipótese de tinha não explica a distribuição.",
+ "distractors": [
+  {
+   "index": 0,
+   "why": "Biópsia da lesão não é necessária, pois o diagnóstico é clínico; a hemoglobina glicada é útil, mas a alternativa traz o exame invasivo desnecessário."
+  },
+  {
+   "index": 2,
+   "why": "Corticoide tópico não trata acantose nigricans, e evitar o sol não muda a causa, que é a resistência à insulina."
+  },
+  {
+   "index": 3,
+   "why": "Antifúngico trata dermatofitose, que não explica manchas simétricas e aveludadas nas dobras."
+  }
+ ],
+ "tip": "Acantose nigricans: pense em resistência à insulina; rastreie diabetes, dislipidemia e esteatose.",
+ "pearl": "A acantose nigricans em jovem pode ser a primeira pista de diabetes tipo 2 ou de síndrome metabólica.",
+ "competency_note": "Rastrear comorbidades da obesidade em adolescente com acantose nigricans.",
+ "claims": [
+  {
+   "claim": "Em crianças e adolescentes com obesidade, recomenda-se rastrear dislipidemia, doença hepática gordurosa e diabetes, e a acantose nigricans é marcador de resistência à insulina.",
+   "source_id": "aap-obesidade-2023",
+   "locator": "Avaliação de comorbidades"
+  }
+ ],
+ "key_why": "A acantose indica resistência à insulina, e o rastreamento inclui perfil lipídico e avaliação do fígado.",
+ "theory": {
+  "title": "Obesidade na adolescência e comorbidades",
+  "intro": "A obesidade na adolescência se associa a diabetes tipo 2, dislipidemia, hipertensão, esteatose hepática e apneia do sono.",
+  "sections": [
+   {
+    "heading": "Sinais",
+    "items": [
+     "Acantose nigricans no pescoço, axilas e virilhas",
+     "Circunferência abdominal aumentada",
+     "Pressão arterial alta"
+    ]
+   },
+   {
+    "heading": "Rastreamento",
+    "items": [
+     "Perfil lipídico",
+     "Glicemia ou hemoglobina glicada",
+     "Enzimas hepáticas e ultrassonografia de abdome",
+     "Pressão arterial"
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "title": "Acantose nigricans",
+  "points": [
+   {
+    "label": "Significa",
+    "text": "Resistência à insulina."
+   },
+   {
+    "label": "Rastrear",
+    "text": "Lipídios, glicemia e fígado."
+   },
+   {
+    "label": "Tratar",
+    "text": "Mudança de hábitos e perda de peso."
+   },
+   {
+    "label": "Não precisa",
+    "text": "Biópsia da lesão."
+   }
+  ]
+ },
+ "new_sources": [],
+ "image_alt": null,
+ "key_concern": null,
+ "review_note": null
+}

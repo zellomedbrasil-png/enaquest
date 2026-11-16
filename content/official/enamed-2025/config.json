@@ -1,0 +1,23 @@
+{
+  "exam": {
+    "id": "enamed-2025-c1",
+    "track_id": "enamed",
+    "board": "Inep",
+    "name": "ENAMED 2025",
+    "year": 2025,
+    "booklet": "Caderno 01",
+    "key_status": "definitivo",
+    "origin": "oficial_inep",
+    "license": "liberado",
+    "booklet_url": "https://download.inep.gov.br/enamed/provas_e_gabaritos/2025_caderno_1_preliminar.pdf",
+    "key_url": "https://download.inep.gov.br/enamed/provas_e_gabaritos/2025_gabarito_caderno_1_v2.pdf"
+  },
+  "slug_prefix": "enamed-2025",
+  "transcription": "content/official/enamed-2025/transcricao-caderno-1.json",
+  "key": "content/official/enamed-2025/gabarito-definitivo-caderno-1.json",
+  "figures_dir": "content/media/enamed-2025",
+  "media_prefix": "enamed-2025",
+  "catalog": "content/sources/catalogo.json",
+  "output": "content/lots/enamed-2025-c1.json",
+  "comments_dir": "content/official/enamed-2025/comentarios"
+}
