@@ -48,14 +48,16 @@ export default async function ToolsPage() {
             <p>Quantas questões de cada área e quais temas apareceram nas provas oficiais comentadas do ENAMED e do ENARE.</p>
             <span className={s.go}>Ver a incidência →</span>
           </Link>
+          <Link href="/ferramentas/radar-do-edital" className={s.tool}>
+            <span className={s.toolIcon} aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9" /><path d="M12 12l5-5M12 3v3M21 12h-3" /></svg>
+            </span>
+            <h2>Radar do edital</h2>
+            <p>Datas do Enamed e do Enare, o que mudou nas regras e a fonte de cada informação, com a data da conferência.</p>
+            <span className={s.go}>Ver as datas →</span>
+          </Link>
         </div>
 
-        <section className={s.soon} aria-labelledby="em-breve">
-          <h2 id="em-breve">Em breve</h2>
-          <p>
-            Um radar com as datas e mudanças do edital, e a incidência atualizada a cada nova prova comentada.
-          </p>
-        </section>
       </main>
       <SiteFooter />
     </div>
