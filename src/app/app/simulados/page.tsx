@@ -42,7 +42,7 @@ function SimuladoCard({ simulado }: { simulado: SimuladoSummary }) {
           <li>{simulado.questionCount} questões</li>
           <li>{hours(simulado.durationMinutes)}</li>
           <li>
-            {formatDateTime(simulado.opensAt)} até {formatDateTime(simulado.closesAt)}
+            {new Date(simulado.closesAt).getFullYear() > 2090 ? "Sempre disponível" : `${formatDateTime(simulado.opensAt)} até ${formatDateTime(simulado.closesAt)}`}
           </li>
         </ul>
       </div>

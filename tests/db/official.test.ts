@@ -5,7 +5,7 @@ import { submitAnswer } from "@/lib/server/answers";
 import { getPublicQuestions } from "@/lib/server/questions";
 import { getDailyIds } from "@/lib/server/daily";
 import { startTraining } from "@/lib/server/study";
-import { FREE_OFFICIAL_QUESTIONS, listOfficialExams, startOfficialRound } from "@/lib/server/official";
+import { ensureOfficialSimulado, FREE_OFFICIAL_QUESTIONS, listOfficialExams, startOfficialRound } from "@/lib/server/official";
 
 vi.mock("next/navigation", () => ({ redirect: vi.fn() }));
 vi.mock("next/headers", () => ({ cookies: vi.fn() }));
@@ -99,5 +99,27 @@ describe("provas oficiais", () => {
 
     const listed = (await listOfficialExams(paid.id)).find((e) => e.id === exam);
     expect(listed).toMatchObject({ total: FREE_OFFICIAL_QUESTIONS + 3, answered: 1, correct: 1 });
+  });
+
+  it("cria um simulado da prova real, uma vez só, sem as anuladas e só para assinante", async () => {
+    const exam = await createExam();
+    const all = [];
+    for (let n = 1; n <= 12; n++) {
+      const [q] = await createQuestions(1, "clinica", { license: "liberado", official_exam_id: exam, official_number: n, annulled: n === 12 });
+      all.push(q);
+    }
+    const free = await createUser();
+    await expect(ensureOfficialSimulado(free.id, exam)).rejects.toThrow(/assinatura/);
+
+    const paid = await createUser();
+    await makePremium(paid.id);
+    const id = await ensureOfficialSimulado(paid.id, exam);
+    expect(await ensureOfficialSimulado(paid.id, exam)).toBe(id);
+
+    const { data: sim } = await db().from("simulados").select("*").eq("id", id).single();
+    expect(sim.question_ids).toEqual(all.slice(0, 11).map((q) => q.id));
+    expect(sim.published).toBe(true);
+    expect(sim.duration_minutes).toBe(33);
+    await db().from("simulados").delete().eq("id", id);
   });
 });

@@ -78,6 +78,43 @@ export async function listOfficialExams(userId: string): Promise<OfficialExamSum
     });
 }
 
+/** Tempo oficial do ENAMED: 300 minutos para 100 questões. Proporcional às questões que contam. */
+const MINUTES_FULL_EXAM = 300;
+const QUESTIONS_FULL_EXAM = 100;
+
+/**
+ * Cria (uma vez por prova) o simulado da prova real e devolve o id. Reaproveita o fluxo dos Simulados:
+ * relógio, gravação do progresso, resultado e percentil. Só assinante; as anuladas ficam de fora.
+ */
+export async function ensureOfficialSimulado(userId: string, examId: string): Promise<string> {
+  if (!(await isPremium(userId))) throw new AppError("premium_required", "O simulado da prova real faz parte da assinatura.");
+  await enforceRateLimit(`official-sim:${userId}`, 20, 3600);
+  const db = admin();
+  const { data: existing } = await db.from("simulados").select("id").eq("official_exam_id", examId).maybeSingle();
+  if (existing) return existing.id;
+
+  const { data: exam } = await db.from("official_exams").select("id, name, booklet").eq("id", examId).maybeSingle();
+  if (!exam) throw new AppError("not_found", "Prova não encontrada.");
+  const ids = await playableIds(examId);
+  if (ids.length < 10) throw new AppError("not_found", "Essa prova ainda não tem questões suficientes para um simulado.");
+
+  const title = `${exam.name}${exam.booklet ? `, ${exam.booklet}` : ""}: prova real`;
+  const duration = Math.max(30, Math.round((MINUTES_FULL_EXAM * ids.length) / QUESTIONS_FULL_EXAM));
+  await db.from("simulados").insert({
+    title,
+    kind: "livre",
+    opens_at: "2020-01-01T00:00:00Z",
+    closes_at: "2099-12-31T23:59:59Z",
+    duration_minutes: duration,
+    question_ids: ids,
+    published: true,
+    official_exam_id: examId,
+  });
+  // Dois cliques ao mesmo tempo: a restrição única deixa só um; vale o que ficou gravado.
+  const { data: saved } = await db.from("simulados").select("id").eq("official_exam_id", examId).single();
+  return saved!.id;
+}
+
 /**
  * Próximo bloco da prova, na ordem do caderno, a partir da primeira questão ainda não respondida.
  * Grátis: só as primeiras questões da prova. Respondeu todas: recomeça do início.

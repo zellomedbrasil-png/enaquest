@@ -40,12 +40,20 @@ export default async function ToolsPage() {
             <p>Informe a data da prova e as horas da sua semana. O plano divide as fases e o tempo por área, com reforço no que você acha mais difícil.</p>
             <span className={s.go}>Montar meu plano →</span>
           </Link>
+          <Link href="/ferramentas/o-que-cai" className={s.tool}>
+            <span className={s.toolIcon} aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19V9m5 10V5m6 14v-7m5 7V8" /></svg>
+            </span>
+            <h2>O que cai na prova</h2>
+            <p>Quantas questões de cada área e quais temas apareceram nas provas oficiais comentadas do ENAMED e do ENARE.</p>
+            <span className={s.go}>Ver a incidência →</span>
+          </Link>
         </div>
 
         <section className={s.soon} aria-labelledby="em-breve">
           <h2 id="em-breve">Em breve</h2>
           <p>
-            O que mais cai em cada área, com base nas provas oficiais comentadas, e um radar com as datas e mudanças do edital.
+            Um radar com as datas e mudanças do edital, e a incidência atualizada a cada nova prova comentada.
           </p>
         </section>
       </main>

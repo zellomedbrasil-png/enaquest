@@ -92,3 +92,20 @@
   .plannerGrid > form, .actions { display: none; }
   .panel { border: 0; background: #fff; }
 }
+
+/* O que cai */
+.incidence { list-style: none; padding: 0; display: grid; gap: 14px; margin-top: 8px; }
+.incidenceHead { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; font-size: 15px; }
+.incidence small { color: #a9abba; font-size: 12.5px; }
+.themes { border-top: 1px solid var(--border); padding: 4px 0; }
+.themes summary { display: flex; align-items: center; gap: 8px; min-height: 46px; cursor: pointer; font-weight: 700; list-style: none; }
+.themes summary::-webkit-details-marker { display: none; }
+.themes summary i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; }
+.themes summary span { margin-left: auto; color: #c5c5d0; font-weight: 600; }
+.themes ul { list-style: none; padding: 0 0 10px; display: grid; gap: 6px; }
+.themes li { font-size: 14.5px; color: #d5d6df; }
+.themes li small { color: #a9abba; margin-left: 6px; }
+
+/* Questões abertas na página pública da prova */
+.publicOptions { list-style: none; padding: 0; display: grid; gap: 8px; margin-top: 10px; }
+.publicOptions li { padding: 10px 14px; border: 1px solid var(--border); border-radius: 10px; background: #151724; line-height: 1.5; }

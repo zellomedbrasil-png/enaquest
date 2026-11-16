@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
-import { startOfficialRoundAction } from "@/app/actions";
+import { startOfficialRoundAction, startOfficialSimuladoAction } from "@/app/actions";
 import type { PublicQuestion } from "@/lib/server/questions";
 import type { OfficialExamSummary } from "@/lib/server/official";
 import { QuestionRunner } from "./QuestionRunner";
@@ -23,6 +24,7 @@ export function OfficialExamsClient({
   const [round, setRound] = useState<{ context: string; questions: PublicQuestion[] } | null>(null);
   const [message, setMessage] = useState<{ examId: string; text: string } | null>(null);
   const [pending, start] = useTransition();
+  const router = useRouter();
 
   const begin = (examId: string, size: number) =>
     start(async () => {
@@ -31,6 +33,14 @@ export function OfficialExamsClient({
       if (!result.ok) return setMessage({ examId, text: result.message });
       if (!result.data.questions.length) return setMessage({ examId, text: "Não há questões disponíveis nessa prova agora." });
       setRound(result.data);
+    });
+
+  const beginReal = (examId: string) =>
+    start(async () => {
+      setMessage(null);
+      const result = await startOfficialSimuladoAction(examId);
+      if (!result.ok) return setMessage({ examId, text: result.message });
+      router.push(`/app/simulados/${result.data.simuladoId}`);
     });
 
   if (round) {
@@ -94,6 +104,9 @@ export function OfficialExamsClient({
                   </button>
                   <button type="button" className="btn btn-ghost" disabled={pending} onClick={() => begin(exam.id, 100)}>
                     Até o fim da prova
+                  </button>
+                  <button type="button" className="btn btn-ghost" disabled={pending} onClick={() => beginReal(exam.id)}>
+                    Fazer como prova real
                   </button>
                 </>
               ) : (

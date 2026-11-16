@@ -12,6 +12,7 @@ export function SiteFooter() {
           <Link href="/termos">Termos de uso</Link>
           <Link href="/privacidade">Privacidade</Link>
           <Link href="/ferramentas">Ferramentas grátis</Link>
+          <Link href="/provas">Provas oficiais</Link>
           <Link href="/planos">Planos</Link>
         </p>
       </div>
