@@ -3,7 +3,9 @@ import type Stripe from "stripe";
 import { randomUUID } from "node:crypto";
 import { createQuestions, createUser, db, makePremium } from "./helpers";
 import { finishSimulado, getSimuladoResult, saveSimuladoProgress, startOrResumeSimulado } from "@/lib/server/simulados";
-import { approveLot, decideSample, getLotReview, getModerationQueue, rejectLot } from "@/lib/server/editorial";
+import { getInbox, getModerationQueue, markReviewed, publishQuestion, retireQuestion } from "@/lib/server/editorial";
+import { importLot } from "../../scripts/content/import";
+import type { Lot, LotQuestion } from "../../scripts/pipeline/schema";
 import { createGroup, currentWeek, getLeagueView, joinGroup, rolloverPreviousWeek } from "@/lib/server/leagues";
 import { handleStripeEvent, withdrawSubscription } from "@/lib/billing/subscriptions";
 import { hasPremiumAccess } from "@/lib/billing/access";
@@ -123,68 +125,103 @@ describe("simulado de 100 questões", () => {
   });
 });
 
-describe("aprovação de lote", () => {
-  async function createLot(count: number) {
-    const id = `lote-teste-${randomUUID()}`;
-    await db().from("review_lots").insert({ id });
-    const questions = await createQuestions(count, "clinica", { status: "in_review", lot_id: id });
-    return { id, questions };
-  }
+describe("publicação automática e caixa de exceções", () => {
+  const source = { id: "fonte-teste", title: "Fonte de teste", publisher: "Teste", year: 2026, url: "https://exemplo.test/fonte", checked_on: "2026-11-25" };
+  const question = (slug: string, extra: Partial<LotQuestion> = {}): LotQuestion => ({
+    slug,
+    area_id: "clinica",
+    competency_id: "decisao",
+    theme: "Tema de teste",
+    scenario: "UBS",
+    difficulty: "medio",
+    risk_level: "normal",
+    expires_on: "2099-01-01",
+    stem: `Enunciado de teste ${slug}. Qual é a conduta?`,
+    exams: null,
+    options: ["Opção um", "Opção dois", "Opção três", "Opção quatro"],
+    correct_index: 1,
+    quick: "Resposta rápida.",
+    reasoning: "Raciocínio.",
+    distractors: [],
+    tip: "Macete.",
+    pearl: "Armadilha.",
+    competency_note: "Competência.",
+    claims: [{ claim: "Afirmação", source_id: source.id, locator: "p. 1" }],
+    ...extra,
+  });
+  const lot = (questions: LotQuestion[]): Lot => ({ id: `lote-teste-${randomUUID()}`, sources: [source], questions });
+  const row = async (slug: string) =>
+    (await db().from("questions").select("id, status, verification, hold_reason, published_at").eq("slug", slug).single()).data;
 
-  it("mantém questões do lote fora do ar até a aprovação", async () => {
-    const { questions } = await createLot(2);
+  it("publica o que passou e segura o que levantou dúvida", async () => {
+    const ok = `teste-${randomUUID()}`;
+    const doubt = `teste-${randomUUID()}`;
+    const summary = await importLot(db(), lot([question(ok), question(doubt, { hold_reason: "segunda_opiniao: Respondeu C, gabarito B." })]), { publish: true });
+    expect(summary).toMatchObject({ published: 1, held: 1 });
+    expect(await row(ok)).toMatchObject({ status: "published", verification: "ia_verificada", hold_reason: null });
+    expect((await row(ok)).published_at).not.toBeNull();
+    expect(await row(doubt)).toMatchObject({ status: "in_review", hold_reason: "segunda_opiniao: Respondeu C, gabarito B." });
+
+    const inbox = await getInbox();
+    expect(inbox.attention.map((q) => q.slug)).toContain(doubt);
+    expect(inbox.counts.unreviewed).toBeGreaterThanOrEqual(1);
+
     const reader = await createUser();
     await makePremium(reader.id);
-    await expect(submitAnswer(reader.id, { questionId: questions[0].id, mode: "training", context: "c", selected: 0 })).rejects.toThrow("indisponível");
+    const { id } = await row(doubt);
+    await expect(submitAnswer(reader.id, { questionId: id, mode: "training", context: "c", selected: 0 })).rejects.toThrow("indisponível");
   });
 
-  it("sorteia até 59 e mantém a mesma amostra", async () => {
-    const { id } = await createLot(70);
-    const first = await getLotReview(id);
-    const second = await getLotReview(id);
-    expect(first.items).toHaveLength(59);
-    expect(first.total).toBe(70);
-    expect(second.items.map((i: { question: { id: string } }) => i.question.id).sort()).toEqual(first.items.map((i: { question: { id: string } }) => i.question.id).sort());
-  }, 60000);
-
-  it("não aprova com amostra pendente nem com erro crítico", async () => {
+  it("selos são honestos: revisão médica só vale enquanto a questão não muda", async () => {
     const editor = await createUser();
-    const { id, questions } = await createLot(3);
-    await getLotReview(id);
-    await expect(approveLot(editor.id, id)).rejects.toThrow("sem decisão");
-    for (const q of questions) await decideSample(editor.id, { lotId: id, questionId: q.id, decision: "ok" });
-    await decideSample(editor.id, { lotId: id, questionId: questions[0].id, decision: "critical", notes: "Gabarito errado" });
-    const lot = await db().from("review_lots").select("status, held_reason").eq("id", id).single();
-    expect(lot.data).toEqual({ status: "held", held_reason: "Gabarito errado" });
-    await expect(approveLot(editor.id, id)).rejects.toThrow("erro crítico");
-    const stillDraft = await db().from("questions").select("status").eq("lot_id", id);
-    expect(stillDraft.data.every((q: { status: string }) => q.status === "in_review")).toBe(true);
+    const slug = `teste-${randomUUID()}`;
+    await importLot(db(), lot([question(slug)]), { publish: true });
+    await markReviewed(editor.id, (await row(slug)).id);
+    expect((await row(slug)).verification).toBe("medico_revisado");
+
+    await importLot(db(), lot([question(slug)]), { publish: true });
+    expect((await row(slug)).verification).toBe("medico_revisado");
+
+    await importLot(db(), lot([question(slug, { correct_index: 2 })]), { publish: true });
+    expect((await row(slug)).verification).toBe("ia_verificada");
   });
 
-  it("selos são honestos: só leva 'revisada' quem foi lida e aprovada", async () => {
-    const editor = await createUser();
-    const { id, questions } = await createLot(70);
-    const review = await getLotReview(id);
-    const sampled: string[] = review.items.map((i: { question: { id: string } }) => i.question.id);
-    for (const [index, questionId] of sampled.entries()) {
-      await decideSample(editor.id, { lotId: id, questionId, decision: index === 0 ? "minor" : "ok", notes: index === 0 ? "Ajustar texto" : null });
-    }
-    await approveLot(editor.id, id);
+  it("questão retirada não volta sozinha, mas a versão corrigida volta", async () => {
+    const slug = `teste-${randomUUID()}`;
+    await importLot(db(), lot([question(slug)]), { publish: true });
+    await retireQuestion((await row(slug)).id, "Gabarito errado");
+    await importLot(db(), lot([question(slug)]), { publish: true });
+    expect(await row(slug)).toMatchObject({ status: "retired", hold_reason: "Gabarito errado" });
 
-    const { data } = await db().from("questions").select("id, status, verification").eq("lot_id", id);
-    const byId = new Map<string, { status: string; verification: string }>(data.map((q: { id: string; status: string; verification: string }) => [q.id, q]));
-    expect(byId.get(sampled[0])).toEqual(expect.objectContaining({ status: "in_review" }));
-    expect(byId.get(sampled[1])).toEqual(expect.objectContaining({ status: "published", verification: "medico_revisado" }));
-    const notSampled = questions.find((q) => !sampled.includes(q.id))!;
-    expect(byId.get(notSampled.id)).toEqual(expect.objectContaining({ status: "published", verification: "lote_amostrado" }));
-  }, 120000);
+    await importLot(db(), lot([question(slug, { stem: "Enunciado corrigido. Qual é a conduta?" })]), { publish: true });
+    expect(await row(slug)).toMatchObject({ status: "published", hold_reason: null });
+  });
 
-  it("rejeitar um lote retira as questões", async () => {
-    const editor = await createUser();
-    const { id } = await createLot(2);
-    await rejectLot(editor.id, id, "Qualidade insuficiente");
-    const { data } = await db().from("questions").select("status").eq("lot_id", id);
-    expect(data.every((q: { status: string }) => q.status === "retired")).toBe(true);
+  it("sem publicar, entra fora do ar na lista de espera", async () => {
+    const slug = `teste-${randomUUID()}`;
+    const summary = await importLot(db(), lot([question(slug)]), { publish: false });
+    expect(summary.drafts).toBe(1);
+    expect(await row(slug)).toMatchObject({ status: "in_review", hold_reason: null });
+  });
+
+  it("republicar da quarentena limpa o motivo e fecha as denúncias", async () => {
+    const [q] = await createQuestions(1, "clinica", { status: "quarantined", hold_reason: "3 denúncias de alunos" });
+    const reporter = await createUser();
+    await db().from("reports").insert({ question_id: q.id, user_id: reporter.id, kind: "gabarito", status: "aberta" });
+    expect((await getInbox()).quarantined.map((x) => x.id)).toContain(q.id);
+    await publishQuestion(q.id);
+    const { data } = await db().from("questions").select("status, hold_reason").eq("id", q.id).single();
+    expect(data).toEqual({ status: "published", hold_reason: null });
+    const { data: reports } = await db().from("reports").select("status").eq("question_id", q.id);
+    expect(reports.every((r: { status: string }) => r.status === "resolvida")).toBe(true);
+  });
+
+  it("questão vencida sai do ar", async () => {
+    const [q] = await createQuestions(1, "clinica", { expires_on: "2020-01-01" });
+    const { data: count } = await db().rpc("retire_expired_questions");
+    expect(count).toBeGreaterThanOrEqual(1);
+    const { data } = await db().from("questions").select("status, hold_reason").eq("id", q.id).single();
+    expect(data).toEqual({ status: "retired", hold_reason: "Passou da data de validade" });
   });
 
   it("a fila de moderação carrega", async () => {

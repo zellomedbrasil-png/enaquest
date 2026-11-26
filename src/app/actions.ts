@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { z } from "zod";
 import { admin } from "@/lib/supabase/admin";
 import { safePath } from "@/lib/safe-path";
+import { authErrorMessage, classifyAuthError } from "@/lib/auth-errors";
 import { createClient } from "@/lib/supabase/server";
 import { AppError, getProfile, requireEditor, requireUser } from "@/lib/server/session";
 import { todayMissions } from "@/lib/server/progress";
@@ -45,7 +46,16 @@ async function run<T>(fn: () => Promise<T>): Promise<ActionResult<T>> {
 // ---------- Autenticação ----------
 const credentials = z.object({ email: z.email(), password: z.string().min(8).max(72) });
 
-export type AuthState = { error?: string; notice?: string; email?: string };
+export type AuthState = { error?: string; notice?: string; email?: string; unconfirmed?: boolean };
+
+/** Registra a causa real no log do servidor e devolve uma mensagem que diz o que fazer. */
+function authFailure(where: string, error: { code?: string; message?: string; status?: number }) {
+  const problem = classifyAuthError(error);
+  console.error(`[auth] ${where}: ${problem}`, { code: error.code, status: error.status, message: error.message });
+  return { problem, message: authErrorMessage(problem) };
+}
+
+const confirmRedirect = (next: string) => `${process.env.NEXT_PUBLIC_APP_URL}/auth/callback?next=${encodeURIComponent(next)}`;
 
 function safeNext(value: FormDataEntryValue | null): string {
   return safePath(value);
@@ -56,7 +66,10 @@ export async function signIn(_: AuthState, form: FormData): Promise<AuthState> {
   if (!parsed.success) return { error: "Informe um e-mail válido e uma senha de pelo menos 8 caracteres.", email: String(form.get("email") ?? "") };
   const supabase = await createClient();
   const { error } = await supabase.auth.signInWithPassword(parsed.data);
-  if (error) return { error: "E-mail ou senha incorretos.", email: parsed.data.email };
+  if (error) {
+    const { problem, message } = authFailure("entrar", error);
+    return { error: message, email: parsed.data.email, unconfirmed: problem === "not_confirmed" };
+  }
   redirect(safeNext(form.get("next")));
 }
 
@@ -67,20 +80,41 @@ export async function signUp(_: AuthState, form: FormData): Promise<AuthState> {
   const supabase = await createClient();
   const { data, error } = await supabase.auth.signUp({
     ...parsed.data,
-    options: { emailRedirectTo: `${process.env.NEXT_PUBLIC_APP_URL}/auth/callback?next=${encodeURIComponent("/app/boas-vindas")}` },
+    options: { emailRedirectTo: confirmRedirect("/app/boas-vindas") },
   });
-  if (error) return { error: "Não foi possível criar a conta. Confira os dados e tente de novo.", email: parsed.data.email };
-  if (!data.session) return { notice: "Enviamos um link de confirmação para o seu e-mail." };
+  if (error) return { error: authFailure("cadastrar", error).message, email: parsed.data.email };
+  // Conta já existente: o Supabase não diz (para não revelar quem está cadastrado) e devolve identities vazio.
+  if (data.user && data.user.identities?.length === 0) {
+    return { notice: "Se esse e-mail ainda não tiver conta, enviamos o link de confirmação. Se já tiver, entre com a sua senha.", email: parsed.data.email };
+  }
+  if (!data.session) {
+    return {
+      notice: `Enviamos um link de confirmação para ${parsed.data.email}. Abra o e-mail e toque no link (confira também o spam). O link funciona em qualquer aparelho.`,
+      email: parsed.data.email,
+    };
+  }
   redirect("/app/boas-vindas");
+}
+
+export async function resendConfirmation(_: AuthState, form: FormData): Promise<AuthState> {
+  const email = z.email().safeParse(form.get("email"));
+  if (!email.success) return { error: "Informe um e-mail válido." };
+  const supabase = await createClient();
+  const { error } = await supabase.auth.resend({ type: "signup", email: email.data, options: { emailRedirectTo: confirmRedirect("/app/boas-vindas") } });
+  if (error) return { error: authFailure("reenviar confirmação", error).message, email: email.data, unconfirmed: true };
+  return { notice: `Enviamos um novo link para ${email.data}. Confira também o spam.`, email: email.data };
 }
 
 export async function requestPasswordReset(_: AuthState, form: FormData): Promise<AuthState> {
   const email = z.email().safeParse(form.get("email"));
   if (!email.success) return { error: "Informe um e-mail válido." };
   const supabase = await createClient();
-  await supabase.auth.resetPasswordForEmail(email.data, {
-    redirectTo: `${process.env.NEXT_PUBLIC_APP_URL}/auth/callback?next=/nova-senha`,
-  });
+  const { error } = await supabase.auth.resetPasswordForEmail(email.data, { redirectTo: confirmRedirect("/nova-senha") });
+  // Limite de envio e falha de e-mail aparecem; "conta não existe" continua escondido.
+  if (error) {
+    const { problem, message } = authFailure("esqueci a senha", error);
+    if (problem === "rate_limit" || problem === "email_send" || problem === "unavailable") return { error: message };
+  }
   // A resposta é a mesma exista ou não a conta, para não revelar quem está cadastrado.
   return { notice: "Se esse e-mail estiver cadastrado, enviamos o link para criar uma nova senha." };
 }
@@ -360,41 +394,23 @@ export async function withdrawAction() {
 }
 
 // ---------- Painel editorial ----------
-const decisionSchema = z.object({
-  lotId: z.string().min(1),
-  questionId: z.uuid(),
-  decision: z.enum(["ok", "minor", "critical"]),
-  notes: z.string().max(2000).nullable(),
-});
-
-export async function decideSampleAction(form: FormData) {
-  const { user } = await requireEditor();
-  const input = decisionSchema.parse({
-    lotId: form.get("lotId"),
-    questionId: form.get("questionId"),
-    decision: form.get("decision"),
-    notes: (form.get("notes") as string) || null,
-  });
-  if (input.decision !== "ok" && !input.notes) {
-    redirect(`/admin/lotes/${input.lotId}?erro=nota#q-${input.questionId}`);
-  }
-  await editorial.decideSample(user.id, input);
-  revalidatePath(`/admin/lotes/${input.lotId}`);
+export async function publishQuestionAction(form: FormData) {
+  await requireEditor();
+  await editorial.publishQuestion(z.uuid().parse(form.get("id")));
+  revalidatePath("/admin");
 }
 
-export async function approveLotAction(form: FormData) {
-  const { user } = await requireEditor();
-  const lotId = String(form.get("lotId"));
-  await editorial.approveLot(user.id, lotId);
-  revalidatePath("/admin", "layout");
-  redirect("/admin");
+export async function retireQuestionAction(form: FormData) {
+  await requireEditor();
+  const reason = z.string().trim().max(500).parse(form.get("reason") ?? "");
+  await editorial.retireQuestion(z.uuid().parse(form.get("id")), reason || "Retirada no painel editorial");
+  revalidatePath("/admin");
 }
 
-export async function rejectLotAction(form: FormData) {
+export async function markReviewedAction(form: FormData) {
   const { user } = await requireEditor();
-  await editorial.rejectLot(user.id, String(form.get("lotId")), String(form.get("reason") || "Rejeitado na revisão"));
-  revalidatePath("/admin", "layout");
-  redirect("/admin");
+  await editorial.markReviewed(user.id, z.uuid().parse(form.get("id")));
+  revalidatePath("/admin");
 }
 
 export async function resolveReportAction(form: FormData) {
@@ -422,14 +438,6 @@ export async function moderateCommentAction(form: FormData) {
   if (action === "show") await editorial.moderateComment(id, { hidden: false });
   if (action === "pin") await editorial.moderateComment(id, { pinned: true });
   if (action === "unpin") await editorial.moderateComment(id, { pinned: false });
-  revalidatePath("/admin/moderacao");
-}
-
-export async function setQuestionStatusAction(form: FormData) {
-  await requireEditor();
-  const status = form.get("status");
-  if (status !== "published" && status !== "retired") throw new AppError("invalid", "Status inválido.");
-  await editorial.setQuestionStatus(z.uuid().parse(form.get("id")), status);
   revalidatePath("/admin/moderacao");
 }
 

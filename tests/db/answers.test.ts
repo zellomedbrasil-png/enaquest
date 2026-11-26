@@ -187,20 +187,20 @@ describe("comunidade e quarentena", () => {
     expect(data).toHaveLength(1);
   });
 
-  it("5 denúncias distintas tiram a questão do ar, e a mesma pessoa conta uma vez", async () => {
+  it("3 denúncias distintas tiram a questão do ar, e a mesma pessoa conta uma vez", async () => {
     const [q] = await createQuestions(1);
-    const users = await Promise.all(Array.from({ length: 5 }, () => createUser()));
+    const users = await Promise.all(Array.from({ length: 3 }, () => createUser()));
     await Promise.all(users.map((u) => makePremium(u.id)));
     for (const u of users) await submitAnswer(u.id, { questionId: q.id, mode: "training", context: context(), selected: 0 });
 
     for (let i = 0; i < 3; i++) await community.reportQuestion(users[0].id, q.id, "gabarito", "Parece errado");
-    for (const u of users.slice(1, 4)) await community.reportQuestion(u.id, q.id, "gabarito", null);
+    await community.reportQuestion(users[1].id, q.id, "gabarito", null);
     let status = await db().from("questions").select("status").eq("id", q.id).single();
     expect(status.data.status).toBe("published");
 
-    await community.reportQuestion(users[4].id, q.id, "gabarito", null);
-    status = await db().from("questions").select("status").eq("id", q.id).single();
-    expect(status.data.status).toBe("quarantined");
+    await community.reportQuestion(users[2].id, q.id, "gabarito", null);
+    status = await db().from("questions").select("status, hold_reason").eq("id", q.id).single();
+    expect(status.data).toEqual({ status: "quarantined", hold_reason: "3 denúncias de alunos" });
   });
 
   it("discriminação negativa tira a questão do ar", async () => {

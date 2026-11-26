@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { pickBalanced, pickReviewSample, quotas, seededShuffle } from "./selection";
+import { pickBalanced, quotas, seededShuffle } from "./selection";
 
 const areas = [
   { id: "clinica", exam_share: 0.18 },
@@ -40,25 +40,5 @@ describe("sorteios", () => {
   });
   it("embaralha sem perder itens", () => {
     expect(seededShuffle([1, 2, 3, 4], "a").sort()).toEqual([1, 2, 3, 4]);
-  });
-});
-
-describe("amostra de revisão", () => {
-  const questions = Array.from({ length: 300 }, (_, i) => ({ id: `q${i}`, risk_level: i < 50 ? "alto" : "normal" }));
-  it("sorteia 59 sem repetir", () => {
-    const sample = pickReviewSample(questions, "lote", 59);
-    expect(sample.length).toBe(59);
-    expect(new Set(sample).size).toBe(59);
-  });
-  it("dá peso maior ao alto risco", () => {
-    const sample = pickReviewSample(questions, "lote", 59);
-    const high = sample.filter((id) => Number(id.slice(1)) < 50).length;
-    expect(high).toBeGreaterThanOrEqual(24);
-  });
-  it("revisa tudo quando o lote é pequeno", () => {
-    expect(pickReviewSample(questions.slice(0, 40), "lote", 59).length).toBe(40);
-  });
-  it("funciona sem alto risco", () => {
-    expect(pickReviewSample(questions.slice(60), "lote", 59).length).toBe(59);
   });
 });

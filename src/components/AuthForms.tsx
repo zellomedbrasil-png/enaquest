@@ -2,7 +2,14 @@
 
 import Link from "next/link";
 import { useActionState } from "react";
-import { requestPasswordReset, signIn, signUp, updatePassword, type AuthState } from "@/app/actions";
+import {
+  requestPasswordReset,
+  resendConfirmation,
+  signIn,
+  signUp,
+  updatePassword,
+  type AuthState,
+} from "@/app/actions";
 
 function Feedback({ state }: { state: AuthState }) {
   if (state.error) {
@@ -22,32 +29,84 @@ function Feedback({ state }: { state: AuthState }) {
   return null;
 }
 
+/** Para quem não recebeu ou perdeu o link de confirmação. */
+export function ResendConfirmation({ email }: { email?: string }) {
+  const [state, action, pending] = useActionState(resendConfirmation, {
+    email,
+  });
+  return (
+    <form action={action} style={{ display: "grid", gap: 8 }}>
+      <input type="hidden" name="email" value={state.email ?? email ?? ""} />
+      <Feedback state={state} />
+      {!state.notice && (
+        <button
+          className="btn btn-ghost"
+          disabled={pending || !(state.email ?? email)}
+        >
+          {pending ? "Enviando…" : "Reenviar e-mail de confirmação"}
+        </button>
+      )}
+    </form>
+  );
+}
+
 export function SignInForm({ next }: { next?: string }) {
   const [state, action, pending] = useActionState(signIn, {});
   return (
-    <form action={action} style={{ display: "grid", gap: 12 }}>
-      <input type="hidden" name="next" value={next ?? ""} />
-      <div>
-        <label className="label" htmlFor="email">
-          E-mail
-        </label>
-        <input id="email" name="email" type="email" className="input" autoComplete="email" required defaultValue={state.email} key={state.email} />
-      </div>
-      <div>
-        <label className="label" htmlFor="password">
-          Senha
-        </label>
-        <input id="password" name="password" type="password" className="input" autoComplete="current-password" required minLength={8} />
-      </div>
-      <Feedback state={state} />
-      <button className="btn btn-primary" disabled={pending}>
-        {pending ? "Entrando…" : "Entrar"}
-      </button>
-      <p className="muted" style={{ fontSize: 14, display: "flex", justifyContent: "space-between", gap: 8, flexWrap: "wrap" }}>
-        <Link href="/cadastrar">Criar conta</Link>
-        <Link href="/esqueci-senha">Esqueci a senha</Link>
-      </p>
-    </form>
+    <div style={{ display: "grid", gap: 12 }}>
+      <form action={action} style={{ display: "grid", gap: 12 }}>
+        <input type="hidden" name="next" value={next ?? ""} />
+        <div>
+          <label className="label" htmlFor="email">
+            E-mail
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            className="input"
+            autoComplete="email"
+            required
+            defaultValue={state.email}
+            key={state.email}
+          />
+        </div>
+        <div>
+          <label className="label" htmlFor="password">
+            Senha
+          </label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            className="input"
+            autoComplete="current-password"
+            required
+            minLength={8}
+          />
+        </div>
+        <Feedback state={state} />
+        <button className="btn btn-primary" disabled={pending}>
+          {pending ? "Entrando…" : "Entrar"}
+        </button>
+        <p
+          className="muted"
+          style={{
+            fontSize: 14,
+            display: "flex",
+            justifyContent: "space-between",
+            gap: 8,
+            flexWrap: "wrap",
+          }}
+        >
+          <Link href="/cadastrar">Criar conta</Link>
+          <Link href="/esqueci-senha">Esqueci a senha</Link>
+        </p>
+      </form>
+      {state.unconfirmed && (
+        <ResendConfirmation email={state.email} key={state.email} />
+      )}
+    </div>
   );
 }
 
@@ -59,18 +118,48 @@ export function SignUpForm() {
         <label className="label" htmlFor="email">
           E-mail
         </label>
-        <input id="email" name="email" type="email" className="input" autoComplete="email" required defaultValue={state.email} key={state.email} />
+        <input
+          id="email"
+          name="email"
+          type="email"
+          className="input"
+          autoComplete="email"
+          required
+          defaultValue={state.email}
+          key={state.email}
+        />
       </div>
       <div>
         <label className="label" htmlFor="password">
           Senha (mínimo de 8 caracteres)
         </label>
-        <input id="password" name="password" type="password" className="input" autoComplete="new-password" required minLength={8} />
+        <input
+          id="password"
+          name="password"
+          type="password"
+          className="input"
+          autoComplete="new-password"
+          required
+          minLength={8}
+        />
       </div>
-      <label style={{ display: "flex", gap: 8, fontSize: 14, alignItems: "flex-start" }}>
-        <input type="checkbox" name="accept" required style={{ marginTop: 4 }} />
+      <label
+        style={{
+          display: "flex",
+          gap: 8,
+          fontSize: 14,
+          alignItems: "flex-start",
+        }}
+      >
+        <input
+          type="checkbox"
+          name="accept"
+          required
+          style={{ marginTop: 4 }}
+        />
         <span>
-          Li e aceito os <Link href="/termos">termos de uso</Link> e a <Link href="/privacidade">política de privacidade</Link>.
+          Li e aceito os <Link href="/termos">termos de uso</Link> e a{" "}
+          <Link href="/privacidade">política de privacidade</Link>.
         </span>
       </label>
       <Feedback state={state} />
@@ -92,7 +181,16 @@ export function ResetForm() {
         <label className="label" htmlFor="email">
           E-mail
         </label>
-        <input id="email" name="email" type="email" className="input" autoComplete="email" required defaultValue={state.email} key={state.email} />
+        <input
+          id="email"
+          name="email"
+          type="email"
+          className="input"
+          autoComplete="email"
+          required
+          defaultValue={state.email}
+          key={state.email}
+        />
       </div>
       <Feedback state={state} />
       <button className="btn btn-primary" disabled={pending}>
@@ -110,7 +208,15 @@ export function NewPasswordForm() {
         <label className="label" htmlFor="password">
           Nova senha
         </label>
-        <input id="password" name="password" type="password" className="input" autoComplete="new-password" required minLength={8} />
+        <input
+          id="password"
+          name="password"
+          type="password"
+          className="input"
+          autoComplete="new-password"
+          required
+          minLength={8}
+        />
       </div>
       <Feedback state={state} />
       <button className="btn btn-primary" disabled={pending}>

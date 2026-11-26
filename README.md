@@ -12,7 +12,7 @@ node scripts/dev-seed-demo.mjs
 node scripts/dev-local.mjs dev
 ```
 
-Abra http://localhost:3000/entrar com a conta de demonstração que o segundo comando mostra. `dev-seed-demo` apaga o banco local e publica o piloto **sem revisão, só nesta máquina**.
+Abra http://localhost:3000/entrar com a conta de demonstração que o segundo comando mostra. `dev-seed-demo` apaga o banco local e publica o piloto **sem checagem, só nesta máquina**.
 
 ## Telas e identidade visual
 
@@ -30,9 +30,19 @@ npm run test:e2e
 
 ## Conteúdo
 
-1. `npm run content:pipeline -- entrada.json saida.json` gera um lote (precisa de `ANTHROPIC_API_KEY`).
-2. `npm run content:import -- saida.json` importa como rascunho.
-3. A revisão e a publicação acontecem em `/admin`, por um médico.
+Um comando só gera, checa, importa e publica (precisa de `ANTHROPIC_API_KEY`, exceto para prova oficial):
+
+```bash
+npm run content:publicar -- content/blueprints/lote.json   # roteiro novo
+npm run content:publicar -- content/lots/piloto-001.json   # lote já escrito
+npm run content:publicar -- content/lots/enamed-2025-c1.json  # prova oficial, publica direto
+```
+
+- Passou em tudo (escrita, resolução às cegas, checagem de fatos e, no alto risco, uma segunda resolução às cegas por outro modelo): vai ao ar com o selo "Verificada por IA".
+- Levantou dúvida: entra fora do ar, em "Precisa de olho" no `/admin`.
+- `--simular` faz as checagens sem tocar no banco. O resultado de cada questão fica em `.checagem.json` e só é refeito quando a questão muda.
+- Depois de publicada, a questão sai do ar sozinha com 3 denúncias, estatística de acerto incoerente ou data de validade vencida.
+- O `/admin` é só a caixa de exceções: publicar, retirar ou marcar "Revisei" (selo "Revisada por médico"). Para corrigir, edite o lote e rode o comando de novo.
 
 ## Documentos
 

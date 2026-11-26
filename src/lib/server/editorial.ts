@@ -2,131 +2,125 @@ import { toPublicQuestion } from "./questions";
 import "server-only";
 import { admin } from "@/lib/supabase/admin";
 import { AppError } from "./session";
-import { pickReviewSample } from "./selection";
 
-export async function listLots() {
-  const db = admin();
-  const { data: lots } = await db.from("review_lots").select("*").order("created_at", { ascending: false });
-  const { data: questions } = await db.from("questions").select("lot_id, status");
-  const { data: samples } = await db.from("review_samples").select("lot_id, decision");
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return (lots ?? []).map((lot: any) => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const mine = (samples ?? []).filter((s: any) => s.lot_id === lot.id);
-    return {
-      ...lot,
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      questionCount: (questions ?? []).filter((q: any) => q.lot_id === lot.id).length,
-      sampled: mine.length,
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      decided: mine.filter((s: any) => s.decision).length,
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      critical: mine.filter((s: any) => s.decision === "critical").length,
-    };
-  });
-}
+export type InboxQuestion = {
+  id: string;
+  slug: string;
+  theme: string;
+  area_id: string;
+  status: string;
+  risk_level: string;
+  hold_reason: string | null;
+  lot_id: string | null;
+  official_number: number | null;
+  annulled: boolean;
+  stem: string;
+  exams: { title: string; rows: string[][] }[] | null;
+  options: string[];
+  images: ReturnType<typeof toPublicQuestion>["images"];
+  key: number | null;
+  quick: string | null;
+  sources: { title: string; url: string; publisher: string; year: number; locator: string | null }[];
+};
 
-/** Sorteia a amostra uma única vez, para ela não mudar depois de começar a revisar. */
-async function ensureSample(lotId: string, sampleSize: number) {
-  const db = admin();
-  const { count } = await db.from("review_samples").select("question_id", { count: "exact", head: true }).eq("lot_id", lotId);
-  if (count) return;
-  const { data: questions } = await db.from("questions").select("id, risk_level").eq("lot_id", lotId);
-  const ids = pickReviewSample(questions ?? [], `${lotId}:${Date.now()}`, sampleSize);
-  await db.from("review_samples").insert(ids.map((question_id) => ({ lot_id: lotId, question_id })));
-}
+const INBOX_FIELDS = "id, slug, theme, area_id, status, risk_level, hold_reason, lot_id, official_number, annulled, stem, options, images, exams";
 
-export async function getLotReview(lotId: string) {
+/**
+ * Caixa de exceções: só o que precisa de decisão humana.
+ * - "attention": importadas fora do ar (dúvida nas checagens ou importadas sem publicar);
+ * - "quarantined": tiradas do ar pelos alunos (denúncias) ou pela estatística;
+ * - "unreviewed": no ar só com a checagem da IA, para a revisão médica opcional.
+ */
+export async function getInbox() {
   const db = admin();
-  const { data: lot } = await db.from("review_lots").select("*").eq("id", lotId).single();
-  if (!lot) throw new AppError("not_found", "Lote não encontrado.");
-  await ensureSample(lotId, lot.sample_size);
-  const { data: samples } = await db.from("review_samples").select("*").eq("lot_id", lotId);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const ids = (samples ?? []).map((s: any) => s.question_id);
-  const [{ data: questions }, { data: keys }, { data: explanations }, { data: sources }, { count: total }] = await Promise.all([
-    db.from("questions").select("*").in("id", ids),
-    db.from("question_keys").select("*").in("question_id", ids),
-    db.from("explanations").select("*").in("question_id", ids),
-    db.from("question_sources").select("question_id, locator, sources(title, publisher, year, url)").in("question_id", ids),
-    db.from("questions").select("id", { count: "exact", head: true }).eq("lot_id", lotId),
+  const [attention, quarantined, unreviewed, { count: published }, { count: reviewed }] = await Promise.all([
+    db.from("questions").select(INBOX_FIELDS, { count: "exact" }).in("status", ["draft", "in_review"]).order("created_at", { ascending: false }).limit(100),
+    db.from("questions").select(INBOX_FIELDS, { count: "exact" }).eq("status", "quarantined").order("created_at", { ascending: false }).limit(100),
+    db
+      .from("questions")
+      .select(INBOX_FIELDS, { count: "exact" })
+      .eq("status", "published")
+      .eq("verification", "ia_verificada")
+      .is("official_exam_id", null)
+      .order("risk_level")
+      .order("published_at", { ascending: false })
+      .limit(30),
+    db.from("questions").select("id", { count: "exact", head: true }).eq("status", "published"),
+    db.from("questions").select("id", { count: "exact", head: true }).eq("status", "published").eq("verification", "medico_revisado"),
   ]);
+  for (const result of [attention, quarantined, unreviewed]) if (result.error) throw result.error;
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const items = (questions ?? []).map((question: any) => ({
-    question,
-    // Figuras com a URL pública resolvida, como o aluno vê.
-    images: toPublicQuestion(question).images,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    key: (keys ?? []).find((k: any) => k.question_id === question.id)?.correct_index,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    explanation: (explanations ?? []).find((e: any) => e.question_id === question.id),
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    sources: (sources ?? []).filter((s: any) => s.question_id === question.id),
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    sample: (samples ?? []).find((s: any) => s.question_id === question.id),
-  }));
-  // Primeiro as pendentes, depois alto risco.
+  const all = [...(attention.data ?? []), ...(quarantined.data ?? []), ...(unreviewed.data ?? [])] as any[];
+  const ids = all.map((q) => q.id);
+  const [{ data: keys }, { data: explanations }, { data: sources }] = ids.length
+    ? await Promise.all([
+        db.from("question_keys").select("question_id, correct_index").in("question_id", ids),
+        db.from("explanations").select("question_id, quick").in("question_id", ids),
+        db.from("question_sources").select("question_id, locator, sources(title, publisher, year, url)").in("question_id", ids),
+      ])
+    : [{ data: [] }, { data: [] }, { data: [] }];
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  items.sort((a: any, b: any) => Number(Boolean(a.sample.decision)) - Number(Boolean(b.sample.decision)) || (a.question.risk_level === "alto" ? -1 : 1));
-  return { lot, items, total: total ?? 0 };
+  const shape = (rows: any[] | null): InboxQuestion[] =>
+    (rows ?? []).map((q) => ({
+      ...q,
+      images: toPublicQuestion(q).images,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      key: (keys ?? []).find((k: any) => k.question_id === q.id)?.correct_index ?? null,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      quick: (explanations ?? []).find((e: any) => e.question_id === q.id)?.quick ?? null,
+      sources: (sources ?? [])
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        .filter((s: any) => s.question_id === q.id && s.sources)
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        .map((s: any) => ({ ...s.sources, locator: s.locator })),
+    }));
+
+  return {
+    attention: shape(attention.data),
+    quarantined: shape(quarantined.data),
+    unreviewed: shape(unreviewed.data),
+    counts: {
+      published: published ?? 0,
+      reviewed: reviewed ?? 0,
+      attention: attention.count ?? 0,
+      quarantined: quarantined.count ?? 0,
+      unreviewed: unreviewed.count ?? 0,
+    },
+  };
 }
 
-export async function decideSample(
-  reviewerId: string,
-  input: { lotId: string; questionId: string; decision: "ok" | "minor" | "critical"; notes?: string | null },
-) {
+/** Coloca no ar uma questão que estava fora (precisa de olho ou quarentena). */
+export async function publishQuestion(id: string) {
   const db = admin();
-  const { data: lot } = await db.from("review_lots").select("status").eq("id", input.lotId).single();
-  if (!lot || lot.status === "approved") throw new AppError("closed", "Este lote já foi decidido.");
-  await db
-    .from("review_samples")
-    .update({ decision: input.decision, notes: input.notes ?? null, reviewer_id: reviewerId, decided_at: new Date().toISOString() })
-    .eq("lot_id", input.lotId)
-    .eq("question_id", input.questionId);
-
-  // Erro crítico segura o lote inteiro até achar a causa.
-  if (input.decision === "critical") {
-    await db
-      .from("review_lots")
-      .update({ status: "held", held_reason: input.notes ?? "Erro crítico na amostra" })
-      .eq("id", input.lotId);
-  }
-}
-
-export async function approveLot(reviewerId: string, lotId: string) {
-  const db = admin();
-  const { data: samples } = await db.from("review_samples").select("question_id, decision").eq("lot_id", lotId);
-  const rows = (samples ?? []) as { question_id: string; decision: string | null }[];
-  if (!rows.length || rows.some((s) => !s.decision)) throw new AppError("invalid", "Ainda há questões da amostra sem decisão.");
-  if (rows.some((s) => s.decision === "critical")) throw new AppError("invalid", "A amostra tem erro crítico. O lote não pode ser aprovado.");
-
-  const now = new Date().toISOString();
-  await db.from("review_lots").update({ status: "approved", decided_by: reviewerId, decided_at: now }).eq("id", lotId);
+  const { data } = await db.from("questions").select("published_at").eq("id", id).maybeSingle();
+  if (!data) throw new AppError("not_found", "Questão não encontrada.");
   await db
     .from("questions")
-    .update({ status: "published", verification: "lote_amostrado", published_at: now })
-    .eq("lot_id", lotId)
-    .in("status", ["draft", "in_review"]);
-  // Só recebe o selo de revisada a questão que um médico realmente leu e aprovou sem ressalva.
-  const read = rows.filter((s) => s.decision === "ok").map((s) => s.question_id);
-  if (read.length) await db.from("questions").update({ verification: "medico_revisado" }).in("id", read);
-  // Questão com ressalva não vai ao ar até ser corrigida.
-  const minor = rows.filter((s) => s.decision === "minor").map((s) => s.question_id);
-  if (minor.length) await db.from("questions").update({ status: "in_review", published_at: null }).in("id", minor);
+    .update({ status: "published", hold_reason: null, published_at: data.published_at ?? new Date().toISOString() })
+    .eq("id", id);
+  // Denúncias abertas já foram consideradas por quem republicou.
+  await db.from("reports").update({ status: "resolvida" }).eq("question_id", id).eq("status", "aberta");
 }
 
-export async function rejectLot(reviewerId: string, lotId: string, reason: string) {
-  const db = admin();
-  await db
-    .from("review_lots")
-    .update({ status: "rejected", held_reason: reason, decided_by: reviewerId, decided_at: new Date().toISOString() })
-    .eq("id", lotId);
-  await db.from("questions").update({ status: "retired" }).eq("lot_id", lotId).neq("status", "published");
+export async function retireQuestion(id: string, reason: string) {
+  await admin().from("questions").update({ status: "retired", hold_reason: reason }).eq("id", id);
+}
+
+/** Revisão médica opcional: só quem leu a questão inteira deve marcar. */
+export async function markReviewed(reviewerId: string, id: string) {
+  const { data } = await admin()
+    .from("questions")
+    .update({ verification: "medico_revisado", reviewed_by: reviewerId, reviewed_at: new Date().toISOString() })
+    .eq("id", id)
+    .select("id");
+  if (!data?.length) throw new AppError("not_found", "Questão não encontrada.");
 }
 
 export async function getModerationQueue() {
   const db = admin();
-  const [reports, appeals, comments, quarantined] = await Promise.all([
+  const [reports, appeals, comments] = await Promise.all([
     db
       .from("reports")
       .select("id, kind, body, created_at, question_id, comment_id, profiles(nickname), questions(slug, theme), comments(body)")
@@ -144,12 +138,11 @@ export async function getModerationQueue() {
       .select("id, body, votes, pinned, hidden, created_at, profiles!comments_user_id_fkey(nickname), questions(slug, theme)")
       .order("created_at", { ascending: false })
       .limit(50),
-    db.from("questions").select("id, slug, theme, area_id").eq("status", "quarantined").limit(100),
   ]);
-  for (const result of [reports, appeals, comments, quarantined]) {
+  for (const result of [reports, appeals, comments]) {
     if (result.error) throw result.error;
   }
-  return { reports: reports.data ?? [], appeals: appeals.data ?? [], comments: comments.data ?? [], quarantined: quarantined.data ?? [] };
+  return { reports: reports.data ?? [], appeals: appeals.data ?? [], comments: comments.data ?? [] };
 }
 
 export async function resolveReport(id: string, status: "resolvida" | "descartada") {
@@ -165,8 +158,4 @@ export async function decideAppeal(editorId: string, id: string, status: "deferi
 
 export async function moderateComment(id: string, patch: { hidden?: boolean; pinned?: boolean }) {
   await admin().from("comments").update(patch).eq("id", id);
-}
-
-export async function setQuestionStatus(id: string, status: "published" | "quarantined" | "retired") {
-  await admin().from("questions").update({ status }).eq("id", id);
 }

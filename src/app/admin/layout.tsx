@@ -10,7 +10,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
           Painel editorial
         </strong>
         <Link href="/admin" className="btn btn-ghost btn-sm">
-          Lotes
+          Caixa de exceções
         </Link>
         <Link href="/admin/moderacao" className="btn btn-ghost btn-sm">
           Moderação

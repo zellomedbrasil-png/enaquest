@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { timingSafeEqual } from "node:crypto";
 import { rolloverPreviousWeek } from "@/lib/server/leagues";
+import { admin } from "@/lib/supabase/admin";
 
 function authorized(request: Request): boolean {
   const expected = process.env.CRON_SECRET;
@@ -9,9 +10,11 @@ function authorized(request: Request): boolean {
   return timingSafeEqual(Buffer.from(given), Buffer.from(expected));
 }
 
-/** Vercel Cron: fecha a liga da semana anterior. */
+/** Vercel Cron: fecha a liga da semana anterior e tira do ar as questões vencidas. */
 export async function GET(request: Request) {
   if (!authorized(request)) return NextResponse.json({ error: "não autorizado" }, { status: 401 });
   const processed = await rolloverPreviousWeek();
-  return NextResponse.json({ processed });
+  const { data: retired, error } = await admin().rpc("retire_expired_questions");
+  if (error) throw error;
+  return NextResponse.json({ processed, retired });
 }

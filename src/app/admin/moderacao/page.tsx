@@ -1,38 +1,12 @@
-import { decideAppealAction, moderateCommentAction, resolveReportAction, setQuestionStatusAction } from "@/app/actions";
+import { decideAppealAction, moderateCommentAction, resolveReportAction } from "@/app/actions";
 import { getModerationQueue } from "@/lib/server/editorial";
 import { formatDateTime } from "@/lib/ui/labels";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export default async function ModerationPage() {
-  const { reports, appeals, comments, quarantined } = await getModerationQueue();
+  const { reports, appeals, comments } = await getModerationQueue();
   return (
     <div style={{ display: "grid", gap: 18 }}>
-      <section>
-        <h2 style={{ fontSize: 20, marginBottom: 8 }}>Em quarentena ({quarantined.length})</h2>
-        <div style={{ display: "grid", gap: 8 }}>
-          {quarantined.map((question: any) => (
-            <div key={question.id} className="card" style={{ display: "flex", justifyContent: "space-between", gap: 10, flexWrap: "wrap", alignItems: "center" }}>
-              <span>
-                <strong>{question.slug}</strong> · {question.theme}
-              </span>
-              <span style={{ display: "flex", gap: 6 }}>
-                <form action={setQuestionStatusAction}>
-                  <input type="hidden" name="id" value={question.id} />
-                  <input type="hidden" name="status" value="published" />
-                  <button className="btn btn-ghost btn-sm">Republicar</button>
-                </form>
-                <form action={setQuestionStatusAction}>
-                  <input type="hidden" name="id" value={question.id} />
-                  <input type="hidden" name="status" value="retired" />
-                  <button className="btn btn-danger btn-sm">Retirar</button>
-                </form>
-              </span>
-            </div>
-          ))}
-          {quarantined.length === 0 && <p className="muted">Nenhuma.</p>}
-        </div>
-      </section>
-
       <section>
         <h2 style={{ fontSize: 20, marginBottom: 8 }}>Recursos ({appeals.length})</h2>
         <div style={{ display: "grid", gap: 8 }}>

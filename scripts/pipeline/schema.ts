@@ -111,6 +111,8 @@ export const LotQuestionSchema = DraftSchema.extend(StudyExtrasSchema.partial().
   difficulty: z.enum(DIFFICULTIES),
   risk_level: z.enum(["normal", "alto"]),
   expires_on: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+  /** Preenchido pelas checagens quando há dúvida: a questão é importada, mas fica fora do ar. */
+  hold_reason: z.string().optional(),
 });
 export type LotQuestion = z.infer<typeof LotQuestionSchema>;
 
@@ -150,6 +152,15 @@ export const BlindAnswerSchema = z.object({
   confident: z.boolean(),
   other_defensible: z.array(z.number()).describe("Outras alternativas que também poderiam ser defendidas."),
   stem_problem: z.string().nullable().describe("Problema no enunciado que impede responder com segurança, ou null."),
+});
+
+/** Revisão de lote já escrito, sem o texto das fontes: o verificador usa o que sabe das diretrizes. */
+export const SafetyReviewSchema = z.object({
+  key_is_correct: z.boolean(),
+  dangerous_content: z.string().nullable().describe("Conteúdo que pode causar dano se um médico o seguisse, ou null."),
+  problems: z
+    .array(z.string())
+    .describe("Dose, número, critério ou recomendação que parece errado ou desatualizado nas diretrizes brasileiras vigentes. Vazio se nada."),
 });
 
 export const FactCheckSchema = z.object({

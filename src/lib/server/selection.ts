@@ -67,18 +67,3 @@ export function pickBalanced(pool: PoolItem[], areas: AreaShare[], seed: string,
 }
 
 export const pickDaily = pickBalanced;
-
-/** Amostra de revisão: inclui primeiro as questões de alto risco, até 40% da amostra. */
-export function pickReviewSample(
-  questions: { id: string; risk_level: string }[],
-  seed: string,
-  sampleSize: number,
-): string[] {
-  if (questions.length <= sampleSize) return questions.map((q) => q.id);
-  const high = seededShuffle(questions.filter((q) => q.risk_level === "alto"), seed);
-  const normal = seededShuffle(questions.filter((q) => q.risk_level !== "alto"), seed);
-  const highTake = Math.min(high.length, Math.ceil(sampleSize * 0.4));
-  const picked = high.slice(0, highTake);
-  const rest = [...normal, ...high.slice(highTake)];
-  return [...picked, ...seededShuffle(rest, seed + ":resto").slice(0, sampleSize - picked.length)].map((q) => q.id);
-}
