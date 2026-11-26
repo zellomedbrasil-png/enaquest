@@ -8,6 +8,8 @@ const ThemeSchema = z.object({
   competencias: z.array(z.enum(COMPETENCY_IDS)).min(1),
   risco: z.enum(["normal", "alto"]),
   fontes: z.array(z.string()).default([]),
+  /** Atualização recente de diretriz que os modelos ainda não conhecem bem. Vai no pedido ao autor. */
+  nota: z.string().optional(),
 });
 
 export const TemarioSchema = z.object({
@@ -44,6 +46,7 @@ export type PlanItem = {
   difficulty: (typeof DIFFICULTIES)[number];
   risk_level: "normal" | "alto";
   source_ids: string[];
+  note?: string;
 };
 
 function pick<T>(items: T[], seed: string): T {
@@ -84,6 +87,7 @@ export function planDay(temario: Temario, usage: Record<string, number>, size: n
         difficulty: pickDifficulty(`${seed}:${area}:${i}:dificuldade`),
         risk_level: theme.risco,
         source_ids: theme.fontes,
+        note: theme.nota,
       });
     }
   }

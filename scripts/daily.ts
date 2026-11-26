@@ -54,7 +54,7 @@ async function draft(item: PlanItem, sources: Source[]) {
     AUTHOR_MODEL,
     AuthorDraftSchema,
     `Você é médico e escreve questões originais de múltipla escolha para estudantes que se preparam para o ENAMED e o ENARE (acesso direto), no padrão da prova do Inep.\n${STYLE_RULES_FROM_KNOWLEDGE}`,
-    `Escreva uma questão original.\n\nÁrea: ${AREA_NAMES[item.area_id]}\nTema: ${item.theme}\nCompetência avaliada: ${item.competency_id}\nCenário: ${item.scenario}\nDificuldade: ${item.difficulty}\n\nEm "claims", liste cada dose, número, critério ou recomendação usada, citando o source_id de uma destas fontes só quando ela de fato sustentar a afirmação. Não use outros ids.\n<fontes>\n${list}\n</fontes>`,
+    `Escreva uma questão original.\n\nÁrea: ${AREA_NAMES[item.area_id]}\nTema: ${item.theme}\n${item.note ? `Atualização obrigatória (vale mais que o que você sabe): ${item.note}\n` : ""}Competência avaliada: ${item.competency_id}\nCenário: ${item.scenario}\nDificuldade: ${item.difficulty}\n\nEm "claims", liste cada dose, número, critério ou recomendação usada, citando o source_id de uma destas fontes só quando ela de fato sustentar a afirmação. Não use outros ids.\n<fontes>\n${list}\n</fontes>`,
     "high",
   );
 }
@@ -117,7 +117,8 @@ async function main() {
           continue;
         }
         // Tema sem fonte no catálogo: o modelo foi orientado a deixar "claims" vazio.
-        const fatal = lintDraft(answer.value).filter((issue) => issue.fatal && !(issue.code === "no_claims" && !sources.length));
+        // A fonte é sugestão do catálogo (e é filtrada depois); faltar não descarta a questão.
+        const fatal = lintDraft(answer.value).filter((issue) => issue.fatal && issue.code !== "no_claims");
         if (fatal.length) reasons.push(`escrita: ${fatal.map((issue) => issue.message).join(" ")}`);
         else written = answer.value;
       }
@@ -155,7 +156,7 @@ async function main() {
   }
 
   // Várias questões ao mesmo tempo: modelos com raciocínio levam minutos por resposta.
-  const parallel = Math.max(1, Number(process.env.QUESTOES_PARALELO || 4));
+  const parallel = Math.max(1, Number(process.env.QUESTOES_PARALELO || 6));
   const queue = [...plan];
   await Promise.all(
     Array.from({ length: Math.min(parallel, queue.length) }, async () => {

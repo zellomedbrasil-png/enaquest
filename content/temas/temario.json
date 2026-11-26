@@ -30,7 +30,7 @@
       { "tema": "Derrame pleural: transudato ou exsudato", "competencias": ["propedeutica", "hipotese"], "risco": "normal", "fontes": ["pm-37983698"] },
       { "tema": "Hepatites virais: interpretação da sorologia", "competencias": ["propedeutica", "hipotese"], "risco": "normal", "fontes": ["ms-hepatites-gov"] },
       { "tema": "HIV: diagnóstico e início da terapia antirretroviral", "competencias": ["propedeutica", "terapeutica"], "risco": "alto", "fontes": ["ms-hiv-gov"] },
-      { "tema": "Hanseníase: classificação operacional e tratamento", "competencias": ["hipotese", "terapeutica"], "risco": "alto", "fontes": ["ms-hanseniase-gov"] },
+      { "tema": "Hanseníase: classificação operacional e tratamento", "competencias": ["hipotese", "terapeutica"], "risco": "alto", "fontes": ["ms-hanseniase-gov"], "nota": "Desde 2021 o Ministério da Saúde usa a PQT-U: rifampicina, dapsona e clofazimina para todos os casos, por 6 meses no paucibacilar e 12 meses no multibacilar. Não descreva o esquema antigo do paucibacilar só com rifampicina e dapsona." },
       { "tema": "Leptospirose: suspeita e conduta", "competencias": ["hipotese", "decisao"], "risco": "normal", "fontes": ["ms-gvs-2022"] },
       { "tema": "Intoxicação por organofosforado", "competencias": ["urgencia", "terapeutica"], "risco": "alto", "fontes": ["pm-17706760"] },
       { "tema": "Anemia ferropriva: investigação e reposição", "competencias": ["propedeutica", "terapeutica"], "risco": "normal", "fontes": ["pm-39951396"] },

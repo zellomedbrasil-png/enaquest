@@ -110,7 +110,8 @@ async function openRouter<T>(
     max_tokens: 32000,
     reasoning: { effort },
     // Só usa provedores que respeitam o formato pedido.
-    provider: { require_parameters: true },
+    // e, entre eles, prefere o mais rápido (o preço do mesmo modelo varia pouco entre provedores).
+    provider: { require_parameters: true, sort: "throughput" },
     usage: { include: true },
     response_format: { type: "json_schema", json_schema: { name: "resposta", strict: false, schema: z.toJSONSchema(schema as z.ZodType) } },
     messages: [
