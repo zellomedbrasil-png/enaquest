@@ -163,6 +163,17 @@ async function main() {
   const held = questions.filter((q) => q.hold_reason).length;
   const discarded = outcomes.filter((o) => o.status === "descartada" || o.status === "erro").length;
   if (simulate || !db) {
+    // Na simulação, a questão inteira vai para o log, para avaliar a qualidade sem baixar o lote.
+    for (const q of questions) {
+      console.log(`\n===== [${q.area_id}] ${q.theme} · ${q.difficulty} · risco ${q.risk_level}${q.hold_reason ? ` · PRECISA DE OLHO: ${q.hold_reason}` : ""}`);
+      console.log(q.stem);
+      if (q.exams) console.log(JSON.stringify(q.exams));
+      q.options.forEach((option, i) => console.log(`${"ABCD"[i]}) ${option}${i === q.correct_index ? "   <- gabarito" : ""}`));
+      console.log(`Resposta rápida: ${q.quick}`);
+      console.log(`Raciocínio: ${q.reasoning}`);
+      for (const d of q.distractors) console.log(`  ${"ABCD"[d.index]}: ${d.why}`);
+      console.log(`Fontes citadas: ${q.claims.map((c) => `${c.source_id} (${c.locator})`).join("; ") || "nenhuma"}`);
+    }
     console.log(`\nSimulação: ${questions.length - held} iriam ao ar, ${held} precisam de olho, ${discarded} descartadas. Custo: ${cost}.`);
     return;
   }
