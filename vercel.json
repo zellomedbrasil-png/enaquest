@@ -1,3 +1,17 @@
 {
-  "crons": [{ "path": "/api/cron/weekly", "schedule": "0 4 * * 1" }]
+  "crons": [{ "path": "/api/cron/weekly", "schedule": "0 4 * * 1" }],
+  "redirects": [
+    {
+      "source": "/:path((?!api/).*)",
+      "has": [{ "type": "host", "value": "enaquest.vercel.app" }],
+      "destination": "https://enaquest.com/:path",
+      "permanent": true
+    },
+    {
+      "source": "/:path((?!api/).*)",
+      "has": [{ "type": "host", "value": "www.enaquest.com" }],
+      "destination": "https://enaquest.com/:path",
+      "permanent": true
+    }
+  ]
 }
