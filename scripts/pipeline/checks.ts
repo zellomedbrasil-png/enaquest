@@ -101,3 +101,27 @@ export async function checkWithoutSources(question: Draft, risk: "normal" | "alt
 }
 
 export const checkExistingQuestion = (question: Draft, risk: "normal" | "alto") => checkWithoutSources(question, risk, "existing");
+
+/**
+ * Questão nova escrita a partir de trechos do material privado (gerador diário).
+ * - Erro claro (gabarito, conteúdo perigoso, resolução às cegas) descarta.
+ * - O que o material não cobre passa por uma revisão de conhecimento: só segura se o verificador achar problema.
+ */
+export async function checkGrounded(draft: Draft, materialText: string, risk: "normal" | "alto"): Promise<Verdict> {
+  const blind = judgeBlind(await blindSolve(draft), draft.correct_index, "resolucao_cega", true);
+  if (!blind.ok) return blind;
+
+  const check = await factCheck(draft, materialText);
+  if (!check) return hold("checagem", "Sem resposta do verificador.");
+  if (!check.key_is_correct) return discard("checagem", "O verificador discorda do gabarito.");
+  if (check.dangerous_content) return discard("checagem", check.dangerous_content);
+  if (check.verdicts.some((v) => !v.supported)) {
+    const review = await safetyReview(draft);
+    if (!review) return hold("checagem", "Sem resposta do verificador.");
+    if (!review.key_is_correct) return discard("checagem", "O verificador discorda do gabarito.");
+    if (review.dangerous_content) return discard("checagem", review.dangerous_content);
+    if (review.problems.length) return hold("checagem", review.problems.join(" | "));
+  }
+
+  return risk === "alto" ? secondOpinion(draft) : pass;
+}

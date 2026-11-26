@@ -25,7 +25,10 @@
     "content:official": "tsx scripts/pipeline/official.ts",
     "content:assemble": "tsx scripts/content/assemble-official.ts",
     "dev:publish-pilot": "tsx scripts/dev-publish-pilot.ts",
-    "dev:make-admin": "tsx scripts/dev-make-admin.ts"
+    "dev:make-admin": "tsx scripts/dev-make-admin.ts",
+    "materiais:extrair": "python scripts/materiais/extrair.py",
+    "materiais:enviar": "tsx scripts/materiais/enviar.ts",
+    "materiais:classificar": "tsx scripts/materiais/classificar.ts"
   },
   "dependencies": {
     "@stripe/react-stripe-js": "^7.0.1",

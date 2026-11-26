@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { planDay, TemarioSchema } from "./daily-plan";
+import { fixStemEnding, planDay, TemarioSchema } from "./daily-plan";
 import { extractJson } from "./llm";
 
 const temario = TemarioSchema.parse(JSON.parse(readFileSync("content/temas/temario.json", "utf8")));
@@ -43,5 +43,13 @@ describe("resposta do modelo", () => {
     expect(extractJson('```json\n{"a":1}\n```')).toEqual({ a: 1 });
     expect(extractJson('Aqui está:\n{"a":{"b":2}}\nFim.')).toEqual({ a: { b: 2 } });
     expect(() => extractJson("sem json")).toThrow();
+  });
+});
+
+describe("fim do enunciado", () => {
+  it("troca o ponto final de pergunta direta por interrogação", () => {
+    expect(fixStemEnding("Paciente com febre. Qual a conduta indicada.")).toBe("Paciente com febre. Qual a conduta indicada?");
+    expect(fixStemEnding("Paciente com febre. A conduta indicada é")).toBe("Paciente com febre. A conduta indicada é");
+    expect(fixStemEnding("Paciente com febre. Considere o caso.")).toBe("Paciente com febre. Considere o caso.");
   });
 });

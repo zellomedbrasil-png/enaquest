@@ -1,0 +1,31 @@
+# Classifica os trechos de material enviados ao banco (tipo, área e tema do temário).
+# Rode depois de enviar material novo (npm run materiais:enviar). Também roda junto do gerador diário.
+name: Classificar materiais
+
+on:
+  workflow_dispatch:
+    inputs:
+      limite:
+        description: "Gasto máximo nesta rodada (US$)"
+        default: "5"
+
+jobs:
+  classificar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - name: Classificar
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          NEXT_PUBLIC_SUPABASE_URL: https://zjzgouelgnirjbqxnrqy.supabase.co
+          MATERIAIS_LIMITE_DOLARES: ${{ inputs.limite || '5' }}
+        run: npx tsx scripts/materiais/classificar.ts

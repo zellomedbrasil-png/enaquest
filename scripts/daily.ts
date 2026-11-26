@@ -11,14 +11,15 @@
 import { config } from "dotenv";
 import { randomBytes } from "node:crypto";
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
-import { createClient } from "@supabase/supabase-js";
+import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import { z } from "zod";
 import { AuthorDraftSchema, LotSchema, SourceSchema, type LotQuestion, type Source } from "./pipeline/schema";
 import { lintDraft, lintLot } from "./pipeline/lint";
 import { AUTHOR_MODEL, CHECK_MODEL, SECOND_MODEL, isFatalApiError, spentDollars, structuredWithReason } from "./pipeline/llm";
-import { STYLE_RULES_FROM_KNOWLEDGE } from "./pipeline/style";
-import { checkWithoutSources } from "./pipeline/checks";
-import { planDay, TemarioSchema, type PlanItem } from "./pipeline/daily-plan";
+import { STYLE_RULES, STYLE_RULES_FROM_KNOWLEDGE } from "./pipeline/style";
+import { checkGrounded, checkWithoutSources } from "./pipeline/checks";
+import { seededShuffle } from "../src/lib/server/selection";
+import { fixStemEnding, planDay, TemarioSchema, type PlanItem } from "./pipeline/daily-plan";
 import { importLot } from "./content/import";
 
 config({ path: ".env.local", quiet: true });
@@ -46,15 +47,53 @@ function arg(name: string): string | undefined {
   return process.argv.find((a) => a.startsWith(`--${name}=`))?.split("=")[1];
 }
 
-async function draft(item: PlanItem, sources: Source[]) {
+type Material = { ids: string[]; origins: string[]; text: string };
+type Db = SupabaseClient;
+
+/** Trechos do material privado ligados ao tema: teoria primeiro, depois questões comentadas, até ~9 mil caracteres. */
+async function materialFor(db: Db | null, theme: string, seed: string): Promise<Material | null> {
+  if (!db) return null;
+  const { data, error } = await db
+    .from("material_chunks")
+    .select("id, origem, texto, tipo")
+    .eq("tema", theme)
+    .in("tipo", ["teoria", "questao_comentada"])
+    .limit(80);
+  if (error || !data?.length) return null;
+  const rows = data as { id: string; origem: string; texto: string; tipo: string }[];
+  const ordered = [...seededShuffle(rows.filter((r) => r.tipo === "teoria"), seed), ...seededShuffle(rows.filter((r) => r.tipo !== "teoria"), seed)];
+  const picked: typeof rows = [];
+  let size = 0;
+  for (const row of ordered) {
+    if (size > 0 && size + row.texto.length > 9000) continue;
+    picked.push(row);
+    size += row.texto.length;
+    if (size > 7000) break;
+  }
+  return {
+    ids: picked.map((r) => r.id),
+    origins: [...new Set(picked.map((r) => r.origem))],
+    text: picked.map((r, i) => `[trecho ${i + 1}]\n${r.texto}`).join("\n\n"),
+  };
+}
+
+async function draft(item: PlanItem, sources: Source[], material: Material | null, feedback: string | null = null) {
   const list = sources.length
     ? sources.map((s) => `- ${s.id}: ${s.title} (${s.publisher}, ${s.year})`).join("\n")
     : "(nenhuma fonte do catálogo para este tema; deixe \"claims\" vazio)";
   return structuredWithReason(
     AUTHOR_MODEL,
     AuthorDraftSchema,
-    `Você é médico e escreve questões originais de múltipla escolha para estudantes que se preparam para o ENAMED e o ENARE (acesso direto), no padrão da prova do Inep.\n${STYLE_RULES_FROM_KNOWLEDGE}`,
-    `Escreva uma questão original.\n\nÁrea: ${AREA_NAMES[item.area_id]}\nTema: ${item.theme}\n${item.note ? `Atualização obrigatória (vale mais que o que você sabe): ${item.note}\n` : ""}Competência avaliada: ${item.competency_id}\nCenário: ${item.scenario}\nDificuldade: ${item.difficulty}\n\nEm "claims", liste cada dose, número, critério ou recomendação usada, citando o source_id de uma destas fontes só quando ela de fato sustentar a afirmação. Não use outros ids.\n<fontes>\n${list}\n</fontes>`,
+    `Você é médico e escreve questões originais de múltipla escolha para estudantes que se preparam para o ENAMED e o ENARE (acesso direto), no padrão da prova do Inep.\n${material ? STYLE_RULES : STYLE_RULES_FROM_KNOWLEDGE}`,
+    `Escreva uma questão original.\n\nÁrea: ${AREA_NAMES[item.area_id]}\nTema: ${item.theme}\n${item.note ? `Atualização obrigatória (vale mais que o que você sabe): ${item.note}\n` : ""}Competência avaliada: ${item.competency_id}\nCenário: ${item.scenario}\nDificuldade: ${item.difficulty}\n\nEm "claims", liste cada dose, número, critério ou recomendação usada, citando o source_id de uma destas fontes só quando ela de fato sustentar a afirmação. Não use outros ids.\n<fontes>\n${list}\n</fontes>${
+      material
+        ? `\n\nMaterial de estudo para basear a questão (as "fontes fornecidas" das regras são estes trechos). Os trechos podem conter questões de outras provas: use o conhecimento, nunca o caso clínico nem as alternativas delas.\n<material>\n${material.text}\n</material>`
+        : ""
+    }${
+      feedback
+        ? `\n\nSua versão anterior foi recusada por estes problemas de formato. Escreva de novo evitando todos eles: ${feedback}\nLembre: preencha todos os campos (quick, competency_note, tip, pearl), termine o enunciado com uma pergunta e respeite os tamanhos.`
+        : ""
+    }`,
     "high",
   );
 }
@@ -90,6 +129,7 @@ async function main() {
   console.log(`Plano de ${today}: ${plan.length} questões. Autor ${AUTHOR_MODEL}, verificador ${CHECK_MODEL}, segunda opinião ${SECOND_MODEL}.`);
 
   const questions: LotQuestion[] = [];
+  const materialBySlug = new Map<string, Material>();
   const outcomes: Outcome[] = [];
   const expires = new Date();
   expires.setFullYear(expires.getFullYear() + 2);
@@ -107,38 +147,50 @@ async function main() {
       console.log(`[${item.area_id}] ${item.theme}: ${status}${reason ? ` (${reason})` : ""}`);
     };
     try {
-      // Duas tentativas: rascunho recusado ou com erro de escrita não custa caro para refazer.
+      const material = await materialFor(db, item.theme, `${today}:${item.theme}:${item.competency_id}`);
+      // Duas tentativas. A segunda recebe o que estava errado na primeira, para corrigir em vez de recomeçar.
       let written = null;
       const reasons: string[] = [];
+      const valid = new Set(sources.map((s) => s.id));
+      let feedback: string | null = null;
       for (let attempt = 0; attempt < 2 && !written; attempt++) {
-        const answer = await draft(item, sources);
+        const answer = await draft(item, sources, material, feedback);
         if (!answer.value) {
           reasons.push(answer.reason);
           continue;
         }
-        // Tema sem fonte no catálogo: o modelo foi orientado a deixar "claims" vazio.
-        // A fonte é sugestão do catálogo (e é filtrada depois); faltar não descarta a questão.
-        const fatal = lintDraft(answer.value).filter((issue) => issue.fatal && issue.code !== "no_claims");
-        if (fatal.length) reasons.push(`escrita: ${fatal.map((issue) => issue.message).join(" ")}`);
-        else written = answer.value;
+        // Fonte citada fora do catálogo do tema sai antes da checagem de formato (é só sugestão).
+        const candidate = {
+          ...answer.value,
+          stem: fixStemEnding(answer.value.stem),
+          claims: answer.value.claims.filter((c) => valid.has(c.source_id)),
+        };
+        const fatal = lintDraft(candidate).filter((issue) => issue.fatal && issue.code !== "no_claims");
+        if (fatal.length) {
+          const messages = fatal.map((issue) => issue.message).join(" ");
+          reasons.push(`escrita: ${messages}`);
+          feedback = messages;
+        } else written = candidate;
       }
       if (!written) {
         record("descartada", reasons.join(" | "));
         return;
       }
-      // Fonte citada fora do catálogo do tema não entra.
-      const valid = new Set(sources.map((s) => s.id));
-      const claims = written.claims.filter((c) => valid.has(c.source_id));
+      const claims = written.claims;
 
-      const verdict = await checkWithoutSources(written, item.risk_level, "generated");
+      const verdict = material
+        ? await checkGrounded(written, material.text, item.risk_level)
+        : await checkWithoutSources(written, item.risk_level, "generated");
       if (!verdict.ok && !verdict.hold) {
         record("descartada", `${verdict.stage}: ${verdict.reason}`);
         return;
       }
+      const slug = `${item.area_id}-${slugify(item.theme)}-${today}-${randomBytes(2).toString("hex")}`;
+      if (material) materialBySlug.set(slug, material);
       questions.push({
         ...written,
         claims,
-        slug: `${item.area_id}-${slugify(item.theme)}-${today}-${randomBytes(2).toString("hex")}`,
+        slug,
         area_id: item.area_id,
         competency_id: item.competency_id,
         theme: item.theme,
@@ -148,7 +200,8 @@ async function main() {
         expires_on: expires.toISOString().slice(0, 10),
         ...(verdict.ok ? {} : { hold_reason: `${verdict.stage}: ${verdict.reason}` }),
       });
-      record(verdict.ok ? "ok" : "precisa de olho", verdict.ok ? undefined : verdict.reason);
+      const base = material ? `material: ${material.origins.join(", ")}` : "sem material, de memória";
+      record(verdict.ok ? "ok" : "precisa de olho", verdict.ok ? base : `${base}; ${verdict.reason}`);
     } catch (error) {
       if (isFatalApiError(error)) throw error;
       record("erro", error instanceof Error ? error.message : String(error));
@@ -192,12 +245,22 @@ async function main() {
       console.log(`Resposta rápida: ${q.quick}`);
       console.log(`Raciocínio: ${q.reasoning}`);
       for (const d of q.distractors) console.log(`  ${"ABCD"[d.index]}: ${d.why}`);
+      const mat = materialBySlug.get(q.slug);
+      console.log(`Material de base: ${mat ? `${mat.origins.join(", ")} (${mat.ids.length} trechos)` : "nenhum"}`);
       console.log(`Fontes citadas: ${q.claims.map((c) => `${c.source_id} (${c.locator})`).join("; ") || "nenhuma"}`);
     }
     console.log(`\nSimulação: ${questions.length - held} iriam ao ar, ${held} precisam de olho, ${discarded} descartadas. Custo: ${cost}.`);
     return;
   }
   const summary = await importLot(db, lot, { publish: true });
+  // Registra de quais trechos cada questão saiu, para o painel editorial.
+  const links: { question_id: string; chunk_id: string }[] = [];
+  for (const [slug, material] of materialBySlug) {
+    const { data } = await db.from("questions").select("id").eq("slug", slug).maybeSingle();
+    const id = (data as { id: string } | null)?.id;
+    if (id) for (const chunk of material.ids) links.push({ question_id: id, chunk_id: chunk });
+  }
+  if (links.length) await db.from("question_materials").upsert(links);
   console.log(`\nLote ${lot.id}: ${summary.published} no ar, ${summary.held} precisam de olho no /admin, ${discarded} descartadas. Custo: ${cost}.`);
 }
 

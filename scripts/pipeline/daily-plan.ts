@@ -93,3 +93,11 @@ export function planDay(temario: Temario, usage: Record<string, number>, size: n
   }
   return plan;
 }
+
+/** Pergunta direta que termina em ponto ("Qual a conduta indicada.") ganha o ponto de interrogação. */
+export function fixStemEnding(stem: string): string {
+  const trimmed = stem.trim();
+  if (!trimmed.endsWith(".")) return trimmed;
+  const last = trimmed.slice(0, -1).split(/(?<=[.!?])\s+/).pop() ?? "";
+  return /^(qual|quais|como|o que|quando|onde|por que|quanto|quantos|quantas|em qual|em que|que)\b/i.test(last) ? `${trimmed.slice(0, -1)}?` : trimmed;
+}
