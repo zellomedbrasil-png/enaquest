@@ -83,7 +83,7 @@ async function main() {
   const usage: Record<string, number> = {};
   if (db) {
     const { data, error } = await db.from("questions").select("theme").like("lot_id", "diario-%").limit(20000);
-    if (error) throw new Error(error.message);
+    if (error) throw new Error(`O Supabase recusou o acesso (${error.message}). Confira o segredo SUPABASE_SERVICE_ROLE_KEY: precisa ser a chave service_role, sem espaços nem quebra de linha.`);
     for (const row of data ?? []) usage[row.theme] = (usage[row.theme] ?? 0) + 1;
   }
   const plan = planDay(temario, usage, size, today);
