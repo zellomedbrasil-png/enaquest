@@ -18,3 +18,6 @@ referencias-privadas/
 
 # Lotes do gerador diário (ficam no banco e nos artefatos do GitHub Actions)
 content/lots/diario/
+
+# Material privado (dossiê, questões comentadas): nunca vai para o GitHub nem para a Vercel
+materiais-privados/
