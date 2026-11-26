@@ -42,9 +42,10 @@ export async function getInbox() {
       .eq("status", "published")
       .eq("verification", "ia_verificada")
       .is("official_exam_id", null)
-      .order("risk_level")
+      // As do dia primeiro (o gerador publica todo dia), e dentro do dia o alto risco antes.
       .order("published_at", { ascending: false })
-      .limit(30),
+      .order("risk_level")
+      .limit(40),
     db.from("questions").select("id", { count: "exact", head: true }).eq("status", "published"),
     db.from("questions").select("id", { count: "exact", head: true }).eq("status", "published").eq("verification", "medico_revisado"),
   ]);

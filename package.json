@@ -18,6 +18,7 @@
     "db:stop": "supabase stop",
     "db:reset": "supabase db reset",
     "content:publicar": "tsx scripts/publish.ts",
+    "content:diario": "tsx scripts/daily.ts",
     "content:import": "tsx scripts/import-lot.ts",
     "content:pipeline": "tsx scripts/pipeline/run.ts",
     "content:enrich": "tsx scripts/pipeline/enrich.ts",

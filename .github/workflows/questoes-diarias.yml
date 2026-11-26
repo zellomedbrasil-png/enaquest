@@ -1,0 +1,57 @@
+# Gera questões novas todo dia pelo OpenRouter, checa e publica no banco de produção.
+# Segredos necessários (Settings > Secrets and variables > Actions):
+#   OPENROUTER_API_KEY, SUPABASE_SERVICE_ROLE_KEY
+# Variáveis opcionais (aba Variables): QUESTOES_POR_DIA, QUESTOES_LIMITE_DOLARES, QUESTOES_MODELO_AUTOR,
+#   QUESTOES_MODELO_VERIFICADOR, QUESTOES_MODELO_SEGUNDA_OPINIAO
+name: Questões diárias
+
+on:
+  schedule:
+    # 06:00 em Brasília (09:00 UTC)
+    - cron: "0 9 * * *"
+  workflow_dispatch:
+    inputs:
+      quantidade:
+        description: "Quantas questões gerar agora"
+        default: "20"
+      simular:
+        description: "Só simular, sem gravar no banco"
+        type: boolean
+        default: false
+
+concurrency:
+  group: questoes-diarias
+  cancel-in-progress: false
+
+jobs:
+  gerar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - name: Gerar, checar e publicar
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          NEXT_PUBLIC_SUPABASE_URL: https://zjzgouelgnirjbqxnrqy.supabase.co
+          QUESTOES_POR_DIA: ${{ inputs.quantidade || vars.QUESTOES_POR_DIA || '20' }}
+          QUESTOES_LIMITE_DOLARES: ${{ vars.QUESTOES_LIMITE_DOLARES || '3' }}
+          QUESTOES_MODELO_AUTOR: ${{ vars.QUESTOES_MODELO_AUTOR }}
+          QUESTOES_MODELO_VERIFICADOR: ${{ vars.QUESTOES_MODELO_VERIFICADOR }}
+          QUESTOES_MODELO_SEGUNDA_OPINIAO: ${{ vars.QUESTOES_MODELO_SEGUNDA_OPINIAO }}
+        run: npx tsx scripts/daily.ts ${{ inputs.simular && '--simular' || '' }}
+      - name: Guardar o lote e o relatório
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lote-diario-${{ github.run_id }}
+          path: content/lots/diario/
+          if-no-files-found: ignore
+          retention-days: 30

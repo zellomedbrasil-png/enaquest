@@ -15,3 +15,6 @@ supabase/.branches
 .DS_Store
 # Nunca versionar provas ou materiais de terceiros
 referencias-privadas/
+
+# Lotes do gerador diário (ficam no banco e nos artefatos do GitHub Actions)
+content/lots/diario/

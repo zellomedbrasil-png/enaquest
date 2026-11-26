@@ -13,6 +13,7 @@ function QuestionCard({ question, kind }: { question: InboxQuestion; kind: Kind 
           {question.theme}
           {question.official_number ? ` · questão ${question.official_number} da prova` : ""}
         </strong>
+        {question.lot_id && <span className="pill">{question.lot_id}</span>}
         <span className="pill">{question.area_id}</span>
         {question.risk_level === "alto" && (
           <span className="pill" style={{ color: "var(--bad)" }}>
@@ -164,7 +165,7 @@ export default async function AdminHome() {
       />
       <Section
         title="No ar sem revisão médica"
-        lead="Opcional. Quando ler uma questão inteira e ela estiver certa, marque como revisada: ela ganha o selo de revisada por médico. Alto risco aparece primeiro."
+        lead="As mais novas primeiro, incluindo as do gerador diário (lote diario-AAAA-MM-DD). Quando ler uma questão inteira e ela estiver certa, marque como revisada: ela ganha o selo de revisada por médico. Se estiver errada, retire."
         items={unreviewed}
         total={counts.unreviewed}
         kind="unreviewed"

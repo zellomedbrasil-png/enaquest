@@ -29,3 +29,14 @@ Material de estudo (key_why, theory, summary):
 - Nada de asteriscos, hífens de lista, cerquilhas ou outra marcação: listas vão nos campos "items" e "sub".
 - Não cite portarias, notas técnicas, indicadores de financiamento nem datas de prova que não estejam nas fontes.
 `;
+
+/**
+ * Para o gerador diário, que escreve sem o trecho das fontes à mão.
+ * Troca "só o que a fonte sustenta" por "só o que é consenso nas diretrizes brasileiras vigentes".
+ */
+export const STYLE_RULES_FROM_KNOWLEDGE = STYLE_RULES.replace(
+  "- Baseie-se somente nas fontes fornecidas. Não invente número, dose ou critério.\n- Se a resposta depender de um detalhe que a fonte não sustenta, mude a questão.",
+  "- Use só o que é consenso nas diretrizes brasileiras vigentes (Ministério da Saúde, CFM, sociedades médicas). Não invente número, dose ou critério.\n- Se a resposta depender de um detalhe controverso, de uma diretriz que mudou há pouco ou que você não tem certeza, mude a questão para outro aspecto do tema.",
+)
+  .replace("Use só o que as fontes sustentam.", "Use só o que é consenso nas diretrizes.")
+  .replace("que não estejam nas fontes.", "das quais você não tenha certeza.");

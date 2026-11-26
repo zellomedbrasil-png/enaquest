@@ -2,7 +2,7 @@
 // Três resultados possíveis: passa, fica fora do ar "precisando de olho" (hold) ou é descartada.
 import type { z } from "zod";
 import { BlindAnswerSchema, FactCheckSchema, SafetyReviewSchema, type Draft } from "./schema";
-import { AUTHOR_MODEL, CHECK_MODEL, structured } from "./llm";
+import { CHECK_MODEL, SECOND_MODEL, structured } from "./llm";
 
 export type Verdict = { ok: true } | { ok: false; hold: boolean; stage: string; reason: string };
 
@@ -60,7 +60,7 @@ export function judgeBlind(blind: z.infer<typeof BlindAnswerSchema> | null, corr
  * Qualquer discordância deixa a questão fora do ar, sem descartar.
  */
 export async function secondOpinion(question: Question): Promise<Verdict> {
-  const second = await blindSolve(question, AUTHOR_MODEL);
+  const second = await blindSolve(question, SECOND_MODEL);
   const verdict = judgeBlind(second, question.correct_index, "segunda_opiniao", false);
   return verdict.ok ? pass : { ...verdict, hold: true };
 }
@@ -81,18 +81,23 @@ export async function checkNewQuestion(draft: Draft, sourceText: string, risk: "
 }
 
 /**
- * Questão de um lote já escrito, sem o texto das fontes à mão.
- * Nada é descartado: o que levanta dúvida fica fora do ar para você olhar.
+ * Questão sem o texto das fontes à mão: o verificador usa o que sabe das diretrizes.
+ * - "existing" (lote já escrito): nada é descartado; o que levanta dúvida fica fora do ar para você olhar.
+ * - "generated" (questão nova do gerador diário): erro claro descarta, porque gerar outra é barato; dúvida segura.
  */
-export async function checkExistingQuestion(question: Draft, risk: "normal" | "alto"): Promise<Verdict> {
-  const blind = judgeBlind(await blindSolve(question), question.correct_index, "resolucao_cega", false);
-  if (!blind.ok) return { ...blind, hold: true };
+export async function checkWithoutSources(question: Draft, risk: "normal" | "alto", mode: "existing" | "generated"): Promise<Verdict> {
+  const strict = mode === "generated";
+  const fail = strict ? discard : hold;
+  const blind = judgeBlind(await blindSolve(question), question.correct_index, "resolucao_cega", strict);
+  if (!blind.ok) return blind;
 
   const review = await safetyReview(question);
   if (!review) return hold("checagem", "Sem resposta do verificador.");
-  if (!review.key_is_correct) return hold("checagem", "O verificador discorda do gabarito.");
-  if (review.dangerous_content) return hold("checagem", review.dangerous_content);
+  if (!review.key_is_correct) return fail("checagem", "O verificador discorda do gabarito.");
+  if (review.dangerous_content) return fail("checagem", review.dangerous_content);
   if (review.problems.length) return hold("checagem", review.problems.join(" | "));
 
   return risk === "alto" ? secondOpinion(question) : pass;
 }
+
+export const checkExistingQuestion = (question: Draft, risk: "normal" | "alto") => checkWithoutSources(question, risk, "existing");

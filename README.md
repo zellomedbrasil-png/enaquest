@@ -44,6 +44,14 @@ npm run content:publicar -- content/lots/enamed-2025-c1.json  # prova oficial, p
 - Depois de publicada, a questão sai do ar sozinha com 3 denúncias, estatística de acerto incoerente ou data de validade vencida.
 - O `/admin` é só a caixa de exceções: publicar, retirar ou marcar "Revisei" (selo "Revisada por médico"). Para corrigir, edite o lote e rode o comando de novo.
 
+### Questões diárias (OpenRouter)
+
+O GitHub Actions roda `npm run content:diario` todo dia às 6h (Brasília): escolhe temas de `content/temas/temario.json` na proporção do ENAMED, prefere os menos usados, escreve com o DeepSeek V4 Pro, confere com o Gemini 3.6 Flash (e, no alto risco, com o Qwen 3.7 Max) e publica. O que levanta dúvida fica em "Precisa de olho" no `/admin`. Custo estimado: cerca de US$ 0,04 por questão, com limite diário em `QUESTOES_LIMITE_DOLARES` (padrão US$ 3).
+
+- Segredos no GitHub: `OPENROUTER_API_KEY` e `SUPABASE_SERVICE_ROLE_KEY`.
+- Para trocar modelos ou quantidade, crie as variáveis `QUESTOES_MODELO_AUTOR`, `QUESTOES_MODELO_VERIFICADOR`, `QUESTOES_MODELO_SEGUNDA_OPINIAO` e `QUESTOES_POR_DIA` na aba Variables.
+- Para rodar na hora: Actions > Questões diárias > Run workflow.
+
 ## Documentos
 
 - `docs/matriz-enamed-2026.md`: análise do caderno oficial.
