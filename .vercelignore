@@ -9,7 +9,7 @@ node_modules
 /Mascote/
 design
 docs
-content
+/content/
 test-results
 playwright-report
 tests
