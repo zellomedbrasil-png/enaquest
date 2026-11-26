@@ -15,7 +15,7 @@ import { createClient } from "@supabase/supabase-js";
 import { z } from "zod";
 import { AuthorDraftSchema, LotSchema, SourceSchema, type LotQuestion, type Source } from "./pipeline/schema";
 import { lintDraft, lintLot } from "./pipeline/lint";
-import { AUTHOR_MODEL, CHECK_MODEL, SECOND_MODEL, isFatalApiError, spentDollars, structured } from "./pipeline/llm";
+import { AUTHOR_MODEL, CHECK_MODEL, SECOND_MODEL, isFatalApiError, spentDollars, structuredWithReason } from "./pipeline/llm";
 import { STYLE_RULES_FROM_KNOWLEDGE } from "./pipeline/style";
 import { checkWithoutSources } from "./pipeline/checks";
 import { planDay, TemarioSchema, type PlanItem } from "./pipeline/daily-plan";
@@ -50,7 +50,7 @@ async function draft(item: PlanItem, sources: Source[]) {
   const list = sources.length
     ? sources.map((s) => `- ${s.id}: ${s.title} (${s.publisher}, ${s.year})`).join("\n")
     : "(nenhuma fonte do catálogo para este tema; deixe \"claims\" vazio)";
-  return structured(
+  return structuredWithReason(
     AUTHOR_MODEL,
     AuthorDraftSchema,
     `Você é médico e escreve questões originais de múltipla escolha para estudantes que se preparam para o ENAMED e o ENARE (acesso direto), no padrão da prova do Inep.\n${STYLE_RULES_FROM_KNOWLEDGE}`,
@@ -94,10 +94,12 @@ async function main() {
   const expires = new Date();
   expires.setFullYear(expires.getFullYear() + 2);
 
-  for (const item of plan) {
+  let stopped = false;
+  async function processItem(item: PlanItem) {
     if (spentDollars() >= budget) {
-      console.log(`Limite de US$ ${budget} atingido. Parando por hoje.`);
-      break;
+      if (!stopped) console.log(`Limite de US$ ${budget} atingido. Parando por hoje.`);
+      stopped = true;
+      return;
     }
     const sources = item.source_ids.map((id) => byId.get(id)).filter((s): s is Source => Boolean(s));
     const record = (status: Outcome["status"], reason?: string) => {
@@ -107,13 +109,21 @@ async function main() {
     try {
       // Duas tentativas: rascunho recusado ou com erro de escrita não custa caro para refazer.
       let written = null;
+      const reasons: string[] = [];
       for (let attempt = 0; attempt < 2 && !written; attempt++) {
-        const candidate = await draft(item, sources);
-        if (candidate && !lintDraft(candidate).some((issue) => issue.fatal)) written = candidate;
+        const answer = await draft(item, sources);
+        if (!answer.value) {
+          reasons.push(answer.reason);
+          continue;
+        }
+        // Tema sem fonte no catálogo: o modelo foi orientado a deixar "claims" vazio.
+        const fatal = lintDraft(answer.value).filter((issue) => issue.fatal && !(issue.code === "no_claims" && !sources.length));
+        if (fatal.length) reasons.push(`escrita: ${fatal.map((issue) => issue.message).join(" ")}`);
+        else written = answer.value;
       }
       if (!written) {
-        record("descartada", "rascunho recusado ou com erro de escrita");
-        continue;
+        record("descartada", reasons.join(" | "));
+        return;
       }
       // Fonte citada fora do catálogo do tema não entra.
       const valid = new Set(sources.map((s) => s.id));
@@ -122,7 +132,7 @@ async function main() {
       const verdict = await checkWithoutSources(written, item.risk_level, "generated");
       if (!verdict.ok && !verdict.hold) {
         record("descartada", `${verdict.stage}: ${verdict.reason}`);
-        continue;
+        return;
       }
       questions.push({
         ...written,
@@ -143,6 +153,15 @@ async function main() {
       record("erro", error instanceof Error ? error.message : String(error));
     }
   }
+
+  // Várias questões ao mesmo tempo: modelos com raciocínio levam minutos por resposta.
+  const parallel = Math.max(1, Number(process.env.QUESTOES_PARALELO || 4));
+  const queue = [...plan];
+  await Promise.all(
+    Array.from({ length: Math.min(parallel, queue.length) }, async () => {
+      for (let item = queue.shift(); item; item = queue.shift()) await processItem(item);
+    }),
+  );
 
   const cost = `US$ ${spentDollars().toFixed(2)}`;
   if (!questions.length) throw new Error(`Nenhuma questão aproveitada hoje (${outcomes.length} tentativas, ${cost}).`);

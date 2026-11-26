@@ -40,6 +40,21 @@ export const spentDollars = () => spent;
 /** Figura enviada junto com o texto (questão de prova com ECG, foto, exame de imagem). */
 export type PromptImage = { mediaType: "image/png" | "image/jpeg"; base64: string };
 
+/** Resposta com o motivo quando veio vazia (recusa, cortada no limite de tokens, sem conteúdo). */
+export type Answer<T> = { value: T; reason?: undefined } | { value: null; reason: string };
+
+/** Chamada com saída estruturada, dizendo por que a resposta veio vazia. */
+export async function structuredWithReason<T>(
+  model: string,
+  schema: z.ZodType<T>,
+  system: string,
+  prompt: string,
+  effort: "medium" | "high",
+  images: PromptImage[] = [],
+): Promise<Answer<T>> {
+  return model.includes("/") ? openRouter(model, schema, system, prompt, effort, images) : anthropic(model, schema, system, prompt, effort, images);
+}
+
 /** Chamada com saída estruturada. Recusa ou resposta cortada vira null (descarte), não erro fatal. */
 export async function structured<T>(
   model: string,
@@ -49,7 +64,7 @@ export async function structured<T>(
   effort: "medium" | "high",
   images: PromptImage[] = [],
 ): Promise<T | null> {
-  return model.includes("/") ? openRouter(model, schema, system, prompt, effort, images) : anthropic(model, schema, system, prompt, effort, images);
+  return (await structuredWithReason(model, schema, system, prompt, effort, images)).value;
 }
 
 // ---------- OpenRouter ----------
@@ -82,7 +97,7 @@ async function openRouter<T>(
   prompt: string,
   effort: "medium" | "high",
   images: PromptImage[],
-): Promise<T | null> {
+): Promise<Answer<T>> {
   const content = images.length
     ? [
         ...images.map((image) => ({ type: "image_url", image_url: { url: `data:${image.mediaType};base64,${image.base64}` } })),
@@ -91,7 +106,8 @@ async function openRouter<T>(
     : prompt;
   const body = {
     model,
-    max_tokens: 16000,
+    // Modelos com raciocínio gastam parte do limite pensando; folga para o JSON não sair cortado.
+    max_tokens: 32000,
     reasoning: { effort },
     // Só usa provedores que respeitam o formato pedido.
     provider: { require_parameters: true },
@@ -129,12 +145,15 @@ async function openRouter<T>(
     }
     spent += data.usage?.cost ?? 0;
     const choice = data.choices?.[0];
-    if (!choice?.message?.content || choice.message.refusal || choice.finish_reason === "length") return null;
+    if (choice?.message?.refusal) return { value: null, reason: `recusa do modelo: ${choice.message.refusal.slice(0, 200)}` };
+    if (choice?.finish_reason === "length") return { value: null, reason: "resposta cortada no limite de tokens" };
+    if (!choice?.message?.content) return { value: null, reason: `resposta vazia (${choice?.finish_reason ?? "sem motivo"})` };
     try {
-      return schema.parse(extractJson(choice.message.content));
+      return { value: schema.parse(extractJson(choice.message.content)) };
     } catch (error) {
       if (attempt < 2) continue;
-      throw error;
+      const detail = error instanceof z.ZodError ? error.issues.slice(0, 3).map((i) => `${i.path.join(".")}: ${i.message}`).join("; ") : String(error);
+      return { value: null, reason: `JSON fora do formato (${detail})` };
     }
   }
 }
@@ -153,7 +172,7 @@ async function anthropic<T>(
   prompt: string,
   effort: "medium" | "high",
   images: PromptImage[],
-): Promise<T | null> {
+): Promise<Answer<T>> {
   client ??= new Anthropic();
   // Com fallback ativado: se os filtros de segurança recusarem um tema médico sensível,
   // a API tenta outro modelo. A checagem independente continua valendo para o resultado.
@@ -177,6 +196,7 @@ async function anthropic<T>(
     ],
   } as never);
   const response = (await stream.finalMessage()) as unknown as Anthropic.Message;
-  if (response.stop_reason === "refusal" || response.stop_reason === "max_tokens") return null;
-  return schema.parse(JSON.parse(textOf(response)));
+  if (response.stop_reason === "refusal") return { value: null, reason: "recusa do modelo" };
+  if (response.stop_reason === "max_tokens") return { value: null, reason: "resposta cortada no limite de tokens" };
+  return { value: schema.parse(JSON.parse(textOf(response))) };
 }
