@@ -5,7 +5,7 @@ import Anthropic from "@anthropic-ai/sdk";
 import { z } from "zod";
 import { AuthorDraftSchema, BlueprintItemSchema, LotSchema, SourceSchema, type BlueprintItem, type Lot, type LotQuestion } from "./schema";
 import { lintDraft } from "./lint";
-import { AUTHOR_MODEL, structured } from "./llm";
+import { AUTHOR_MODEL, isFatalApiError, structured } from "./llm";
 import { STYLE_RULES } from "./style";
 import { checkNewQuestion } from "./checks";
 
@@ -78,7 +78,7 @@ export async function generateLot(blueprint: BlueprintFile, log: (line: string) 
       const status = result.question ? (result.question.hold_reason ? "precisa de olho" : "ok") : `descartada (${result.rejected?.stage})`;
       log(`${item.slug}: ${status}`);
     } catch (error) {
-      if (error instanceof Anthropic.AuthenticationError) throw error;
+      if (isFatalApiError(error)) throw error;
       const reason = error instanceof Anthropic.APIError ? `API ${error.status}` : String(error);
       rejected.push({ slug: item.slug, stage: "erro", reason });
       log(`${item.slug}: erro (${reason})`);

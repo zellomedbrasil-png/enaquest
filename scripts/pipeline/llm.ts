@@ -9,6 +9,15 @@ export const CHECK_MODEL = "claude-sonnet-5-5";
 
 let client: Anthropic | null = null;
 
+/**
+ * Erro que vale para o lote inteiro (sem crédito, chave inválida, sem permissão).
+ * Nesses casos o comando para, em vez de marcar cada questão como "precisa de olho".
+ */
+export function isFatalApiError(error: unknown): boolean {
+  if (error instanceof Anthropic.AuthenticationError || error instanceof Anthropic.PermissionDeniedError) return true;
+  return error instanceof Anthropic.APIError && error.status === 400 && /credit balance/i.test(error.message);
+}
+
 function textOf(response: Anthropic.Message): string {
   return response.content.flatMap((block) => (block.type === "text" ? [block.text] : [])).join("");
 }

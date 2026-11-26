@@ -18,6 +18,7 @@ import { LotSchema, type Lot, type LotQuestion } from "./pipeline/schema";
 import { lintLot } from "./pipeline/lint";
 import { BlueprintFileSchema, generateLot } from "./pipeline/generate";
 import { checkExistingQuestion } from "./pipeline/checks";
+import { isFatalApiError } from "./pipeline/llm";
 import { importLot } from "./content/import";
 
 config({ path: ".env.local" });
@@ -44,6 +45,9 @@ async function recheck(lot: Lot, cacheFile: string): Promise<Lot> {
         const verdict = await checkExistingQuestion(q, q.risk_level);
         holdReason = verdict.ok ? null : `${verdict.stage}: ${verdict.reason}`;
       } catch (error) {
+        if (isFatalApiError(error)) {
+          throw new Error(`A API da Anthropic recusou (${error instanceof Error ? error.message : String(error)}). Nada foi gravado no banco.`);
+        }
         holdReason = `erro: ${error instanceof Error ? error.message : String(error)}`;
       }
       // Erro de API não entra no cache, para tentar de novo na próxima vez.
