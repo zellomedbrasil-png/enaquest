@@ -2,9 +2,9 @@ import Link from "next/link";
 import { AccessLabel } from "./AccessLabel";
 import styles from "./landing.module.css";
 
-export function MarketingHeader({ signedIn, plans = false, tools = false }: { signedIn: boolean; plans?: boolean; tools?: boolean }) {
-  const elsewhere = plans || tools;
-  const sections = [["#recursos", "Recursos"], ["#metodo", "Método"], ["#duvidas", "Dúvidas"]] as const;
+export function MarketingHeader({ signedIn, plans = false, tools = false, method = false }: { signedIn: boolean; plans?: boolean; tools?: boolean; method?: boolean }) {
+  const elsewhere = plans || tools || method;
+  const sections = [["#recursos", "Recursos"], ["#duvidas", "Dúvidas"]] as const;
   return (
     <header className={styles.header}>
       <div className={styles.navbar}>
@@ -16,6 +16,7 @@ export function MarketingHeader({ signedIn, plans = false, tools = false }: { si
             ? <Link key={hash} href={"/" + hash}>{label}</Link>
             : <a key={hash} href={hash}>{label}</a>
           )}
+          <Link href="/metodo" aria-current={method ? "page" : undefined}>Método</Link>
           <Link href="/ferramentas" aria-current={tools ? "page" : undefined}>Ferramentas</Link>
           <Link href="/planos" aria-current={plans ? "page" : undefined}>Planos</Link>
         </nav>

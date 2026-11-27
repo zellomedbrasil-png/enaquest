@@ -2837,3 +2837,12 @@ a.study-focus:hover { border-color: var(--accent); }
 .step.optional {
   border-style: dashed;
 }
+
+/* Treino: filtros em fichas */
+.train-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.train-chip { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 6px 14px; border: 1px solid var(--line); border-radius: 99px; background: var(--card-2); color: var(--ink); font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; transition: border-color .2s, background .2s; }
+.train-chip small { color: var(--mute); font-size: 12px; font-weight: 700; }
+.train-chip:hover { border-color: var(--mute); }
+.train-chip[aria-pressed="true"] { border-color: var(--lime); background: var(--tip-soft); box-shadow: inset 0 0 0 1px var(--lime); }
+.train-chip:focus-visible { outline: 3px solid var(--accent-fill); outline-offset: 2px; }
+.train-toggle { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink); cursor: pointer; }

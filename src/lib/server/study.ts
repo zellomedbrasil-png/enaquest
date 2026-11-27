@@ -3,12 +3,20 @@ import { admin } from "@/lib/supabase/admin";
 import { todayBR } from "@/lib/game/streak";
 import { addDays, buildAgenda, type AgendaDay } from "@/lib/study/agenda";
 import { scheduleCard } from "@/lib/study/srs";
+import {
+  filterPool,
+  themesByArea,
+  type PoolQuestion,
+  type TrainingFilters,
+  type TrainingHistory,
+  type TrainingStatus,
+} from "@/lib/study/training-filter";
 import { AppError, enforceRateLimit, isPremium } from "./session";
 import { getPublicQuestions, getReveal, PLAYABLE_LICENSES, type PublicQuestion, type Reveal } from "./questions";
 import { pickBalanced, seededShuffle } from "./selection";
 import { randomUUID } from "node:crypto";
 
-export type TrainingFilter = "novas" | "erradas" | "todas";
+export type TrainingFilter = TrainingStatus;
 
 /** Quantas questões já voltaram para revisão. Uma regra só para Hoje, Estudar e Evolução. */
 export async function countDueReviews(userId: string): Promise<number> {
@@ -33,39 +41,100 @@ export async function reviewAgenda(userId: string): Promise<AgendaDay[]> {
   return buildAgenda(days, today);
 }
 
-export async function startTraining(
-  userId: string,
-  options: { areaId?: string | null; filter: TrainingFilter; size: number },
-): Promise<{ context: string; questions: PublicQuestion[] }> {
-  if (!(await isPremium(userId))) throw new AppError("premium_required", "O Treino faz parte da assinatura.");
-  await enforceRateLimit(`training:${userId}`, 30, 3600);
-  const size = Math.min(Math.max(options.size, 5), 30);
-  const db = admin();
-
-  let query = db
+/** Questões que podem entrar em rodada, com o que os filtros do Treino precisam. */
+export async function playablePool(): Promise<PoolQuestion[]> {
+  const { data } = await admin()
     .from("questions")
-    .select("id, area_id")
+    .select("id, area_id, theme, difficulty, official_exam_id, images")
     .eq("status", "published")
     .in("license", PLAYABLE_LICENSES)
     .eq("annulled", false)
     .is("outdated_note", null);
-  if (options.areaId) query = query.eq("area_id", options.areaId);
-  const { data: pool } = await query;
-
-  const { data: history } = await db.from("answers").select("question_id, is_correct, created_at").eq("user_id", userId).order("created_at");
-  const last = new Map<string, boolean>();
-  for (const row of history ?? []) last.set(row.question_id, row.is_correct);
-
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let candidates = (pool ?? []) as any[];
-  if (options.filter === "novas") candidates = candidates.filter((q) => !last.has(q.id));
-  if (options.filter === "erradas") candidates = candidates.filter((q) => last.get(q.id) === false);
+  return ((data ?? []) as any[]).map((q) => ({
+    id: q.id,
+    area_id: q.area_id,
+    theme: q.theme,
+    difficulty: q.difficulty,
+    official_exam_id: q.official_exam_id,
+    has_images: Array.isArray(q.images) && q.images.length > 0,
+  }));
+}
+
+async function trainingHistory(userId: string): Promise<TrainingHistory> {
+  const db = admin();
+  const [{ data: answers }, { data: marks }] = await Promise.all([
+    db.from("answers").select("question_id, is_correct, confidence, created_at").eq("user_id", userId).order("created_at"),
+    db.from("question_marks").select("question_id").eq("user_id", userId),
+  ]);
+  const last: TrainingHistory["last"] = new Map();
+  for (const row of answers ?? []) last.set(row.question_id, { correct: row.is_correct, confidence: row.confidence });
+  return { last, marked: new Set((marks ?? []).map((m: { question_id: string }) => m.question_id)) };
+}
+
+export type TrainingOptions = Partial<Omit<TrainingFilters, "status">> & { filter: TrainingFilter; size: number };
+
+function toFilters(options: TrainingOptions): TrainingFilters {
+  return {
+    areaId: options.areaId ?? null,
+    theme: options.areaId ? (options.theme ?? null) : null,
+    source: options.source ?? "todas",
+    difficulties: options.difficulties ?? [],
+    status: options.filter,
+    withImages: options.withImages ?? false,
+  };
+}
+
+/** Quantas questões batem com os filtros. Livre para todos, para o plano grátis ver o tamanho do banco. */
+export async function countTraining(userId: string, options: TrainingOptions): Promise<number> {
+  await enforceRateLimit(`training-count:${userId}`, 240, 3600);
+  const [pool, history] = await Promise.all([playablePool(), trainingHistory(userId)]);
+  return filterPool(pool, history, toFilters(options)).length;
+}
+
+export type TrainingCatalog = {
+  themes: Record<string, { theme: string; count: number }[]>;
+  exams: { id: string; name: string; count: number }[];
+  authored: number;
+  withImages: number;
+};
+
+/** O que existe no banco para montar os filtros: temas por área e provas oficiais. */
+export async function trainingCatalog(): Promise<TrainingCatalog> {
+  const [pool, { data: exams }] = await Promise.all([
+    playablePool(),
+    admin().from("official_exams").select("id, name, booklet, year").order("year", { ascending: false }),
+  ]);
+  const perExam = new Map<string, number>();
+  for (const q of pool) if (q.official_exam_id) perExam.set(q.official_exam_id, (perExam.get(q.official_exam_id) ?? 0) + 1);
+  return {
+    themes: themesByArea(pool),
+    exams: (exams ?? [])
+      .filter((e: { id: string }) => perExam.has(e.id))
+      .map((e: { id: string; name: string; booklet: string | null }) => ({ id: e.id, name: e.booklet ? `${e.name} · ${e.booklet}` : e.name, count: perExam.get(e.id) ?? 0 })),
+    authored: pool.filter((q) => !q.official_exam_id).length,
+    withImages: pool.filter((q) => q.has_images).length,
+  };
+}
+
+export async function startTraining(userId: string, options: TrainingOptions): Promise<{ context: string; questions: PublicQuestion[] }> {
+  if (!(await isPremium(userId))) throw new AppError("premium_required", "O Treino faz parte da assinatura.");
+  await enforceRateLimit(`training:${userId}`, 30, 3600);
+  const size = Math.min(Math.max(options.size, 5), 30);
+  const filters = toFilters(options);
+  const [pool, history] = await Promise.all([playablePool(), trainingHistory(userId)]);
+  const candidates = filterPool(pool, history, filters);
 
   const context = randomUUID();
-  const { data: areas } = await db.from("matrix_areas").select("id, exam_share");
-  const ids = options.areaId
-    ? seededShuffle(candidates, context).slice(0, size).map((q) => q.id)
-    : pickBalanced(candidates, areas ?? [], context, size);
+  // Com área, tema ou prova escolhidos, a pessoa já disse o que quer: só embaralha. Sem nada, segue o peso da prova.
+  const free = !filters.areaId && filters.source === "todas" && filters.difficulties.length === 0 && !filters.withImages;
+  let ids: string[];
+  if (free) {
+    const { data: areas } = await admin().from("matrix_areas").select("id, exam_share");
+    ids = pickBalanced(candidates, areas ?? [], context, size);
+  } else {
+    ids = seededShuffle(candidates, context).slice(0, size).map((q) => q.id);
+  }
   return { context, questions: await getPublicQuestions(ids) };
 }
 

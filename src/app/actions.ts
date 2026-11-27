@@ -17,9 +17,11 @@ import {
   getStudyState,
   rateQuestion,
   setQuestionMark,
+  countTraining,
   startTraining,
-  type TrainingFilter,
+  type TrainingOptions,
 } from "@/lib/server/study";
+import { DIFFICULTIES, STATUSES } from "@/lib/study/training-filter";
 import { finishSimulado, saveSimuladoProgress } from "@/lib/server/simulados";
 import { saveStudyGoals, startDayBlock } from "@/lib/server/day-plan";
 import { ensureOfficialSimulado, startOfficialRound } from "@/lib/server/official";
@@ -205,10 +207,27 @@ export async function revealAction(questionId: string) {
   });
 }
 
-export async function startTrainingAction(input: { areaId: string | null; filter: TrainingFilter; size: number }) {
+const trainingSchema = z.object({
+  areaId: z.string().min(1).max(40).nullable(),
+  theme: z.string().min(1).max(200).nullable().optional(),
+  source: z.union([z.literal("todas"), z.literal("autorais"), z.string().regex(/^prova:[\w-]{1,80}$/)]).optional(),
+  difficulties: z.array(z.enum(DIFFICULTIES)).max(4).optional(),
+  withImages: z.boolean().optional(),
+  filter: z.enum(STATUSES),
+  size: z.number().int().min(1).max(30),
+});
+
+export async function startTrainingAction(input: z.input<typeof trainingSchema>) {
   return run(async () => {
     const user = await requireUser();
-    return startTraining(user.id, input);
+    return startTraining(user.id, trainingSchema.parse(input) as TrainingOptions);
+  });
+}
+
+export async function countTrainingAction(input: z.input<typeof trainingSchema>) {
+  return run(async () => {
+    const user = await requireUser();
+    return countTraining(user.id, trainingSchema.parse(input) as TrainingOptions);
   });
 }
 

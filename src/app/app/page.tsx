@@ -211,7 +211,7 @@ export default async function TodayPage() {
             {[
               { href: "/app/plantao", icon: "plantao" as const, title: "Plantão do Dia", text: "10 questões iguais para todos, todo dia. Sempre grátis.", paid: false },
               { href: "/app/revisao", icon: "revisao" as const, title: "Revisão", text: due > 0 ? `${due} ${due === 1 ? "questão voltou" : "questões voltaram"} para você.` : "O que você errar volta na hora certa.", paid: true },
-              { href: "/app/treino", icon: "treino" as const, title: "Treino", text: "Escolha a área e o tamanho da rodada.", paid: true },
+              { href: "/app/treino", icon: "treino" as const, title: "Treino", text: "Filtre por área, tema, prova e dificuldade.", paid: true },
               { href: "/app/simulados", icon: "simulados" as const, title: "Simulados", text: "Prova completa com tempo, como no dia.", paid: true },
               { href: "/app/evolucao", icon: "evolucao" as const, title: "Evolução", text: "Veja seus pontos fortes e fracos por área.", paid: false },
               { href: "/app/ligas", icon: "ligas" as const, title: "Ligas", text: "Dispute o ranking da semana com a turma.", paid: false },
