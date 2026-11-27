@@ -21,6 +21,7 @@ import {
   type TrainingFilter,
 } from "@/lib/server/study";
 import { finishSimulado, saveSimuladoProgress } from "@/lib/server/simulados";
+import { saveStudyGoals, startDayBlock } from "@/lib/server/day-plan";
 import { ensureOfficialSimulado, startOfficialRound } from "@/lib/server/official";
 import * as community from "@/lib/server/community";
 import * as leagues from "@/lib/server/leagues";
@@ -229,6 +230,28 @@ export async function startReviewAction() {
   return run(async () => {
     const user = await requireUser();
     return getDueReviews(user.id);
+  });
+}
+
+// ---------- Seu dia ----------
+export async function startDayBlockAction(kind: "revisao" | "erros" | "novas") {
+  return run(async () => {
+    const user = await requireUser();
+    return startDayBlock(user.id, z.enum(["revisao", "erros", "novas"]).parse(kind));
+  });
+}
+
+const goalsSchema = z.object({
+  minutes: z.number().int().min(15).max(300),
+  targetExam: z.enum(["enamed", "enare"]),
+  examDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).nullable(),
+});
+
+export async function saveStudyGoalsAction(input: z.input<typeof goalsSchema>) {
+  return run(async () => {
+    const user = await requireUser();
+    await saveStudyGoals(user.id, goalsSchema.parse(input));
+    revalidatePath("/app", "layout");
   });
 }
 

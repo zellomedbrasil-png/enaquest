@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { pickBalanced, quotas, seededShuffle } from "./selection";
+import { pickBalanced, pickByQuota, quotas, seededShuffle } from "./selection";
 
 const areas = [
   { id: "clinica", exam_share: 0.18 },
@@ -37,6 +37,16 @@ describe("sorteios", () => {
   });
   it("devolve tudo quando o banco é menor que o pedido", () => {
     expect(pickBalanced(pool.slice(0, 3), areas, "x", 10).length).toBe(3);
+  });
+  it("segue as cotas pedidas por área", () => {
+    const picked = pickByQuota(pool, { clinica: 4, mfc: 1 }, "y", 5);
+    expect(picked.filter((id) => id.startsWith("clinica")).length).toBe(4);
+    expect(picked.filter((id) => id.startsWith("mfc")).length).toBe(1);
+  });
+  it("não altera as cotas recebidas", () => {
+    const quota = { clinica: 2 };
+    pickByQuota(pool, quota, "y", 2);
+    expect(quota).toEqual({ clinica: 2 });
   });
   it("embaralha sem perder itens", () => {
     expect(seededShuffle([1, 2, 3, 4], "a").sort()).toEqual([1, 2, 3, 4]);

@@ -31,7 +31,7 @@ export async function isPremium(userId: string): Promise<boolean> {
 export const getProfile = cache(async (userId: string) => {
   const { data } = await admin()
     .from("profiles")
-    .select("id, nickname, school_id, show_school, role, league_tier, placement_done, created_at")
+    .select("id, nickname, school_id, show_school, role, league_tier, placement_done, created_at, daily_minutes, target_exam, exam_date, goals_set")
     .eq("id", userId)
     .single();
   return data as {
@@ -43,6 +43,10 @@ export const getProfile = cache(async (userId: string) => {
     league_tier: number;
     placement_done: boolean;
     created_at: string;
+    daily_minutes: number;
+    target_exam: "enamed" | "enare";
+    exam_date: string | null;
+    goals_set: boolean;
   };
 });
 

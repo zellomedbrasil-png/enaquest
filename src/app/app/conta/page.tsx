@@ -3,6 +3,8 @@ import Link from "next/link";
 import { deleteAccountAction, portalAction, signOut } from "@/app/actions";
 import { FeedbackSettings } from "@/components/FeedbackSettings";
 import { ReadingSettings } from "@/components/ReadingSettings";
+import { StudyGoalsForm } from "@/components/StudyGoalsForm";
+import { todayBR } from "@/lib/game/streak";
 import { ProfileForm, WithdrawButton } from "@/components/ProfileForms";
 import { PageHeader } from "@/components/ui";
 import { canWithdraw, hasPremiumAccess } from "@/lib/billing/access";
@@ -34,6 +36,17 @@ export default async function AccountPage({ searchParams }: { searchParams: Prom
       <section className="card">
         <h2 style={{ fontSize: 18, marginBottom: 10 }}>Perfil</h2>
         <ProfileForm nickname={profile.nickname} schoolId={profile.school_id} showSchool={profile.show_school} schools={schools ?? []} />
+      </section>
+
+      <section className="card">
+        <h2 style={{ fontSize: 18, marginBottom: 6 }}>Meu plano de estudo</h2>
+        <p className="muted" style={{ marginBottom: 10, fontSize: 14.5 }}>
+          O Seu dia, na tela Hoje, é montado com estes dados.
+        </p>
+        <StudyGoalsForm
+          initial={{ minutes: profile.daily_minutes, targetExam: profile.target_exam, examDate: profile.exam_date }}
+          today={todayBR()}
+        />
       </section>
 
       <section className="card">

@@ -2802,3 +2802,38 @@ a.study-focus:hover { border-color: var(--accent); }
 .official-progress { display: grid; gap: 6px; font-size: 14px; }
 .official-actions { display: flex; flex-wrap: wrap; gap: 8px; }
 .official-msg { color: var(--bad); font-size: 14px; }
+
+/* Seu dia */
+.goals-form {
+  display: grid;
+  gap: 14px;
+}
+.goals-form fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+.goals-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.goals-options .btn[aria-pressed="true"] {
+  border-color: var(--lime);
+  background: var(--card);
+  box-shadow: inset 0 0 0 1px var(--lime);
+}
+.goals-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 14.5px;
+}
+.step .step-progress {
+  margin-top: 8px;
+}
+.step.optional {
+  border-style: dashed;
+}

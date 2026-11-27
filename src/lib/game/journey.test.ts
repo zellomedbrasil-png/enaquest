@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { buildDayPlan } from "@/lib/study/day-plan";
 import { buildJourney, journeyStage, type JourneyInput } from "./journey";
 
 const base: JourneyInput = {
@@ -96,5 +97,50 @@ describe("buildJourney", () => {
   it("conta quantos passos faltam", () => {
     expect(buildJourney(base).remaining).toBe(2);
     expect(buildJourney({ ...base, dueReviews: 3 }).remaining).toBe(3);
+  });
+});
+
+describe("buildJourney com o Seu dia", () => {
+  const dayInput = (overrides: Partial<Parameters<typeof buildDayPlan>[0]> = {}) =>
+    buildDayPlan({
+      today: "2026-11-27",
+      minutes: 120,
+      examDate: null,
+      plantao: { total: 10, answered: 10 },
+      dueReviews: 6,
+      errorsToRedo: 2,
+      newAvailable: 100,
+      areas: [{ id: "clinica", name: "Clínica", color: "#000", share: 1, pct: 60, n: 20 }],
+      doneToday: { revisao: 0, erros: 0, novas: 0 },
+      simuladoThisWeek: false,
+      ...overrides,
+    });
+
+  it("os passos seguem os blocos do plano", () => {
+    const j = buildJourney({ ...base, dailyAnswered: 10, day: dayInput() });
+    expect(j.steps.map((s) => s.id)).toEqual(["plantao", "revisao", "erros", "novas"]);
+    expect(j.next.title).toBe("Revise 6 questões");
+    expect(j.next.href).toBe("/app/dia/revisao");
+  });
+
+  it("no plano grátis, os blocos aparecem trancados e o fim do Plantão chama para a assinatura", () => {
+    const j = buildJourney({ ...base, premium: false, dailyAnswered: 10, day: dayInput() });
+    expect(j.steps.slice(1).every((s) => s.state === "locked")).toBe(true);
+    expect(j.next.href).toBe("/planos");
+    expect(j.next.text).toContain("mais");
+  });
+
+  it("o simulado é sugestão: não vira o passo atual nem impede de fechar o dia", () => {
+    const day = dayInput({ examDate: "2026-12-04", dueReviews: 0, errorsToRedo: 0, newAvailable: 0 });
+    const j = buildJourney({ ...base, dailyAnswered: 10, day });
+    expect(j.steps.at(-1)?.id).toBe("simulado");
+    expect(j.next.allDone).toBe(true);
+    expect(j.remaining).toBe(0);
+  });
+
+  it("revisão sem tempo hoje avisa que fica para amanhã", () => {
+    const day = dayInput({ minutes: 30 });
+    const j = buildJourney({ ...base, dailyAnswered: 10, day });
+    expect(j.steps.find((s) => s.id === "revisao")?.detail).toContain("para amanhã");
   });
 });

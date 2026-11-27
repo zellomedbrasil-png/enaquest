@@ -12,12 +12,15 @@ import { displayedStreak, MAX_SHIELDS, todayBR } from "@/lib/game/streak";
 import { levelOf } from "@/lib/game/xp";
 import { getDailyState } from "@/lib/server/daily";
 import { countDueReviews, reviewAgenda } from "@/lib/server/study";
+import { getDayView } from "@/lib/server/day-plan";
+import { StudyGoalsForm } from "@/components/StudyGoalsForm";
 import { lifetimeStats, todayMissions, weekActivity } from "@/lib/server/progress";
 import { getProfile, isPremium, requireUser } from "@/lib/server/session";
 
 export const metadata: Metadata = { title: "Hoje" };
 
 const WEEKDAY = ["D", "S", "T", "Q", "Q", "S", "S"];
+const PHASE_LABEL = { base: "Base", consolidacao: "Consolidação", reta: "Reta final" } as const;
 const STATE_LABEL: Record<StepState, { text: string; tone: "ok" | "today" | "pend" | "muted" }> = {
   done: { text: "Feito", tone: "ok" },
   clear: { text: "Em dia", tone: "ok" },
@@ -27,7 +30,8 @@ const STATE_LABEL: Record<StepState, { text: string; tone: "ok" | "today" | "pen
 };
 
 function Step({ step, index }: { step: JourneyStep; index: number }) {
-  const label = STATE_LABEL[step.state];
+  const label = step.optional && step.state === "next" ? { text: "Sugestão", tone: "muted" as const } : STATE_LABEL[step.state];
+  const showProgress = step.target !== undefined && step.target > 0 && step.state !== "locked" && (step.done ?? 0) > 0 && step.state !== "done";
   const body = (
     <>
       <span className="step-num" aria-hidden>
@@ -36,18 +40,23 @@ function Step({ step, index }: { step: JourneyStep; index: number }) {
       <span style={{ minWidth: 0 }}>
         <h3>{step.title}</h3>
         <p>{step.detail}</p>
+        {showProgress && (
+          <span className="bar step-progress" aria-hidden>
+            <i style={{ width: `${Math.min(1, (step.done ?? 0) / (step.target ?? 1)) * 100}%` }} />
+          </span>
+        )}
       </span>
       <StatusPill tone={label.tone}>{label.text}</StatusPill>
     </>
   );
-  const className = `step ${step.state}`;
+  const className = `step ${step.state}${step.optional ? " optional" : ""}`;
   return <li>{step.href && step.state !== "locked" ? <Link href={step.href} className={className}>{body}</Link> : <div className={className}>{body}</div>}</li>;
 }
 
 export default async function TodayPage() {
   const user = await requireUser();
   const day = todayBR();
-  const [profile, premium, daily, missions, rating, due, streak, week, stats, owned, answeredCount, agenda] = await Promise.all([
+  const [profile, premium, daily, missions, rating, due, streak, week, stats, owned, answeredCount, agenda, dayView] = await Promise.all([
     getProfile(user.id),
     isPremium(user.id),
     getDailyState(user.id, day),
@@ -60,7 +69,9 @@ export default async function TodayPage() {
     admin().from("achievements").select("achievement_id").eq("user_id", user.id),
     admin().from("answers").select("id", { count: "exact", head: true }).eq("user_id", user.id),
     reviewAgenda(user.id),
+    getDayView(user.id),
   ]);
+  const dayPlan = dayView.plan;
 
   const stage = journeyStage({ answered: answeredCount.count ?? 0, ratedGames: rating.data.games });
   const answered = Object.keys(daily.answered).length;
@@ -76,6 +87,7 @@ export default async function TodayPage() {
     extraMissionsTotal: extra.length,
     nextMissionText: extra.find((m) => !m.done)?.text ?? null,
     nextMissionHref: extra.find((m) => !m.done)?.id === "m_rev5" ? "/app/revisao" : "/app/treino",
+    day: dayPlan,
   });
 
   const shownStreak = displayedStreak(streak.data, day);
@@ -117,10 +129,42 @@ export default async function TodayPage() {
           }
         />
 
+        {!dayView.goals.set && (
+          <section className="card" aria-labelledby="monte-seu-dia" style={{ display: "grid", gap: 10 }}>
+            <div>
+              <h2 id="monte-seu-dia" className="section-title" style={{ marginBottom: 4 }}>
+                Monte seu dia
+              </h2>
+              <p className="muted" style={{ fontSize: 14.5 }}>
+                Diga quanto tempo você tem e qual prova vai fazer. O EnaQuest monta o dia com revisão, erros e questões novas nas áreas em que você vai pior.
+              </p>
+            </div>
+            <StudyGoalsForm initial={dayView.goals} today={day} />
+          </section>
+        )}
+
         <section aria-labelledby="jornada">
-          <h2 id="jornada" className="section-title">
-            Sua jornada de hoje
-          </h2>
+          <div className="card-head" style={{ marginBottom: 8 }}>
+            <h2 id="jornada" className="section-title" style={{ marginBottom: 0 }}>
+              Seu dia · cerca de {dayPlan.plannedMinutes} min
+            </h2>
+            {dayPlan.daysLeft !== null && (
+              <span className="muted" style={{ fontSize: 14 }}>
+                {dayPlan.daysLeft === 0 ? "Prova hoje" : `Faltam ${dayPlan.daysLeft} ${dayPlan.daysLeft === 1 ? "dia" : "dias"}`}
+                {dayPlan.phase ? ` · ${PHASE_LABEL[dayPlan.phase]}` : ""}
+              </span>
+            )}
+          </div>
+          {dayView.goals.set && (
+            <div style={{ marginBottom: 10 }}>
+              <StudyGoalsForm initial={dayView.goals} today={day} compact />
+            </div>
+          )}
+          {dayPlan.plannedMinutes > dayPlan.minutes && (
+            <p className="dim" style={{ fontSize: 13.5, marginBottom: 8 }}>
+              O Plantão sozinho já passa do seu tempo de hoje. O resto entra quando você tiver mais minutos.
+            </p>
+          )}
           <ol className="journey">
             {journey.steps.map((step, i) => (
               <Step key={step.id} step={step} index={i} />

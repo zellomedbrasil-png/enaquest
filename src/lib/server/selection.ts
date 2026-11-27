@@ -46,8 +46,16 @@ export function quotas(areas: AreaShare[], size: number): Record<string, number>
 }
 
 export function pickBalanced(pool: PoolItem[], areas: AreaShare[], seed: string, size: number): string[] {
+  return pickByQuota(pool, quotas(areas, size), seed, size);
+}
+
+/**
+ * Sorteia seguindo cotas já calculadas por área (o Seu dia pesa as áreas fracas).
+ * Se uma área não tiver questões suficientes, completa com as demais até `size`.
+ */
+export function pickByQuota(pool: PoolItem[], quotaByArea: Record<string, number>, seed: string, size: number): string[] {
   const shuffled = seededShuffle(pool, seed);
-  const quota = quotas(areas, size);
+  const quota = { ...quotaByArea };
   const chosen: string[] = [];
   const leftovers: string[] = [];
   for (const item of shuffled) {
