@@ -4,8 +4,8 @@
 .home { display: grid; gap: 16px; max-width: 1080px; margin: 0 auto; }
 .home h2 { font-size: 18px; }
 .home-row { display: grid; gap: 16px; }
-@media (min-width: 900px) { .home-row { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: start; } }
-.home-card { display: grid; gap: 12px; }
+@media (min-width: 900px) { .home-row { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: stretch; } }
+.home-card { display: grid; gap: 12px; align-content: start; }
 .home-card-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .home-card-head .muted { font-size: 13.5px; }
 
@@ -93,29 +93,34 @@
 .week-agenda strong { color: var(--ink); font-size: 15px; }
 
 /* Hoje: metas do dia e semana */
-.goals-card { display: grid; gap: 18px; }
-@media (min-width: 900px) { .goals-card { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); } .goals-week { padding-left: 18px; border-left: 1px solid var(--line); } }
-.goals-today { display: grid; gap: 14px; }
-.goals-ring { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; font-size: 12px; font-weight: 800; background: radial-gradient(closest-side, var(--card) 76%, transparent 78%), conic-gradient(var(--lime) var(--pct), var(--line) 0); }
-.goals-meters { display: grid; gap: 12px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.goal-meter { display: grid; gap: 6px; }
+.goals-card { display: grid; gap: 20px; }
+@media (min-width: 900px) { .goals-card { grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); } .goals-week { padding-left: 20px; border-left: 1px solid var(--line); } }
+.goals-today { display: grid; gap: 16px; align-content: start; }
+.goals-head { display: flex; align-items: center; gap: 14px; }
+.goals-head .muted { font-size: 13.5px; margin-top: 2px; }
+.goals-ring { flex: none; display: grid; place-items: center; width: 58px; height: 58px; border-radius: 50%; background: radial-gradient(closest-side, var(--card) 78%, transparent 80%), conic-gradient(var(--lime) var(--pct), var(--line) 0); }
+.goals-ring strong { font-size: 14px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.goals-ring.is-done { background: radial-gradient(closest-side, var(--card) 78%, transparent 80%), conic-gradient(var(--ok) var(--pct), var(--line) 0); }
+.goals-meters { display: grid; gap: 10px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.goal-meter { display: grid; gap: 8px; padding: 12px 14px; border-radius: 12px; background: var(--card-2); border: 1px solid var(--line); }
 .goal-meter-label { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 700; color: var(--mute); }
 .goal-meter-label i { width: 8px; height: 8px; border-radius: 2px; }
-.goal-meter strong { font-family: var(--font-display), var(--font-body), sans-serif; font-size: 24px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.goal-meter strong { font-family: var(--font-display), var(--font-body), sans-serif; font-size: 24px; font-weight: 800; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.goal-meter strong.is-idle { font-size: 18px; color: var(--mute); }
 .goal-meter small { font-size: 13px; color: var(--dim); font-weight: 700; }
 .goal-meter .bar { height: 6px; }
 .goals-week { display: grid; gap: 8px; align-content: start; }
-.goals-week h3 { font-size: 15px; }
+.goals-week h2 { font-size: 16px; }
 .goals-week .muted { font-size: 13.5px; }
-.goals-week .btn { justify-self: start; }
-.goals-week-pct strong { font-family: var(--font-display), var(--font-body), sans-serif; font-size: 28px; color: var(--lime-ink); }
-@media (max-width: 560px) { .goals-meters { gap: 8px; } .goal-meter strong { font-size: 20px; } }
+.goals-week .btn { justify-self: start; margin-top: 4px; }
+.goals-week-pct { display: flex; align-items: baseline; gap: 6px; font-size: 13.5px; color: var(--mute); }
+.goals-week-pct strong { font-family: var(--font-display), var(--font-body), sans-serif; font-size: 30px; line-height: 1; color: var(--lime-ink); }
+.goals-week-pct.is-empty strong { color: var(--dim); }
+@media (max-width: 560px) { .goals-meters { gap: 6px; } .goal-meter { padding: 10px; } .goal-meter strong { font-size: 20px; } }
 
-.home-empty { display: grid; grid-template-columns: auto 1fr; gap: 10px 12px; align-items: start; }
-.home-empty > svg { width: 28px; height: 28px; color: var(--dim); }
-.home-empty p { font-size: 14px; }
-.home-empty small { display: block; margin-top: 2px; font-size: 13px; color: var(--mute); }
-.home-empty .btn { grid-column: 2; justify-self: start; }
+.path-note { display: grid; gap: 2px; font-size: 13.5px; color: var(--mute); }
+.path-note strong { font-size: 15px; color: var(--ink); }
+
 
 /* Hoje: ferramentas em grupos */
 .tools .section-title { margin-bottom: 10px; }
@@ -163,7 +168,7 @@
 .first-steps-mark { width: 22px; height: 22px; margin-top: 1px; border-radius: 50%; border: 2px solid var(--line); display: grid; place-items: center; font-size: 12px; font-weight: 800; }
 .first-steps .is-done .first-steps-mark { background: var(--ok); border-color: var(--ok); color: var(--bg); }
 .first-steps .is-done strong { color: var(--mute); text-decoration: line-through; text-decoration-color: var(--dim); }
-.path-days { margin: 10px 0 12px; display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.path-days { margin: 0; display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
 .path-days strong { font-family: var(--font-display), var(--font-body), sans-serif; font-size: 34px; font-weight: 800; line-height: 1; color: var(--lime-ink); }
 .path-days small { color: var(--mute); font-size: 13.5px; }
 .path-phases { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; counter-reset: phase; }

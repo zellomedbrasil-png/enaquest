@@ -17,7 +17,7 @@ import { StudyGoalsForm } from "@/components/StudyGoalsForm";
 import { todayMissions, weekActivity } from "@/lib/server/progress";
 import { getProfile, isPremium, requireUser } from "@/lib/server/session";
 import type { DayPhase } from "@/lib/study/day-plan";
-import { questionsFor } from "@/lib/study/onboarding";
+import { minutesLabel, questionsFor } from "@/lib/study/onboarding";
 
 export const metadata: Metadata = { title: "Hoje" };
 
@@ -95,23 +95,30 @@ function examMonth(date: string): string {
   return new Intl.DateTimeFormat("pt-BR", { month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(`${date}T12:00:00Z`));
 }
 
-function Meter({ label, color, done, target, unit }: { label: string; color: string; done: number; target: number; unit?: string }) {
+function Meter({ label, color, done, target, unit, empty }: { label: string; color: string; done: number; target: number; unit?: string; empty?: string }) {
   const pct = target > 0 ? Math.min(1, done / target) : 0;
+  const idle = target === 0 && empty !== undefined;
   return (
     <div className="goal-meter">
       <span className="goal-meter-label">
         <i style={{ background: color }} aria-hidden />
         {label}
       </span>
-      <strong>
-        {done}
-        <small>
-          /{target}
-          {unit ? ` ${unit}` : ""}
-        </small>
+      <strong className={idle ? "is-idle" : undefined}>
+        {idle ? (
+          empty
+        ) : (
+          <>
+            {done}
+            <small>
+              /{target}
+              {unit ? ` ${unit}` : ""}
+            </small>
+          </>
+        )}
       </strong>
       <span className="bar" aria-hidden>
-        <i style={{ width: `${pct * 100}%`, background: color }} />
+        <i style={{ width: `${(idle && empty === "Em dia" ? 1 : pct) * 100}%`, background: color }} />
       </span>
     </div>
   );
@@ -423,27 +430,39 @@ export default async function TodayPage() {
 
       <section className="card goals-card" aria-labelledby="metas">
         <div className="goals-today">
-          <div className="home-card-head">
-            <h2 id="metas">Metas do dia</h2>
-            <span className="goals-ring" style={{ ["--pct" as string]: `${goalPct}%` }} aria-label={`${goalPct}% da meta`}>
-              {goalPct}%
+          <div className="goals-head">
+            <span className={`goals-ring${goalPct >= 100 ? " is-done" : ""}`} style={{ ["--pct" as string]: `${goalPct}%` }} aria-label={`${goalPct}% da meta`}>
+              <strong>{goalPct}%</strong>
             </span>
+            <div>
+              <h2 id="metas">Metas do dia</h2>
+              <p className="muted">
+                {goalPct >= 100
+                  ? "Meta batida. Tudo o que vier agora é bônus."
+                  : todayList.length === 0
+                    ? `${minutesLabel(dayPlan.minutes)} por dia. Comece pelo Plantão para encher as barras.`
+                    : `Faltam ${Math.max(0, questionsTarget - todayList.length)} questões para a meta de hoje.`}
+              </p>
+            </div>
           </div>
           <div className="goals-meters">
             <Meter label="Questões" color="var(--sky)" done={todayList.length} target={questionsTarget} />
             <Meter label="Tempo" color="var(--ok)" done={minutesDone} target={dayPlan.minutes} unit="min" />
             {premium ? (
-              <Meter label="Revisões" color="var(--go)" done={reviewsDone} target={reviewBlock?.target ?? 0} />
+              <Meter label="Revisões" color="var(--go)" done={reviewsDone} target={reviewBlock?.target ?? 0} empty={dayPlan.overflowReviews > 0 ? `${dayPlan.overflowReviews} amanhã` : "Em dia"} />
             ) : (
-              <Meter label="Acertos" color="var(--go)" done={hitsToday} target={todayList.length} />
+              <Meter label="Acertos" color="var(--go)" done={hitsToday} target={todayList.length} empty="—" />
             )}
           </div>
         </div>
         <div className="goals-week">
-          <h3>Desempenho da semana</h3>
+          <h2>Desempenho da semana</h2>
           {weekPct === null ? (
             <>
-              <p className="muted">Responda questões nesta semana para acompanhar seus acertos aqui.</p>
+              <p className="goals-week-pct is-empty">
+                <strong>—</strong> sem respostas ainda
+              </p>
+              <p className="muted">Seu acerto dos últimos 7 dias aparece aqui.</p>
               <Link href="/app/plantao" className="btn btn-ghost btn-sm">
                 Praticar questões →
               </Link>
@@ -456,7 +475,7 @@ export default async function TodayPage() {
               <span className="bar" aria-hidden>
                 <i style={{ width: `${weekPct}%` }} />
               </span>
-              <p className="dim" style={{ fontSize: 13 }}>
+              <p className="muted">
                 {weekHits} certas em {weekList.length} {weekList.length === 1 ? "questão" : "questões"} nos últimos 7 dias.
               </p>
             </>
@@ -468,35 +487,36 @@ export default async function TodayPage() {
         <section className="card home-card" aria-labelledby="caminho">
           <div className="home-card-head">
             <h2 id="caminho">Caminho até a prova</h2>
-            {goals.set && <span className="muted">{EXAM_LABEL[goals.targetExam]}</span>}
-          </div>
-          {dayPlan.phase && goals.examDate ? (
-            <>
-              <p className="path-days">
-                <strong>{dayPlan.daysLeft}</strong> {dayPlan.daysLeft === 1 ? "dia" : "dias"}
-                <small>até {examMonth(goals.examDate)}</small>
-              </p>
-              <ol className="path-phases">
-                {PHASES.map((phase, i) => (
-                  <li key={phase.key} className={i < phaseIndex ? "is-past" : i === phaseIndex ? "is-now" : undefined}>
-                    <strong>{phase.name}</strong>
-                    {i === phaseIndex && <small>{phase.text}</small>}
-                  </li>
-                ))}
-              </ol>
-            </>
-          ) : (
-            <div className="home-empty">
-              <Svg d={ICON.percurso} />
-              <p>
-                {goals.set ? "Sem data de prova, o plano fica na fase de base." : "Seu percurso ainda não foi montado."}
-                <small>Com o mês da prova, o plano passa por base, consolidação e reta final.</small>
-              </p>
+            {dayPlan.phase && goals.examDate ? (
+              <span className="muted">{EXAM_LABEL[goals.targetExam]}</span>
+            ) : (
               <Link href="/comecar" className="btn btn-ghost btn-sm">
                 {goals.set ? "Informar o mês" : "Montar percurso"}
               </Link>
-            </div>
+            )}
+          </div>
+          {dayPlan.phase && goals.examDate ? (
+            <p className="path-days">
+              <strong>{dayPlan.daysLeft}</strong> {dayPlan.daysLeft === 1 ? "dia" : "dias"}
+              <small>até {examMonth(goals.examDate)}</small>
+            </p>
+          ) : (
+            <p className="path-note">
+              <strong>{goals.set ? `${EXAM_LABEL[goals.targetExam]} · data a definir` : "Percurso ainda não montado"}</strong>
+              Sem a data, o plano fica na base. Com o mês da prova, ele avança sozinho pelas três fases.
+            </p>
           )}
+          <ol className="path-phases">
+            {PHASES.map((phase, i) => {
+              const current = dayPlan.phase ? phaseIndex : 0;
+              return (
+                <li key={phase.key} className={i < current ? "is-past" : i === current ? "is-now" : undefined}>
+                  <strong>{phase.name}</strong>
+                  <small>{phase.text}</small>
+                </li>
+              );
+            })}
+          </ol>
         </section>
 
         {firstStepsDone < firstSteps.length ? (
