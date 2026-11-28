@@ -8,8 +8,13 @@ export async function GET(request: Request) {
   const safe = safePath(searchParams.get("next"));
   if (code) {
     const supabase = await createClient();
-    const { error } = await supabase.auth.exchangeCodeForSession(code);
-    if (!error) return NextResponse.redirect(`${origin}${safe}`);
+    const { data, error } = await supabase.auth.exchangeCodeForSession(code);
+    if (!error) {
+      // Conta que o Google acabou de criar passa pelas boas-vindas.
+      const isNew = Date.now() - Date.parse(data.user.created_at) < 2 * 60_000;
+      return NextResponse.redirect(`${origin}${isNew && safe === "/app" ? "/app/boas-vindas" : safe}`);
+    }
+    console.error("[auth] callback", { code: error.code, status: error.status, message: error.message });
   }
-  return NextResponse.redirect(`${origin}/entrar?erro=link`);
+  return NextResponse.redirect(`${origin}/entrar?erro=google`);
 }

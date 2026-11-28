@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test";
-import { db, makePremium, makeQuestions, PASSWORD, SECRET_TIP, signUp, todayBR } from "./support";
+import { db, makePremium, makeQuestions, SECRET_TIP, signIn, signUp, todayBR } from "./support";
 
 const LETTER = ["A", "B", "C", "D"];
 
@@ -20,7 +20,7 @@ test.describe("visitante", () => {
       await expect(page.locator(hash)).toBeInViewport();
     }
     await page.getByRole("link", { name: "Entrar no app" }).click();
-    await expect(page.getByRole("button", { name: "Entrar", exact: true })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Bom plantão" })).toBeVisible();
     await signUp(page);
     await page.goto("/");
     await page.getByRole("link", { name: "Abrir o app" }).click();
@@ -247,14 +247,7 @@ test.describe.serial("aluno", () => {
     await page.goto("/app/conta");
     await page.getByRole("button", { name: "Sair da conta" }).click();
     await page.waitForURL("/");
-    await page.goto("/entrar");
-    await page.getByLabel("E-mail").fill(email);
-    await page.getByLabel("Senha").fill("senha-errada-123");
-    await page.getByRole("button", { name: "Entrar" }).click();
-    await expect(page.getByText("E-mail ou senha incorretos")).toBeVisible();
-    await page.getByLabel("Senha").fill(PASSWORD);
-    await page.getByRole("button", { name: "Entrar" }).click();
-    await page.waitForURL(/\/app$/);
+    await signIn(page, email);
 
     await page.goto("/app/conta");
     await page.getByText("Excluir minha conta").click();

@@ -1,5 +1,6 @@
 import { execSync } from "node:child_process";
 import { randomUUID } from "node:crypto";
+import { createServerClient } from "@supabase/ssr";
 import { createClient } from "@supabase/supabase-js";
 import type { Page } from "@playwright/test";
 
@@ -53,19 +54,32 @@ export function todayBR() {
   return new Intl.DateTimeFormat("en-CA", { timeZone: "America/Sao_Paulo", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
 }
 
-export const PASSWORD = `Senha-de-teste-${randomUUID().slice(0, 8)}`;
+const PASSWORD = `Senha-de-teste-${randomUUID().slice(0, 8)}`;
 
+/**
+ * A tela só oferece o Google, que não dá para automatizar. Nos testes a sessão nasce direto no
+ * Supabase local e os cookies dela vão para o navegador.
+ */
+export async function signIn(page: Page, email: string) {
+  const jar: { name: string; value: string }[] = [];
+  const client = createServerClient(read("API_URL"), read("ANON_KEY"), {
+    cookies: { getAll: () => [], setAll: (toSet) => void jar.push(...toSet) },
+  });
+  const { error } = await client.auth.signInWithPassword({ email, password: PASSWORD });
+  if (error) throw error;
+  await page.goto("/entrar");
+  const url = new URL(page.url()).origin;
+  await page.context().addCookies(jar.filter((c) => c.value).map(({ name, value }) => ({ name, value, url })));
+}
+
+/** Cria uma conta de teste, entra e para nas boas-vindas, como um aluno novo. */
 export async function signUp(page: Page) {
   const email = `e2e-${randomUUID()}@exemplo.test`;
-  await page.goto("/cadastrar");
-  await page.getByLabel("E-mail").fill(email);
-  await page.getByLabel(/^Senha/).fill(PASSWORD);
-  await page.getByRole("checkbox").check();
-  await page.getByRole("button", { name: "Criar conta grátis" }).click();
-  await page.waitForURL(/\/app\/boas-vindas/);
-  const { data } = await db.auth.admin.listUsers({ perPage: 1000 });
-  const user = data.users.find((u) => u.email === email)!;
-  return { email, id: user.id };
+  const { data, error } = await db.auth.admin.createUser({ email, password: PASSWORD, email_confirm: true });
+  if (error) throw error;
+  await signIn(page, email);
+  await page.goto("/app/boas-vindas");
+  return { email, id: data.user.id };
 }
 
 export async function makePremium(userId: string) {

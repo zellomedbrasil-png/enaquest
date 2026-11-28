@@ -5,7 +5,6 @@ import { redirect } from "next/navigation";
 import { z } from "zod";
 import { admin } from "@/lib/supabase/admin";
 import { safePath } from "@/lib/safe-path";
-import { authErrorMessage, classifyAuthError } from "@/lib/auth-errors";
 import { createClient } from "@/lib/supabase/server";
 import { AppError, getProfile, requireEditor, requireUser } from "@/lib/server/session";
 import { todayMissions } from "@/lib/server/progress";
@@ -43,90 +42,24 @@ async function run<T>(fn: () => Promise<T>): Promise<ActionResult<T>> {
   }
 }
 
-// ---------- Autenticação ----------
-const credentials = z.object({ email: z.email(), password: z.string().min(8).max(72) });
+// ---------- Autenticação (só Google) ----------
+export type AuthState = { error?: string; notice?: string };
 
-export type AuthState = { error?: string; notice?: string; email?: string; unconfirmed?: boolean };
-
-/** Registra a causa real no log do servidor e devolve uma mensagem que diz o que fazer. */
-function authFailure(where: string, error: { code?: string; message?: string; status?: number }) {
-  const problem = classifyAuthError(error);
-  console.error(`[auth] ${where}: ${problem}`, { code: error.code, status: error.status, message: error.message });
-  return { problem, message: authErrorMessage(problem) };
-}
-
-const confirmRedirect = (next: string) => `${process.env.NEXT_PUBLIC_APP_URL}/auth/callback?next=${encodeURIComponent(next)}`;
-
-function safeNext(value: FormDataEntryValue | null): string {
-  return safePath(value);
-}
-
-export async function signIn(_: AuthState, form: FormData): Promise<AuthState> {
-  const parsed = credentials.safeParse({ email: form.get("email"), password: form.get("password") });
-  if (!parsed.success) return { error: "Informe um e-mail válido e uma senha de pelo menos 8 caracteres.", email: String(form.get("email") ?? "") };
+export async function signInWithGoogle(form: FormData) {
+  const next = encodeURIComponent(safePath(form.get("next")));
   const supabase = await createClient();
-  const { error } = await supabase.auth.signInWithPassword(parsed.data);
-  if (error) {
-    const { problem, message } = authFailure("entrar", error);
-    return { error: message, email: parsed.data.email, unconfirmed: problem === "not_confirmed" };
-  }
-  redirect(safeNext(form.get("next")));
-}
-
-export async function signUp(_: AuthState, form: FormData): Promise<AuthState> {
-  const parsed = credentials.safeParse({ email: form.get("email"), password: form.get("password") });
-  if (!parsed.success) return { error: "Informe um e-mail válido e uma senha de pelo menos 8 caracteres.", email: String(form.get("email") ?? "") };
-  if (form.get("accept") !== "on") return { error: "Para criar a conta, aceite os termos de uso e a política de privacidade.", email: parsed.data.email };
-  const supabase = await createClient();
-  const { data, error } = await supabase.auth.signUp({
-    ...parsed.data,
-    options: { emailRedirectTo: confirmRedirect("/app/boas-vindas") },
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: "google",
+    options: {
+      redirectTo: `${process.env.NEXT_PUBLIC_APP_URL}/auth/callback?next=${next}`,
+      queryParams: { prompt: "select_account" },
+    },
   });
-  if (error) return { error: authFailure("cadastrar", error).message, email: parsed.data.email };
-  // Conta já existente: o Supabase não diz (para não revelar quem está cadastrado) e devolve identities vazio.
-  if (data.user && data.user.identities?.length === 0) {
-    return { notice: "Se esse e-mail ainda não tiver conta, enviamos o link de confirmação. Se já tiver, entre com a sua senha.", email: parsed.data.email };
-  }
-  if (!data.session) {
-    return {
-      notice: `Enviamos um link de confirmação para ${parsed.data.email}. Abra o e-mail e toque no link (confira também o spam). O link funciona em qualquer aparelho.`,
-      email: parsed.data.email,
-    };
-  }
-  redirect("/app/boas-vindas");
-}
-
-export async function resendConfirmation(_: AuthState, form: FormData): Promise<AuthState> {
-  const email = z.email().safeParse(form.get("email"));
-  if (!email.success) return { error: "Informe um e-mail válido." };
-  const supabase = await createClient();
-  const { error } = await supabase.auth.resend({ type: "signup", email: email.data, options: { emailRedirectTo: confirmRedirect("/app/boas-vindas") } });
-  if (error) return { error: authFailure("reenviar confirmação", error).message, email: email.data, unconfirmed: true };
-  return { notice: `Enviamos um novo link para ${email.data}. Confira também o spam.`, email: email.data };
-}
-
-export async function requestPasswordReset(_: AuthState, form: FormData): Promise<AuthState> {
-  const email = z.email().safeParse(form.get("email"));
-  if (!email.success) return { error: "Informe um e-mail válido." };
-  const supabase = await createClient();
-  const { error } = await supabase.auth.resetPasswordForEmail(email.data, { redirectTo: confirmRedirect("/nova-senha") });
-  // Limite de envio e falha de e-mail aparecem; "conta não existe" continua escondido.
   if (error) {
-    const { problem, message } = authFailure("esqueci a senha", error);
-    if (problem === "rate_limit" || problem === "email_send" || problem === "unavailable") return { error: message };
+    console.error("[auth] entrar com Google", { code: error.code, status: error.status, message: error.message });
+    redirect("/entrar?erro=google");
   }
-  // A resposta é a mesma exista ou não a conta, para não revelar quem está cadastrado.
-  return { notice: "Se esse e-mail estiver cadastrado, enviamos o link para criar uma nova senha." };
-}
-
-export async function updatePassword(_: AuthState, form: FormData): Promise<AuthState> {
-  const password = z.string().min(8).max(72).safeParse(form.get("password"));
-  if (!password.success) return { error: "A senha precisa ter pelo menos 8 caracteres." };
-  await requireUser();
-  const supabase = await createClient();
-  const { error } = await supabase.auth.updateUser({ password: password.data });
-  if (error) return { error: "Não foi possível alterar a senha. Peça um novo link." };
-  redirect("/app");
+  redirect(data.url);
 }
 
 export async function signOut() {

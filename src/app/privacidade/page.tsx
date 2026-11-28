@@ -15,7 +15,7 @@ export default function PrivacyPage() {
         </div>
         <h2>Dados que tratamos</h2>
         <ul>
-          <li>Conta: e-mail, apelido e, se você informar, faculdade.</li>
+          <li>Conta: e-mail, apelido e, se você informar, faculdade. Se você entrar com o Google, recebemos dele seu nome, e-mail e foto de perfil.</li>
           <li>Estudo: respostas, tempo, confiança, motivo de erro, comentários e pontuação.</li>
           <li>Pagamento: a Stripe processa os dados do cartão. Guardamos apenas o status da assinatura e o histórico de cobranças.</li>
           <li>Nota do boletim: só se você decidir enviar, com consentimento específico.</li>
