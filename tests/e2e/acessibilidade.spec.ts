@@ -4,6 +4,15 @@ import { db, makePremium, makeQuestions, signUp, todayBR } from "./support";
 
 // Regras WCAG 2.x A e AA. Falha se houver qualquer violação séria ou crítica.
 async function scan(page: Page, label: string) {
+  // Cores no meio de uma transição dão falso alarme de contraste: espera as animações finitas terminarem.
+  await page.evaluate(() =>
+    Promise.all(
+      document
+        .getAnimations()
+        .filter((a) => a.effect?.getComputedTiming().iterations !== Infinity)
+        .map((a) => a.finished.catch(() => undefined)),
+    ),
+  );
   const result = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"]).analyze();
   const serious = result.violations.filter((v) => v.impact === "serious" || v.impact === "critical");
   const summary = serious.map((v) => `${v.id} (${v.nodes.length}): ${v.nodes[0]?.html.slice(0, 120)}`);

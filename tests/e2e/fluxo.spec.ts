@@ -15,10 +15,15 @@ test.describe("visitante", () => {
 
   test("navega entre as seções no celular e abre o app após entrar", async ({ page }) => {
     await page.goto("/");
-    for (const [name, hash] of [["Recursos", "#recursos"], ["Método", "#metodo"], ["Dúvidas", "#duvidas"]]) {
-      await page.getByRole("navigation", { name: "Navegação principal" }).getByRole("link", { name }).click();
+    const nav = page.getByRole("navigation", { name: "Navegação principal" });
+    for (const [name, hash] of [["Recursos", "#recursos"], ["Dúvidas", "#duvidas"]]) {
+      await nav.getByRole("link", { name }).click();
       await expect(page.locator(hash)).toBeInViewport();
     }
+    // Método tem página própria.
+    await nav.getByRole("link", { name: "Método" }).click();
+    await page.waitForURL(/\/metodo$/);
+    await page.goto("/");
     await page.getByRole("link", { name: "Entrar no app" }).click();
     await expect(page.getByRole("heading", { name: "Bom plantão" })).toBeVisible();
     await signUp(page);
@@ -142,9 +147,10 @@ test.describe.serial("aluno", () => {
     await expect(page.getByRole("heading", { name: "Conquistas" })).toBeVisible();
     await expect(page.getByText(/faz parte da assinatura/)).toBeVisible();
 
-    // Plano grátis: treino bloqueado
+    // Plano grátis: o Treino mostra os filtros, mas começar pede a assinatura.
     await page.goto("/app/treino");
-    await expect(page.getByRole("link", { name: /Assinar por R\$ 29/ })).toBeVisible();
+    await expect(page.getByRole("link", { name: "Liberar o Treino" })).toBeVisible();
+    await expect(page.getByRole("button", { name: "Começar treino" })).toHaveCount(0);
     await page.goto("/app/revisao");
     await expect(page.getByRole("link", { name: /Assinar por R\$ 29/ })).toBeVisible();
     await page.goto("/app/simulados");
