@@ -44,7 +44,9 @@ export default function TermsPage() {
           <li>Se uma cobrança falhar, avisamos e tentamos de novo. O acesso é mantido por até 3 dias após o vencimento.</li>
         </ul>
         <h2>5. Contato</h2>
-        <p>[e-mail de atendimento a preencher]</p>
+        <p>
+          Dúvidas e atendimento: <a href="mailto:contato@enaquest.com">contato@enaquest.com</a>.
+        </p>
       </main>
       <SiteFooter />
     </>
