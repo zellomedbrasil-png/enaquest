@@ -255,7 +255,13 @@
 .study-goal:hover strong, .study-exam:hover strong { text-decoration: underline; }
 .topbar .mascot-badge { padding-right: 4px; }
 .topbar .mascot-badge-text { display: none; }
-@media (max-width: 1099px) {
+/* Em telas médias, os detalhes saem antes de o texto quebrar em duas linhas. */
+@media (max-width: 1399px) {
+  .xp-left, .study-focus-detail { display: none; }
+  .study-focus-detail + .study-focus-arrow { margin-left: auto; }
+  .study-focus-copy strong { white-space: nowrap; }
+}
+@media (max-width: 1199px) {
   .study-exam { display: none; }
 }
 @media (max-width: 760px) {
