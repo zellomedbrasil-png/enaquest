@@ -24,7 +24,7 @@ import { ReportBox, RevealPanel } from "./RevealPanel";
 import { Icon } from "./StudyIcons";
 import { PROGRESS_EVENT, type ProgressEventDetail } from "./TopStats";
 import { ToastStack, useToasts } from "./Toasts";
-import { ScoreRing, scoreMessage } from "./ui";
+import { RoundSummary } from "./RoundSummary";
 
 type Area = { id: string; name: string; color: string };
 
@@ -53,6 +53,8 @@ export function QuestionRunner({
   const [confidence, setConfidence] = useState<Confidence | null>(null);
   const [struck, setStruck] = useState<number[]>([]);
   const [results, setResults] = useState<Record<string, AnswerResult>>({});
+  /** Tempo gasto em cada questão respondida nesta rodada. */
+  const [spent, setSpent] = useState<Record<string, number>>({});
   const [error, setError] = useState<string | null>(null);
   const [needsPremium, setNeedsPremium] = useState(false);
   const [finished, setFinished] = useState(false);
@@ -205,6 +207,7 @@ export function QuestionRunner({
   const submit = () => {
     if (picked === null || !question) return;
     setError(null);
+    const ms = Math.min(Date.now() - startedAt.current, 3_600_000);
     start(async () => {
       const response = await answerAction({
         questionId: question.id,
@@ -212,7 +215,7 @@ export function QuestionRunner({
         context,
         selected: picked,
         confidence,
-        ms: Math.min(Date.now() - startedAt.current, 3_600_000),
+        ms,
       });
       if (!response.ok) {
         if (response.code === "premium_required") setNeedsPremium(true);
@@ -220,6 +223,7 @@ export function QuestionRunner({
         return;
       }
       setResults((current) => ({ ...current, [question.id]: response.data }));
+      setSpent((current) => ({ ...current, [question.id]: ms }));
       setConfidences((current) => ({ ...current, [question.id]: confidence }));
       mascot.onAnswer({ correct: response.data.correct, xp: response.data.xpGained, combo: response.data.combo });
       setCombo({ value: response.data.combo, broken: response.data.correct ? 0 : response.data.previousCombo });
@@ -345,111 +349,44 @@ export function QuestionRunner({
   }
 
   if (roundOver) {
-    const list = Object.values(results);
-    const hits = list.filter((r) => r.correct).length;
+    const answeredIds = questions.map((q) => q.id).filter((id) => results[id]);
+    const list = answeredIds.map((id) => results[id]);
     const earned = list.flatMap((r) => r.newAchievements);
     const bonusXp = list.reduce((sum, r) => sum + r.bonusXp, 0);
     const answerXp = list.reduce((sum, r) => sum + r.xpGained, 0) - bonusXp;
-    const achievementXp = earned.length * XP.achievement;
-    const totalXp = answerXp + bonusXp + achievementXp;
-    const ratingSum = list.reduce((sum, r) => sum + r.ratingDelta, 0);
-    const bestCombo = list.reduce((max, r) => Math.max(max, r.combo), 0);
     const last = list[list.length - 1];
+    // Volta para a primeira errada, já com o comentário; ao continuar, a rodada fecha de novo.
+    const reviewWrong = () => {
+      const target = questions.findIndex((q) => results[q.id] && !results[q.id].correct);
+      if (target === -1) return;
+      setFinished(false);
+      if (target !== index) goTo(target);
+    };
 
     return (
-      <div className="card" style={{ textAlign: "center" }}>
+      <>
         {showing && <Celebration items={showing} onClose={() => setShowing(null)} />}
-        {(celebrate || hits === list.length) && list.length >= 3 && <Confetti />}
-        <p className="eyebrow">Rodada concluída</p>
-        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 16, flexWrap: "wrap", margin: "10px 0 8px" }}>
-          <ScoreRing correct={hits} total={list.length} />
-        </div>
-        <h2 style={{ fontSize: 24 }}>{scoreMessage(hits, list.length).title}</h2>
-        <p className="muted">
-          Você ganhou <strong>{totalXp} XP</strong> nesta rodada.
-        </p>
-
-        <dl className="round-stats">
-          <div>
-            <dt>XP das respostas</dt>
-            <dd>+{answerXp}</dd>
-          </div>
-          {bonusXp > 0 && (
-            <div>
-              <dt>Bônus do plantão</dt>
-              <dd>+{bonusXp}</dd>
-            </div>
-          )}
-          {achievementXp > 0 && (
-            <div>
-              <dt>Conquistas</dt>
-              <dd>+{achievementXp}</dd>
-            </div>
-          )}
-          <div>
-            <dt>Rating</dt>
-            <dd>
-              {ratingSum > 0 ? "+" : ""}
-              {ratingSum}
-            </dd>
-          </div>
-          <div>
-            <dt>Maior combo</dt>
-            <dd>{bestCombo}</dd>
-          </div>
-          {last && (
-            <div>
-              <dt>Sequência</dt>
-              <dd>{last.streak} dias</dd>
-            </div>
-          )}
-        </dl>
-
-        {earned.length > 0 && (
-          <div style={{ marginTop: 10, display: "flex", gap: 6, justifyContent: "center", flexWrap: "wrap" }}>
-            {earned.map((id) => (
-              <span key={id} className="pill" style={{ background: "var(--pearl-soft)", color: "var(--gold)" }}>
-                Conquista: {ACHIEVEMENTS.find((a) => a.id === id)?.name}
-              </span>
-            ))}
-          </div>
-        )}
-
-        {missions && (
-          <div className="card-2" style={{ marginTop: 14, textAlign: "left" }}>
-            <p className="eyebrow" style={{ marginBottom: 8 }}>
-              Missões de hoje
-            </p>
-            <ul style={{ display: "grid", gap: 8 }}>
-              {missions.map((mission) => (
-                <li key={mission.id} style={{ fontSize: 14.5 }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", gap: 8 }}>
-                    <span style={mission.done ? { color: "var(--ok)", fontWeight: 600 } : undefined}>
-                      {mission.done ? "✓ " : ""}
-                      {mission.text}
-                    </span>
-                    <span className="muted" style={{ fontVariantNumeric: "tabular-nums" }}>
-                      {mission.current}/{mission.goal}
-                    </span>
-                  </div>
-                  <div className="bar" style={{ height: 6, marginTop: 4 }} aria-hidden>
-                    <i style={{ width: `${(mission.current / mission.goal) * 100}%`, background: mission.done ? "var(--ok)" : undefined }} />
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        <div style={{ marginTop: 16, display: "flex", gap: 8, justifyContent: "center", flexWrap: "wrap" }}>
-          <Link href={doneHref} className="btn btn-primary">
-            {doneLabel}
-          </Link>
-          <Link href="/app/evolucao" className="btn btn-ghost">
-            Ver evolução
-          </Link>
-        </div>
-      </div>
+        {(celebrate || list.every((r) => r.correct)) && list.length >= 3 && <Confetti />}
+        <RoundSummary
+          items={answeredIds.map((id) => ({
+            questionId: id,
+            areaId: questions.find((q) => q.id === id)?.areaId ?? "",
+            correct: results[id].correct,
+            ms: spent[id] ?? 0,
+          }))}
+          areas={areas}
+          mode={mode}
+          xp={{ answers: answerXp, bonus: bonusXp, achievements: earned.length * XP.achievement }}
+          ratingSum={list.reduce((sum, r) => sum + r.ratingDelta, 0)}
+          bestCombo={list.reduce((max, r) => Math.max(max, r.combo), 0)}
+          streak={last ? last.streak : null}
+          earned={earned}
+          missions={missions}
+          doneHref={doneHref}
+          doneLabel={doneLabel}
+          onReviewWrong={reviewWrong}
+        />
+      </>
     );
   }
 

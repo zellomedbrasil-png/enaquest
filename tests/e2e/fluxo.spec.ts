@@ -131,6 +131,14 @@ test.describe.serial("aluno", () => {
 
     await expect(page.getByText("Rodada concluída")).toBeVisible();
     await expect(page.getByText("9 de 10")).toBeVisible();
+    await expect(page.getByText("Você errou 1 questão.")).toBeVisible();
+    // O primeiro passo sugerido volta para a errada, com o comentário, e a rodada fecha de novo.
+    await page.getByRole("button", { name: /Rever a que errei/ }).click();
+    await expect(page.locator(".opt.wrong").getByText("INCORRETA.", { exact: true })).toBeVisible();
+    await page.getByRole("button", { name: "Continuar" }).click();
+    await expect(page.getByText("Rodada concluída")).toBeVisible();
+    await page.getByText("Ver desempenho detalhado").click();
+    await expect(page.getByText("Acerto por área nesta rodada")).toBeVisible();
 
     await page.goto("/app");
     await expect(page.getByText("Concluído: 9 de 10 certas.")).toBeVisible();
