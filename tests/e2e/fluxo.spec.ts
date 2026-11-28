@@ -29,7 +29,7 @@ test.describe("visitante", () => {
     await signUp(page);
     await page.goto("/");
     await page.getByRole("link", { name: "Abrir o app" }).click();
-    await expect(page.getByRole("heading", { name: "Sua jornada de hoje" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Seu estudo de hoje" })).toBeVisible();
   });
 
   test("não entra na área logada", async ({ page }) => {
@@ -74,9 +74,9 @@ test.describe.serial("aluno", () => {
 
     // Hoje: um próximo passo claro e a jornada em ordem
     await page.goto("/app");
-    await expect(page.getByRole("heading", { name: "Sua jornada de hoje" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Seu estudo de hoje" })).toBeVisible();
     await expect(page.getByText("Faça o Plantão de hoje")).toBeVisible();
-    await expect(page.getByRole("link", { name: "Começar", exact: true })).toBeVisible();
+    await expect(page.getByRole("link", { name: "Começar →" })).toBeVisible();
 
     // O HTML e os dados da página não podem conter o comentário.
     const response = await page.goto("/app/plantao");

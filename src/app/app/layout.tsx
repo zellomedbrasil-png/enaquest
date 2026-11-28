@@ -11,11 +11,14 @@ import { countDueReviews } from "@/lib/server/study";
 import { getDailyIds } from "@/lib/server/daily";
 import { hasPremiumAccess } from "@/lib/billing/access";
 import { displayedStreak, todayBR } from "@/lib/game/streak";
+import { phaseFor } from "@/lib/study/day-plan";
+import { questionsFor } from "@/lib/study/onboarding";
 import { getEntitlement, getProfile, requireUser } from "@/lib/server/session";
 
 export default async function AppLayout({ children }: { children: React.ReactNode }) {
   const user = await requireUser();
-  const [profile, entitlement, rating, streak, mascot, dueReviews, dailyIds, dailyAnswers] = await Promise.all([
+  const day = todayBR();
+  const [profile, entitlement, rating, streak, mascot, dueReviews, dailyIds, dailyAnswers, answeredToday] = await Promise.all([
     getProfile(user.id),
     getEntitlement(user.id),
     admin().from("rating_state").select("rating, xp_total, games").eq("user_id", user.id).single(),
@@ -24,9 +27,14 @@ export default async function AppLayout({ children }: { children: React.ReactNod
     countDueReviews(user.id),
     getDailyIds(todayBR()),
     admin().from("answers").select("id", { count: "exact", head: true }).eq("user_id", user.id).eq("mode", "daily").eq("context", todayBR()),
+    // O dia no Brasil começa às 3h UTC.
+    admin().from("answers").select("id", { count: "exact", head: true }).eq("user_id", user.id).gte("created_at", `${day}T03:00:00Z`),
   ]);
   const inPlacement = rating.data.games < PLACEMENT_GAMES;
   const tier = tierOf(Number(rating.data.rating));
+  const exam = profile.goals_set
+    ? { label: profile.target_exam === "enare" ? "ENARE" : "ENAMED", daysLeft: phaseFor(day, profile.exam_date).daysLeft }
+    : null;
 
   return (
     <>
@@ -52,6 +60,9 @@ export default async function AppLayout({ children }: { children: React.ReactNod
             dailyTotal={dailyIds.length}
             dueReviews={dueReviews}
             premium={hasPremiumAccess(entitlement)}
+            goalDone={answeredToday.count ?? 0}
+            goalTarget={hasPremiumAccess(entitlement) ? Math.max(dailyIds.length, questionsFor(profile.daily_minutes)) : dailyIds.length}
+            exam={exam}
           />
           <MascotBadge character={mascot.character} name={mascot.name} />
           <Link href="/app/conta" className="account-link" aria-label={`Conta de ${profile.nickname}. ${inPlacement ? "Em nivelamento" : `Patente ${tier.tier.name}`}`}>

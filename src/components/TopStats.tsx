@@ -56,6 +56,9 @@ export function TopStats({
   dailyTotal,
   dueReviews,
   premium,
+  goalDone,
+  goalTarget,
+  exam,
 }: {
   xpTotal: number;
   streak: number;
@@ -65,16 +68,21 @@ export function TopStats({
   dailyTotal: number;
   dueReviews: number;
   premium: boolean;
+  /** Questões respondidas hoje (em qualquer lugar) e a meta pelo tempo do dia. */
+  goalDone: number;
+  goalTarget: number;
+  /** Prova escolhida no onboarding; null antes de montar o percurso. */
+  exam: { label: string; daysLeft: number | null } | null;
 }) {
   const pathname = usePathname();
-  const [state, setState] = useState({ xpTotal, streak, shields, activeToday, dailyDone, dueReviews });
+  const [state, setState] = useState({ xpTotal, streak, shields, activeToday, dailyDone, dueReviews, goalDone });
   const [gain, setGain] = useState(0);
 
   // O servidor renderiza de novo ao navegar; o valor novo dele manda.
   useEffect(() => {
-    const id = requestAnimationFrame(() => setState({ xpTotal, streak, shields, activeToday, dailyDone, dueReviews }));
+    const id = requestAnimationFrame(() => setState({ xpTotal, streak, shields, activeToday, dailyDone, dueReviews, goalDone }));
     return () => cancelAnimationFrame(id);
-  }, [xpTotal, streak, shields, activeToday, dailyDone, dueReviews]);
+  }, [xpTotal, streak, shields, activeToday, dailyDone, dueReviews, goalDone]);
 
   const latestXp = useRef(xpTotal);
   useEffect(() => {
@@ -92,6 +100,8 @@ export function TopStats({
         activeToday: true,
         dailyDone: detail.dailyDone ?? current.dailyDone,
         dueReviews: Math.max(0, current.dueReviews - (detail.reviewAnswered ? 1 : 0)),
+        // Cada evento é uma resposta nova.
+        goalDone: current.goalDone + 1,
       }));
     };
     window.addEventListener(PROGRESS_EVENT, onProgress);
@@ -101,6 +111,7 @@ export function TopStats({
   const level = levelOf(state.xpTotal);
   const xpShown = useCountUp(state.xpTotal);
   const lit = state.activeToday && state.streak > 0;
+  const goalPct = goalTarget > 0 ? Math.min(1, state.goalDone / goalTarget) : 0;
   const remaining = Math.max(0, dailyTotal - state.dailyDone);
   const reviews = state.dueReviews;
   const hasReview = premium && reviews > 0;
@@ -153,8 +164,49 @@ export function TopStats({
             <ToolIcon name="revisao" /> {reviews}
           </Link>
         )}
+        <Link
+          href="/app"
+          className={`study-goal${goalPct >= 1 ? " is-done" : ""}`}
+          aria-label={`Meta de hoje: ${state.goalDone} de ${goalTarget} questões`}
+        >
+          <svg viewBox="0 0 36 36" aria-hidden>
+            <circle cx="18" cy="18" r="15" fill="none" stroke="var(--line)" strokeWidth="4" />
+            <circle
+              cx="18"
+              cy="18"
+              r="15"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="4"
+              strokeLinecap="round"
+              strokeDasharray={2 * Math.PI * 15}
+              strokeDashoffset={2 * Math.PI * 15 * (1 - goalPct)}
+              transform="rotate(-90 18 18)"
+            />
+          </svg>
+          <span aria-hidden>
+            <strong>
+              {Math.min(state.goalDone, 999)}/{goalTarget}
+            </strong>
+            <small>{goalPct >= 1 ? "Meta batida" : "Meta de hoje"}</small>
+          </span>
+        </Link>
+        <Link href="/comecar" className="study-exam" title={exam ? "Ajustar prova e prazo" : "Escolher prova e prazo"}>
+          <span>
+            <strong>{exam ? exam.label : "Sua prova"}</strong>
+            <small>
+              {!exam
+                ? "Definir"
+                : exam.daysLeft === null
+                  ? "Data a definir"
+                  : exam.daysLeft === 0
+                    ? "É hoje"
+                    : `em ${exam.daysLeft} ${exam.daysLeft === 1 ? "dia" : "dias"}`}
+            </small>
+          </span>
+        </Link>
         <Link href="/app/evolucao" className="study-level" title={level.next ? `Faltam ${level.toNext} XP para ${level.next.name}` : "Nível máximo"}>
-          <span className="sr-only">Ver evolução </span><span><strong>{level.current.name}</strong><small key={gain} className={gain ? "xp-float" : undefined}>{xpShown} XP</small></span>
+          <span className="sr-only">Ver evolução </span><span><strong>{level.current.name}</strong><small key={gain} className={gain ? "xp-float" : undefined}>{xpShown} XP{level.next && <span className="xp-left"> · faltam {level.toNext}</span>}</small></span>
           <span className="study-level-track" aria-hidden><i style={{ width: `${level.progress * 100}%` }} /></span>
         </Link>
         <span className="study-streak" title={`${state.streak} dias de sequência. ${state.shields} de ${MAX_SHIELDS} trocas de plantão.`}>
