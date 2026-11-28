@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { SignUpForm } from "@/components/AuthForms";
+import { GoogleButton } from "@/components/GoogleButton";
 
 export const metadata: Metadata = { title: "Criar conta" };
 
@@ -10,7 +10,7 @@ export default function SignUpPage() {
       <p className="muted" style={{ marginBottom: 14 }}>
         Sem cartão. O Plantão do Dia já está esperando você.
       </p>
-      <SignUpForm />
+      <GoogleButton />
     </>
   );
 }
