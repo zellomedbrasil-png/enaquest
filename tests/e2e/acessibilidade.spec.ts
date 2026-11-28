@@ -27,7 +27,7 @@ test.describe.serial("acessibilidade", () => {
     const { id } = await signUp(page);
     await makePremium(id);
 
-    await scan(page, "boas-vindas");
+    await scan(page, "onboarding");
     await page.goto("/app");
     await scan(page, "hoje");
     await page.goto("/app/estudar");

@@ -72,13 +72,13 @@ export async function signIn(page: Page, email: string) {
   await page.context().addCookies(jar.filter((c) => c.value).map(({ name, value }) => ({ name, value, url })));
 }
 
-/** Cria uma conta de teste, entra e para nas boas-vindas, como um aluno novo. */
+/** Cria uma conta de teste, entra e para no onboarding, como um aluno novo. */
 export async function signUp(page: Page) {
   const email = `e2e-${randomUUID()}@exemplo.test`;
   const { data, error } = await db.auth.admin.createUser({ email, password: PASSWORD, email_confirm: true });
   if (error) throw error;
   await signIn(page, email);
-  await page.goto("/app/boas-vindas");
+  await page.goto("/comecar");
   return { email, id: data.user.id };
 }
 

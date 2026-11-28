@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Emblem } from "@/components/Emblem";
 import { Flame, ShieldDots } from "@/components/Flame";
 import { MyMascot } from "@/components/MyMascot";
-import { Banner, LevelBar, PageHeader, StatusPill, ToolIcon } from "@/components/ui";
+import { Banner, LevelBar, StatusPill, ToolIcon } from "@/components/ui";
 import { admin } from "@/lib/supabase/admin";
 import { buildJourney, journeyStage, type JourneyStep, type StepState } from "@/lib/game/journey";
 import { achievementProgress, closestAchievements } from "@/lib/game/progress";
@@ -13,14 +13,22 @@ import { levelOf } from "@/lib/game/xp";
 import { getDailyState } from "@/lib/server/daily";
 import { countDueReviews, reviewAgenda } from "@/lib/server/study";
 import { getDayView } from "@/lib/server/day-plan";
+import { firstNameOf } from "@/lib/server/onboarding";
 import { StudyGoalsForm } from "@/components/StudyGoalsForm";
 import { lifetimeStats, todayMissions, weekActivity } from "@/lib/server/progress";
 import { getProfile, isPremium, requireUser } from "@/lib/server/session";
+import type { DayPhase } from "@/lib/study/day-plan";
+import { minutesLabel } from "@/lib/study/onboarding";
 
 export const metadata: Metadata = { title: "Hoje" };
 
 const WEEKDAY = ["D", "S", "T", "Q", "Q", "S", "S"];
-const PHASE_LABEL = { base: "Base", consolidacao: "Consolidação", reta: "Reta final" } as const;
+const EXAM_LABEL = { enamed: "ENAMED", enare: "ENARE" } as const;
+const PHASES: { key: DayPhase; name: string; text: string }[] = [
+  { key: "base", name: "Base", text: "Passar pela matéria toda, no peso de cada área na prova." },
+  { key: "consolidacao", name: "Consolidação", text: "Mais revisão e mais questões nas áreas em que você erra." },
+  { key: "reta", name: "Reta final", text: "Um simulado por semana e revisão do que mais cai." },
+];
 const STATE_LABEL: Record<StepState, { text: string; tone: "ok" | "today" | "pend" | "muted" }> = {
   done: { text: "Feito", tone: "ok" },
   clear: { text: "Em dia", tone: "ok" },
@@ -53,6 +61,15 @@ function Step({ step, index }: { step: JourneyStep; index: number }) {
   return <li>{step.href && step.state !== "locked" ? <Link href={step.href} className={className}>{body}</Link> : <div className={className}>{body}</div>}</li>;
 }
 
+function longDate(day: string): string {
+  const text = new Intl.DateTimeFormat("pt-BR", { weekday: "long", day: "numeric", month: "long", timeZone: "UTC" }).format(new Date(`${day}T12:00:00Z`));
+  return text.charAt(0).toUpperCase() + text.slice(1);
+}
+
+function examMonth(date: string): string {
+  return new Intl.DateTimeFormat("pt-BR", { month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(`${date}T12:00:00Z`));
+}
+
 export default async function TodayPage() {
   const user = await requireUser();
   const day = todayBR();
@@ -72,8 +89,11 @@ export default async function TodayPage() {
     getDayView(user.id),
   ]);
   const dayPlan = dayView.plan;
+  const goals = dayView.goals;
+  const name = firstNameOf(user) ?? profile.nickname;
 
-  const stage = journeyStage({ answered: answeredCount.count ?? 0, ratedGames: rating.data.games });
+  const totalAnswered = answeredCount.count ?? 0;
+  const stage = journeyStage({ answered: totalAnswered, ratedGames: rating.data.games });
   const answered = Object.keys(daily.answered).length;
   const hits = Object.values(daily.answered).filter((a) => a.correct).length;
   const extra = missions.filter((m) => m.id !== "m_daily");
@@ -100,20 +120,93 @@ export default async function TodayPage() {
     1,
   )[0];
 
-  // O mascote reage ao dia: feliz com tudo feito, preocupado com a sequência em risco.
-  const mood = journey.next.allDone ? "feliz" : !activeToday && shownStreak > 0 ? "preocupado" : "neutro";
+  // Questões do dia: o que o plano pede hoje e o que já foi feito, sem o simulado (que é sugestão).
+  const counted = dayPlan.blocks.filter((b) => b.kind !== "simulado");
+  const dayTarget = counted.reduce((sum, b) => sum + b.target, 0);
+  const dayDone = counted.reduce((sum, b) => sum + Math.min(b.done, b.target), 0);
+  const dayPct = dayTarget > 0 ? dayDone / dayTarget : 0;
 
+  const mood = journey.next.allDone ? "feliz" : !activeToday && shownStreak > 0 ? "preocupado" : "neutro";
   const lead =
     stage === "novo"
-      ? "Vamos começar. Siga os passos abaixo, um de cada vez."
+      ? "Seu primeiro dia começa pelo Plantão. São 10 questões comentadas, e a primeira resposta acende sua sequência."
       : journey.next.allDone
         ? "Você fechou o dia. Sua sequência está garantida."
         : `${journey.remaining === 1 ? "Falta 1 passo" : `Faltam ${journey.remaining} passos`} para fechar o dia.`;
 
+  const firstSteps = [
+    { done: goals.set, title: "Montar seu percurso", text: "Prova, tempo por dia e mês da prova.", href: "/comecar" },
+    { done: totalAnswered > 0, title: "Responder a primeira questão", text: "O Plantão de hoje já está pronto.", href: "/app/plantao" },
+    {
+      done: rating.data.games >= PLACEMENT_GAMES,
+      title: "Calibrar seu nível",
+      text: `${Math.min(rating.data.games, PLACEMENT_GAMES)} de ${PLACEMENT_GAMES} questões. Depois vem sua patente.`,
+      href: "/app/plantao",
+    },
+    { done: owned.data !== null && (owned.data ?? []).length > 0, title: "Ganhar a primeira conquista", text: "Vem com as primeiras respostas certas.", href: "/app/evolucao" },
+  ];
+  const firstStepsDone = firstSteps.filter((s) => s.done).length;
+
+  const areas = [...dayView.areas].sort((a, b) => b.share - a.share);
+  const maxShare = Math.max(...areas.map((a) => a.share), 0.01);
+  const weak = new Set(dayPlan.weakAreas);
+  const phaseIndex = PHASES.findIndex((p) => p.key === dayPlan.phase);
+
   return (
     <div className="two-col">
       <div className="stack">
-        <PageHeader title={`Bom plantão, ${profile.nickname}`} lead={lead} />
+        <section className="today-hero" aria-labelledby="hoje-titulo">
+          <div className="today-hero-text">
+            <p className="eyebrow">{longDate(day)}</p>
+            <h1 id="hoje-titulo">Bom plantão, {name}</h1>
+            <p className="lead">{lead}</p>
+          </div>
+          <dl className="today-stats">
+            <div>
+              <dt>Prova</dt>
+              {goals.set ? (
+                <dd>
+                  <strong>{EXAM_LABEL[goals.targetExam]}</strong>
+                  <small>
+                    {dayPlan.daysLeft === null
+                      ? "data a definir"
+                      : dayPlan.daysLeft === 0
+                        ? "é hoje"
+                        : `em ${dayPlan.daysLeft} ${dayPlan.daysLeft === 1 ? "dia" : "dias"}`}
+                  </small>
+                </dd>
+              ) : (
+                <dd>
+                  <Link href="/comecar">Definir</Link>
+                  <small>leva 1 minuto</small>
+                </dd>
+              )}
+            </div>
+            <div>
+              <dt>Hoje</dt>
+              <dd>
+                <strong>
+                  {dayDone}
+                  <span className="today-stats-of">/{dayTarget}</span>
+                </strong>
+                <small>questões · {minutesLabel(dayPlan.minutes)}</small>
+                <span className="bar" aria-hidden>
+                  <i style={{ width: `${dayPct * 100}%` }} />
+                </span>
+              </dd>
+            </div>
+            <div>
+              <dt>Sequência</dt>
+              <dd>
+                <strong className="today-stats-flame">
+                  <Flame lit={activeToday && shownStreak > 0} size={20} />
+                  {shownStreak}
+                </strong>
+                <small>{activeToday ? "garantida hoje" : shownStreak > 0 ? "responda hoje para manter" : "acende na 1ª resposta"}</small>
+              </dd>
+            </div>
+          </dl>
+        </section>
 
         <Banner
           tone={journey.next.allDone ? "done" : "today"}
@@ -129,35 +222,31 @@ export default async function TodayPage() {
           }
         />
 
-        {!dayView.goals.set && (
-          <section className="card" aria-labelledby="monte-seu-dia" style={{ display: "grid", gap: 10 }}>
+        {!goals.set && (
+          <section className="setup-card" aria-labelledby="percurso">
             <div>
-              <h2 id="monte-seu-dia" className="section-title" style={{ marginBottom: 4 }}>
-                Monte seu dia
-              </h2>
-              <p className="muted" style={{ fontSize: 14.5 }}>
-                Diga quanto tempo você tem e qual prova vai fazer. O EnaQuest monta o dia com revisão, erros e questões novas nas áreas em que você vai pior.
-              </p>
+              <p className="eyebrow">Plano personalizado</p>
+              <h2 id="percurso">Monte seu percurso até a prova</h2>
+              <p>Quatro perguntas rápidas: prova, tempo por dia, perfil e mês da prova. O EnaQuest ajusta o dia ao seu ritmo e às áreas em que você vai pior.</p>
             </div>
-            <StudyGoalsForm initial={dayView.goals} today={day} />
+            <Link href="/comecar" className="btn btn-primary">
+              Montar agora →
+            </Link>
           </section>
         )}
 
         <section aria-labelledby="jornada">
           <div className="card-head" style={{ marginBottom: 8 }}>
             <h2 id="jornada" className="section-title" style={{ marginBottom: 0 }}>
-              Seu dia · cerca de {dayPlan.plannedMinutes} min
+              Sua jornada de hoje
             </h2>
-            {dayPlan.daysLeft !== null && (
-              <span className="muted" style={{ fontSize: 14 }}>
-                {dayPlan.daysLeft === 0 ? "Prova hoje" : `Faltam ${dayPlan.daysLeft} ${dayPlan.daysLeft === 1 ? "dia" : "dias"}`}
-                {dayPlan.phase ? ` · ${PHASE_LABEL[dayPlan.phase]}` : ""}
-              </span>
-            )}
+            <span className="muted" style={{ fontSize: 14 }}>
+              cerca de {dayPlan.plannedMinutes} min
+            </span>
           </div>
-          {dayView.goals.set && (
+          {goals.set && (
             <div style={{ marginBottom: 10 }}>
-              <StudyGoalsForm initial={dayView.goals} today={day} compact />
+              <StudyGoalsForm initial={goals} today={day} compact />
             </div>
           )}
           {dayPlan.plannedMinutes > dayPlan.minutes && (
@@ -172,40 +261,49 @@ export default async function TodayPage() {
           </ol>
         </section>
 
-        {missions.length > 0 && (
-          <section className="card" aria-labelledby="missoes">
-            <div className="card-head">
-              <h2 id="missoes" className="section-title">
-                Missões do dia
-              </h2>
-              <span className="muted">
-                {missions.filter((m) => m.done).length} de {missions.length}
-              </span>
-            </div>
-            <ul className="mission-list">
-              {missions.map((mission) => (
-                <li key={mission.id} className={mission.done ? "is-done" : undefined}>
-                  <div className="mission-row">
-                    <span>
-                      {mission.done ? "✓ " : ""}
-                      {mission.text}
-                    </span>
-                    <span className="muted">
-                      {mission.current}/{mission.goal}
-                    </span>
-                  </div>
-                  <div className="bar" aria-hidden>
-                    <i style={{ width: `${Math.min(1, mission.current / mission.goal) * 100}%` }} />
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </section>
-        )}
+        <section className="card" aria-labelledby="foco">
+          <div className="card-head">
+            <h2 id="foco" className="section-title">
+              Onde estão os pontos da prova
+            </h2>
+            <Link href="/app/evolucao" className="muted" style={{ fontSize: 13.5 }}>
+              Ver evolução
+            </Link>
+          </div>
+          <p className="muted" style={{ fontSize: 14, margin: "4px 0 12px" }}>
+            {stage === "novo"
+              ? "Quanto cada área vale na prova. Conforme você responde, aparece o seu acerto em cada uma, e o plano reforça as mais fracas."
+              : "Peso de cada área na prova e o seu acerto nela. O plano do dia reforça as áreas marcadas como foco."}
+          </p>
+          <ul className="focus-list">
+            {areas.map((area) => (
+              <li key={area.id}>
+                <span className="focus-dot" style={{ background: area.color }} aria-hidden />
+                <span className="focus-name">
+                  {area.name}
+                  {weak.has(area.id) && <span className="focus-tag">Foco</span>}
+                </span>
+                <span className="focus-share" aria-label={`Peso ${Math.round(area.share * 100)}%`}>
+                  <span className="bar" aria-hidden>
+                    <i style={{ width: `${(area.share / maxShare) * 100}%`, background: area.color }} />
+                  </span>
+                  {Math.round(area.share * 100)}%
+                </span>
+                <span className={`focus-pct${area.pct === null ? " is-empty" : ""}`}>
+                  {area.pct === null ? (area.n > 0 ? `${area.n} resp.` : "—") : `${Math.round(area.pct)}%`}
+                </span>
+              </li>
+            ))}
+          </ul>
+          <p className="dim focus-legend">
+            <span>Barra: peso na prova</span>
+            <span>À direita: seu acerto</span>
+          </p>
+        </section>
 
         <section aria-labelledby="atalhos">
           <h2 id="atalhos" className="section-title">
-            Como estudar no EnaQuest
+            Ferramentas de estudo
           </h2>
           <ul className="shortcut-grid">
             {[
@@ -213,7 +311,7 @@ export default async function TodayPage() {
               { href: "/app/revisao", icon: "revisao" as const, title: "Revisão", text: due > 0 ? `${due} ${due === 1 ? "questão voltou" : "questões voltaram"} para você.` : "O que você errar volta na hora certa.", paid: true },
               { href: "/app/treino", icon: "treino" as const, title: "Treino", text: "Filtre por área, tema, prova e dificuldade.", paid: true },
               { href: "/app/simulados", icon: "simulados" as const, title: "Simulados", text: "Prova completa com tempo, como no dia.", paid: true },
-              { href: "/app/evolucao", icon: "evolucao" as const, title: "Evolução", text: "Veja seus pontos fortes e fracos por área.", paid: false },
+              { href: "/app/provas", icon: "provas" as const, title: "Provas oficiais", text: "Questões de edições anteriores, com gabarito.", paid: false },
               { href: "/app/ligas", icon: "ligas" as const, title: "Ligas", text: "Dispute o ranking da semana com a turma.", paid: false },
             ].map((item) => (
               <li key={item.href}>
@@ -241,16 +339,73 @@ export default async function TodayPage() {
           Seu progresso
         </h2>
 
-        {stage === "novo" ? (
-          <section className="card">
-            <p>
-              Responda sua primeira questão para acender a chama da sequência, ganhar XP e começar a subir de nível.
-            </p>
-            <p className="dim" style={{ marginTop: 8, fontSize: 14.5 }}>
-              Suas 20 primeiras questões calibram seu rating. Errar no começo quase não tira pontos.
-            </p>
+        {firstStepsDone < firstSteps.length && (
+          <section className="card" aria-labelledby="primeiros-passos">
+            <div className="card-head">
+              <h3 id="primeiros-passos" className="aside-title">
+                Primeiros passos
+              </h3>
+              <span className="muted">
+                {firstStepsDone} de {firstSteps.length}
+              </span>
+            </div>
+            <div className="bar level" style={{ margin: "10px 0 12px" }} aria-hidden>
+              <i style={{ width: `${(firstStepsDone / firstSteps.length) * 100}%` }} />
+            </div>
+            <ul className="first-steps">
+              {firstSteps.map((s) => (
+                <li key={s.title} className={s.done ? "is-done" : undefined}>
+                  <span className="first-steps-mark" aria-hidden>
+                    {s.done ? "✓" : ""}
+                  </span>
+                  <span>
+                    {s.done ? (
+                      <strong>{s.title}</strong>
+                    ) : (
+                      <Link href={s.href}>
+                        <strong>{s.title}</strong>
+                      </Link>
+                    )}
+                    <small>{s.done ? "Feito" : s.text}</small>
+                  </span>
+                </li>
+              ))}
+            </ul>
           </section>
-        ) : (
+        )}
+
+        {goals.set && (
+          <section className="card" aria-labelledby="reta">
+            <div className="card-head">
+              <h3 id="reta" className="aside-title">
+                Caminho até a prova
+              </h3>
+              <span className="muted">{EXAM_LABEL[goals.targetExam]}</span>
+            </div>
+            {dayPlan.phase && goals.examDate ? (
+              <>
+                <p className="path-days">
+                  <strong>{dayPlan.daysLeft}</strong> {dayPlan.daysLeft === 1 ? "dia" : "dias"}
+                  <small>até {examMonth(goals.examDate)}</small>
+                </p>
+                <ol className="path-phases">
+                  {PHASES.map((phase, i) => (
+                    <li key={phase.key} className={i < phaseIndex ? "is-past" : i === phaseIndex ? "is-now" : undefined}>
+                      <strong>{phase.name}</strong>
+                      {i === phaseIndex && <small>{phase.text}</small>}
+                    </li>
+                  ))}
+                </ol>
+              </>
+            ) : (
+              <p className="muted" style={{ fontSize: 14, marginTop: 8 }}>
+                Sem data de prova, o plano fica na fase de base. <Link href="/comecar">Informe o mês</Link> quando o edital sair.
+              </p>
+            )}
+          </section>
+        )}
+
+        {stage !== "novo" && (
           <>
             <section className="card" aria-label="Sequência">
               <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
@@ -285,11 +440,7 @@ export default async function TodayPage() {
             </section>
 
             <section className="card" aria-label="Nível e patente" style={{ display: "grid", gap: 14 }}>
-              <LevelBar
-                label={`Nível: ${level.current.name}`}
-                value={`${rating.data.xp_total} XP`}
-                progress={level.progress}
-              />
+              <LevelBar label={`Nível: ${level.current.name}`} value={`${rating.data.xp_total} XP`} progress={level.progress} />
               {level.next && (
                 <p className="dim" style={{ fontSize: 13.5, marginTop: -6 }}>
                   Faltam {level.toNext} XP para {level.next.name}. XP vem de responder, revisar e marcar o motivo dos erros.
@@ -340,17 +491,44 @@ export default async function TodayPage() {
             {nextAchievement && (
               <section className="card" aria-label="Próxima conquista" style={{ display: "grid", gap: 8 }}>
                 <p className="eyebrow">Próxima conquista</p>
-                <LevelBar
-                  label={nextAchievement.name}
-                  value={`${nextAchievement.current} de ${nextAchievement.goal}`}
-                  progress={nextAchievement.pct}
-                />
+                <LevelBar label={nextAchievement.name} value={`${nextAchievement.current} de ${nextAchievement.goal}`} progress={nextAchievement.pct} />
                 <Link href="/app/evolucao" style={{ fontSize: 14 }}>
                   Ver todas as conquistas
                 </Link>
               </section>
             )}
           </>
+        )}
+
+        {missions.length > 0 && (
+          <section className="card" aria-labelledby="missoes">
+            <div className="card-head">
+              <h3 id="missoes" className="aside-title">
+                Missões do dia
+              </h3>
+              <span className="muted">
+                {missions.filter((m) => m.done).length} de {missions.length}
+              </span>
+            </div>
+            <ul className="mission-list">
+              {missions.map((mission) => (
+                <li key={mission.id} className={mission.done ? "is-done" : undefined}>
+                  <div className="mission-row">
+                    <span>
+                      {mission.done ? "✓ " : ""}
+                      {mission.text}
+                    </span>
+                    <span className="muted">
+                      {mission.current}/{mission.goal}
+                    </span>
+                  </div>
+                  <div className="bar" aria-hidden>
+                    <i style={{ width: `${Math.min(1, mission.current / mission.goal) * 100}%` }} />
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </section>
         )}
 
         <p style={{ fontSize: 14.5 }}>

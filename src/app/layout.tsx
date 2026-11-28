@@ -4,6 +4,7 @@ import Script from "next/script";
 import { RegisterServiceWorker } from "@/components/RegisterServiceWorker";
 import { READING_SCRIPT } from "@/lib/ui/reading";
 import "./globals.css";
+import "./hoje.css";
 
 const display = Bricolage_Grotesque({ subsets: ["latin"], variable: "--font-display", weight: ["500", "700", "800"] });
 const body = Inter({ subsets: ["latin"], variable: "--font-body" });

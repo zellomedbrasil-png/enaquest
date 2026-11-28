@@ -23,6 +23,7 @@ import {
 import { DIFFICULTIES, STATUSES } from "@/lib/study/training-filter";
 import { finishSimulado, saveSimuladoProgress } from "@/lib/server/simulados";
 import { saveStudyGoals, startDayBlock } from "@/lib/server/day-plan";
+import { completeOnboarding } from "@/lib/server/onboarding";
 import { ensureOfficialSimulado, startOfficialRound } from "@/lib/server/official";
 import * as community from "@/lib/server/community";
 import * as leagues from "@/lib/server/leagues";
@@ -203,6 +204,20 @@ export async function saveStudyGoalsAction(input: z.input<typeof goalsSchema>) {
   return run(async () => {
     const user = await requireUser();
     await saveStudyGoals(user.id, goalsSchema.parse(input));
+    revalidatePath("/app", "layout");
+  });
+}
+
+const onboardingSchema = goalsSchema.extend({
+  nickname: z.string().trim().min(3).max(24).regex(/^[\p{L}\p{N}_.-]+$/u),
+  schoolId: z.uuid().nullable(),
+  showSchool: z.boolean(),
+});
+
+export async function completeOnboardingAction(input: z.input<typeof onboardingSchema>) {
+  return run(async () => {
+    const user = await requireUser();
+    await completeOnboarding(user.id, onboardingSchema.parse(input));
     revalidatePath("/app", "layout");
   });
 }

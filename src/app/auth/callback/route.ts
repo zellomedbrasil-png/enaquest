@@ -10,9 +10,9 @@ export async function GET(request: Request) {
     const supabase = await createClient();
     const { data, error } = await supabase.auth.exchangeCodeForSession(code);
     if (!error) {
-      // Conta que o Google acabou de criar passa pelas boas-vindas.
+      // Conta que o Google acabou de criar passa pelo onboarding.
       const isNew = Date.now() - Date.parse(data.user.created_at) < 2 * 60_000;
-      return NextResponse.redirect(`${origin}${isNew && safe === "/app" ? "/app/boas-vindas" : safe}`);
+      return NextResponse.redirect(`${origin}${isNew && safe === "/app" ? "/comecar" : safe}`);
     }
     console.error("[auth] callback", { code: error.code, status: error.status, message: error.message });
   }

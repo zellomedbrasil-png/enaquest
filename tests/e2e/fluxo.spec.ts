@@ -51,16 +51,21 @@ test.describe.serial("aluno", () => {
 
   test("plantão completo no celular, sem vazar gabarito antes de responder", async ({ page }) => {
     await signUp(page);
-    // Boas-vindas: três passos explicam a jornada e o quarto pede o perfil.
-    await expect(page.getByRole("heading", { name: "Todo dia tem um Plantão" })).toBeVisible();
-    await page.getByRole("button", { name: "Próximo" }).click();
-    await expect(page.getByRole("heading", { name: "Cada resposta vem explicada" })).toBeVisible();
-    await page.getByRole("button", { name: "Próximo" }).click();
-    await expect(page.getByRole("heading", { name: "Seu rating mostra seu nível" })).toBeVisible();
-    await page.getByRole("button", { name: "Próximo" }).click();
+    // Onboarding: prova, tempo por dia, perfil e mês da prova.
+    await expect(page.getByRole("heading", { name: "Qual prova é o seu foco?" })).toBeVisible();
+    const next = page.getByRole("button", { name: "Continuar →" });
+    await expect(next).toBeDisabled();
+    await page.getByRole("button", { name: /ENAMED/ }).click();
+    await next.click();
+    await expect(page.getByRole("heading", { name: "Quanto tempo você tem por dia?" })).toBeVisible();
+    await page.getByRole("button", { name: /^1 h/ }).click();
+    await next.click();
     await page.getByLabel("Apelido nos rankings").fill(`aluno_${Date.now()}`);
-    await page.getByRole("button", { name: "Salvar" }).click();
-    await expect(page.getByText("Perfil salvo")).toBeVisible();
+    await next.click();
+    await expect(page.getByRole("heading", { name: "Quando é a sua prova?" })).toBeVisible();
+    await page.getByRole("button", { name: "Montar meu percurso →" }).click();
+    await page.waitForURL(/\/app$/);
+    await expect(page.getByText("1 h por dia · ENAMED")).toBeVisible();
 
     // Hoje: um próximo passo claro e a jornada em ordem
     await page.goto("/app");
